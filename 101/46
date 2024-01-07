@@ -1,0 +1,999 @@
+/*
+ID: amirnas1
+PROG: cowtour
+LANG: C++
+*/
+
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <cstdio>
+#include <set>
+#include <vector>
+#include <algorithm>
+#include <queue>
+#include <stack>
+#include <iomanip>
+#include <math.h>
+#include <bitset>
+#include <sstream>
+using namespace std;
+
+/*
+vector<string> prim;
+string s;
+vector<int> dp;
+
+int main()
+{
+
+	ifstream cin;
+	cin.open("prefix.in");
+	ofstream cout;
+	cout.open("prefix.out");
+	
+	string p;
+	s = "";
+	cin>>p;
+	while (p!= ".")
+	{
+		prim.push_back(p);
+		cin>>p;
+	}
+	cin.ignore();
+	string l;
+	while (getline(cin,l)) s += l;
+	dp = vector<int> (s.size()+1, -1);
+	for (int i = s.size(); i>= 0; i--)
+	{
+		if (i == s.size()) dp[i] = i;
+		else
+		{
+		int m = i;
+			for (int j = 0; j < prim.size(); j++)
+			{
+				if (i+prim[j].size() <= s.size()) if (s.substr(i,prim[j].size()) == prim[j]) m = max(m, dp[i+prim[j].size()]);
+			}
+			dp[i] = m;
+		}
+	}
+	cout<<dp[0]<<endl;
+}
+
+
+
+long long dp[201][101][2];
+
+long long mod(long long a, long long m)
+{
+	if (a>=0) return a%m;
+	else
+	{
+		return (a+m)%m;
+	}
+}
+long long solve(int n, int k, int f)
+{
+	if (n==0 && k==0) return 1;
+	if (n == 0) return 1;
+	if (k <= 0) return 0;
+	if (n == 1) return 1;
+	if (dp[n][k][f] != -1) return dp[n][k][f];
+	int a = n-1;
+	long long s = 0;
+	long long r;
+	for (int i = 1; i < a; i++)
+	{
+		r = solve(i,k-1, 0) * solve(a-i, k-1, 0);
+		if (f) r -= (solve(i,k-2, 0) * solve(a-i, k-2,0));
+		s += r;
+		s = mod(s,9901);
+	}
+	return dp[n][k][f] = s;
+}
+
+int main()
+{
+	
+	ifstream cin;
+	cin.open("nocows.in");
+	ofstream cout;
+	cout.open("nocows.out");
+	
+	int n, k;
+	cin>>n>>k;
+	for (int i=0; i<201; i++)
+	{
+		for (int j = 0; j < 101; j++)
+		{
+			
+			dp[i][j][0] = dp[i][j][1] = -1;
+		}
+	}
+	cout<<solve(n,k,1)<<endl;
+	//system("pause");
+}
+
+
+int main()
+{
+	int n, m;
+	cin>>n>>m;
+	vector<int> f(m);
+	for (int i = 0; i < m; i++)
+	{
+		cin>>f[i];
+	}
+	sort(f.begin(), f.end());
+	int r = 10000;
+	for (int i = 0; i+n-1 < m; i++ )
+	{
+		if (f[i+n-1] - f[i] < r) r = f[i+n-1] - f[i];
+	}
+	cout<<r<<endl;
+}
+
+
+int gcd(int a, int b)
+{
+	if (b == 0) return a;
+	else return gcd(b,a%b);
+}
+
+int main()
+{
+	int a,b,c,d;
+	cin>>a>>b>>c>>d;
+	int ab = gcd(a,b);
+	int cd = gcd(c,d);
+	a /=ab;
+	b /= ab;
+	c /= cd;
+	d /= cd;
+	if ((double)a/(double)c < (double)b/(double)d)
+	{
+		int ra = d*a;
+		int rb = b*c;
+		int gab = gcd(ra,rb);
+		int resa = rb/gab - ra/gab;
+		int resb = rb/gab;
+		int gres = gcd(resa,resb);
+
+		cout<<resa/gres<<"/"<<resb/gres<<endl;
+	}
+	else
+	{
+		int ra = d*a;
+		int rb = b*c;
+		int gab = gcd(ra,rb);
+		int resa = ra/gab - rb/gab;
+		int resb = ra/gab;
+		int gres = gcd(resa,resb);
+		cout<<resa/gres<<"/"<<resb/gres<<endl;
+	}
+}
+
+
+long long pow2(long long n, long long mod)
+{
+	if (n == 0) return 1;
+	if (n%2 ==0)
+	{
+		long long r = pow2(n/2,mod);
+		return (r*r)%mod;
+	}
+	else
+	{
+		return (2*pow2(n-1,mod))%mod;
+	}
+}
+
+long long mod(long long a, long long b)
+{
+	if (a  > 0)
+	{
+		return a%b;
+	}
+	else return (a+b)%b;
+}
+
+int main()
+{
+	long long n,m,k;
+	cin>>n>>m>>k;
+	if (n - (n-m)*k > 0)
+	{
+		long long r = pow2(((n - (n-m)*k)/k)+1,1000000009) - 2;
+		r = (r*k)%1000000009;
+		long long r2 = (n-m)*(k-1) + ((n - (n-m)*k)%k);
+		cout<<mod((r+r2),1000000009)<<endl;
+	}
+	else
+	{
+		cout<<m<<endl;
+	}
+}
+
+
+vector<int> st;
+vector<int> req;
+vector<long long> rem;
+vector<long long> num;
+vector<long long> res;
+
+void pr(long long a, bool p)
+{
+	if (a ==1) return;
+	if (a%2 == 0)
+	{
+		if (a != 2 || p) res.push_back(2);
+		pr(a/2, true);
+		return;
+	}
+	for (long long i = 3; i*i <= a; i+=2)
+	{
+		if (a%i==0)
+		{
+			res.push_back(i);
+			pr(a/i,true);
+			return;
+		}
+	}
+	if (p)
+		res.push_back(a);
+}
+
+int dfs(int i, bool add)
+{
+	if (i >= num.size()) return 0;
+	res.clear();
+	if (rem[i] == num[i])
+		pr(rem[i],false);
+	else
+		pr(rem[i],true);
+	int result = res.size()+1;
+	int m;
+	if (i == num.size()-1)
+		m = 0;
+	else if (add)
+		m = dfs(i+1,true);
+	else
+		m = dfs(i+1,true) + 1;
+	for (int j = i+1; j < num.size(); j++)
+	{
+		if (rem[j]%num[i] ==0)
+		{
+			rem[j] /=num[i];
+			m = min(dfs(i+1,add),m);
+			rem[j] *= num[i];
+		}
+	}
+	return result+m;
+}
+
+int main()
+{
+	int n;
+	cin>>n;
+	st = vector<int> (n,0);
+	req = vector<int> (n,1);
+	rem = vector<long long> (n,1);
+	num = vector<long long> (n);
+	for (int i =0 ; i < n; i++)
+	{
+		cin>>num[i];
+		rem[i] = num[i];
+	}
+	sort(num.begin(), num.end());
+	sort(rem.begin(), rem.end());
+	int result = 0;
+	
+	result = dfs(0,false);
+	cout<<result<<endl;
+}
+
+
+vector<int> d1;
+vector<pair<int,int> > d3;
+vector<int> d2;
+vector<vector<int> > g;
+vector<bool> mark;
+vector<bool> tk;
+int dis1(int i,int p)
+{
+	tk[i] = true;
+	int r = -1000000;
+	
+	int m1 = 0,m2 = -1000000;
+	for (int j=0; j < g[i].size(); j++)
+	{
+		if (!tk[g[i][j]])
+		if (r < dis1(g[i][j],i))
+		{
+			r = d1[(g[i][j])];
+			m1 = g[i][j];
+		}
+	}
+	int v = -1000000;
+	for (int j=0; j < g[i].size(); j++)
+	{
+		if (v < d1[(g[i][j])] && (g[i][j]) != m1 && g[i][j] != p)
+		{
+			v = d1[(g[i][j])];
+			m2 = g[i][j];
+		}
+	}
+	d3[i].first = m1;
+	d3[i].second = m2;
+	if (r < 0)
+	{
+		if (mark[i]) return d1[i] = 0;
+		else return d1[i] = r;
+	}
+	return d1[i] = r+1;
+}
+
+void dis2(int i,int p)
+{
+	tk[i] = true;
+	if (p == -1)
+	{
+		if (mark[0])
+		{
+			d2[0] = 0;
+		}
+		else
+			d2[0] = -10000000;
+	}
+	else
+	{
+		int r = d2[p]+1;
+		if (d3[p].first == i)
+		{
+			if (d3[p].second >= 0)
+				r = max(d1[d3[p].second]+2,r);
+		}
+		else
+		{
+			r = max(d1[d3[p].first]+2,r);
+		}
+		d2[i] = r;
+		if (r < 0)
+		{
+			if (mark[i])
+				d2[i] = 0;
+			else
+				d2[i] = r;
+		}
+	}
+	for (int j=0; j < g[i].size(); j++)
+	{
+		if(!tk[g[i][j]])
+			dis2(g[i][j],i);
+	}
+}
+
+
+
+int bfs(int i, int d)
+{
+	int res = 0;
+	queue<pair<int,int> > q;
+	q.push(make_pair(i,0));
+	vector<bool> tk(g.size(),false);
+	while (!q.empty())
+	{
+		pair<int,int> c = q.front();
+		q.pop();
+		if (tk[c.first])
+			continue;
+		res++;
+		tk[c.first] = true;
+		if (c.second < d)
+		{
+			for (int j=0; j < g[c.first].size(); j++)
+			{
+				//cout<<t[c.first].second[j]<<"    ";
+				q.push(make_pair(g[c.first][j],c.second+1));
+			}
+		}
+	}
+	return res;
+}
+
+
+void bTree(int c)
+{
+	if (tk[c]) return;
+	tk[c] = true;
+	for (int j = 0; j < g[c].size(); j++)
+	{
+		if (g[c][j] != t[c].first)
+		{
+			t[g[c][j]].first = c;
+			t[c].second.push_back(g[c][j]);
+			bTree(g[c][j]);
+		}
+	}
+}
+
+
+int main()
+{
+	int n,m,d;
+	cin>>n>>m>>d;
+	
+	d1 = vector<int> (n,-1000000);
+	d2 = vector<int> (n,-1000000);
+	d3 = vector<pair<int,int> > (n, make_pair(-1000000,-1000000));
+	mark = vector<bool> (n,false);
+	tk = vector<bool> (n,false);
+	g = vector<vector<int> > (n);
+	int a;
+	for (int i=0; i < m; i++)
+	{
+		cin>>a;
+		mark[a-1] = true;
+	}
+	int b;
+	for (int i = 0; i < n-1; i++)
+	{
+		cin>>a>>b;
+		g[a-1].push_back(b-1);
+		g[b-1].push_back(a-1);
+	}
+	if (m > 1)
+	{
+tk = vector<bool> (n,false);
+	dis1(0,-1);
+tk = vector<bool> (n,false);
+	dis2(0,-1);
+	}
+	int res = 0;
+	if (m == 1)
+	{
+	for (int i=0; i < n; i++)
+	{
+		if (mark[i])
+		{
+			res = bfs(i,d);
+			break;
+		}
+	}
+	}
+	else
+	{
+	for (int i=0; i < n; i++)
+	{
+	//	cout<<d1[i]<<" "<<d2[i]<<"          ";
+		if (d1[i] <= d && d2[i] <= d) res++;
+	}
+	}
+	cout<<res<<endl;
+
+	//	system("pause");
+}
+
+
+string op;
+int n;
+ifstream fin;
+ofstream fout;
+void solve(int i)
+{
+
+	if (i == n-1)
+	{
+//		cout<<op<<endl;
+		int r = 0;
+		vector<char> s1;
+		vector<int> s2;
+		int c = 1;
+		for (int j =0 ; j < n-1; j++)
+		{
+			if (op[j] == ' ')
+			{
+				c *= 10;
+				c += j+2;
+			}
+			else
+			{
+				s2.push_back(c);
+				s1.push_back(op[j]);
+				c= j+2;
+			}
+		}
+		s2.push_back(c);
+		int a,b;
+		r = s2[0];
+		for (int j = 0; j < s1.size(); j++)
+		{
+			if (s1[j] == '+')
+			{
+				r += s2[j+1];
+			}
+			else
+				r -= s2[j+1];
+		}
+		if (r == 0)
+		{
+			fout<<1;
+			for (int j = 0; j < n-1; j++)
+			{
+				fout<<op[j]<<j+2;
+			}
+			fout<<endl;
+		}
+	}
+	else
+	{
+		op[i] = ' ';
+		solve(i+1);
+		op[i] = '+';
+		solve(i+1);
+		op[i] = '-';
+		solve(i+1);
+	}
+}
+
+int main()
+{
+	fin.open("zerosum.in");
+	fout.open("zerosum.out");
+	fin>>n;
+	for (int i = 0; i < n-1; i++)
+	{
+		op += '.';
+	}
+	solve(0);
+
+}
+
+
+vector<int> c;
+vector<vector<long long> > dp;
+long long solve(int n,int i)
+{
+	if (n < 0) return 0;
+	if (n == 0) return 1;
+	if (i >= c.size()) return 0;
+	if (dp[n][i] != -1) return dp[n][i];
+	if (i == c.size()-1)
+	{
+		if (n%c[i] == 0) return dp[n][i] = 1;
+		else return dp[n][i] = 0;
+	}
+	long long r = 0;
+	for (int j = 0; j <= n/c[i]; j++)
+	{
+		r += solve(n - j*c[i], i+1);
+	}
+	return dp[n][i] = r;
+}
+
+int main()
+{
+	
+	ifstream cin;
+	cin.open("money.in");
+	ofstream cout;
+	cout.open("money.out");
+	
+	int v,n;
+	cin>>v>>n;
+	dp = vector<vector<long long> >(n+1,vector<long long>(v,-1));
+	c = vector<int>(v);
+	for (int i=0; i < v; i++)
+	{
+		cin>>c[i];
+	}
+	sort(c.begin(), c.end());
+	reverse(c.begin(), c.end());
+	long long r = solve(n,0);
+	cout<<r<<endl;
+	system("pause");
+}
+
+
+int main() {
+    long long int N, V, v[26] = { 0 }, dp[10001] = { 0 }, i;
+    freopen("money.in", "r", stdin), freopen("money.out", "w", stdout);
+    scanf("%lld %lld", &V, &N);
+    for (i = 0, dp[0] = 1; i < V; i++)
+        scanf("%lld", v + i);
+ 
+    for (int m = 0; m < V; m++)
+        for (int n = 0; n <= N; n++)
+            dp[n] += (n - v[m] >= 0 ? dp[n - v[m]] : 0);
+ 
+    printf("%lld\n", dp[N]);
+    return 0;
+}
+
+
+int g[100][100];
+
+vector<int> res;
+
+void solve(int i)
+{
+	bool ok = true;
+	int s =0;
+	vector<bool> tk(100,false);
+	tk[i] = true;
+	res.clear();
+	while (ok)
+	{
+		ok = false;
+		for (int j = 0; j < 100; j++)
+		{
+			if (tk[j]) continue;
+			s = 0;
+			s += g[i][j];
+			for (int k = 0; k < res.size(); k++)
+			{
+				s += g[res[k]][j];
+			}
+			if (s > 50)
+			{
+				res.push_back(j);
+				tk[j] = true;
+				ok = true;
+			}
+		}
+	}
+}
+
+int main()
+{
+		ifstream cin;
+	cin.open("concom.in");
+	ofstream cout;
+	cout.open("concom.out");
+	int n;
+	cin>>n;
+	int a,b,c;
+	while (n--)
+	{
+		cin>>a>>b>>c;
+		g[a-1][b-1] = c;
+	}
+	for (int i=0; i < 100; i++)
+	{
+		solve(i);
+		sort(res.begin(),res.end());
+		for (int j = 0; j < res.size(); j++)
+		{
+			cout<<i+1<<" "<<res[j]+1<<endl;
+		}
+	}
+}
+
+
+char pl[10][10];
+int c1x,c1y,d1;
+int c2x,c2y,d2;
+bool valid(int a, int b)
+{
+	if (a < 0 || b < 0 || a >=10 || b >= 10) return false;
+	if (pl[a][b] != '*') return true;
+	return false;
+}
+void move()
+{
+	if (d1 == 1)
+	{
+		if (valid(c1x-1,c1y))
+		{
+			c1x--;
+		}
+		else
+		{
+			d1 = 2;
+		}
+	}
+	else if (d1 == 2)
+	{
+		if (valid(c1x,c1y+1))
+		{
+			c1y++;
+		}
+		else
+		{
+			d1 = 3;
+		}
+	}
+	else if (d1 == 3)
+	{
+		if (valid(c1x+1,c1y))
+		{
+			c1x++;
+		}
+		else
+		{
+			d1 = 4;
+		}
+	}
+	else if (d1 == 4)
+	{
+		if (valid(c1x,c1y-1))
+		{
+			c1y--;
+		}
+		else
+		{
+			d1 = 1;
+		}
+	}
+
+	if (d2 == 1)
+	{
+		if (valid(c2x-1,c2y))
+		{
+			c2x--;
+		}
+		else
+		{
+			d2 = 2;
+		}
+	}
+	else if (d2 == 2)
+	{
+		if (valid(c2x,c2y+1))
+		{
+			c2y++;
+		}
+		else
+		{
+			d2 = 3;
+		}
+	}
+	else if (d2 == 3)
+	{
+		if (valid(c2x+1,c2y))
+		{
+			c2x++;
+		}
+		else
+		{
+			d2 = 4;
+		}
+	}
+	else if (d2 == 4)
+	{
+		if (valid(c2x,c2y-1))
+		{
+			c2y--;
+		}
+		else
+		{
+			d2 = 1;
+		}
+	}
+}
+
+int sol()
+{
+	d1 = d2 = 1;
+	int r = 0;
+	for (int i = 0; i < 10; i++)
+	{
+		for (int j = 0; j < 10; j++)
+		{
+			if (pl[i][j] == 'F')
+			{
+				c2x = i;
+				c2y = j;
+			}
+			if (pl[i][j] == 'C')
+			{
+				c1x = i;
+				c1y = j;
+			}
+		}
+	}
+	while (!(c1x == c2x && c1y == c2y))
+	{
+		move();
+		r++;
+		if (r == 10000) return 0;
+	}
+	return r;
+}
+
+int main()
+{
+			ifstream cin;
+	cin.open("ttwo.in");
+	ofstream cout;
+	cout.open("ttwo.out");
+	for (int i=0; i < 10; i++)
+	{
+		for (int j = 0; j < 10; j++)
+		{
+			cin>>pl[i][j];
+		}
+	}
+	cout<<sol()<<endl;
+}
+
+
+vector<vector<int> > dis[2];
+vector<string> mp;
+pair<int,int> a[2];
+
+bool valid(int i, int j)
+{
+	if (i < 0 || j < 0 || i>= mp.size() || j >= mp[0].size()) return false;
+	if (mp[i][j] == '|' || mp[i][j] == '-') return false;
+	return true;
+}
+
+int dr[4] = {0,1,0,-1};
+int dc[4] = {1,0,-1,0};
+
+void bfs(int i)
+{
+	pair<pair<int,int> , int> st;
+	st.second = 1;
+	st.first = a[i];
+
+	queue<pair<pair<int,int> , int> > q;
+	q.push(st);
+	while (!q.empty())
+	{
+		st = q.front();
+		q.pop();
+		if (!valid(st.first.first,st.first.second)) continue;
+		if (st.second >= dis[i][st.first.first][st.first.second]) continue;
+		dis[i][st.first.first][st.first.second] = st.second;
+		for (int j = 0; j < 4; j++)
+		{
+			if (valid(st.first.first+dr[j],st.first.second+dc[j]))
+			{
+				q.push(make_pair(make_pair(st.first.first+2*dr[j],st.first.second+2*dc[j]),st.second+1));
+			}
+		}
+	}
+}
+
+int main()
+{
+	ifstream cin;
+	cin.open("maze1.in");
+	ofstream cout;
+	cout.open("maze1.out");
+	int r,c;
+	cin>>r>>c;
+	mp = vector<string>(2*c+1);
+	dis[0] = vector<vector<int> >(2*c+1,vector<int>(2*r+1,10000000));
+	dis[1] = vector<vector<int> >(2*c+1,vector<int>(2*r+1,10000000));
+	cin.ignore();
+	for (int i = 0; i < 2*c+1; i++)
+	{
+		getline(cin,mp[i]);
+	}
+	int d = 0;
+	for (int j = 1; j < 2*r+1; j+=2) if (mp[0][j] == ' ')
+	{
+		a[d].first = 1;
+		a[d].second = j;
+		d++;
+	}
+
+	for (int j = 1; j < 2*r+1; j+=2) if (mp[2*c][j] == ' ')
+	{
+		a[d].first = 2*c-1;
+		a[d].second = j;
+		d++;
+	}
+
+	for (int j = 1; j < 2*c+1; j+=2) if (mp[j][0] == ' ')
+	{
+		a[d].first = j;
+		a[d].second = 1;
+		d++;
+	}
+
+	for (int j = 1; j < 2*c+1; j+=2) if (mp[j][2*r] == ' ')
+	{
+		a[d].first = j;
+		a[d].second = 2*r-1;
+		d++;
+	}
+	bfs(0);
+	bfs(1);
+	int res = 0;
+	for (int i = 1; i < 2*c+1; i+=2)
+	{
+		for (int j = 1; j < 2*r+1; j+=2)
+		{
+			res = max(res,min(dis[0][i][j],dis[1][i][j]));
+		}
+	}
+	cout<<res<<endl;
+
+}
+
+
+int main()
+{
+		ifstream cin;
+	cin.open("cowtour.in");
+	ofstream cout;
+	cout.open("cowtour.out");
+	int n;
+	cin>>n;
+	char a;
+	vector<vector<double> >sp(n, vector<double>(n,10000000000));
+	vector<pair<double,double> > p(n);
+	for (int i = 0; i < n; i++)
+	{
+		cin>>p[i].first>>p[i].second;
+	}
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < n; j++)
+		{
+			cin>>a;
+			if (a == '1')
+			{
+				sp[i][j] = sqrt((p[i].second-p[j].second)*(p[i].second-p[j].second) + (p[i].first-p[j].first)*(p[i].first-p[j].first));
+			}
+		}
+	}
+
+	for (int k = 0; k < n; k++) for (int i = 0; i < n; i++) for (int j = 0; j < n; j++) if (i != j) sp[i][j] = min(sp[i][j],sp[i][k]+sp[k][j]);
+	double res = 0;
+	double r2 = 10000000000;
+	for (int i =0; i < n; i++)
+	{
+		for (int j = 0; j < i; j++)
+		{
+			if (sp[i][j] < 10000000000) res = max(res,sp[i][j]);
+			else
+			{
+				double di=0,dj=0;
+				for (int k = 0; k < n; k++)
+				{
+					di = (sp[i][k] < 10000000000) ? max(di,sp[i][k]) : di;
+					dj = (sp[j][k] < 10000000000) ? max(dj,sp[j][k]) : dj;
+				}
+				r2 = min(r2,di+dj+sqrt((p[i].second-p[j].second)*(p[i].second-p[j].second) + (p[i].first-p[j].first)*(p[i].first-p[j].first)));
+			}
+		}
+	}
+	cout<<fixed<<setprecision(6)<<max(r2,res)<<endl;
+}
+*/
+
+int main()
+{
+	int a[3] = {0};
+	string s;
+	cin>>s;
+	for (int i = 0; i < s.size(); i++)
+	{
+		if (s[i] == '1') a[0]++;
+		else if (s[i] == '2') a[1]++;
+		else if (s[i] == '3') a[2]++;
+	}
+	for (int i = 0; i < a[0]; i++)
+	{
+		cout<<1;
+		if (i < a[0]-1) cout<<"+";
+	}
+	for (int i = 0; i < a[1]; i++)
+	{
+		if (i == 0 && a[0] > 0) cout<<"+";
+		cout<<2;
+		if (i < a[1]-1) cout<<"+";
+	}
+	for (int i = 0; i < a[2]; i++)
+	{
+		if (i == 0 && a[1]+a[0] > 0) cout<<"+";
+		cout<<3;
+		if (i < a[2]-1) cout<<"+";
+	}
+	cout<<endl;
+}
