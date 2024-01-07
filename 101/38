@@ -1,0 +1,1159 @@
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <cmath>
+#include <iomanip>
+#include <cstdlib>
+#include <cstring>
+using namespace std;
+int main()
+{
+	ios_base::sync_with_stdio(false), cout.tie(NULL), cin.tie(NULL); // FAST
+
+	// *****************************************************
+	             // 40: (A) Beautiful Matrix
+	int arr[5][5], i, j;
+	for (int r = 0; r < 5; r++)
+	{
+		for (int c = 0; c < 5; c++)
+		{
+			cin >> arr[r][c];
+			if (arr[r][c] == 1)
+			{
+				i = r;
+				j = c;	
+			}
+		}
+	}
+	cout << abs(i - 2) + abs(j - 2) << endl;
+	// *****************************************************
+
+
+
+
+
+/*	// *****************************************************
+	             // 39: (A) Marathon
+	int t, arr[4];
+	cin >> t;
+	while (t--)
+	{
+		int counter = 0;
+		int max = 0;
+		for (int i = 0; i < 4; i++)
+		{
+			cin >> arr[i];
+			max = arr[0];
+			if (arr[i] >= max && i != 0)
+			{
+				counter++;
+			}
+		}
+		cout << counter << endl;
+	}
+	// ***************************************************** */
+
+
+
+
+
+/*	// *****************************************************
+	           // 38: (A) Dubstep
+	          // "WUB"
+	string s;
+	cin >> s;
+	for (int i = 0; i < s.size(); i++)
+	{
+		if (s[i] == 'W' && s[i + 1] == 'U' && s[i + 2] == 'B')
+		{
+			i += 2;
+			cout << " ";
+		}
+		else
+		{
+			cout << s[i];
+		}
+	}
+	// ***************************************************** */
+
+
+
+
+
+/*	// *****************************************************
+	            // 37: (A) Polycarp and Coins
+	int t;
+	cin >> t;
+	while (t--)
+	{
+		int n;
+		cin >> n;
+		int c1 = n / 3, c2 = n / 3;
+		if (c1 + (2 * c2) == n)
+		{
+			cout << c1 << " " << c2 << endl;
+		}
+		else if ((c1 + 1) + (2 * c2) == n)
+		{
+			cout << c1 + 1 << " " << c2 << endl;
+		}
+		else
+		{
+			cout << c1 << " " << c2 + 1 << endl;
+		}
+	}
+	// ***************************************************** */
+
+
+
+
+
+/*	// *****************************************************
+                     // 36: (A) Square String?
+	int t;
+	cin >> t;
+	bool flag = false;
+	while (t--)
+	{
+		string s;
+		cin >> s;
+		if (s.size() % 2 != 0)
+		{
+			cout << "NO" << endl;
+			flag = false;
+		}
+		else
+		{
+			int j = s.size() / 2;
+			flag = false;
+			for (int i = 0; i < s.size() / 2; i++)
+			{
+				if (s[i] == s[j])
+				{
+					flag = true;
+					j++;
+				}
+				else
+				{
+					cout << "NO" << endl;
+					flag = false;
+					break;
+				}
+			}
+		}
+		if (flag)
+		{
+			cout << "YES" << endl;
+		}
+	}
+	// ***************************************************** */
+
+
+
+
+
+/*	// *****************************************************
+	              // 35: (A) Gravity Flip
+	int n;
+	cin >> n;
+	int* arr = new int[n];
+	for (int i = 0; i < n; i++)
+	{
+		cin >> arr[i];
+	}
+	sort(arr, arr + n);
+	for (int j = 0; j < n; j++)
+	{
+		cout << arr[j] << " ";
+	}
+	// ***************************************************** */
+
+
+
+
+
+/*	// *****************************************************
+	          // 34: (A) Divisibility Problem
+	int t;
+	cin >> t;
+	while (t--)
+	{
+		int a, b, c = 0;
+		cin >> a >> b;
+		if (a % b == 0)
+		{
+			cout << "0" << endl;
+		}
+		else
+		{
+			cout << b - (a % b) << endl;
+		}
+	}  
+	// ***************************************************** */
+
+
+
+
+
+/*	// *****************************************************
+	              // 33: (A) Lucky?
+	int t;
+	cin >> t;
+	while (t--)
+	{
+		long long sum1 = 0, sum2 = 0;
+		string s;
+		cin >> s;
+		for (int i = 0; i < s.size() / 2; i++)
+		{
+			sum1 += s[i] - '0';
+			sum2 += s[s.size() - i - 1] - '0';
+		}
+
+		//*********************(or)******************************   
+		
+		for (int j = s.size() - 1; j >= s.size() / 2; j--)
+		{
+			sum2 += s[j] - '0';
+		}
+		
+		//******************************************************* 
+		if (sum1 == sum2)
+		{
+			cout << "YES" << endl;
+		}
+		else
+		{
+			cout << "NO" << endl;
+		}
+	}
+	// ***************************************************** */
+
+
+
+
+
+/*	// *****************************************************
+	                   // 32: (B) Coins
+	int n;
+	cin >> n;
+	int temp = n;
+	for (int i = n; i > 0; i--)
+	{
+		if (temp % i == 0)
+		{
+			cout << i << " ";
+			temp = i;
+		}
+	}
+	// ***************************************************** */
+
+
+
+
+
+
+/*	// *****************************************************
+	            // 31: (A) Laptops
+	int n;
+	cin >> n;
+	bool flag = false;
+	while (n--)
+	{
+		int a, b;
+		cin >> a >> b;
+		if (b > a)
+		{
+			flag = true;
+		}
+	}
+	if (flag == true)
+	{
+		cout << "Happy Alex" << endl;
+	}
+	else
+	{
+		cout << "Poor Alex" << endl;
+	}
+	// ***************************************************** */
+
+
+
+
+
+/*	// *****************************************************
+	              // 30: (A) Pangram
+	int n;
+	cin >> n;
+	string s;
+	cin >> s;
+	if (n < 26)
+	{
+		cout << "NO" << endl;
+		return 0;
+	}
+	else
+	{
+		int c = 0;
+		transform(s.begin(), s.end(), s.begin(), ::tolower);
+		sort(s.begin(), s.end());
+		for (int i = 0; i < s.size(); i++)
+		{
+			if (s[i] != s[i + 1])
+			{
+				c++;
+			}
+		}
+		if (c == 26)
+		{
+			cout << "YES" << endl;
+		}
+		else
+		{
+			cout << "NO" << endl;
+		}
+	}
+	// ***************************************************** */
+
+
+
+
+
+/*	// *****************************************************
+	                // 29: (A) Anton and Letters
+	string s1,s2;
+	getline(cin, s1);
+	int x = 0;
+	for (int i = 0; i < s1.size(); i++)
+	{
+		if (s1[i] >= 'a' && s1[i] <= 'z')
+		{
+			char t = s1[i];
+			s2[x] = t;
+			x++;
+		}
+	}
+	sort(s2.begin(), s2.end());
+	int c = 0;
+	for (int i = 0; i < s2.size() - 1; i++)
+	{
+		if (s2[i] != s2[i + 1])
+		{
+			c++;
+		}
+	}
+	cout << c << endl;
+	// ***************************************************** */ 
+
+
+
+
+
+
+
+/*	// *****************************************************
+	          // 28: (A) Die Roll
+	int y, w;
+	cin >> y >> w;
+	if (w == y)
+	{
+		cout << "1/1" << endl;
+	}
+	else if (w == 0 || y == 0)
+	{
+		cout << "0/1" << endl;
+	}
+	else if (y % w == 0)
+	{
+		cout << w / w << "/" << y / w << endl;
+	}
+	else
+	{
+		cout << (6 - y) << "/" << 6 << endl;
+	}
+	// ***************************************************** */
+
+
+
+
+
+/*	// *****************************************************
+	                 // 27: (A) Football
+	int n;
+	cin >> n;
+	string s;
+	string team[2] = { "","" };
+	int goal[2] = { 0 };
+	for (int i = 0; i < n; i++)
+	{
+		cin >> s;
+		if (i == 0)
+		{
+			team[0] = s;
+			goal[0]++;
+		}
+		else if (team[0] == s)
+		{
+			goal[0]++;
+		}
+		else
+		{
+			team[1] = s;
+			goal[1]++;
+		}
+	}
+	if (goal[1] > goal[0])
+	{
+		cout << team[1] << endl;
+	}
+	else
+	{
+		cout << team[0] << endl;
+	}
+
+
+	/*
+	int n;
+	cin >> n;
+	string s[110];
+	for (int i = 0; i < n; i++)
+	{
+		cin >> s[i];
+	}
+	sort(s, s + n);
+	cout << s[n / 2] << endl;*/
+
+
+	// ***************************************************** */
+
+
+
+
+
+/*	// *****************************************************
+	             // 26: (A) Lucky Division
+	int n;
+	cin >> n;
+	if (n % 4 == 0 || n % 7 == 0 || n % 47 == 0 || n % 74 == 0 || n % 477 == 0 || n % 744 == 0)
+	{
+		cout << "YES" << endl;
+	}
+	else
+	{
+		cout << "NO" << endl;
+	}
+	// ***************************************************** */
+
+
+
+
+
+/*	// *****************************************************
+	         // 25: (A) Nearly Lucky Number
+	string s;
+	cin >> s;
+	long long luck = 0;
+	for (int i = 0; i < s.size(); i++)
+	{
+		if (s[i] == '4' || s[i] == '7')
+		{
+			luck++;
+		}
+		if (luck > 7)
+		{
+			cout << "NO" << endl;
+			return 0;
+		}
+	}
+	if (luck == 4 || luck == 7)
+	{
+		cout << "YES" << endl;
+	}
+	else
+	{
+		cout << "NO" << endl;
+	}
+	// ***************************************************** */
+
+
+
+
+
+/*	// *****************************************************
+	              // 24: (B) Grab the Candies
+	int t;
+	cin >> t;
+	while (t--)
+	{
+		int n;
+		cin >> n;
+		long long m = 0, b = 0;
+		int* arr = new int[n];
+		for (int i = 0; i < n; i++)
+		{
+			cin >> arr[i];
+			if (arr[i] % 2 == 0)
+			{
+				m += arr[i];
+			}
+			else
+			{
+				b += arr[i];
+			}
+		}
+		if (m > b)
+		{
+			cout << "YES" << endl;
+		}
+		else
+		{
+			cout << "NO" << endl;
+		}
+	}
+	// ***************************************************** */
+
+
+
+
+
+/*	// *****************************************************
+                 	// 23: (A) Plus or Minus
+	int t;
+	cin >> t;
+	while (t--)
+	{
+		int a, b, c;
+		cin >> a >> b >> c;
+		if (a + b == c)
+		{
+			cout << "+" << endl;
+		}
+		else
+		{
+			cout << "-" << endl;
+		}
+	}
+	// ***************************************************** */
+
+
+
+
+
+/*	// *****************************************************
+	            // 22: (B) Atilla's Favorite Problem
+	int t;
+	cin >> t;
+	while (t--)
+	{
+		int n;
+		cin >> n;
+		string s;
+		cin >> s;
+		sort(s.begin(), s.end());
+		char c = s[n - 1];
+		int x = 0;
+		for (int i = 'a'; i <= c; i++)
+		{
+			x++;
+		}
+		cout << x << endl;
+	}
+	// ***************************************************** */
+
+
+
+
+
+/*	// *****************************************************
+	               // 21: (A) Medium Number
+	int n;
+	cin >> n;
+	int arr[3];
+	while (n--)
+	{
+		for (int i = 0; i < 3; i++)
+		{
+			cin >> arr[i];
+		}
+		sort(arr, arr + 3);
+		cout << arr[1] << endl;
+	}
+	// ***************************************************** */
+	
+
+
+
+
+/*	// *****************************************************
+	               // 20: (A) Soft Drinking
+	int n, k, l, c, d, p, nl, np;
+	cin >> n >> k >> l >> c >> d >> p >> nl >> np;
+	int liters = k * l;
+	liters /= nl;
+	int limes = c * d;
+	int grams = p / np;
+	int min1 = min(liters, min(limes, grams));
+	cout << min1 / n << endl;
+	// ***************************************************** */
+
+
+
+
+
+/*	// *****************************************************
+	             // 19: (A) George and Accommodation
+	int n, p, q, c = 0;
+	cin >> n;
+	while (n--)
+	{
+		cin >> p >> q;
+		if (p != q)
+		{
+			if (q > p)
+			{
+				if (p + 1 != q)
+				{
+					c++;
+				}
+			}
+			else
+			{
+				if (q + 1 != p)
+				{
+					c++;
+				}
+			}	
+		}
+	}
+	cout << c << endl;
+	// ***************************************************** */
+
+
+
+
+
+/*	// *****************************************************
+	                // 18: (A) Anton and Danik
+	int n, a = 0, d = 0;
+	cin >> n;
+	string s;
+	cin >> s;
+	for (int i = 0; i < s.size(); i++)
+	{
+		if (s[i] == 'A')
+		{
+			a++;
+		}
+		else
+		{
+			d++;
+		}
+	}
+	if (a > d)
+	{
+		cout << "Anton" << endl;
+	}
+	else if (d > a)
+	{
+		cout << "Danik" << endl;
+	}
+	else
+	{
+		cout << "Friendship" << endl;
+	}
+	// ***************************************************** */
+
+
+
+
+
+/*	// *****************************************************
+	             // 17: (A) Hulk
+	int n;
+	cin >> n;
+	string s1 = "I hate ";
+	string s2 = "I love ";
+	if (n == 1)
+	{
+		cout << "I hate it" << endl;
+		return 0;
+	}
+	else
+	{
+		int c = 0;
+		for (int i = 0; i < n - 1; i++)
+		{
+			cout << s1;
+			c++;
+			if (c == n)
+			{
+				break;
+			}
+			cout << "that ";
+			cout << s2;
+			c++;
+			if (c == n)
+			{
+				break;
+			}
+			cout << "that ";
+		}
+	}
+	cout << "it" << endl;
+	// ***************************************************** */
+
+
+
+	
+	
+/*	// *****************************************************
+	              // 16: (A) Word
+	char s[101];
+	cin >> s;
+	int l = 0, u = 0;
+	for (int i = 0; i < strlen(s); i++)
+	{
+		if (s[i] >= 97 && s[i] <= 122)
+		{
+			l++;
+		}
+		else
+		{
+			u++;
+		}
+	}
+	if (l >= u)
+	{
+		cout << strlwr(s) << endl;
+	}
+	else
+	{
+		cout << strupr(s) << endl;
+	}
+	// ***************************************************** */
+
+
+
+
+
+/*	// *****************************************************
+	              // 15: (A) Petya and Strings
+	char s1[101], s2[101];
+	 cin >> s1 >> s2;
+	 cout << strcmp(strlwr(s1), strlwr(s2)) << endl;
+	// ***************************************************** */
+
+
+
+
+
+/*	// *****************************************************
+	                // 14: (A) Boy or Girl
+	string s;
+	cin >> s;
+	sort(s.begin(), s.end());
+	int c = 0;
+	for (int i = 0; i < s.size(); i++)
+	{
+		if (s[i] != s[i + 1])
+		{
+			c++;
+		}
+	}
+	if (c % 2 != 0)
+	{
+		cout << "IGNORE HIM!" << endl;
+	}
+	else
+	{
+		cout << "CHAT WITH HER!" << endl;
+	}
+	// ***************************************************** */
+
+
+
+
+
+/*	// *****************************************************
+	                       // 13: (B) Drinks
+	cout << fixed << setprecision(12);
+	int n;
+	cin >> n;
+	long double p;
+	long double sum = 0;
+	for (int i = 0; i < n; i++)
+	{
+		cin >> p;
+		sum += p;
+	}
+	cout << sum / n << endl;
+	// ***************************************************** */
+
+
+
+
+/*  // *****************************************************
+	                     // 12: (A) Football
+	string s;
+	cin >> s; // 1000000001
+	int z = 1, o = 1;
+	for (int i = 0; i < s.size(); i++)
+	{
+		if (s[i] == s[i + 1])
+		{
+			z++;
+			if (z >= 7)
+			{
+				cout << "YES" << endl;
+				return 0;
+			}
+		}
+		else
+		{
+			z = 1;
+		}
+	}
+	for (int i = 0; i < s.size(); i++)
+	{
+		if (s[i] == s[i + 1])
+		{
+			o++;
+			if (o >= 7)
+			{
+				cout << "YES" << endl;
+				return 0;
+			}
+		}
+		else
+		{
+			o = 1;
+		}
+	}
+	cout << "NO" << endl;
+	// ***************************************************** */
+
+
+
+
+/*	// ***************************************************** 
+                 // A. String Task
+	            // "A", "O", "Y", "E", "U", "I"
+	string s;
+	cin >> s;
+	bool flag = 0;
+	for (int i = 0; i < s.size(); i++)
+	{
+		if (s[i] == 'A' || s[i] == 'a' || s[i] == 'O' || s[i] == 'o' || s[i] == 'Y' || s[i] == 'y' || s[i] == 'E' || s[i] == 'e' || s[i] == 'U' || s[i] == 'u' || s[i] == 'I' || s[i] == 'i')
+		{
+			flag = 1;
+		}
+		else
+		{
+			flag = 0;
+			cout << ".";
+			if ('A' <= s[i] && s[i] <= 'Z')
+			{
+				s[i] = s[i] + 32;
+				cout << s[i];
+			}
+			else
+			{
+				cout << s[i];
+			}
+		}
+	}
+	// ***************************************************** */
+
+
+
+
+
+/*  // *****************************************************
+	               // 11:  (A) Translation
+	string s, t;
+	cin >> s >> t;
+	   // code
+	   // edoc
+	int v = 1;
+	for (int i = 0; i < s.size(); i++)
+	{
+		if (s[i] == t[s.size() - 1 - i])
+		{
+			v = 1;
+		}
+		else
+		{
+			v = 0;
+			break;
+		}
+	}
+	if (v == 1)
+	{
+		cout << "YES" << endl;
+	}
+	else
+	{
+		cout << "NO" << endl;
+	}
+	// ***************************************************** */
+
+
+
+
+/*  // *****************************************************
+	                 // 10: (A) Soldier and Bananas
+	long long k, n, w, amount = 0, price = 0;
+	cin >> k >> n >> w;
+	for (int i = 1; i <= w; i++)
+	{
+		price += i * k;
+	}
+	amount = price - n;
+	if (price > n)
+	{
+		cout << amount << endl;
+	}
+	else
+	{
+		cout << "0" << endl;
+	}
+	// ***************************************************** */
+
+
+
+
+/*  // *****************************************************
+	             // 9: (A) Elephant  
+	int x;
+	cin >> x;
+	if (x % 5 == 0)
+	{
+		cout << x / 5 << endl;
+	}
+	else
+	{
+		cout << (x / 5) + 1 << endl;
+	}
+	// ***************************************************** */
+
+
+
+
+/*  // *****************************************************
+	               // 8: (A) In Search of an Easy Problem
+	int n;
+	cin >> n;
+	int* arr = new int[n];
+	for (int i = 0; i < n; i++)
+	{
+		cin >> arr[i];
+		if (arr[i] == 1)
+		{
+			cout << "HARD" << endl;
+			return 0;
+		}
+	}
+	cout << "EASY" << endl;
+	// ***************************************************** */
+
+
+
+
+/*  // *****************************************************
+	                 // 7: (A) HQ9+
+	string s;
+	cin >> s;
+	for (int i = 0; i < s.size(); i++)
+	{
+		if (s[i] == 'H' || s[i] == 'Q' || s[i] == '9')
+		{
+			cout << "YES" << endl;
+			return 0;
+		}
+	}
+	cout << "NO" << endl;
+	// ***************************************************** */
+
+
+
+
+ /* // *****************************************************
+	              // 6: (A) Odd Divisor
+	long long t;
+	cin >> t;
+	while (t--)
+	{
+		string s;
+		cin >> s;
+		for (int i = 3; i <= 9; i += 2)
+		{
+			if (s[s.size() - 1] % i == 0)
+			{
+				cout << "YES" << endl;
+				break;
+			}
+			else
+			{
+				cout << "NO" << endl;
+				break;
+			}
+		}
+	}
+	// ***************************************************** */
+
+
+
+
+/*  // *****************************************************
+	                       //  5: (A) Sum
+	int t, a, b, c, sum = 0;
+	cin >> t;
+	while (t--)
+	{
+		cin >> a >> b >> c;
+		if ((a + b == c) || (a + c == b) || (b + c == a))
+		{
+			cout << "YES" << endl;
+		}
+		else
+		{
+			cout << "NO" << endl;
+		}
+	}
+	// ***************************************************** */
+
+
+
+
+	/*
+	long long x, y, m, counter = 0;
+	cin >> x >> y >> m;
+	long long sum = x;
+	long long t = m;
+	while (t--)
+	{
+		sum = sum + y;
+		counter++;
+		if (sum == m)
+		{
+			break;
+		}
+	}
+	
+	Input
+0 1 8
+Output
+8
+Answer
+5
+Checker Log
+wrong answer expected '5', found '8'
+	if (sum == m)
+	{
+		cout << counter << endl;
+	}
+	else
+	{
+		cout << "-1" << endl;
+	}
+	*/
+
+
+
+
+
+/*  // *****************************************************
+	                //  4: (A) Even Odds,
+	long long n, k;
+	cin >> n >> k;
+	int* arr = new int[n];
+	int x = 0;
+	for (int i = 1; i <= n; i += 2)
+	{
+		arr[x] = i;
+		x++;
+	}
+	int y = x;
+	for (int i = 2; i <= n; i += 2)
+	{
+		
+		arr[y] = i;
+		y++;
+	}
+	cout << arr[k - 1] << endl;
+	// ***************************************************** */
+
+
+
+
+/*  // *****************************************************
+                 	  //  3: (A) Required Remainder
+	int t, x, y, n;
+	cin >> t;
+	while (t--)
+	{
+		cin >> x >> y >> n;
+		while (n % x != y)
+		{
+			n--;
+		}
+		cout << n << endl;
+	}
+	// ***************************************************** */
+
+
+
+
+/* //  *****************************************************
+	                //  2: (A) Bit++ 
+	int n, x = 0;
+	cin >> n;
+	for (int i = 0; i < n; i++)
+	{
+		string op;
+		cin >> op;
+		if (op == "++X")
+		{
+			++x;
+		}
+		else if (op == "--X")
+		{
+			--x;
+		}
+		else if (op == "X++")
+		{
+			x++;
+		}
+		else if (op == "X--")
+		{
+			x--;
+		}
+	}
+	cout << x << endl;
+	// ***************************************************** */
+
+
+
+
+/*  // *****************************************************
+                 // 1: (A) Watermelon
+    int n;
+	cin >> n;
+	if (n > 2)
+	{
+		if (n % 2 == 0)
+		{
+			cout << "YES" << endl;
+		}
+		else
+		{
+			cout << "NO" << endl;
+		}
+	}
+	else
+	{
+		cout << "NO" << endl;
+	}
+    // ***************************************************** */
+	return 0;
+}
