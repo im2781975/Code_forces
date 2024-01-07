@@ -1,0 +1,820 @@
+#include<bits/stdc++.h>
+#include<cmath>
+#include<string>
+using namespace std;
+
+const int N=0;
+// The array Problem codechef
+// int main(){  
+// 	int t;
+// 	long long n;
+// 	cin>>t;
+// 	for(int i=0;i<t;i++){
+// 		cin>>n;
+// 		int arr[n]={};
+// 		for(int i=0;i<n;i++){
+// 			cin>>arr[i];
+// 		}
+// 		int ar[n]={};
+// 		int s=0;
+// 		for(int i=0;i<n;i++){
+// 			for (int j=0;j<n;j++){
+// 				if(i!=j){
+// 					s+=arr[j];
+// 				}
+				
+// 			}
+// 			ar[i]=s;
+// 				s=0;
+// 		}
+// 		for(int i=0;i<n;i++){
+// 			cout<<ar[i]<<" ";
+// 		}
+// 		cout<<endl;
+		
+// 	}
+// }
+
+
+//https://codeforces.com/contest/1453/problem/A
+
+
+// int main(){
+// 	int t,c;
+// 	long long n,m;
+// 	cin>>t;
+// 	while(t--){
+// 		c=0;
+// 		cin>>n>>m;
+// 		long long bottom[n],left[m];
+// 		for(int i=0;i<n;i++){
+// 			cin>>bottom[i];
+// 		}
+// 		for(int i=0;i<m;i++){
+// 			cin>>left[i];
+// 		}
+		
+// 		for(int i=0;i<n;i++){
+// 			for (int j=0;j<m;j++){
+// 				if(bottom[i]==left[j])
+// 					c++;
+// 			}
+// 		}
+		
+		
+		
+// 	cout<<c<<endl;
+	
+//     }
+// 	return 0;
+// }
+
+//https://codeforces.com/contest/1450/problem/B	
+// int main(){
+// 	long long t,n,k,x[n],y[n],d;
+// 	int c=0,cc;
+// 	cin>>t;
+// 	while(t--){
+// 		cin>>n>>k;
+// 		for(int i=0;i<n;i++){
+// 			cin>>x[i]>>y[i];
+// 		}
+// 		for(int i=0;i<n;i++){
+// 			for (int j=i+1;j<n;j++){
+// 				d=abs(x[i]-x[j])+abs(y[i]-y[j]); 
+// 				if(d<=k){
+// 					c++;
+// 				}
+// 				else{
+// 					c=0;
+// 					break;
+// 				}
+				
+// 			}
+// 			if(c!=0)
+// 			{
+// 				cc=1;
+// 				break;
+// 			}
+// 			else{
+// 				cc=-1;
+// 			}
+// 		}
+// 	 cout<<cc<<endl;
+		
+// 	}
+// 	return 0;
+	
+// }
+
+//https://www.hackerearth.com/problem/algorithm/the-monk-and-class-marks/
+// unfinished
+// bool sortbysecond(const pair<string,int> &a,
+//               const pair<string,int> &b)
+// {
+//     if (a.second != b.second){
+//     	return (a.second > b.second);
+//     }
+//     if((a.first.compare(0, b.first.size(), b.first) == 0
+//         || b.first.compare(0, a.first.size(), a.first) == 0))
+//     {
+    	 
+ 
+//         return a.first.size() > b.first.size();
+//     }
+ 
+    
+//     else{
+//         return a.first < b.first;
+//     }
+
+    	
+    
+    
+// }
+// int main(){
+// 	long long n;
+	
+// 	cin>>n;
+// 	// vector<string> name;
+// 	// vector<int> marks;
+// 	vector<pair<string, int>> v;
+// 	for(int i=0;i<n;i++){
+// 		cin>>v[i].first>>v[i].second;
+		
+// 	}
+	
+// 	sort(v.begin(),v.end(),sortbysecond);
+// 	for(int i=0;i<n;i++){
+// 		cout<<v[i].first<<v[i].second;
+		
+// 	}
+// 	return 0;
+	
+// 	}
+
+//https://codeforces.com/problemset/problem/1325/B
+// int main(){
+// 	long long t,n,k,d,c,el=0;
+	
+// 	cin>>t;
+// 	while(t--){
+// 		cin>>n;
+	
+// 	   long long arr[n],narr[n*n];
+// 	   for(int i=0;i<n;i++){
+// 		  cin>>arr[i];
+		  
+// 	      }
+// 	   //   for(int i=0;i<n;i++){
+// 		  // cout<<arr[i]<<" ";
+		  
+		  
+// 	   //    }
+// 	   //    cout<<endl;
+// 	    // for(int i=0;i<n*n;i++){
+// 	    // 	if(i<n){
+// 	    // 		narr[i]=arr[i];
+// 	    // 	}
+// 	    // 	else{
+// 	    // 		narr[i]=narr[i-n];
+// 	    // 	}
+// 	    // }
+// 	    // for(int i=0;i<n*n;i++){
+// 	    // 	cout<<narr[i]<<" ";
+// 	    // }
+// 	    sort(arr,arr+n);
+// 	    c=n;
+// 	   //  for(int i=0;i<n;i++){
+// 		  // cout<<arr[i];
+		  
+// 	   //    }
+// 	    for(int i=0;i<n-1;i++){
+	    	
+// 	    	if(arr[i]==arr[i+1]){
+// 	    		c--;
+// 	    	}     
+	    
+// 	    }
+	    
+// 	   cout<<c<<endl; 
+// 	}
+// }
+
+//https://codeforces.com/contest/977/problem/C
+//unfinished
+
+// int main(){
+// 	long long t,n,k,d,c;
+	
+	
+	
+//      cin>>n>>k;
+     
+     
+//      int arr[n];
+//      for(int i=0;i<n;i++){
+//      	cin>>arr[i];
+//      }
+//      sort(arr,arr+n);
+     
+//       if(n==1 && k!=0){
+//      	cout<<arr[0]+1<<endl;
+//      }
+//     else if(k<n && n!=1){
+    	
+//     	if(k==0){
+//         	int l=arr[k]-1;
+//         	if(l>0){
+//         		cout<<l<<endl;
+//         	}
+//         	else{
+//         		cout<<-1<<endl;
+//         	}
+//         }
+    	
+//        else if(arr[k-1]==arr[k]){
+//     	cout<<-1<<endl;
+//            }
+        
+//     	else{
+//     		cout<<arr[k-1]<<endl;
+//     	}
+    	
+//     }
+//     else if(n==1 && k==0){
+//     	int l=arr[k]-1;
+//     	if(l>0){
+//         		cout<<l<<endl;
+//         	}
+//         	else{
+//         		cout<<-1<<endl;
+//         	}
+//     }
+// 	else if(n==k){
+// 	    cout<<arr[k-1]<<endl;
+//       }  
+//   return 0; 
+// }
+      
+// int main(){
+// 	string s1="Hello";
+// 	s1[0]='Y';
+// 	cout<<s1;
+// }
+
+
+//https://codeforces.com/contest/352/problem/B
+ //unfinisheaaad
+
+// int main(){
+// 	long long t,n,k,d,c,i=0;
+// 	pair<int,int> p;
+// 	cin>>n;
+// 	long long arr[n];
+// 	for (int i =0;i<n;i++){
+// 		cin>>arr[i];
+// 	}
+	 
+//     while(i<n-1){
+// 		for (int j =i+1;j<n;j++){
+// 		if(arr[i]==arr[j]){
+// 			d=j-i;
+// 			i=j;
+// 		}
+// 	}
+// 	}
+
+// }
+
+//https://www.hackerrank.com/challenges/reduced-string/problem?isFullScreen=true
+
+// unfinished
+
+/*
+ * Complete the 'superReducedString' function below.
+ *
+ * The function is expected to return a STRING.
+ * The function accepts STRING s as parameter.
+ */
+
+// string superReducedString(string s) {
+//     int l,i; string r;
+//     l=s.size();
+//     for( i=0;i<l-1;i++){
+//         if(s[i]==s[i+1]){
+//             if(i+2<l){
+//                 s.erase(s.begin()+i,s.begin()+i+2);
+//                 l=s.size();
+//                 i=0;
+            
+//             }
+//             if(i+2==l){
+//                 // s.erase(i);
+//                 // s.erase(i+1);
+//                 // l=s.size();
+//                 // i=0;
+//                 s="Empty String";
+//             }
+            
+            
+            
+//         }
+//     }
+//     if (s.empty()){
+//         s="Empty String";
+//     }
+    
+//     return s;
+
+// }
+
+// int main()
+// {
+//     // ofstream fout(getenv("OUTPUT_PATH"));
+
+//      string s;
+//     // getline(cin, s);
+    
+//     cin>>s;
+
+//     string result = superReducedString(s);
+
+//     // fout << result << "\n";
+    
+//     cout<<result<<" ";
+
+//     // fout.close();
+
+//     return 0;
+// }
+
+
+//https://codeforces.com/contest/1659/problem/A
+
+//Wrong answer on test case 3
+
+// int main(){
+// 	long long t,n,r,b,bb,c,q;
+	
+	
+// 	cin>>t;
+// 	while(t--){
+// 		cin>>n>>r>>b;
+// 		char s[n];
+// 		for(int i=0;i<n;i++){
+// 			s[i]='R';
+// 			// cout<<s[i];
+// 		}
+// 		// cout<<endl;
+// 		bb=b;
+// 		for (int j=0;j<n;j++){
+// 			q=r/(bb+1);
+// 			q=floor(q);
+// 			s[j+q]='B';
+// 			r-=q;
+// 			bb-=1;
+// 			j+=q;
+			
+// 		}
+// 		for(int i=0;i<n;i++){
+// 			cout<<s[i];
+// 		}
+// 		cout<<endl;
+		
+//     }
+//     return 0;
+// }
+
+//pointers and 2D arrays
+
+// int main(){
+// 	int B[2][3];
+// 	for (int i=0;i<2;i++){
+// 		for(int j=0;j<3;j++){
+// 			B[i][j]=i+j;
+// 		}
+// 	}
+// 	for (int i=0;i<2;i++){
+// 		for(int j=0;j<3;j++){
+// 			cout<<B[i][j];
+// 		}
+// 		cout<<endl;
+	
+// 	}
+// 	int (*p)[3]=B;
+// 	cout<<B<<endl;
+// 	cout<<B[0]<<endl;
+// 	cout<<&B[0][0]<<endl;
+// 	cout<<**B<<endl;
+// }
+
+
+
+
+
+// int main(){
+// 	long long t,n,r,b,bb,c,q;
+// 	string rate;
+	
+	
+// 	cin>>t;
+// 	while(t--){
+// 		cin>>n;
+// 		long long arr[n];
+// 		for(int i=0;i<n;i++){
+// 			cin>>arr[i];
+// 		}
+// 		if(n<3){
+// 			cout<<-1<<endl;
+// 			continue;
+// 		}
+// 		sort(arr,arr+n);
+		
+// 		for(int i=0;i<n-1;i++){
+// 			c=1;
+// 			for(int j=i+1;j<n;j++){
+// 				if(arr[i]==arr[j]){
+// 					c++;
+				
+// 				}
+				
+// 				if(c==3){
+// 					break;
+// 				}
+				
+// 				if(arr[j]>arr[i]){
+// 					break;
+// 				}
+				
+// 			}
+// 			if(c>=3){
+// 				cout<<arr[i]<<endl;
+// 				break;
+// 			}
+// 		}
+// 		if(c<3){
+// 			cout<<-1<<endl;
+// 		}
+// 	}
+// }
+
+// int main(){
+// 	long long t,l,n,r,b,bb,c,q;
+// 	string s,ss;
+// 	n=0;
+// 	c=0;
+	
+// 	cin>>t;
+// 	while(t--){
+// 		c=0;
+// 		cin>>s;
+// 		l=s.size();
+// 		if(l==1){
+// 			cout<<"NO"<<endl;
+// 			continue;
+// 		}
+		
+// 		for(int i=0;i<l;i++){
+			
+		
+// 			if(i==0){
+// 				if(s[i]==s[i+1]){
+// 					c=1;
+// 				}
+// 				else{
+// 					cout<<"NO"<<endl;
+// 					break;
+// 				}
+// 			}
+// 			else if(i==l-1){
+// 				if(s[i]==s[i-1]){
+// 					c=1;
+// 				}
+// 				else{
+// 					c=0;
+// 					cout<<"NO"<<endl;
+// 					break;
+// 				}
+// 			}
+// 			else if(s[i-1]==s[i]||s[i+1]==s[i]){
+// 				c=1;
+// 			}
+// 			else{
+// 				c=0;
+// 				cout<<"NO"<<endl;
+// 				break;
+// 			}
+			
+// 		}
+// 		if(c==1){
+// 			cout<<"YES"<<endl;
+// 		}
+// 	}
+// }
+
+
+
+
+// int main(){
+// 	long long t,n,r,b,bb,c,q;
+// 	string s;
+// 	c=1;
+	
+// 	cin>>t;
+// 	while(t--){
+// 		cin>>n;
+// 		long long arr[n];
+// 		for(int i=0;i<n;i++){
+// 			cin>>arr[i];
+// 		}
+// 		c=1;
+// 		if(arr[0]%2==0){
+// 			for(int i=0;i<n;i+=2){
+// 				if(arr[i]%2!=0){
+// 					c=-1;
+// 					cout<<"NO"<<endl;
+// 					break;
+// 				}
+// 			}
+// 			if(c==-1){
+// 			continue;
+// 		}	
+			
+// 		}
+// 		else if(arr[0]%2==1){
+// 			for(int i=0;i<n;i+=2){
+// 				if(arr[i]%2!=1){
+// 					c=-1;
+// 					cout<<"NO"<<endl;
+// 					break;
+// 				}
+// 			}
+			
+// 		if(c==-1){
+// 			continue;
+// 		}	
+// 		}
+// 		if(arr[1]%2==0){
+// 			for(int i=1;i<n;i+=2){
+// 				if(arr[i]%2!=0){
+// 					c=-1;
+// 					cout<<"NO"<<endl;
+// 					break;
+// 				}
+// 			}
+			
+// 			if(c==-1){
+// 			continue;
+// 		}	
+// 		}
+// 		else if(arr[1]%2==1){
+// 			for(int i=1;i<n;i+=2){
+// 				if(arr[i]%2!=1){
+// 					c=-1;
+// 					cout<<"NO"<<endl;
+// 					break;
+// 				}
+// 			}
+			
+// 			if(c==-1){
+// 			continue;
+// 		}	
+// 		}
+// 		if(c==1){
+// 			cout<<"YES"<<endl;
+// 		}
+
+
+// 	}
+// }
+
+
+// int main(){
+// 	long long t,n,r,b,bb,c,q,l;
+// 	string s;
+// 	cin>>t;
+// 	while(t--){
+// 		cin>>n;
+// 		cin>>s;
+// 		bool flag=true;
+// 		for(int i=0;i<n;i++){
+// 			while(i<n && s[i]=='W') i++;
+// 			if(i==n) break;
+// 			int blue =0, red=0;
+// 			while(i<n && s[i]!='W'){
+// 				if(s[i]=='B') blue++;
+// 				else red++; 
+// 				i++;
+// 			}
+			 
+// 			if(red==0 || blue==0){
+// 				flag=false;
+// 				break;
+// 			}
+			
+// 		}
+// 		if(flag){cout<<"YES"<<endl;}
+// 		else cout<<"NO"<<endl; 
+// 	}
+// }
+	
+	// c=1;
+	
+	// cin>>t;
+	// while(t--){
+	// 	cin>>n;
+	// 	cin>>s;
+	// 	if(n==1){
+	// 		if(s=="W"){
+	// 			cout<<"YES"<<endl;
+	// 			continue;
+	// 		}
+	// 		else{
+	// 			cout<<"NO"<<endl;
+	// 			continue;
+	// 		}
+	// 	}
+	// 	if(n==2){
+	// 		if(s=="WW" || s=="RB" || s=="BR"){
+	// 			cout<<"YES"<<endl;
+	// 			continue;
+	// 		}
+	// 		else{
+	// 			cout<<"NO"<<endl;
+	// 			continue;
+	// 		}
+			
+	// 	}
+		
+		
+	// 	l=s.size();
+	// 	char c='W';
+	// 	bool flag=true;
+	// 	for(int i=0;i<l;i++){
+	// 		while(i<n && s[i]=='W') i++;
+	// 		if(i==n) break;
+	// 		int blue =0, red=0;
+	// 		while(i<n && s[i]!='W'){
+	// 			if(s[i]=='B') blue++;
+	// 			else red++; 
+	// 			i++;
+	// 		}
+			 
+	// 		if(red==0 || blue==0){
+	// 			flag=false;
+	// 			break;
+	// 		}
+			
+	// 	}
+	// 	if(flag){cout<<"YES"<<endl;}
+	// 	else cout<<"NO"<<endl;
+	// 	}
+		
+		
+			
+		
+			// if(i==0){
+		// 		if(s[i]=='R' || s[i]=='B'){
+		// 			if(s[i+1]=='R' || s[i+1]== 'B'){
+		// 			 c=1;
+		// 		      }
+		// 		   else{
+		// 			 cout<<"NO"<<endl;
+		// 			 break;
+		// 		     }
+		// 		}
+				
+		// 	}
+		// 	else if(i==l-1){
+		// 		if(s[i]=='R' || s[i]=='B'){
+		// 			if(s[i-1]=='R' || s[i-1]== 'B'){
+		// 			 c=1;
+		// 		      }
+		// 		   else{
+		// 		   	 c=0;
+		// 			 cout<<"NO"<<endl;
+		// 			 break;
+		// 		     }
+		// 		}
+		// 	}
+		// 	else if(s[i]=='R'){
+		// 		if(s[i+1]=='R' || s[i+1]=='B'|| s[i-1]=='R'|| s[i-1]=='B'){
+		// 			if(s[i-1]=='W'){
+		// 				if(s[i+1]=='B'){
+		// 					c=1;
+		// 				}
+		// 				else{
+		// 					c=0;
+		// 				}
+		// 			}
+		// 			if(s[i+1]=='W'){
+		// 				if(s[i-1]=='B'){
+		// 					c=1;
+		// 				}
+		// 				else{
+		// 					c=0;
+		// 					cout<<"NO"<<endl;
+		// 		            break;
+		// 				}
+		// 			}
+					
+					
+		// 		}
+		// 		else{
+		// 		    c=0;
+		// 		    cout<<"NO"<<endl;
+		// 		    break;
+		// 	    }
+				
+		// 	}
+		// 	else if(s[i]=='B'){
+		// 		if(s[i+1]=='R' || s[i+1]=='B'|| s[i-1]=='R'|| s[i-1]=='B'){
+		// 			if(i!=0 && s[i-1]=='W'){
+		// 				if(s[i+1]=='R'){
+		// 					c=1;
+		// 				}
+		// 				else{
+		// 					c=0;
+		// 				}
+		// 			}
+		// 			if(i!=(n-1) && s[i+1]=='W'){
+		// 				if(s[i-1]=='R'){
+		// 					c=1;
+		// 				}
+		// 				else{
+		// 					c=0;
+		// 					cout<<"NO"<<endl;
+		// 		            break;
+		// 				}
+		// 			}
+					
+					
+		// 		}
+		// 		else{
+		// 		    c=0;
+		// 		    cout<<"NO"<<endl;
+		// 		    break;
+		// 	    }
+				
+		// 	}
+			
+			
+	
+		// }
+		// if(c==1){
+		// 	cout<<"YES"<<endl;
+		
+// TLE on test case 3
+// int main(){
+// 	long long t, n,c,l;
+// 	string s;
+// 	cin>>t;
+// 	while(t--){
+// 		c=0;
+// 		cin>>n;
+// 		l=n*(n-1)/2;
+// 		string arr[n];
+// 		vector<pair<string, string>> v;
+// 		for (int i=0;i<n;i++){
+// 			cin>>arr[i];
+// 			v[i].first=arr[i];
+// 		}
+		
+		
+// 		for(int i=0;i<l;i++){
+// 			if(j==n)
+// 				j=
+// 			v[i].first=arr[j];
+// 			v[i].second=arr[j+1];
+			
+			
+			
+// 		}
+// 		cout<<c<<endl;
+// 	}
+// }
+
+// if((arr[i][0]==arr[j][0] && arr[i][1]!=arr[j][1]) ||  (arr[i][0]!=arr[j][0] && arr[i][1]==arr[j][1])){
+// 					c++;
+// 				}
+
+int main(){
+	long long t, n,c,l,r,ans;
+	string s;
+	long long arr[5][5];
+	for(int i=0;i<5;i++){
+		for(int j=0;j<5;j++){
+			cin>>arr[i][j];
+			if(arr[i][j]==1){
+				r=i;
+				c=j;
+			}
+		}
+	
+	}
+	ans=abs(2-r)+abs(2-c);
+	cout<<ans<<endl;
+}
+	
+	
