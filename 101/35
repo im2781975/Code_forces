@@ -1,0 +1,649 @@
+#include<bits/stdc++.h>
+#define mod 1000000007
+#define ll long long
+#define ull unsigned long long
+#define f(i,a,n) for(ll i=a;i<n;i++)
+#define vec vector<ll>
+#define mxh priority_queue<pair<int,int>>
+#define mh priority_queue<int,vector<int>,greater<int>>
+#define omap map<ll,ll>
+#define umap unordered_map<ll,ll>
+#define vpair vector<pair<ll,ll> >
+#define pb push_back
+#define mp make_pair
+#define sor(v) sort(v.begin(),v.end())
+#define fi  first
+#define se second
+#define emp empty
+
+using namespace std;
+ll ipow(ll base, ll exp)
+{
+    ll result = 1;
+    for (;;)
+    {
+        if (exp & 1)
+            result= (result*base)%mod;;
+        exp >>= 1;
+        if (!exp)
+            break;
+        base= (base*base)%mod;
+    }
+
+    return result;
+}
+bool sortinrev(const pair<int,int> &a,
+               const pair<int,int> &b)
+{
+       return (a.first > b.first);
+}
+ll fact(ll n)
+{
+    if (n >= mod)
+        return 0;
+
+    ll result = 1;
+    for (int i = 1; i <= n; i++)
+        result = (result * i) % mod;
+
+    return result;
+}
+ll fact1(ll n)
+{   ll x=1;
+    while(n>1)
+    {
+        x*=n;
+        n--;
+    }
+    return x;
+}
+bool is_prime(ll n) {
+    if (n == 1) {
+        return false;
+    }
+    ll i = 2;
+    while (i*i <= n) {
+        if (n % i == 0) {
+            return false;
+        }
+        i += 1;
+    }
+    return true;
+}
+bool areRotations(string str1, string str2)
+{
+   /* Check if sizes of two strings are same */
+   if (str1.length() != str2.length())
+        return false;
+
+   string temp = str1 + str1;
+  return (temp.find(str2) != string::npos);
+}
+bool pow2 (ll x)
+{
+    return x && (!(x&(x-1)));
+}
+ll maxXorSum(ll n, ll k)
+{
+    if (k == 1)
+        return n;
+    ll res = 1;
+    while (res <= n)
+        res <<= 1;
+
+    // Return res - 1 which denotes
+    // a number with all bits set to 1
+    return res - 1;
+}
+ll mcost(ll a[], ll n)
+{
+
+    ll y;
+    if (n % 2 == 1)
+        y = a[n / 2];
+    else
+        y = (a[n / 2] + a[(n - 2) / 2]) / 2;
+
+    ll s = 0;
+    for(ll i = 0; i < n; i++)
+        s += abs(a[i] - y);
+
+    return s;
+}
+ll largest_subarray(ll a[], ll n)
+{
+    unordered_map<ll, ll> index;
+    ll ans = 0;
+    for (ll i = 0, j = 0; i < n; i++) {
+
+        j = max(index[a[i]], j);
+        ans = max(ans, i - j + 1);
+        index[a[i]] = i + 1;
+    }
+    return ans;
+}
+ll b[101],sz;
+pair<ll,ll> adj[101];
+
+void dfs(int s)
+{
+    b[s]=1;
+    for(int i=1;i<=sz;i++)
+    {    if(!b[i] && (adj[s].first==adj[i].first || adj[s].second==adj[i].second))
+            dfs(i);
+    }
+}
+void display(int a[], int n)
+{
+    for (int i = 0; i < n; i++) {
+        cout << a[i] << "  ";
+    }
+    cout << endl;
+}
+void per(int a[], int n)
+{  ll d=0;
+    sort(a, a + n);
+  //  cout << "Possible permutations are:\n";
+    do { ll s=0,x=1;
+        f(i,0,n)
+        {
+            s+=a[i];
+            if(s==0)
+            {
+                x=-1;
+            }
+        }
+        if(x==1)
+        {    cout<<"YES"<<endl;
+        d=1;
+            f(i,0,n)
+           {
+             cout<<a[i]<<" ";
+           }cout<<endl;
+          break;
+        }
+    } while (next_permutation(a, a + n));
+    if(d==0)
+    {
+        cout<<"NO"<<endl;
+    }
+}
+int gcd(int a, int b)
+{
+    if (b == 0)
+        return a;
+
+    else
+        return gcd(b, a % b);
+}
+
+bool leftRotate(int a[], int d, int n)
+{
+
+    d = d % n;
+    int g_c_d = gcd(d, n);
+    for (int i = 0; i < g_c_d; i++) {
+        int temp = a[i];
+        int j = i;
+
+        while (1) {
+            int k = j + d;
+            if (k >= n)
+                k = k - n;
+
+            if (k == i)
+                break;
+
+            a[j] = a[k];
+            j = k;
+        }
+        a[j] = temp;
+    }
+    ll s=0,x=1;
+    f(i,0,n)
+    {
+        s+=a[i];
+        if(s==0)
+        {
+            x=0;
+        }
+    }
+    if(x==1)
+    {   cout<<"YES"<<endl;
+        f(i,0,n)
+        {
+            cout<<a[i]<<" ";
+        }
+        cout<<endl;
+      return true;
+    }
+    return false;
+
+}
+ll rec(ll n,ll k)
+{
+    if(n==1)
+    {
+        return 1;
+    }
+    if (k==1)
+    {
+        return n;
+    }
+    return ((n+rec(n-1,k-1))%mod);
+}
+
+bool isPerfectSquare(ll x)
+{
+  if(sqrt(x)*sqrt(x)==x)
+  {
+      return true;
+  }
+  return false;
+}
+bool isSubSequence(string str1,string str2, int m, int n)
+{
+   int j = 0,x=0,d=0;
+    if(str1[0]==str2[0])
+    {
+        for (int i=0; i<n&&j<m; i++)
+       {
+           if (str1[j] == str2[i])
+            {
+              j++;
+
+            }
+           else
+            {   d=i;
+                break;
+            }
+       }
+       if(j==m)
+       {
+           return true;
+       }
+       ll p=9,v=0;
+       for(int i=n-1;i>=d;i--)
+        {  //  cout<<"l";
+            if(v==10-j)
+            {
+                break;
+            }
+            if(str1[p]==str2[i])
+            {
+                p--;
+                v++;
+            }
+
+            else
+            {
+                break;
+            }
+        }
+       //cout<<j<<" "<<v<<" "<<d<<endl;
+        if(v+j==10)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+
+
+    }
+    else{
+         size_t found = str2.find(str1);
+        if (found != string::npos && str1[9]==str2[n-1])
+         {
+             return true;
+         }
+         else
+         {
+             return false;
+         }
+    }
+
+}
+ll countBits(ll n)
+{
+   ll count = 0;
+   while (n)
+   {
+        count++;
+        n >>= 1;
+    }
+    return count;
+}
+
+bool sov(ll a[500][500],ll n,ll m)
+{
+	map<ll,vector<ll> > mp;
+	f(i,0,n)
+       {
+         f(j,0,m)
+         {
+			mp[j-i].push_back(a[i][j]);
+		}
+	}
+	for(auto i : mp)
+	{
+		f(j,1,i.second.size())
+		{
+			if(i.second[j]!=i.second[0])
+			return false;
+		}
+	}
+	return true;
+}
+bool findPartiion(ll arr[], ll n)
+{
+    int sum = 0;
+    int i, j;
+
+    for (i = 0; i < n; i++)
+        sum += arr[i];
+
+    if (sum % 2 != 0)
+        return false;
+
+    bool part[sum / 2 + 1][n + 1];
+    for (i = 0; i <= n; i++)
+        part[0][i] = true;
+
+    for (i = 1; i <= sum / 2; i++)
+        part[i][0] = false;
+
+    for (i = 1; i <= sum / 2; i++) {
+        for (j = 1; j <= n; j++) {
+            part[i][j] = part[i][j - 1];
+            if (i >= arr[j - 1])
+                part[i][j] = part[i][j]
+                             || part[i - arr[j - 1]][j - 1];
+        }
+    }
+
+    return part[sum / 2][n];
+}
+ll CountPairs(ll arr[], ll n)
+{
+    sort(arr, arr + n);
+    ll count = 0;
+    ll l = 0, r = n - 1;
+
+    while (l < r) {
+
+        if (arr[l] + arr[r] > 0) {
+
+            count += (r - l);
+            r--;
+        }
+        else {
+            l++;
+        }
+    }
+    return count;
+}
+ll lcm(ll a, ll b)
+   {
+
+return a / __gcd(a, b) * b;
+   }
+ll rec2(ll n)
+{
+    if(n<=1)
+    {
+        return 1;
+    }
+    ll s=0;
+    f(i,0,n)
+    {
+        s+=rec2(i)+rec2(n-i-1);
+    }
+    return s;
+
+}
+bool exist(ll n)
+{
+    for (int i=3; i<=sqrt(n); i+=2)
+    {
+        if (n%i == 0)
+        {
+
+            if (n/i == i)
+                {
+                    if(i%2==1)
+                    {
+                        return true;
+                    }
+                }
+
+            else // Otherwise print both
+                {
+                    if(i%2==1 || (n/i)%2==1)
+                    {
+                        return true;
+                    }
+                }
+        }
+    }
+    return false;
+}
+bool isPowerOfTwo(ll n)
+{
+   if(n==0)
+   return false;
+
+   return (ceil(log2(n)) == floor(log2(n)));
+}
+ll factorial(ll n)
+{
+
+    return (n == 1 || n ==(ll) 0) ? (ll)1 : n * factorial(n - 1);
+}
+void leftRotate(ll arr[], ll d, ll n)
+{
+    /* To handle if d >= n */
+    d = d % n;
+    ll g_c_d = gcd(d, n);
+    for (ll i = 0; i < g_c_d; i++) {
+        /* move i-th values of blocks */
+        ll temp = arr[i];
+        ll j = i;
+
+        while (1) {
+            ll k = j + d;
+            if (k >= n)
+                k = k - n;
+
+            if (k == i)
+                break;
+
+            arr[j] = arr[k];
+            j = k;
+        }
+        arr[j] = temp;
+    }
+}
+struct node
+{
+   int minimum;
+   int maximum;
+};
+int getMid(int s, int e) {  return s + (e -s)/2;  }
+struct node MaxMinUntill(struct node *st, int ss, int se, int qs,
+                         int qe, int index)
+{   struct node tmp,left,right;
+    if (qs <= ss && qe >= se)
+        return st[index];
+    if (se < qs || ss > qe)
+    {
+       tmp.minimum = INT_MAX;
+       tmp.maximum = INT_MIN;
+       return tmp;
+     }
+    int mid = getMid(ss, se);
+    left = MaxMinUntill(st, ss, mid, qs, qe, 2*index+1);
+    right = MaxMinUntill(st, mid+1, se, qs, qe, 2*index+2);
+    tmp.minimum = min(left.minimum, right.minimum);
+    tmp.maximum = max(left.maximum, right.maximum);
+    return tmp;
+}
+struct node MaxMin(struct node *st, int n, int qs, int qe)
+{
+    struct node tmp;
+    if (qs < 0 || qe > n-1 || qs > qe)
+    {
+        printf("Invalid Input");
+        tmp.minimum = INT_MIN;
+        tmp.minimum = INT_MAX;
+        return tmp;
+    }
+
+    return MaxMinUntill(st, 0, n-1, qs, qe, 0);
+}
+
+void constructSTUtil(int arr[], int ss, int se, struct node *st,
+                     int si)
+{
+    if (ss == se)
+    {
+        st[si].minimum = arr[ss];
+        st[si].maximum = arr[ss];
+        return ;
+    }
+    int mid = getMid(ss, se);
+    constructSTUtil(arr, ss, mid, st, si*2+1);
+    constructSTUtil(arr, mid+1, se, st, si*2+2);
+
+    st[si].minimum = min(st[si*2+1].minimum, st[si*2+2].minimum);
+    st[si].maximum = max(st[si*2+1].maximum, st[si*2+2].maximum);
+}
+struct node *constructST(int arr[], int n)
+{
+    int x = (int)(ceil(log2(n)));
+    int max_size = 2*(int)pow(2, x) - 1;
+    struct node *st = new struct node[max_size];
+    constructSTUtil(arr, 0, n-1, st, 0);
+    return st;
+}
+bool ckck(char c)
+{
+    if(c=='a'||c=='e'||c=='i'||c=='o'
+       || c=='u')
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+map<ll, bool> isPowerAdded;
+bool canBeFormed (ll ele, ll K) {
+   //trace1(ele)
+   map<ll, bool> isPowerAdded;
+   while (ele) {
+    ll num = 1;
+    while((num*K) <= ele) {
+        num *= K;
+    }
+    if (!isPowerAdded[num]) {
+       ele -= num;
+       isPowerAdded[num] = 1;
+    } else {
+       return 0;
+    }
+   }
+
+   return 1;
+}
+ll maxSubArraySum(ll a[], ll size)
+{
+    ll max_so_far = INT_MIN, max_ending_here = 0;
+
+    for (ll i = 0; i < size; i++)
+    {
+        max_ending_here = max_ending_here + a[i];
+        if (max_so_far < max_ending_here)
+            max_so_far = max_ending_here;
+
+        if (max_ending_here < 0)
+            max_ending_here = 0;
+    }
+    return max_so_far;
+}
+ll slv1(string X,string Y, ll m, ll n)
+{
+    int ar[m + 1][n + 1];
+    int p = 0;
+    f(i,0,m+1)
+    {
+        f(j,0,n+1)
+        {
+            if (i == 0 || j == 0)
+                ar[i][j] = 0;
+
+            else if (X[i - 1] == Y[j - 1]) {
+                ar[i][j] = ar[i - 1][j - 1] + 1;
+                p = max(p, ar[i][j]);
+            }
+            else
+                ar[i][j] = 0;
+        }
+    }
+    return p;
+}
+ll fun123(ll n)
+{
+    for(ll i=2;i*i<=n;i++)
+    {
+        if(n%i==0)return i;
+    }
+    return n;
+}
+
+bool isPalindrome(string s,ll n)
+{
+    ll l = 0;
+    ll h =n-1;
+    while (h > l)
+    {
+        if (s[l++] != s[h--])
+        {
+
+            return false;
+        }
+    }return true;
+}
+ll calculatePow(ll a,ll b)
+{
+   if(b==0)
+   {
+       return a;
+   }
+   else
+   {
+       return calculatePow( b,a % b);
+   }
+}
+
+// Code Starts
+
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+    int t=1;
+    //cin>>t;
+    while(t--)
+     {
+       ll n,x,y,z,c=0;
+       cin>>x>>y;
+
+       cout<<(x*y)/2;
+     }
+  return 0;
+}
+ 
