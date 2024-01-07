@@ -1,0 +1,1261 @@
+/*
+#include<iostream>
+
+using namespace std;
+
+int main(){
+
+
+    string str;
+    cin>>str;
+    int temp=0;
+    //cout<<str[0];
+
+    for(int i=0;str[i]!='\0';i++){
+
+
+        for(int j=i+2;str[j]!='\0';j+=2){
+
+            if(str[i]>str[j]){
+
+               temp=str[i];
+
+               str[i]=str[j];
+
+               str[j]=temp;
+
+            }
+
+        }
+
+    }
+
+
+    cout<<str;
+
+}
+*/
+
+/*
+#include<iostream>
+
+using namespace std;
+
+int main(){
+
+int size;
+
+cin>>size;
+
+
+
+int arr[size];
+
+int *ptr;
+
+ptr = new int[size];
+
+for(int i=0;i<size+1;i++){
+
+
+    scanf("%d",(ptr+i));
+
+
+}
+
+for(int i=0;i<size+1;i++){
+
+
+    printf("%d",*(ptr+i));
+
+
+}
+
+
+}
+*/
+
+/*
+#include<iostream>
+
+using namespace std;
+
+
+int main(){
+
+    int occurence[4];
+    long long int arr[4];
+    int count=1;
+    int max=0;
+
+    for(int i=0;i<4;i++){
+
+        cin>>arr[i];
+
+    }
+
+    for(int i=0;i<3;i++){
+
+      //  count=0;
+
+        for(int j=i+1;j<4;j++){
+
+
+            if(arr[i]==arr[j]){
+
+                count++;
+
+            }
+
+        }
+
+        // if(count>=1){
+
+        //     occurence[i]=count;
+
+        // }
+
+        cout<<count<<endl;
+
+    }
+
+    // max = occurence[0];
+
+    // for(int i=1;i<4;i++){
+
+    //     if(max<occurence[i]){
+
+    //         max=occurence[i];
+    //     }
+
+    // }
+
+
+    cout<<count;
+
+}
+*/
+
+
+/*
+//Program to check all the numbers in the array
+
+#include<iostream>
+
+
+using namespace std;
+
+int main(){
+
+
+int totalLevels = 0;
+
+cin>>totalLevels;
+
+int arr[totalLevels]={};
+
+int num = 1;
+
+int X_levels=0;
+
+int Y_levels=0;
+
+//This will create an array of number from 1 to totallevels
+
+for(int i=0;i<totalLevels;i++){
+
+
+    arr[i] = num;
+
+    num++;
+
+
+
+}
+
+//This will create an array for player X size
+
+cin>>X_levels;
+
+int xArr[X_levels];
+
+
+for(int i=0;i<X_levels;i++){
+
+    cin>>xArr[i];
+
+}
+
+cin>>Y_levels;
+
+
+int yArr[Y_levels];
+
+//This will create an array for player Y size
+
+for(int i=0;i<Y_levels;i++){
+
+    cin>>yArr[i];
+
+}
+
+//This will create an array of total size X + Y size
+
+int dup_arr[X_levels + Y_levels];
+
+
+for(int i=0,k=0;i<(X_levels+Y_levels);i++){
+
+
+    if(i<X_levels){
+
+        dup_arr[i] = xArr[i];
+
+    }
+    else if(i>=X_levels){
+
+        dup_arr[i] = yArr[k];
+        k++;
+    }
+}
+
+int flag=1;
+
+int count=0;
+
+//Checking that all the required levels exits or not
+
+for(int i=0;i<totalLevels && flag==1;i++){
+
+
+count=0;
+
+    for(int j=0;j<(X_levels + Y_levels);j++){
+
+  //  cout<<arr[i]<<endl;
+
+        if(arr[i]==dup_arr[j]){
+
+            count++;
+
+
+        }
+
+
+    }
+
+    //cout<<count<<endl;
+
+    if(count>=1){
+
+        flag=1;
+
+    }
+    else{
+
+        flag=0;
+
+    }
+}
+
+//When the flag variable gets 0 it means that all the levels are not passed
+
+if(flag==0){
+
+ cout<<"Oh, my keyboard!";
+
+}
+else{
+
+
+    cout<<"I become the guy.";
+
+
+}
+
+}
+
+*/
+/*
+
+#include <iostream>
+
+
+#include<string>
+
+
+using namespace std;
+
+
+int main() {
+
+    string arr1;
+
+    string arr2;
+
+    char result[101];
+
+    cin>>arr1;
+
+    cin>>arr2;
+
+//This will loop throught the entire rays and check wheather their characters are same then "0" and different then stores "1".
+
+    for(int i=0;arr1[i]!='\0';i++){
+
+
+
+        if(arr1[i]!=arr2[i]){
+
+            result[i] = '1';
+
+
+        }
+        else{
+
+            result[i] = '0';
+
+        }
+
+    }
+
+
+for(int i=0;result[i]=='1' || result[i]=='0';i++){
+
+cout<<result[i];
+
+}
+}
+
+*/
+// // Online C++ compiler to run C++ program online
+// #include <iostream>
+// using namespace std;
+// int main() {
+
+//     string arr1;
+//     string arr2;
+//     string result;
+//     cin>>arr1;
+//     cin>>arr2;
+
+//     for(int i=0;arr1[i]!=0;i++){
+
+//         if(arr1[i]!=arr2[i]){
+
+//             result[i] = '1';
+
+//         }
+//         else{
+
+//             result[i] = '0';
+
+//         }
+
+//     }
+
+
+//     cout<<result;
+
+// }
+
+
+/*
+
+#include<bits/stdc++.h>
+
+//#include<iostream>
+
+#include<string>
+
+using namespace std;
+
+int main(){
+
+string set;
+
+
+
+getline(cin,set);
+
+int lenght = 0;
+
+int count=0;
+
+int flag=0;
+
+for(int i=0;set[i]!=0;i++){
+
+    lenght++;
+
+}
+
+
+
+if(lenght == 2){
+
+    flag=1;
+
+}
+
+int count_var=0;
+
+if(flag!=1){
+
+for(int i=1;i<lenght;i+=3){
+
+        flag=0;
+
+        count_var=0;
+
+
+if(set[i]!='0'){
+
+//    cout<<set<<endl;
+
+    for(int j=i+3;j<lenght;j+=3){
+
+
+        if(set[i]!=set[j]){
+
+
+
+        }
+        else{
+
+            set[j] = '0';
+
+           // flag=1;
+
+           count_var++;
+
+        }
+    }
+if(count_var>=1){
+
+    flag=1;
+    count++;
+
+}
+
+
+    if(flag==0){
+
+        count++;
+
+    }
+
+
+}
+
+
+
+}
+
+}
+
+cout<<count;
+
+}
+*/
+
+/*
+
+#include <iostream>
+
+#include<algorithm>
+
+using namespace std;
+
+int main() {
+
+int size;
+
+cin>>size;
+
+char str[size+1];
+
+int arr[26];           //This array contains the a 26 element array of count 1;
+
+int arr2[26];
+
+int count  = 0;
+
+for(int i=0;i<26;i++){
+
+    arr[i] = 1;
+
+}
+
+cin>>str;
+
+char ch[27];
+
+char *ptr = ch;
+
+char ch2[27];
+
+char *ptr2 = ch2;
+
+
+//Two pointer points towards an array of upper and lower case alphabets;
+
+for(int i=0;i<26;i++){
+
+    *ptr = 'A' + i;
+
+    *ptr2 = 'a' + i;        //It will check that wheather every element in string is equal to A or a and then so on.
+
+    for(int j=0;str[j]!=0;j++){
+
+    if(str[j]==*ptr || str[j]==*ptr2)
+    {
+        arr2[i] = 1;
+
+    }
+
+    }
+
+
+    ptr++;
+
+    ptr2++;
+
+
+}
+
+int flag=0;
+
+for(int i=0;i<26 && flag==0;i++){
+
+   if(arr[i]==arr2[i]){
+
+       flag=0;
+
+   }
+   else{
+
+       flag=1;
+
+   }
+}
+
+if(flag==1){
+
+    cout<<"NO";
+
+}
+else{
+
+    cout<<"YES";
+
+}
+
+}
+*/
+/*
+
+#include<iostream>
+
+using namespace std;
+
+
+class Student{
+
+private:
+
+    string name;
+    int roll_num;
+    int marks;
+
+public:
+
+    void setname(string n){
+
+    name = n;
+
+
+    }
+    void setroll(int roll){
+
+    roll_num = roll;
+
+
+    }
+
+    string getname(){
+
+    return name;
+
+
+    }
+    int getroll(){
+
+    return roll_num;
+
+
+    }
+
+    void setmarks(int m){
+
+    marks = m;
+
+
+    }
+
+
+    int getmarks(){
+
+      return marks;
+
+
+    }
+
+    //Passing the object by reference
+
+    //It will add it on the memory of object which is being passed in the function
+
+    Student add(Student *d){
+
+    d->setmarks(d->getmarks() + marks);
+
+   // return d;
+
+    }
+
+    //Pass by value
+
+    Student add2(Student d){
+
+    d.setmarks(d.getmarks() + marks);
+
+    return d;
+
+    }
+
+};
+
+int main(){
+
+
+Student d1;
+
+Student d2;
+
+d1.setmarks(30);
+
+d2.setmarks(20);
+
+Student d3;
+//This will add the d2 to d1
+//passing by reference
+//d2.add(&d1);
+//now storing the result on the different object
+d3 = d2.add2(d1);
+
+cout<<d3.getmarks();
+
+cout<<d3.getmarks();
+
+
+
+
+//cout<<d1.g;
+
+
+
+
+
+}
+*/
+/*
+
+#include<iostream>
+
+using namespace std;
+
+int main(){
+
+
+    int num;
+
+    cin>>num;
+
+    int arr[num];
+
+    for(int i=0;i<num;i++){
+
+
+        scanf("%d",&arr[i]);
+
+    }
+
+    int value=0;
+    int ways=0;
+    int initValue=0;
+    int finalValue=0;
+
+
+    for(int i=0;i<num;i++){
+
+        ways=0;
+
+        value = arr[i];
+
+        initValue = 1;
+
+        finalValue = value-1;
+
+
+        //for(int j=0;j<(arr[i]/2) && initValue<finalValue;j++){
+
+        while(finalValue>initValue){
+
+
+        if(initValue+finalValue==arr[i]){
+
+                ways++;
+
+            }
+
+            initValue++;
+
+            finalValue--;
+
+        }
+
+        printf("%d\n",ways);
+    }
+
+
+
+}
+*/
+
+/*
+#include<iostream>
+
+using namespace std;
+
+int main(){
+
+
+    int num;
+    int value=0;
+    int ways=0;
+    int initValue=0;
+    int finalValue=0;
+
+    cin>>num;
+
+    int arr[num];
+
+    for(int i=0;i<num;i++){
+
+
+        scanf("%d",&arr[i]);
+
+         ways=0;
+
+        value = arr[i];
+
+        initValue = 1;
+
+        finalValue = value-1;
+
+        while(finalValue>initValue){
+
+
+        if(initValue+finalValue==arr[i]){
+
+                ways++;
+
+            }
+
+            initValue++;
+
+            finalValue--;
+
+        }
+
+        printf("%d\n",ways);
+
+
+
+    }
+
+
+
+
+}
+*/
+
+/*
+#include<iostream>
+
+using namespace std;
+
+int main(){
+
+    int n,m;
+    int max=0;
+    cin>>n>>m;
+    int flag=0;
+
+    for(int i=1;i<=n;i++){
+
+        for(int j=1;j<=m;j++){
+
+            if(i%2!=0){
+
+                printf("#");
+
+            }
+            else{
+
+
+            }
+
+
+
+        }
+        printf("\n");
+
+    }
+
+
+
+}
+*/
+/*
+//Program to check the available or non available of police officers
+
+#include<iostream>
+
+
+using namespace std;
+
+int main(){
+
+int size;
+
+cin>>size;
+
+int arr[size];
+
+int count=0;
+
+int avail_officiers=0;            //available officers
+
+int untrea_crimes=0;                //untreated crimes
+
+
+for(int i=0;i<size;i++){
+
+    cin>>arr[i];
+
+
+}
+
+for(int i=0;i<size;i++){
+
+        //when the entry is 1 or greater than 1
+    if(arr[i]>=1){
+
+        avail_officiers+=arr[i];
+
+    }
+    //when the entry is -1 or greater than 1 this will execute when there are available officers
+    else if(arr[i]==-1 && avail_officiers>=1){
+
+
+        avail_officiers--;
+
+    }
+
+    //when the entry is -1 or greater than 1 this will execute when there are no available officers making the untreated crimes
+    else if(arr[i]==-1 && avail_officiers==0){
+
+
+        untrea_crimes++;
+
+    }
+
+}
+
+
+cout<<untrea_crimes;
+
+}
+*/
+/*
+#include<iostream>
+
+using namespace std;
+
+int main(){
+
+int arr[3];
+
+for(int i=0;i<3;i++){
+
+    cin>>arr[i];
+
+}
+
+int temp=0;
+
+
+//This will sort the array in accending order so that the max or min coordinates are at the end of the array
+for(int i=0;i<2;i++){
+
+        for(int j=i;j<3;j++){
+
+    if(arr[i]>arr[j]){
+
+        temp=arr[j];
+        arr[j] = arr[i];
+        arr[i]=temp;
+
+    }
+
+        }
+}
+
+
+int value=0;
+int count=0;
+//This will check the first and last element and increase or decrease them respectively to try to match the 2nd one. In this way we get the total minimum steps both friends needs to take to meet at one point.
+for(int i=0;(arr[0]&&arr[2]!=arr[1]);i++){
+
+    if(arr[0]<arr[1]){
+
+        arr[0]+=1;
+
+        count++;
+
+    }
+    else if(arr[2]>arr[1]){
+
+        arr[2]-=1;
+        count++;
+
+    }
+
+}
+
+printf("%d",count);
+
+}
+
+*/
+/*
+
+
+
+
+#include<iostream>
+using namespace std;
+
+int main(){
+
+
+int test_cases=0;
+
+cin>>test_cases;
+
+for(int i=0;i<test_cases;i++){
+
+  int size;
+
+  cin>>size;
+
+  int arr[size];
+
+  for(int j=0;j<size;j++){
+
+    cin>>arr[j];
+
+
+  }
+
+   int flag=0;
+
+    for(int j=0;j<size-1 && flag==0;j++){
+
+        if((arr[j]==arr[j+1]) || (arr[j]-arr[j+1])==-1 || (arr[j]-arr[j+1])==1){
+
+            flag=0;
+
+        }
+        else {flag=1;
+
+        }
+    }
+
+    if(flag==0){
+
+
+        printf("YES\n");
+
+    }
+    else{
+
+        printf("NO\n");
+
+    }
+}
+}
+//*/
+
+/*
+#include<iostream>
+
+using namespace std;
+
+int main(){
+
+int size;
+
+cin>>size;
+
+char arr[size+1];
+
+cin>>arr;
+
+int count=0;
+
+
+for(int i=0;i<size-1;i++){
+
+
+    if(arr[i]==arr[i+1]){
+
+        count++;
+
+    }
+
+}
+
+cout<<count;
+
+}
+
+
+*/
+/*
+#include<iostream>
+
+
+using namespace std;
+
+
+int  main(){
+
+
+int size;
+int max;
+cin>>size;
+
+int arr[size];
+
+for(int i=0;i<size;i++){
+
+
+    cin>>arr[i];
+
+}
+
+max = arr[0];
+
+for(int i=1;i<size;i++){
+
+
+    if(max<arr[i]){
+
+        max = arr[i];
+
+    }
+
+}
+
+int count=0;
+
+//check if they are not equal then it increases the index i to become equal to the max
+
+for(int i=0;i<size;i++){
+
+
+    if(arr[i]!=max){
+
+        for(int j=0;arr[i]!=max;j++){
+
+
+            arr[i]+=1;
+
+            count++;
+
+        }
+
+    }
+
+}
+
+
+
+cout<<count;
+
+}
+*/
+
+
+
+
+/*
+#include<iostream>
+
+using namespace std;
+
+
+int main(){
+
+
+    long int a,b;
+
+    int num;
+
+    cin>>num;
+
+    int flag=0;
+
+    int count=0;
+
+
+for(int j=0;j<num;j++){
+
+        cin>>a>>b;
+
+    if(a%b==0){
+
+
+    cout<<count<<endl;
+
+    }
+    else{
+     /*
+    for(int i=0;i<num;i++){
+
+        count=0;
+
+        cin>>a>>b;
+
+        if(a%b==0){
+
+            cout<<"0"<<endl;
+
+        }
+        else{
+
+
+            for(int j=0;(a%b!=0);j++){
+
+                a++;
+                count++;
+
+            }
+            cout<<count<<endl;
+
+        }
+
+    }
+
+
+//
+for(int i=0;a>b;i++){
+
+    a=a-b;
+
+}
+
+
+   b = b-a;
+
+   cout<<b<<endl;
+}
+    }
+
+}
+
+*/
+
+
+#include <algorithm>
+#include <iostream>
+#include<cmath>
+using namespace std;
+
+int main()
+{
+    int arr[5][5];
+
+    int x;
+    int y;
+    int count=0;
+    for(int i=0;i<5;i++){
+
+        for(int j=0;j<5;j++){
+
+            cin>>arr[i][j];
+
+        }
+
+
+    }
+    for(int i=0;i<5;i++){
+
+        for(int j=0;j<5;j++){
+
+            if(arr[i][j]==1){
+
+                x=i;
+                y=j;
+
+            }
+
+        }
+
+
+    }
+
+    for(int i=0;x!=2 || y!=2;i++){
+
+    if(x<2){
+
+        x+=1;
+        count++;
+
+    }
+    else if(x>2){
+
+        x-=1;
+        count++;
+
+    }
+    else if(y<2){
+
+        y+=1;
+        count++;
+
+    }
+    else if(y>2){
+
+        y-=1;
+        count++;
+
+    }
+    }
+    cout<<count;
+}
+
+
+ 
