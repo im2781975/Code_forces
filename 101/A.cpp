@@ -1,9 +1,3 @@
-/*
- * p1.cpp
- *
- *  Created on: Oct 24, 2014
- *      Author: Ayman Mostafa
- */
 
 #include <iostream>
 #include <string>
@@ -11,26 +5,6 @@
 #include <stdio.h>
 using namespace std;
 //int c=0,odd=0;
-void hanoi(int n,char from ,char to ,char use) {
-if(n>0)
-{
-    hanoi(n-1,from,use,to);
-    cout<<"move from "<<from<<" to "<<to<<endl;
-    hanoi(n-1,use,to,from);
-}
-}
-int fact(int x)
-{
-    if(x==1) return 1;
-    return fact(x-1)*x;
-}
-/*int res(int x)
-{
-    if (x==1) return (c);
-    c++;
-    x=x/10;
-    return(res(x));
-}*/
 /*int req(int cra,int loa)
 {
         //if(loa==1) return cra;
@@ -53,11 +27,6 @@ int fact(int x)
         }
         req(cra,loa);
 }*/
-/*int rev(int n)
-{
-    if(n==0) return odd;
-     odd=rev(n/10)+(n%10)*pow(10,c++);
-}*/
 void bea(int **x,int n)
 {
     int s=0,k=0,m=0;
@@ -70,18 +39,6 @@ void bea(int **x,int n)
             for(k=0;k<pow(3,m);k++) x[s++][i]=3;
         }
     }
-}
-void swap(int *x,int *y)
-{
-    int t=*x;
-    *x=*y;
-    *y=t;
-}
-void swaplong(long *x,long *y)
-{
-    long t=*x;
-    *x=*y;
-    *y=t;
 }
 struct x{
     char y[100];
