@@ -1825,46 +1825,7 @@ arr[x]=1000000;
     	else {odd++; od=z-1;}
     }
     if(even==1) cout<<eve+1;
-    else cout<<od+1;*/
-//---------------------------------------------------------
-    /*string s;
-    int z=0,c=0;
-    cin>>s;
-    while(z<s.size())
-    {
-    	if(s[z]==s[z+1]) c++;
-    	else c=0;
-    	if(c>=6){
-    		cout<<"YES";
-    		return 0;
-    	}
-    	z++;
-    }
-    cout<<"NO";*/
-    //----------------------------------------------------------
-   /* int z=1;
-    string s;
-   cin>>s;
-   if(s[0]>=97&&s[0]<=122)
-   {
-	   while(z++<s.size())
-		   if(s[z-1]>=97&&s[z-1]<=122)
-		   {
-			   cout<<s;
-			   return 0;
-		   }
-	   s=caps(s);
-   }
-   else{
-	   while(z++<s.size())
-		   if(s[z-1]>=97&&s[z-1]<=122)
-		   {
-			   cout<<s;
-			   return 0;
-		   }
-	   s=caps(s);
-   }
-   cout<<s;*/
+    else cout<<od+1;
 //---------------------------------------------------------------
    int n,k,z=0,c=0;
    cin>>n>>k;
