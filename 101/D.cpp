@@ -5,102 +5,6 @@
 //     int t;
 //     cin>>t;
 //     while(t){
-//         int a , b ;
-//         cin>>a>>b;
-//         int ans = 0 ;
-//         if(a==0)ans =1;
-//         else ans = a+2*b+1;
-//         cout<<ans<<endl;
-//         t--;
-//     }
-// return 0;
-// }
-
-// #include<bits/stdc++.h>
-// using namespace std;
-
-// int main(){
-//     int t;
-//     cin>>t;
-//     while(t){
-//         int n ;
-//         cin>>n;
-//         string s ;
-//         cin>>s;
-//         int ans = 0 ;
-//         for(int i=0;i<n;i++){
-//             if(s[i]=='0'){
-//                 if(i+2<n){
-//                     if(s[i+1]=='0')ans+=2;
-//                     else if(s[i+2]=='0')ans++;
-//                 }
-//                 else if(i+1<n){
-//                     if(s[i+1]=='0')ans+=2;
-//                 }
-//             }
-//         }
-//         cout<<ans<<endl;
-//         t--;
-//     }
-// return 0;
-// }   
-
-// #include<bits/stdc++.h>
-// using namespace std;
-
-// int main(){
-//     int t;
-//     cin>>t;
-//     while(t){
-//         int n ;
-//         cin>>n;
-//         int arr[n];
-//         for(int i=0;i<n;i++){
-//             cin>>arr[i];
-//         }
-//         sort(arr , arr+n);
-//         cout<<arr[n-1] + arr[n-2] <<endl ;
-//         t--;
-//     }
-// return 0;
-// }
-
-
-// #include<bits/stdc++.h>
-// using namespace std;
-
-// int main(){
-//     int t;
-//     cin>>t;
-//     while(t){
-//         int n ;
-//         cin>>n;
-//         int ans = 0 ;
-//         string res = "";
-//         int prev = 2 ;
-//         while(ans < n){
-//             if(prev == 2){
-//                 prev =1 ;
-//             }
-//             else{
-//                 prev = 2;
-//             }
-//             res+=to_string(prev);
-//             ans+=prev;
-//         }
-//         t--;
-//     }
-// return 0;
-// }
-
-
-// #include<bits/stdc++.h>
-// using namespace std;
-
-// int main(){
-//     int t;
-//     cin>>t;
-//     while(t){
 //         int n ;
 //         cin>>n ;
 //         int arr[n] ;
@@ -114,7 +18,7 @@
 //             t--;
 //             continue;
 //         }
-//         else{
+
 //             if(arr[0]-arr[1] <=1 )cout<<"YES"<<endl;
 //             else cout<<"NO"<<endl;
 //         }
