@@ -1,43 +1,4 @@
 
-ll maxi(ll a, ll b){
-    if(a>b){
-        return a;
-    }
-    else{
-        return b;
-    }
-}
-ll mini(ll a, ll b){
-    if(a<b){
-        return a;
-    }
-    else{
-        return b;
-    }
-}
-// void dfs(int node,vector<vector<int> > &adj,int visited[],int len[],int in[]){
-//     for(int i=0;i<adj[node].size();i++){
-//         int child=adj[node][i];
-//         len[child]=maxi(len[child],len[node]+1);
-//         if(visited[child]==0){
-//             visited[child]=1;
-//             dfs(child,adj,visited,len,in);
-//         }
-        
-//     }
-// }
-void findCombination(vector<char> sv,ll dis,ll k,vector<string> &total,string temp,ll count){
-    if(count==dis){
-        if(temp.size()==k){
-            total.push_back(temp);
-        }
-        return;
-    }
-    findCombination(sv,dis,k,total,temp,count+1);
-    temp+=sv[count];
-    findCombination(sv,dis,k,total,temp,count+1);
-    return;
-}
 // ll pri(ll n){
 //     ll count=0;
 //     for(int i=2;i<=sqrt(n);i++){
