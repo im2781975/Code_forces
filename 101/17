@@ -1,14 +1,4 @@
- /*long int s=11;
-    cout<<letter_count(911);
-    for (int i = 1;i<=999;i++)
-        s+= letter_count(i);
-    cout<<endl<<s;
 
-}
-    /*power2(1000);
-
-
-}
   /*const unsigned int Size = 20;
   unsigned int matrix[Size][Size];
 
