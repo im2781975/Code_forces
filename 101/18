@@ -47,15 +47,7 @@
 	}
 
 
-	int NOD(long long a, long long b)
-	{
-		while (a > 0 && b > 0)
-			if (a > b)
-				a %= b;
-			else
-				b %= a;
-		return a + b;
-	}
+	
 
 
 
@@ -81,19 +73,7 @@
 		if (f < last) quicksort(mas, f, last);
 	}
 
-	int AmountOfZero(int n)
-	{
-		int sum = 0;
-		while (n > 0)
-		{
-			if (n % 10 != 0)
-				return sum;
-			if (n % 10 == 0)
-				sum++;
-			n /= 10;
-		}
-		return sum;
-	}
+	
 
 	void sorte(int **arr, int size)
 	{
@@ -131,20 +111,6 @@
 		return true;
 	}
 
-	int ReverseNumber(long long num)
-	{
-		int rev = 0;
-		while (num > 0)
-		{
-			rev += num % 10;
-			rev *= 10;
-			num /= 10;
-		}
-		rev /= 10;
-		return rev;
-	}
-
-
 	string AddTime(string s, int n) {
 		string a = "";
 		a += s[0];
@@ -168,14 +134,6 @@
 		mi += to_string(min);
 		return ho + ":" + mi;
 	}
-
-	long long fac(int n)
-	{
-		if (n == 1 || n == 0)
-			return 1;
-		return n * fac(n - 1);
-	}
-
 	bool arIsEmpty(int arr[], int n)
 	{ 
 		int a = arr[0];
@@ -195,16 +153,7 @@
 		return false;
 	}
 
-	bool HaveNeCh(int n)
-	{
-		while (n > 0)
-		{
-			if (n % 2 == 0)
-				return false;
-			n /= 10;
-		}
-		return true;
-	}
+	
 
 	bool IsDiff(int n)
 	{
@@ -225,16 +174,7 @@
 		}
 	}
 
-	bool IsGood(long long n)
-	{
-		while (n > 0)
-		{
-			if ((n % 10) % 2 == 0)
-				return false;
-			n /= 10;
-		}
-		return true;
-	}
+	
 
 	bool IsPol(long long n)
 	{
@@ -299,25 +239,6 @@
 		return NULL;
 	}
 
-	long long Fib(int n)
-	{
-		if (n == 1)
-			return 1;
-		if (n == 2)
-			return 1;
-		return Fib(n -1  ) + Fib(n -2);
-	}
-
-	bool Prost(long long n)
-	{
-		for (long long i = 2; i < n; i++)
-		{
-			if (n%i == 0)
-				return false;
-		}
-		return true;
-	}
-
 	bool Divi_on_11(string s)
 	{
 		long long sum1 = 0;
@@ -340,14 +261,7 @@
 		return false;
 	}
 
-	unsigned long long fib(int n)
-	{
-		if (n == 0)
-			return 1;
-		if (n == 1)
-			return 1;
-		return fib(n - 1) + fib(n - 2);
-	}
+	
 
 	bool IsZero(int arr[], int n)
 	{
@@ -377,20 +291,6 @@
 			for (int j = 0; j < size - i - 1; j++)		
 				if (arr[j] ==0)
 					Swap(arr, j, j + 1);
-	}
-
-	void rec(int a, int b)
-	{
-		if (a < b)
-		{
-			cout << a << " ";
-			return rec(a + 1, b);
-		}
-		if (a == b)
-		{
-			cout << a;
-			return;
-		}
 	}
 
 	char Compare(string s1, string s2)
