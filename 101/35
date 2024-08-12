@@ -1,3 +1,593 @@
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+typedef vector<ll> v;
+#define loop(i,n) for(int i =0;i<n;i++);
+typedef deque<int> de;
+
+void mediumNum(int num[]){
+    for(int i=0;i<3;i++){
+        int max=*max_element(num,num+3);
+        int min=*min_element(num,num+3);
+        if (max!=num[i]&& min!=num[i]){
+            cout<<num[i]<<endl;
+
+        }
+    }
+}
+
+void atilla () {
+    char letters[] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's',
+                      't', 'u', 'v', 'w', 'x', 'y', 'z'};
+    int si=sizeof (letters)/sizeof (letters[0]);
+
+
+        int size;
+        cin >> size;
+        int const s = size;
+        string word;
+        cin >> word;
+        int j;
+        int i;
+        int temp;
+        int arr[s];
+        int t;
+
+        for ( i = 0; i < s; i++) {
+            for ( j = 0; j < si; j++) {
+                if (word[i] == letters[j] ) {
+                    temp = j;
+                }
+            }
+            t=temp + 1 ;
+        }
+
+        for(int k=0;k<s;k++) {
+            arr[k] = t;
+        }
+        int max = *max_element(arr, arr + s);
+        cout<<max<<endl;
+    }
+
+void atilla2(string word){
+    int max1 = INT64_MIN;
+    for(char x : word)
+    {
+        int temp = x - 96;
+        max1 = max(max1, temp);
+    }
+    cout << max1 << endl;
+}
+
+void watermelon(int w) {
+
+    if(w%2==0 && w!=2){
+        cout<<"YES";
+    }
+    else{
+        cout<<"NO";
+    }
+
+}
+
+void VanyaAndFence(int const n,int h,const int friends[]){
+    int const w=2; //width of the road
+    int const v=1;
+    int x=0;
+    int y=0;
+    int r=0;
+    for(int i=0; i<n;i++){
+        if(friends[i]>h){
+            x+= w;
+        }
+        else if (friends[i]<=h){
+          y+=  v;
+        }
+
+         r= x+y;
+
+    }
+    cout<<r;
+
+
+
+}
+
+void beautifulMatrix(int matrix[5][5]){
+    int I;
+    int J;
+    int r;
+    //searching for the 1 in the matrix
+    for (int i = 0; i <5; i++) {
+        for(int j=0;j<5;j++) {
+            if (matrix[i][j]==1){
+                I=abs(2-i);
+                J=abs(2-j);
+                r=I+J;
+            }
+        }
+    }
+    cout<<r;
+}
+
+void gravitySwitch(int box[],int n){
+    for(int i=0;i<n;i++){
+        for(int j=i+1;j<n;j++){
+            if(box[i]>box[j]){
+                swap(box[i],box[j]);
+            }
+        }
+    }
+}
+
+void printing(int v[], int size) {
+    for (int i = 0; i < size; i++) { //printing the array
+        cout << v[i] << " ";
+
+    }
+}  //important
+
+void bitIncrement( string x,int n ){
+    //it has to be in the main in the same for loop of the cin>>string
+    int X=0;
+for(int i=0;i<n;i++){
+    if (x == "X++" || x == "++X") {
+        X++;
+    } else {
+        X--;
+    }
+}
+cout<<X;
+
+}
+
+void boyOrGirl(string username) {
+    unordered_set<char>s;
+    for (int i = 0; i < username.size(); i++) {
+        s.insert(username[i]);
+    }
+    int size = s.size();
+        if (size % 2 == 0 ) {
+            cout << "CHAT WITH HER!";
+
+        } else {
+            cout << "IGNORE HIM!";
+        }
+    }
+
+void assignments(){
+     int n;
+     cin>> n;
+     string level;
+     int count=0;
+     for(int i=0;i<n;i++) {
+         cin >> level;
+         if (level[1]=='1'){
+             count+=1;
+         }
+         else if (level[1]=='2'){
+             count+=2;
+         }
+         else if(level[1]=='3'){
+             count+=3;
+         }
+
+     }
+     cout<<count;
+}
+
+void sushi(){
+    int harsha[10];
+    int hiba[10];
+    int alain[10];
+    int sizeHarsha= sizeof(harsha)/sizeof(harsha[0]);
+    int sizeHiba= sizeof(hiba)/sizeof(hiba[0]);
+    int sizeAlain= sizeof(alain)/sizeof(alain[0]);
+    for(int i=0;i<sizeHarsha;i++) {
+        cin >> harsha[i];
+    }
+    for(int i=0;i<sizeHiba;i++){
+        cin>>hiba[i];
+    }
+    for(int i=0;i<sizeAlain;i++){
+        cin>>alain[i];
+    }
+    int i;
+    int j;
+    int k;
+
+    for(i=0; i<sizeHarsha;i++){
+    for(j=0; j<sizeHiba;j++) {
+        for (k = 0; k < sizeAlain; k++) {
+            if (harsha[i] == hiba[j] == alain[k]) {
+                cout << harsha[i];
+            } else {
+                cout << "Nothing in common";
+            }
+        }
+    }}
+
+
+}
+
+void weight(){
+    int test;
+    cin>>test;
+
+    int weight;
+    int height;
+    while(test--) {
+        cin >> weight;
+        cin >> height;
+
+        double heightm = (double) height / 100;
+        double BMI = weight / (heightm * heightm);
+        if (BMI < 18.5) {
+            cout << "Underweight" << endl;
+        }  if (18.5 <= BMI <= 24.9) {
+            cout << "Healthy Weight" << endl;
+        }  if (25 <= BMI <= 29.9) {
+            cout << "Overweight" << endl;
+        }  if (BMI >= 30) {
+            cout << "Obese" << endl;
+        }
+    }
+
+}
+
+int GCD(int x,int y){   //important
+    int result= min(x,y);
+    for(int i=result;i>0;i--){
+        if(x%result == 0 && y%result==0){
+            break;
+        }
+    }
+    return result;
+} //important
+
+void bestie(vector <int> a, int n) {
+
+    int test;
+    cin >> test;
+
+    while (test--) {
+        //code here
+        //5 10 15 20
+        //1  2  3  4
+        int n;
+        cin >> n;
+
+        vector <int> a(n);
+        int gcd = 0;
+
+        for (int i = 0; i < n; i++) {
+            cin >> a[i];
+            gcd = __gcd(gcd, a[i]);
+
+        }
+        if (gcd == 1) {
+            cout << 0 << endl;
+        } else {
+            int count1;
+            int gcd2;
+            for (int i = n - 1; i >= 0; i--) {
+                gcd2 = __gcd(a[i], i + 1);
+                if (__gcd(gcd, gcd2) == 1) {
+                    count1 = n - i;
+                    break;
+                }
+            }
+
+
+            //150 90 180 120 60 30
+            int count = 0;
+            int gcd3 = gcd;
+            for (int i = n - 1; i >= 0; i--) {
+                a[i] = __gcd(a[i], i + 1);
+                gcd3 = __gcd(gcd3, a[i]);
+                count += n - i;
+                if (gcd3 == 1) {
+                    break;
+                }
+            }
+            cout << min(count, count1) << endl;
+
+        }
+    }
+
+}
+
+void expo(){
+    int test;
+    cin>>test;
+    while(test--){
+        int x,y;
+        cin>>x>>y;
+        int income = pow(2,y);
+        while(x--){
+            income/=2;
+
+        }
+        cout<<income<<endl;
+
+    }
+}
+
+void makeAP(){
+    int test;
+    cin>>test;
+    while(test--){
+        int x,y;
+        cin>>x>>y;
+        bool a=false;
+        for(int i=x;i<=y;i++){
+            if(i-x==y-i){
+                a=true;
+                cout<<i<<endl;
+
+            }
+
+        }
+        for(int i=x;i<=y;i++){
+            if(i-x!=y-1 && !a){
+                cout<<"-1"<<endl;
+                break;
+            }
+        }
+
+    }
+}
+
+void third(){
+    int test;
+    cin>>test;
+    while(test--){
+        int n,x,c;
+        cin>>n>>x>>c;
+        int* a=new int[n];
+        for(int i=0;i<n;i++){
+            cin>>a[i];
+
+        }
+        int count = 0;
+        int sum=0;
+        for(int i=0;i<n;i++) {
+            int avg = x - a[i];
+            if (avg > c) {
+                sum= sum+ x;
+                count++;
+            }
+            else{
+                sum+=a[i];
+            }
+        }
+
+        cout<<sum-(c*count)<<endl;
+    }
+
+}
+
+void ReachFast(){
+    int test;
+    cin>>test;
+    while(test--) {
+        int x, y, z;
+        cin >> x >> y >> z;
+        int diff = max(x, y) - min(x, y);
+    int n = (diff / z);
+    int m = diff % z;
+    if(diff<z &&diff!=0){
+        cout<<1<<endl;
+    }
+    else {
+        cout << n<<m  << endl;
+    }
+}
+}
+
+ int deleteElement(int arr[], int n, int x){ //important
+// Search x in array
+    int i;
+    for (i=0; i<n; i++)
+        if (arr[i] == x)
+            break;
+
+// If x found in array
+    if (i < n)
+    {
+        // reduce size of array and move all
+        // elements on space ahead
+        n = n - 1;
+        for (int j=i; j<n; j++)
+            arr[j] = arr[j+1];
+    }
+
+    return n;
+} //important
+
+void hossamCombination(){
+    ll n;
+    cin>>n;
+    auto* a= new ll[n];
+    for(ll i=0;i<n;i++){
+        cin>>a[i];
+    }
+
+    ll count = 0;
+    ll count2=0;
+    ll max = *max_element(a, a+n);
+    ll min = *min_element(a, a+n);
+
+    for(ll i=0;i<n;i++){
+        if(max==a[i]){
+            count =count+1;
+        }
+        if(min==a[i]){
+            count2=count2+1;
+        }
+    }
+
+
+    if(max==min){
+        ll x= n*(n-1);
+        cout<<(ll)x<<endl;
+    }
+
+    else{
+        cout<<(ll)count2*count*2<<endl;
+    }
+
+
+}
+
+int check (int x){
+    int count=1;
+    while(((x/2)&1)==(x&1)){
+        count++;
+        x/=2;
+    }
+    return count;
+} //important
+
+void devideconquer(){
+    int sum=0;
+    int count;
+    int ans= 2e9;
+//    for(int i =1;i<=n;i++){
+//        cin>>a[i];
+//        sum+=a[i];
+//    }
+//    if(sum&1){
+//        for(int i =1;i<=n;i++){
+//            ans=min(ans,check(a[i]));
+//        }
+//        cout<<ans<<endl;
+//
+//    }
+//    else {
+//        puts("0");
+//    }
+}
+
+void incinerate(){
+    int n,k;
+    cin >> n>>k;
+    vector <pair<int,int>> ms (n);
+    int h;
+    int p;
+
+    for(int i=0;i<n;i++){
+        cin>>ms[i].second;
+    }
+
+    for(int i=0;i<n;i++){
+        cin>>ms[i].first;}
+
+    sort(ms.begin(),ms.end());
+    int dmg =k;
+
+    for (int i = 0; i < n && k > 0; i++) {
+        h= ms[i].second;
+        p=ms[i].first;
+        while(k>0 && h>dmg){
+            k-=p;
+            dmg+=k;
+        }
+    }
+    if(k<=0){
+        cout <<"NO"<<endl;
+    }
+    else{
+        cout<<"YES"<<endl;
+    }
+}
+
+void absmaxi(){
+    int n;
+    cin>>n;
+    vector <int> dic(n);
+    for(int i=0;i<n;i++){
+        cin>>dic[i];
+
+    }
+    int max = dic[0];
+    int min = dic[0];
+    for(int i=0;i<n;i++) {
+        max|= dic[i];
+        min&=dic[i];
+    }
+    int tl = max-min;
+
+    cout<<tl<<endl;
+
+
+}
+
+bool isPrime(int n)
+{
+    // Corner case
+    if (n <= 1)
+        return false;
+
+    // Check from 2 to n-1
+    for (int i = 2; i < n; i++)
+        if (n % i == 0)
+            return false;
+
+    return true;
+}
+
+void strangerThings(){
+    ll n;
+    cin>>n;
+    const ll x = n;
+    const ll y = n;
+    ll a [x][y];
+    ll ans;
+    ll result=0;
+    ll temp [x][y];
+    for(int i=0;i<=x;i++){
+        for(int j=0;j<=x;j++){
+            ans = i*j;
+            a[i][j]=ans;
+
+            if(a[i][j+1]>a[i+1][j]){
+                result+=a[i][j+1];
+            }
+            else{
+                result+=a[i+1][j];
+            }
+            cout<<(result)<<endl;
+        }
+    }
+}
+
+void AddMinusSign(int n, int x){
+}
+
+
+    int main() {
+    //freopen("Weightbonus.in","r",stdin);
+//int t;
+//cin>>t;
+//while(t--){
+int n;
+cin>>n;
+string x;
+    int X=0;
+    for(int i=0;i<n;i++) {
+cin>>x;
+        if (x[1] == '+') {
+            X ++;
+        } else
+            X --;
+
+    }
+    cout<<X;
+
+
+  return 0;
+    }
 
 #include <iostream>
 #include <string>
