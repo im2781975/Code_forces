@@ -1,4 +1,21 @@
 using namespace std;
+void printChar(){
+    string str; cin >> str;
+    for(int i = 0; i < str.size(); i++){
+        if((str[i] >= 'a' && str[i] <= 'z') || (str[i] >= 'A' && str[i] <= 'Z')){
+            if(i + 1 < str.size() && isdigit(str[i + 1])){
+                int n = str[i + 1] - '0';
+                for(int j = 0; j < n; j++)
+                    cout << str[i] << " ";
+                i++;
+            }
+            else
+                cout << str[i] << " ";
+        }
+        
+    }
+}
+using namespace std;
 //find the divisor of 100 that minimizes the value of the expression 100 / i + i.
 void FindDiv(){
     int ans = 0, sum = INT_MAX;
