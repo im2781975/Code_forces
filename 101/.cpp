@@ -1,4 +1,19 @@
 using namespace std;
+//find the divisor of 100 that minimizes the value of the expression 100 / i + i.
+void FindDiv(){
+    int ans = 0, sum = INT_MAX;
+    for(int i = 1; i <= 100; i++){
+        if(100 % i == 0){
+            int cur = 100/i + i;
+            if(cur < sum){
+                sum = cur;
+                ans = i;
+            }
+        }
+    }
+    cout << ans;
+}
+using namespace std;
 int func(int n){
     int cnt = 0;
     while(n){
