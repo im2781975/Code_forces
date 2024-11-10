@@ -30,3 +30,16 @@ int main(){
     }
     cout << ans;
 }
+using namespace std;
+void MaxMin(){
+    int n; cin >> n;
+    int score[100001], mx = 0, mn = INT_MAX, total;
+    for(int i = 0; i < n; i++){
+        cin >> score[i];
+        mx = max(mx, score[i]);
+        mn = min(mn, score[i]);
+        total += score[i];
+    }
+    double avg = static_cast<double>(total)/n;
+    cout << mx << " " << mn << " " << avg;
+}
