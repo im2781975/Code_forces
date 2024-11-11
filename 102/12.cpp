@@ -1,3 +1,9 @@
+#include<bits/stdc++.h>
+#include<cmath>
+#include<string>
+#include <cctype>
+#include <iostream>
+#include <cstring>
 using namespace std;
 int main(){
     int n; cin >> n;
@@ -16,49 +22,6 @@ int main(){
     for(int i = 0; i < n; i++)
         cout << tmp[i] << " ";
 }
-#include<bits/stdc++.h>
-#include<cmath>
-#include<string>
-
-// #include <cctype>
-// #include <iostream>
-// #include <cstring>
-
-using namespace std;
-
-const int N=0;
-// The array Problem codechef
-// int main(){  
-// 	int t;
-// 	long long n;
-// 	cin>>t;
-// 	for(int i=0;i<t;i++){
-// 		cin>>n;
-// 		int arr[n]={};
-// 		for(int i=0;i<n;i++){
-// 			cin>>arr[i];
-// 		}
-// 		int ar[n]={};
-// 		int s=0;
-// 		for(int i=0;i<n;i++){
-// 			for (int j=0;j<n;j++){
-// 				if(i!=j){
-// 					s+=arr[j];
-// 				}
-				
-// 			}
-// 			ar[i]=s;
-// 				s=0;
-// 		}
-// 		for(int i=0;i<n;i++){
-// 			cout<<ar[i]<<" ";
-// 		}
-// 		cout<<endl;
-		
-// 	}
-// }
-
-
 //https://codeforces.com/contest/1453/problem/A
 
 
