@@ -34,6 +34,13 @@ int main(){
             break;
         }
     }
+    for (int i = n / 1000000; i <= 9999; i++) {
+        int x = i * 1000000 + i * 10000 + rev(i) * 100 + rev(i);
+        if (check(x, n)) {
+            cout << x << endl;
+            break;
+        }
+    }
 }
 using namespace std;
 void printChar(){
