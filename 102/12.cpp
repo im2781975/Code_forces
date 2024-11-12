@@ -41,55 +41,21 @@ int main(){
     for(int i = 0; i < n; i++)
         cout << vec[i].first << " " << vec[i].second;
 }
-
-//https://codeforces.com/problemset/problem/1325/B
-// int main(){
-// 	long long t,n,k,d,c,el=0;
-	
-// 	cin>>t;
-// 	while(t--){
-// 		cin>>n;
-	
-// 	   long long arr[n],narr[n*n];
-// 	   for(int i=0;i<n;i++){
-// 		  cin>>arr[i];
-		  
-// 	      }
-// 	   //   for(int i=0;i<n;i++){
-// 		  // cout<<arr[i]<<" ";
-		  
-		  
-// 	   //    }
-// 	   //    cout<<endl;
-// 	    // for(int i=0;i<n*n;i++){
-// 	    // 	if(i<n){
-// 	    // 		narr[i]=arr[i];
-// 	    // 	}
-// 	    // 	else{
-// 	    // 		narr[i]=narr[i-n];
-// 	    // 	}
-// 	    // }
-// 	    // for(int i=0;i<n*n;i++){
-// 	    // 	cout<<narr[i]<<" ";
-// 	    // }
-// 	    sort(arr,arr+n);
-// 	    c=n;
-// 	   //  for(int i=0;i<n;i++){
-// 		  // cout<<arr[i];
-		  
-// 	   //    }
-// 	    for(int i=0;i<n-1;i++){
-	    	
-// 	    	if(arr[i]==arr[i+1]){
-// 	    		c--;
-// 	    	}     
-	    
-// 	    }
-	    
-// 	   cout<<c<<endl; 
-// 	}
-// }
-
+using namespace std;
+//1325B
+void CopyCopy(){
+    int n; cin >> n;
+    int arr[n];
+    for(int i = 0; i < n; i++)
+        cin >> arr[i];
+    sort(arr, arr + n);
+    int cnt = n;
+    for(int i = 0; i < n - 1; i++){
+        if(arr[i] == arr[i + 1])
+            cnt--;
+    }
+    cout << cnt;
+}
 //https://codeforces.com/contest/977/problem/C
 //unfinished
 
