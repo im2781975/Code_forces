@@ -56,6 +56,27 @@ void CopyCopy(){
     }
     cout << cnt;
 }
+using namespace std;
+//977C
+void LessOrEqual(){
+    int n, k; cin >> n >> k;
+    int arr[n];
+    for(int i = 0; i < n; i++)
+        cin >> arr[i];
+    sort(arr, arr + n);
+    if(k == 0){
+        int res = arr[0] - 1;
+        cout << (res > 0) ? res : -1;
+    }
+    else if(k == n)
+        cout << arr[n - 1];
+    else{
+        if(arr[k - 1] == arr[k])
+            cout << -1;
+        else
+            cout << arr[k - 1];
+    }
+}
 //https://codeforces.com/contest/977/problem/C
 //unfinished
 
