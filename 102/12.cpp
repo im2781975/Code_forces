@@ -22,122 +22,25 @@ int main(){
     for(int i = 0; i < n; i++)
         cout << tmp[i] << " ";
 }
-//https://codeforces.com/contest/1453/problem/A
-
-
-// int main(){
-// 	int t,c;
-// 	long long n,m;
-// 	cin>>t;
-// 	while(t--){
-// 		c=0;
-// 		cin>>n>>m;
-// 		long long bottom[n],left[m];
-// 		for(int i=0;i<n;i++){
-// 			cin>>bottom[i];
-// 		}
-// 		for(int i=0;i<m;i++){
-// 			cin>>left[i];
-// 		}
-		
-// 		for(int i=0;i<n;i++){
-// 			for (int j=0;j<m;j++){
-// 				if(bottom[i]==left[j])
-// 					c++;
-// 			}
-// 		}
-		
-		
-		
-// 	cout<<c<<endl;
-	
-//     }
-// 	return 0;
-// }
-
-//https://codeforces.com/contest/1450/problem/B	
-// int main(){
-// 	long long t,n,k,x[n],y[n],d;
-// 	int c=0,cc;
-// 	cin>>t;
-// 	while(t--){
-// 		cin>>n>>k;
-// 		for(int i=0;i<n;i++){
-// 			cin>>x[i]>>y[i];
-// 		}
-// 		for(int i=0;i<n;i++){
-// 			for (int j=i+1;j<n;j++){
-// 				d=abs(x[i]-x[j])+abs(y[i]-y[j]); 
-// 				if(d<=k){
-// 					c++;
-// 				}
-// 				else{
-// 					c=0;
-// 					break;
-// 				}
-				
-// 			}
-// 			if(c!=0)
-// 			{
-// 				cc=1;
-// 				break;
-// 			}
-// 			else{
-// 				cc=-1;
-// 			}
-// 		}
-// 	 cout<<cc<<endl;
-		
-// 	}
-// 	return 0;
-	
-// }
-
-//https://www.hackerearth.com/problem/algorithm/the-monk-and-class-marks/
-// unfinished
-// bool sortbysecond(const pair<string,int> &a,
-//               const pair<string,int> &b)
-// {
-//     if (a.second != b.second){
-//     	return (a.second > b.second);
-//     }
-//     if((a.first.compare(0, b.first.size(), b.first) == 0
-//         || b.first.compare(0, a.first.size(), a.first) == 0))
-//     {
-    	 
- 
-//         return a.first.size() > b.first.size();
-//     }
- 
-    
-//     else{
-//         return a.first < b.first;
-//     }
-
-    	
-    
-    
-// }
-// int main(){
-// 	long long n;
-	
-// 	cin>>n;
-// 	// vector<string> name;
-// 	// vector<int> marks;
-// 	vector<pair<string, int>> v;
-// 	for(int i=0;i<n;i++){
-// 		cin>>v[i].first>>v[i].second;
-		
-// 	}
-	
-// 	sort(v.begin(),v.end(),sortbysecond);
-// 	for(int i=0;i<n;i++){
-// 		cout<<v[i].first<<v[i].second;
-		
-// 	}
-// 	return 0;
-	
-// 	}
+using namespace std;
+bool sortbysec(const pair <string, int> &a, const pair <string, int> &b){
+    if(a.second!= b.second)
+        return a.second > b.second;
+    if (a.first.find(b.first) == 0 || b.first.find(a.first) == 0)
+        return a.first.size() > b.first.size();
+    return a.first < b.first;
+}
+int main(){
+    int n; cin >> n;
+    vector <string> name;
+    vector <int> mark;
+    vector <pair <string, int> > vec(n);
+    for(int i = 0; i < n; i++)
+        cin >> vec[i].first >> vec[i].second;
+    sort(vec.begin(), vec.end(), sortbysec);
+    for(int i = 0; i < n; i++)
+        cout << vec[i].first << " " << vec[i].second;
+}
 
 //https://codeforces.com/problemset/problem/1325/B
 // int main(){
