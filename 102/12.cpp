@@ -42,6 +42,22 @@ int main(){
         cout << vec[i].first << " " << vec[i].second;
 }
 using namespace std;
+string ReducedStr(string &str){
+    string res;
+    for(int i = 0; i < str.size(); i++){
+        char ch = str[i];
+        if(!res.empty() && res.back() == ch)
+            res.pop_back();
+        else
+            res.push_back(ch);
+    }
+    return (res.empty() ? "Empty" : res);
+}
+int main(){
+    string str; cin >> str;
+    cout << ReducedStr(str);
+}
+using namespace std;
 //1325B
 void CopyCopy(){
     int n; cin >> n;
