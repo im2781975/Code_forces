@@ -77,69 +77,6 @@ void LessOrEqual(){
             cout << arr[k - 1];
     }
 }
-//https://codeforces.com/contest/977/problem/C
-//unfinished
-
-// int main(){
-// 	long long t,n,k,d,c;
-	
-	
-	
-//      cin>>n>>k;
-     
-     
-//      int arr[n];
-//      for(int i=0;i<n;i++){
-//      	cin>>arr[i];
-//      }
-//      sort(arr,arr+n);
-     
-//       if(n==1 && k!=0){
-//      	cout<<arr[0]+1<<endl;
-//      }
-//     else if(k<n && n!=1){
-    	
-//     	if(k==0){
-//         	int l=arr[k]-1;
-//         	if(l>0){
-//         		cout<<l<<endl;
-//         	}
-//         	else{
-//         		cout<<-1<<endl;
-//         	}
-//         }
-    	
-//        else if(arr[k-1]==arr[k]){
-//     	cout<<-1<<endl;
-//            }
-        
-//     	else{
-//     		cout<<arr[k-1]<<endl;
-//     	}
-    	
-//     }
-//     else if(n==1 && k==0){
-//     	int l=arr[k]-1;
-//     	if(l>0){
-//         		cout<<l<<endl;
-//         	}
-//         	else{
-//         		cout<<-1<<endl;
-//         	}
-//     }
-// 	else if(n==k){
-// 	    cout<<arr[k-1]<<endl;
-//       }  
-//   return 0; 
-// }
-      
-// int main(){
-// 	string s1="Hello";
-// 	s1[0]='Y';
-// 	cout<<s1;
-// }
-
-
 //https://codeforces.com/contest/352/problem/B
  //unfinisheaaad
 
