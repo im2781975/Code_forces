@@ -77,6 +77,22 @@ void LessOrEqual(){
             cout << arr[k - 1];
     }
 }
+using namespace std;
+//352B
+void JeffAndPeriod(){
+    int n; cin >> n;
+    int arr[n];
+    for(int i = 0; i < n; i++)
+        cin >> arr[i];
+    unordered_map<int, int> idx;
+    for(int i = 0; i < n; i++){
+        if(idx.find(arr[i]) != idx.end()){
+            int dist = i - idx[arr[i]];
+            cout << "Distance between repeated element " << arr[i] << " id " << dist;
+        }
+        idx[arr[i]] = i;
+    }
+}
 //https://codeforces.com/contest/352/problem/B
  //unfinisheaaad
 
