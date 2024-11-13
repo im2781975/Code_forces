@@ -57,6 +57,58 @@ int main(){
     string str; cin >> str;
     cout << ReducedStr(str);
 }
+using namespace std;0
+typedef long long ll;
+// Extended Euclidean Algorithm
+// This function returns the gcd of a and b, and updates x and y with the coefficients such that: ax + by = gcd(a, b)
+ll gcdExtended(ll a, ll b, ll *x, ll *y) {
+    // if a is 0, then gcd is b, and the coefficients are (0, 1)
+    if (a == 0) {
+        *x = 0;
+        *y = 1;
+        return b;
+    }
+    ll x1, y1;
+    // To store results of recursive call
+    ll gcd = gcdExtended(b % a, a, &x1, &y1);
+    // Update x and y using results of recursive call
+    *x = y1 - (b / a) * x1;
+    *y = x1;
+    return gcd;
+}
+// Function to find modulo inverse of b under modulo m
+// This returns -1 if the inverse doesn't exist (i.e., if gcd(b, m) != 1)
+ll modInverse(ll b, ll m) {
+    ll x, y;
+    ll g = gcdExtended(b, m, &x, &y);
+    // Return -1 if b and m are not coprime (gcd != 1)
+    if (g != 1)
+        return -1;
+    // Handle negative x by ensuring result is positive
+    return (x % m + m) % m;
+}
+// compute a / b under modulo m.This function returns (a * b^(-1)) % m if the modular inverse exists; otherwise, -1
+ll modDivide(ll a, ll b, ll m) {
+    a = a % m;
+    ll inv = modInverse(b, m);
+
+    // Check if the modular inverse exists
+    if (inv == -1) {
+        printf("Division not defined\n");
+        return -1;
+    }
+    else
+        return (inv * a) % m;
+}
+int main() {
+    ll a = 10, b = 3, m = 13;
+    ll result = modDivide(a, b, m);
+    if (result != -1) {
+        printf("Result of %lld / %lld under modulo %lld is %lld\n", a, b, m, result);
+    }
+    return 0;
+}
+
 using namespace std;
 //1325B
 void CopyCopy(){
@@ -1416,28 +1468,6 @@ ll *constructST(ll arr[], ll n)
 	// Return the constructed segment tree
 	return st;
 }
-
-bool isPrime(ll n)
-{
-	// Since 0 and 1 is not prime
-	// return false.
-	if (n == 1 || n == 0)
-		return false;
-
-	// Run a loop from 2 to
-	// square root of n.
-	for (ll i = 2; i * i <= n; i++)
-	{
-		// If the number is divisible by i,
-		// then n is not a prime number.
-		if (n % i == 0)
-			return false;
-	}
-
-	// Otherwise n is a prime number.
-	return true;
-}
-
 ll longest_increasing_subsequence(vector<ll> &arr)
 {
 	vector<ll> ans;
@@ -1455,93 +1485,4 @@ ll longest_increasing_subsequence(vector<ll> &arr)
 		}
 	}
 	return ans.size();
-}
-
-ll gcdExtended(ll a, ll b, ll *x, ll *y);
-
-// Function to find modulo inverse of b. It returns
-// -1 when inverse doesn't
-ll modInverse(ll b, ll m)
-{
-	ll x, y; // used in extended GCD algorithm
-	ll g = gcdExtended(b, m, &x, &y);
-
-	// Return -1 if b and m are not co-prime
-	if (g != 1)
-		return -1;
-
-	// m is added to handle negative x
-	return (x % m + m) % m;
-}
-
-// Function to compute a/b under modulo m
-ll modDivide(ll a, ll b, ll m)
-{
-	a = a % m;
-	ll inv = modInverse(b, m);
-	if (inv == -1)
-		printf("Division not defined");
-	else
-	{
-		ll c = (inv * a) % m;
-		// printf ("Result of division is %d", c) ;
-		return c;
-	}
-}
-
-// C function for extended Euclidean Algorithm (used to
-// find modular inverse.
-ll gcdExtended(ll a, ll b, ll *x, ll *y)
-{
-	// Base Case
-	if (a == 0)
-	{
-		*x = 0, *y = 1;
-		return b;
-	}
-
-	ll x1, y1; // To store results of recursive call
-	ll gcd = gcdExtended(b % a, a, &x1, &y1);
-
-	// Update x and y using results of recursive
-	// call
-	*x = y1 - (b / a) * x1;
-	*y = x1;
-
-	return gcd;
-}
-
-
-void solve()
-{
-	string str ;
-    int cnt= 0;
-    int n;
-    cin >>n >> str;
-    for(int i = 0; i < n; i++ ){
-        if(str[i]==str[i+1])
-            cnt++;
-    }
-    cout << cnt << endl;
-   
-}
-
-int main()
-{ // {freopen("input.txt", "r", stdin);
-	// 	freopen("output.txt", "w", stdout);
-	ios_base::sync_with_stdio(0);
-	cin.tie(0);
-	cout.tie(0);
-
-	ll t = 1;
-
-	//cin >> t;
-
-
-	while (t--)
-	{
-		solve();
-	}
-
-	// return 0;
 }
