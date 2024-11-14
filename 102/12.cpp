@@ -161,6 +161,24 @@ void JeffAndPeriod(){
         idx[arr[i]] = i;
     }
 }
+using namespace std;
+//1659A
+//distribute a given number of ('R') & ('B') characters across a sequence of specified length as@
+//evenly as possible, with the goal of minimizing large clusters of 'R's between each 'B'.
+void DistributeChar(){
+    int n, r, b; cin >> n >> r >> b;
+    int segment = r / (b + 1);
+    int extraRed = r % (b + 1);
+    string res = " ";
+    for(int i = 0; i < b + 1; i++){
+        res += string(segment + (extraRed > 0 ? 1 : 0), 'R');
+        if(extraRed > 0)
+            extraRed--;
+        if(i < b)
+            res += 'B';
+    }
+    cout << res;
+}
 //https://codeforces.com/contest/1659/problem/A
 
 //Wrong answer on test case 3
