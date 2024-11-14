@@ -57,6 +57,28 @@ int main(){
     string str; cin >> str;
     cout << ReducedStr(str);
 }
+using namespace std;
+void FindConsecutive(){
+    int n; cin >> n;
+    int arr[n];
+    for(int i = 0; i < n; i++)
+        cin >> arr[i];
+    if(n < 3){
+        cout << -1;
+        continue;
+    }
+    sort(arr, arr + n);
+    bool found = false;
+    for(int i = 0; i < n - 2; i++){
+        if(arr[i] == arr[i + 1] && arr[i + 1] == arr[i + 2]){
+            cout << arr[i];
+            found = true;
+            break;
+        }
+    }
+    if(!found)
+        cout << -1;
+}
 using namespace std;0
 typedef long long ll;
 // Extended Euclidean Algorithm
@@ -179,115 +201,6 @@ void DistributeChar(){
     }
     cout << res;
 }
-//https://codeforces.com/contest/1659/problem/A
-
-//Wrong answer on test case 3
-
-// int main(){
-// 	long long t,n,r,b,bb,c,q;
-	
-	
-// 	cin>>t;
-// 	while(t--){
-// 		cin>>n>>r>>b;
-// 		char s[n];
-// 		for(int i=0;i<n;i++){
-// 			s[i]='R';
-// 			// cout<<s[i];
-// 		}
-// 		// cout<<endl;
-// 		bb=b;
-// 		for (int j=0;j<n;j++){
-// 			q=r/(bb+1);
-// 			q=floor(q);
-// 			s[j+q]='B';
-// 			r-=q;
-// 			bb-=1;
-// 			j+=q;
-			
-// 		}
-// 		for(int i=0;i<n;i++){
-// 			cout<<s[i];
-// 		}
-// 		cout<<endl;
-		
-//     }
-//     return 0;
-// }
-
-//pointers and 2D arrays
-
-// int main(){
-// 	int B[2][3];
-// 	for (int i=0;i<2;i++){
-// 		for(int j=0;j<3;j++){
-// 			B[i][j]=i+j;
-// 		}
-// 	}
-// 	for (int i=0;i<2;i++){
-// 		for(int j=0;j<3;j++){
-// 			cout<<B[i][j];
-// 		}
-// 		cout<<endl;
-	
-// 	}
-// 	int (*p)[3]=B;
-// 	cout<<B<<endl;
-// 	cout<<B[0]<<endl;
-// 	cout<<&B[0][0]<<endl;
-// 	cout<<**B<<endl;
-// }
-
-
-
-
-
-// int main(){
-// 	long long t,n,r,b,bb,c,q;
-// 	string rate;
-	
-	
-// 	cin>>t;
-// 	while(t--){
-// 		cin>>n;
-// 		long long arr[n];
-// 		for(int i=0;i<n;i++){
-// 			cin>>arr[i];
-// 		}
-// 		if(n<3){
-// 			cout<<-1<<endl;
-// 			continue;
-// 		}
-// 		sort(arr,arr+n);
-		
-// 		for(int i=0;i<n-1;i++){
-// 			c=1;
-// 			for(int j=i+1;j<n;j++){
-// 				if(arr[i]==arr[j]){
-// 					c++;
-				
-// 				}
-				
-// 				if(c==3){
-// 					break;
-// 				}
-				
-// 				if(arr[j]>arr[i]){
-// 					break;
-// 				}
-				
-// 			}
-// 			if(c>=3){
-// 				cout<<arr[i]<<endl;
-// 				break;
-// 			}
-// 		}
-// 		if(c<3){
-// 			cout<<-1<<endl;
-// 		}
-// 	}
-// }
-
 // int main(){
 // 	long long t,l,n,r,b,bb,c,q;
 // 	string s,ss;
