@@ -201,6 +201,37 @@ void DistributeChar(){
     }
     cout << res;
 }
+using namespace std;
+void Consecutive(){
+    string str; cin >> str;
+    int len = str.size();
+    if(len == 1){
+        cout << "No";
+        return 0;
+    }
+    bool valid = true;
+    for(int i = 0; i < len; i++){
+        if(i == 0){
+            if(str[i]!= str[i + 1]){
+                valid = false;
+                break;
+            }
+        }
+        else if(i == len - 1){
+            if(str[i] != str[i - 1]){
+                valid = false;
+                break;
+            }
+        }
+        else{
+            if(str[i] != str[i + 1] && str[i] != str[i - 1]){
+                valid = false;
+                break;
+            }
+        }
+    }
+    cout << (valid ? "Yes" : "No");
+}
 // int main(){
 // 	long long t,l,n,r,b,bb,c,q;
 // 	string s,ss;
