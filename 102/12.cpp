@@ -232,6 +232,31 @@ void Consecutive(){
     }
     cout << (valid ? "Yes" : "No");
 }
+using namespace std;
+void check(){
+    int n; cin >> n;
+    int arr[n];
+    for(int i = 0; i < n; i++)
+        cin >> arr[i];
+    bool valid = true;
+    int evenIdx = arr[0] % 2;
+    for(int i = 0; i < n; i += 2){
+        if(arr[i] % 2 != evenIdx){
+            valid = false;
+            break;
+        }
+    }
+    if(valid){
+        int oddIdx = (n > 1) ?  arr[1] % 2 : evenIdx;
+        for(int i = 1; i < n; i += 2){
+            if(arr[i] % 2 != oddIdx){
+                valid = false;
+                break;
+            }
+        }
+    }
+    cout << (valid ? cout << "Yes" : cout << "No");
+}
 // int main(){
 // 	long long t,l,n,r,b,bb,c,q;
 // 	string s,ss;
