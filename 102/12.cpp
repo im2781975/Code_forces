@@ -257,6 +257,47 @@ void check(){
     }
     cout << (valid ? cout << "Yes" : cout << "No");
 }
+using namespace std;
+void check(){
+    int n; string str;
+    cin >> n >> str;
+    if(n == 1){
+        if(str == "W")
+            cout << "Yes";
+        else
+            cout << "No";
+        return 0;
+    }
+    if(n == 2){
+        if(str == "WW" || str == "RB" || str == "BR")
+            cout << "Yes";
+        else
+            cout << "No";
+        return 0;
+    }
+    int len = str.size();
+    bool flag = true;
+    for(int i = 0; i < len;){ 
+        //skip white
+        while(i < len && str[i] == 'W')
+            i++;
+        if(i == n)
+            break;
+        int blue = 0, red = 0;
+        while(i < len && str[i]!= 'W'){
+            if(str[i] == 'B')
+                blue++;
+            else if(str[i] == 'R')
+                red++;
+            i++;
+        }
+        if(blue == 0 || red == 0){
+            flag = false;
+            break;
+        }
+    }
+    (flag)? cout << "Yes" : cout << "No";
+}
 // int main(){
 // 	long long t,n,r,b,bb,c,q,l;
 // 	string s;
