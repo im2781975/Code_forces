@@ -703,3 +703,208 @@ ll longest_increasing_subsequence(vector<ll> &arr)
 	}
 	return ans.size();
 }
+
+#include <bits/stdc++.h>
+
+#define speed_of_light               ios_base::sync_with_stdio(false); cin.tie(NULL);
+
+#define pr pair<long long, long long>
+#define fr first
+#define sc second
+#define ll long long int
+#define rep(i, a, b) for (ll i = a; i < b; i++)
+#define repf(i, a, b) for (ll i = a; i <= b; i++)
+#define repr(i, a, b) for (ll i = a; i >= b; i--)
+#define YES                \
+  {                        \
+    cout << "YES" << endl; \
+  }
+#define Yes                \
+  {                        \
+    cout << "Yes" << endl; \
+  }
+#define NO                \
+  {                       \
+    cout << "NO" << endl; \
+  }
+#define No                \
+  {                       \
+    cout << "No" << endl; \
+  }
+ll gcd(ll a, ll b)
+{
+  if (b == 0)
+    return a;
+  return gcd(b, a % b);
+}
+
+ll lcm(ll a, ll b)
+{
+  return a / gcd(a, b) * b;
+}
+bool check(ll array[], ll n)
+{
+  bool flag = 0;
+
+  for (int i = 0; i < n - 1; i++)
+  {
+    if (array[i] != array[i + 1])
+      flag = 1;
+  }
+
+  return flag;
+}
+ll sumDigits(ll no)
+{
+  return no == 0 ? 0 : no % 10 + sumDigits(no / 10);
+}
+/* more to be updated */
+/* more to be updated */
+using namespace std;
+ll sumofeven(ll n)
+{
+  ll sum = 0;
+  if (n % 2 == 0)
+  {
+    for (ll i = 0; i <= n; i += 2)
+      sum += i;
+  }
+  else
+  {
+    for (ll i = 0; i < n; i += 2)
+      sum += i;
+  }
+  return sum;
+}
+ll sumofodd(ll n)
+{
+  ll sum = 0;
+  if (n % 2 == 0)
+    for (ll i = 1; i < n; i += 2)
+      sum += i;
+  else
+    for (ll i = 1; i <= n; i += 2)
+      sum += i;
+  return sum;
+}
+
+ll sumi(ll n)
+{
+  ll sum = 0;
+  for (int i = 4; i < n; i += 3)
+  {
+    sum += i++;
+    if (i < n)
+      sum += i;
+  }
+  return sum;
+}
+ll sumo(ll n)
+
+{
+  ll sum = 0;
+  for (int i = 2; i < n; i += 3)
+  {
+    sum += i++;
+    if (i < n)
+      sum += i;
+  }
+  return sum;
+}
+int ispalindrome(string s)
+{
+  ll i = 0;
+  ll n = s.length();
+  while (i <= n)
+  {
+    if (s[i++] != s[--n])
+      return 1;
+  }
+  return 0;
+}
+bool is_prime(ll n)
+{
+  for (ll i = 2; i * i <= n; i++)
+  {
+    if (n % i == 0)
+    {
+      return false;
+    }
+  }
+  return true;
+}
+bool isVowel(char a)
+{
+  if (a == 'a' || a == 'e' || a == 'i' || a == 'o' || a == 'u' || a == 'A' || a == 'E' || a == 'I' || a == 'O' || a == 'U' ||a=='Y' ||a=='y')
+  return 0;
+  return 1;
+}
+vector<int> countFreq(string pat, string txt)
+{
+    int M = pat.length();
+    int N = txt.length();
+    int res = 0;
+   vector<int> v;
+    /* A loop to slide pat[] one by one */
+    for (int i = 0; i <= N - M; i++)
+    {
+        /* For current index i, check for
+           pattern match */
+        int j;
+        for (j = 0; j < M; j++)
+            if (txt[i+j] != pat[j])
+                break;
+  
+        // if pat[0...M-1] = txt[i, i+1, ...i+M-1]
+        if (j == M) 
+        {
+          v.push_back(j-4);
+        }
+    }
+    return v;
+}
+ll countDivisors(ll n)
+{
+    ll cnt = 0;
+    for (ll i = 1; i <= sqrt(n); i++) {
+        if (n % i == 0) {
+            // If divisors are equal,
+            // count only one
+            if (n / i == i)
+                cnt++;
+ 
+            else // Otherwise count both
+                cnt = cnt + 2;
+        }
+    }
+    return cnt;
+}
+void solve() 
+{
+  ll n;
+  cin>>n;
+  string s;
+  cin>>s;
+  ll count=0;
+  rep(i,1,n)
+  {
+    if(s[i]==s[i-1])
+    {count++;}
+  }cout<<count<<endl;
+
+}
+
+
+int main()
+{
+  speed_of_light
+  // ll t;
+  // cin>>t;
+  // while(t--)
+  // {
+  //  solve();
+
+  //  }
+     solve();
+}
+//https://codeforces.com/problemset/problem/195/A
