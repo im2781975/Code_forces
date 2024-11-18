@@ -42,6 +42,29 @@ int main(){
         n++;
     }
 }
+using namespace std;
+void CountChar(){
+    string str; cin >> str;
+    int upper = 0, lower = 0, num = 0, special = 0;
+    for(int i = 0; i < str.size(); i++){
+        if(str[i] >= 'A' && str[i] <= 'Z')
+            upper++;
+        else if(str[i] >= 'a' && str[i] <= 'z')
+            lower++;
+        else if(str[i] >= '0' && str[i] <= '9')
+            num++;
+        else
+            special++;
+    }
+    if(upper > lower)
+ 		 transform(str.begin(), str.end(), str.begin(), ::toupper);
+   else if(lower > upper)
+ 		 transform(str.begin(), str.end(), str.begin(), ::tolower);
+ 	else if(upper == lower)
+ 		 transform(str.begin(), str.end(), str.begin(), ::tolower);
+ 	cout << str;
+ 	cout << "\nUpper case letters: " << upper << "\nLower case letters : " << lower  << "\nNumber : " << num << "\nSpecial characters : " << special;
+}
 // int main(){
 // 	long t,l;
 // 	string s,n;
