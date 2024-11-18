@@ -1,3 +1,24 @@
+using namespace std;
+void Morse(){
+    string str, vec;
+    cin >> str;
+    int len = str.size();
+    for(int i = 0; i < len; i++){
+        if(str[i] == '.')
+            vec.push_back('0');
+        else if(str[i] == '-'){
+            if(i + 1 < len && str[i + 1] == '.'){
+                vec.push_back('1');
+                i++;
+            }
+            else if(i + 1 < len && str[i + 1] == '-'){
+                vec.push_back('2');
+                i++;
+            }
+        }
+    }
+    cout << vec;
+}
 // int main(){
 // 	long t,l;
 // 	string s,n;
