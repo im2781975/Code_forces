@@ -347,113 +347,24 @@ void Satisfied(){
     }
     cout << cnt;
 }
-// TLE on test case 3
-// int main(){
-// 	long long t, n,c,l;
-// 	string s;
-// 	cin>>t;
-// 	while(t--){
-// 		c=0;
-// 		cin>>n;
-// 		l=n*(n-1)/2;
-// 		string arr[n];
-// 		vector<pair<string, string>> v;
-// 		for (int i=0;i<n;i++){
-// 			cin>>arr[i];
-// 			v[i].first=arr[i];
-// 		}
-		
-		
-// 		for(int i=0;i<l;i++){
-// 			if(j==n)
-// 				j=
-// 			v[i].first=arr[j];
-// 			v[i].second=arr[j+1];
-			
-			
-			
-// 		}
-// 		cout<<c<<endl;
-// 	}
-// }
-
-// if((arr[i][0]==arr[j][0] && arr[i][1]!=arr[j][1]) ||  (arr[i][0]!=arr[j][0] && arr[i][1]==arr[j][1])){
-// 					c++;
-// 				}
-
-// int main(){
-// 	long long t, n,c,l,r,ans;
-// 	string s;
-// 	long long arr[5][5];
-// 	for(int i=0;i<5;i++){
-// 		for(int j=0;j<5;j++){
-// 			cin>>arr[i][j];
-// 			if(arr[i][j]==1){
-// 				r=i;
-// 				c=j;
-// 			}
-// 		}
-	
-// 	}
-// 	ans=abs(2-r)+abs(2-c);
-// 	cout<<ans<<endl;
-// }
-	
-//unfinished
-	
-// int main(){
-// 	long long n,l,t,c=0,j=0;
-// 	size_t found=0;
-// 	cin>>n>>t;
-// 	string s;
-// 	cin>>s;
-// 	//     while(t!=0){
-// 	//     	for(int i=0;i<n;i++){
-		    
-// 	// 	    	if(s[i]=='B' && s[i+1]=='G'){
-			
-// 	// 			s[i]='G';
-// 	// 		    s[i+1]='B';
-// 	// 		    // t--;
-// 	// 		    i++;
-
-			
-	         
-// 	// 	    }
-// 	// 	    t--;
-		    
-		
-// 	//     }
-		
-// 	// }
-// 	l=s.size();
-// 	while(t--){
-// 		found=0;
-// 		while(l-found){
-			
-// 				found = s.find("BG",found);
-// 					if (found != string::npos){
-// 	                s[found]='G';
-// 	                s[found+1]='B';
-	                
-// 	                cout<<found<<endl;
-	
-// 	                found=found+2;
-	                
-// 				}
-				
-	    
-			
-			
-// 		}
-
-   
-// 	}
-// 	cout<<s<<endl;
-	
-// }
-
-
+using namespace std;
+//swap occurrences of "BG" to "GB" in a string repeatedly until no more "BG" pairs can be found and swapped
+void swap(){
+    int n; string str;
+    cin >> n >> str;
+    size_t found = 0;
+    while(found < str.size()){
+        found = str.find("BG", found);
+        if(found != string::npos){
+            str[found] = 'G';
+            str[found + 1] = 'B';
+            found += 2;
+        }
+        else
+            break;
+    }
+    cout << str;
+}
 // int main(){
 // 	long t,l;
 // 	string s,n;
