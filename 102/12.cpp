@@ -332,6 +332,21 @@ void isSatisfied(){
     }
     cout << "Yes";
 }
+using namespace std;
+void Satisfied(){ 
+    int cnt = 0;
+    int n; cin >> n;
+    string str[n];
+    for(int i = 0; i < n; i++)
+        cin >> str[i];
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j < n; j++){
+            if((str[i][0] == str[j][0] && str[i][1] != str[j][1]) || (str[i][0] != str[j][0] && str[i][1] == str[j][1]))
+                cnt++;
+        }
+    }
+    cout << cnt;
+}
 // TLE on test case 3
 // int main(){
 // 	long long t, n,c,l;
