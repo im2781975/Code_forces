@@ -76,70 +76,30 @@ void LuckyDigit(){
     }
     (cnt == 4 || cnt == 7) ? cout << "Yes" : cout << "No";
 }
-// int main(){
-// 	long long n,m,f,c=0,c2=0,idx;
-// 	cin>>n;
-// 	long long a[n];
-// 	for (int i = 0; i < n; ++i)
-// 	{
-// 		cin>>a[i];
-// 	}
-// 	cin>>m;
-// 	long long b[m];
-// 	for (int i = 0; i < m; ++i)
-// 	{
-// 		cin>>b[i];
-// 		for (int j = 0; j < n; j+=5){
-// 			if (a[j] == b[i]){
-// 				idx=j;
-// 				break;
-// 			}
-// 			else if( a[j+1] == b[i] && j+1 < n)
-// 				{idx=j+1;
-// 				break;}
-				
-//             else if(a[j+2] == b[i] && j+2 < n)
-//             	{idx=j+2;
-// 				break;}
-       
-//             else if(a[j+3] == b[i] && j+3 < n)
-//             	{idx=j+3;
-// 				break;}
-        
-//             else if(a[j+4] == b[i] && j+4 < n)
-//             	{idx=j+4;
-// 				break;}
-        
-// 		}
-// 		// cout<<idx<<endl;
-// 		f=idx+1;
-// 		c+=f;
-// 		f=n-idx;
-// 		c2+=f;
-// 	}
-	
-	
-	
-	
-	
-// 	cout<<c<<" "<<c2<<endl;
-	
-	
-// }
-
+using namespace std;
 int main(){
-	
-	long long n,c=0;
-	string s;
-	cin>>n;
-	cin>>s;
-	for (int i = 0; i < n-1; ++i)
-	{
-		if(s[i]==s[i+1]){
-			c++;
-		}
-	}
-	cout<<c<<endl;
+    int n, m, idx; cin >> n >> m;
+    int arr[n], tmp[m];
+    for(int i = 0; i < n; i++)
+        cin >> arr[i];
+    int ForwardSteps, ForwardCnt = 0, BackwardCnt = 0;
+    for(int i = 0; i < m; i++){
+        cin >> tmp[i];
+        idx = -1;
+        for(int j = 0; j < n; j++){
+            if(arr[j] = tmp[i]){
+                idx = j;
+                break;
+            }
+        }
+        if(idx != -1){
+            ForwardSteps = idx + 1;
+            ForwardCnt += ForwardSteps;
+            ForwardSteps = n - idx;
+            BackwardCnt += ForwardSteps;
+        }
+    }
+    cout << ForwardCnt << " " << BackwardCnt;
 }
 #include <bits/stdc++.h>
 using namespace std;
