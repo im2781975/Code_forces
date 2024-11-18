@@ -298,181 +298,40 @@ void check(){
     }
     (flag)? cout << "Yes" : cout << "No";
 }
-// int main(){
-// 	long long t,n,r,b,bb,c,q,l;
-// 	string s;
-// 	cin>>t;
-// 	while(t--){
-// 		cin>>n;
-// 		cin>>s;
-// 		bool flag=true;
-// 		for(int i=0;i<n;i++){
-// 			while(i<n && s[i]=='W') i++;
-// 			if(i==n) break;
-// 			int blue =0, red=0;
-// 			while(i<n && s[i]!='W'){
-// 				if(s[i]=='B') blue++;
-// 				else red++; 
-// 				i++;
-// 			}
-			 
-// 			if(red==0 || blue==0){
-// 				flag=false;
-// 				break;
-// 			}
-			
-// 		}
-// 		if(flag){cout<<"YES"<<endl;}
-// 		else cout<<"NO"<<endl; 
-// 	}
-// }
-	
-	// c=1;
-	
-	// cin>>t;
-	// while(t--){
-	// 	cin>>n;
-	// 	cin>>s;
-	// 	if(n==1){
-	// 		if(s=="W"){
-	// 			cout<<"YES"<<endl;
-	// 			continue;
-	// 		}
-	// 		else{
-	// 			cout<<"NO"<<endl;
-	// 			continue;
-	// 		}
-	// 	}
-	// 	if(n==2){
-	// 		if(s=="WW" || s=="RB" || s=="BR"){
-	// 			cout<<"YES"<<endl;
-	// 			continue;
-	// 		}
-	// 		else{
-	// 			cout<<"NO"<<endl;
-	// 			continue;
-	// 		}
-			
-	// 	}
-		
-		
-	// 	l=s.size();
-	// 	char c='W';
-	// 	bool flag=true;
-	// 	for(int i=0;i<l;i++){
-	// 		while(i<n && s[i]=='W') i++;
-	// 		if(i==n) break;
-	// 		int blue =0, red=0;
-	// 		while(i<n && s[i]!='W'){
-	// 			if(s[i]=='B') blue++;
-	// 			else red++; 
-	// 			i++;
-	// 		}
-			 
-	// 		if(red==0 || blue==0){
-	// 			flag=false;
-	// 			break;
-	// 		}
-			
-	// 	}
-	// 	if(flag){cout<<"YES"<<endl;}
-	// 	else cout<<"NO"<<endl;
-	// 	}
-		
-		
-			
-		
-			// if(i==0){
-		// 		if(s[i]=='R' || s[i]=='B'){
-		// 			if(s[i+1]=='R' || s[i+1]== 'B'){
-		// 			 c=1;
-		// 		      }
-		// 		   else{
-		// 			 cout<<"NO"<<endl;
-		// 			 break;
-		// 		     }
-		// 		}
-				
-		// 	}
-		// 	else if(i==l-1){
-		// 		if(s[i]=='R' || s[i]=='B'){
-		// 			if(s[i-1]=='R' || s[i-1]== 'B'){
-		// 			 c=1;
-		// 		      }
-		// 		   else{
-		// 		   	 c=0;
-		// 			 cout<<"NO"<<endl;
-		// 			 break;
-		// 		     }
-		// 		}
-		// 	}
-		// 	else if(s[i]=='R'){
-		// 		if(s[i+1]=='R' || s[i+1]=='B'|| s[i-1]=='R'|| s[i-1]=='B'){
-		// 			if(s[i-1]=='W'){
-		// 				if(s[i+1]=='B'){
-		// 					c=1;
-		// 				}
-		// 				else{
-		// 					c=0;
-		// 				}
-		// 			}
-		// 			if(s[i+1]=='W'){
-		// 				if(s[i-1]=='B'){
-		// 					c=1;
-		// 				}
-		// 				else{
-		// 					c=0;
-		// 					cout<<"NO"<<endl;
-		// 		            break;
-		// 				}
-		// 			}
-					
-					
-		// 		}
-		// 		else{
-		// 		    c=0;
-		// 		    cout<<"NO"<<endl;
-		// 		    break;
-		// 	    }
-				
-		// 	}
-		// 	else if(s[i]=='B'){
-		// 		if(s[i+1]=='R' || s[i+1]=='B'|| s[i-1]=='R'|| s[i-1]=='B'){
-		// 			if(i!=0 && s[i-1]=='W'){
-		// 				if(s[i+1]=='R'){
-		// 					c=1;
-		// 				}
-		// 				else{
-		// 					c=0;
-		// 				}
-		// 			}
-		// 			if(i!=(n-1) && s[i+1]=='W'){
-		// 				if(s[i-1]=='R'){
-		// 					c=1;
-		// 				}
-		// 				else{
-		// 					c=0;
-		// 					cout<<"NO"<<endl;
-		// 		            break;
-		// 				}
-		// 			}
-					
-					
-		// 		}
-		// 		else{
-		// 		    c=0;
-		// 		    cout<<"NO"<<endl;
-		// 		    break;
-		// 	    }
-				
-		// 	}
-			
-			
-	
-		// }
-		// if(c==1){
-		// 	cout<<"YES"<<endl;
-		
+using namespace std;
+//determine if a string composed of the characters 'R', 'B', and 'W' satisfies 
+// specific adjacency rules for the characters 'R' and 'B'.
+void isSatisfied(){
+    string str; cin >> str;
+    bool valid = true;
+    int len = str.size();
+    for(int i = 0; i < len; i++){
+        if(str[i] == 'R' || str[i] == 'B'){
+            bool validVicino = false;
+            if(i > 0 && (str[i - 1] == 'R' || str[i - 1] == 'B'))
+                validVicino = true;
+            if(i < len - 1 && (str[i + 1] == 'R' || str[i + 1] == 'B'))
+                validVicino = true;
+            if(str[i] == 'R'){
+                if(i > 0 && str[i - 1] == 'W' && str[i + 1] != 'B')
+                    validVicino = false;
+                if(i < len - 1 && str[i + 1] == 'W' && str[i - 1]!= 'B')
+                    validVicino = false;
+            }
+           else if(str[i] == 'B'){
+                if(i > 0 && str[i - 1] == 'W' && str[i + 1] != 'R')
+                    validVicino = false;
+                if(i < len - 1 && str[i + 1] == 'W' && str[i - 1]!= 'R')
+                    validVicino = false;
+            }
+            if(!validVicino){
+                cout << "No";
+                return 0;
+            }
+        }
+    }
+    cout << "Yes";
+}
 // TLE on test case 3
 // int main(){
 // 	long long t, n,c,l;
