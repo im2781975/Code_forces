@@ -19,6 +19,29 @@ void Morse(){
     }
     cout << vec;
 }
+using namespace std;
+bool UniqueDigit(int year){
+    int digits[10] = {0};
+    while(year > 0){
+        int dig = year % 10;
+        if(digits[dig] > 0)
+            return false;
+        digits[dig]++;
+        year /= 10;
+    }
+    return true;
+}
+int main(){
+    int y; cin >> y;
+    int n = y + 1;
+    while(true){
+        if(UniqueDigit(n)){
+            cout << n;
+            break;
+        }
+        n++;
+    }
+}
 // int main(){
 // 	long t,l;
 // 	string s,n;
