@@ -57,190 +57,25 @@ void CountChar(){
             special++;
     }
     if(upper > lower)
- 		 transform(str.begin(), str.end(), str.begin(), ::toupper);
+ 	transform(str.begin(), str.end(), str.begin(), ::toupper);
    else if(lower > upper)
- 		 transform(str.begin(), str.end(), str.begin(), ::tolower);
- 	else if(upper == lower)
- 		 transform(str.begin(), str.end(), str.begin(), ::tolower);
- 	cout << str;
- 	cout << "\nUpper case letters: " << upper << "\nLower case letters : " << lower  << "\nNumber : " << num << "\nSpecial characters : " << special;
+ 	transform(str.begin(), str.end(), str.begin(), ::tolower);
+   else if(upper == lower)
+ 	transform(str.begin(), str.end(), str.begin(), ::tolower);
+   cout << str;
+   cout << "\nUpper case letters: " << upper << "\nLower case letters : " << lower  << "\nNumber : " << num << "\nSpecial characters : " << special;
 }
-// int main(){
-// 	long t,l;
-// 	string s,n;
-// 	cin>>s;
-// 	l=s.size();
-// 	//.   -->0
-// 	// -. -->1
-// 	//--  -->2
-// 	for(int i=0;i<l;i++){
-// 		if(s[i]=='.')
-// 			n.push_back('0');
-// 		else if(s[i]=='-'){
-// 			if(s[i+1]=='.'){
-// 				n.push_back('1');
-// 				i++;
-// 			}
-// 			else if(s[i+1]=='-'){
-// 				n.push_back('2');
-// 				i++;
-// 			}
-			
-	
-// 		}
-// 	}
-// 	cout<<n<<endl;
-// }
-
-
-// int main(){
-// 	long long t,n,y,arr[4],c;
-// 	cin>>y;
-// 	bool flag=true;
-// 	n=y+1;
-// 	while(flag){
-// 		//n=y+1;
-// 		for(int i=0;i<4;i++){
-// 			arr[i]=n/(pow(10,3-i));
-// 			arr[i]%=10;
-			
-// 		}
-// 		sort(arr,arr+4);
-// 		for(int i=0;i<3;i++){
-// 			if(arr[i]==arr[i+1]){
-// 				c=0;
-// 				n++;
-// 				break;
-				
-// 			}
-// 			else{
-// 				c=1;
-// 				continue;
-// 			}
-// 		}
-// 		if(c){
-// 			cout<<n<<endl;
-// 			flag=false;
-// 		}
-		
-		
-		
-// 	}
-	
-// }
-
-// 
-
-// 
-
-// int main(){
-	
-// 	string s;
-// 	cin>>s;
-	
-// 	int upper = 0, lower = 0, number = 0, special = 0;
-// 	for (int i = 0; i < s.length(); i++)
-// 	{
-// 		if (s[i] >= 'A' && s[i] <= 'Z')
-// 			upper++;
-// 		else if (s[i] >= 'a' && s[i] <= 'z')
-// 			lower++;
-		
-// 	}
-	
-// 	// cout<<l<< ' '<<u;
-// 	if(upper>lower) 
-// 		transform(s.begin(), s.end(), s.begin(), ::toupper);
-// 	else if(lower>upper) 
-// 		transform(s.begin(), s.end(), s.begin(), ::tolower);
-// 	else if(upper==lower)
-// 		transform(s.begin(), s.end(), s.begin(), ::tolower);
-// 	cout<<s<<endl;
-	
-// }
-
-// // C++ program to count the uppercase,
-// // lowercase, special characters
-// // and numeric values
-// #include<iostream>
-// // using namespace std;
-
-// // Function to count uppercase, lowercase,
-// // special characters and numbers
-// void Count(string str)
-// {
-// 	int upper = 0, lower = 0, number = 0, special = 0;
-// 	for (int i = 0; i < str.length(); i++)
-// 	{
-// 		if (str[i] >= 'A' && str[i] <= 'Z')
-// 			upper++;
-// 		else if (str[i] >= 'a' && str[i] <= 'z')
-// 			lower++;
-// 		else if (str[i]>= '0' && str[i]<= '9')
-// 			number++;
-// 		else
-// 			special++;
-// 	}
-// 	cout << "Upper case letters: " << upper << endl;
-// 	cout << "Lower case letters : " << lower << endl;
-// 	cout << "Number : " << number << endl;
-// 	cout << "Special characters : " << special << endl;
-// }
-
-// // Driver function
-// int main()
-// {
-// 	string str = "#GeeKs01fOr@gEEks07";
-// 	Count(str);
-// 	return 0;
-// }
-
-// int main(){
-// 	string s;
-// 	cin>>s;
-// 	s[0]=char(toupper(s[0]));
-// 	cout<<s<<endl;
-// }
-
-// int main(){
-// 	long long n,t,tt,c=0;
-// 	cin>>n;
-// 	t=n;
-// 	while(t){
-// 		// t=n/(pow(10,3-i));
-// 		tt=t%10;
-// 		t/=10;
-// 		if(tt==4 || tt==7){
-// 			c++;
-// 		}
-// 	}
-// 	if(c==4 || c==7){
-// 		cout<<"YES"<<endl;
-// 	}
-// 	else{
-// 		cout<<"NO"<<endl;
-// 	}
-// }
-
-// int main(){
-// 	long long arr[4],t,n,c=0;
-// 	for(int i=0;i<4;i++){
-// 		cin>>arr[i];
-// 	}
-// 	sort(arr,arr+4);
-// 	for (int i = 0; i < 3; ++i)
-// 	{
-// 		if(arr[i]==arr[i+1]){
-// 			c++;
-// 		}
-// 	}
-// 	cout<<c<<endl;
-// }
-
-
-	
-
-
+using namespace std;
+void LuckyDigit(){
+    int n, digit, cnt = 0;
+    cin >> n;
+    while(n){
+        digit = n % 10; n /= 10;
+        if(digit == 4 || digit == 7)
+            cnt++;
+    }
+    (cnt == 4 || cnt == 7) ? cout << "Yes" : cout << "No";
+}
 // int main(){
 // 	long long n,m,f,c=0,c2=0,idx;
 // 	cin>>n;
