@@ -136,6 +136,18 @@ long long nCr(int n, int p, int r){
         fact[i] = (fact[i - 1] * i) % p;
     return (fact[n] * BinPow(fact[r], p - 2, p) % p * BinPow(fact[n - r], p - 2, p) % p) % p;
 }
+using namespace std;
+bool prime[100100];
+void isprime(){
+    memset(prime, true, sizeof(prime));
+    prime[0] = prime[1] = false;
+    for(int p = 2; p * p <= 100100; p++){
+        if(prime[p]){
+            for(int i = p * p; i <= 100100; i+= p)
+                prime[i] = false;
+        }
+    }
+}
 // bool prime[1000100];
 // void isprime()
 // {
