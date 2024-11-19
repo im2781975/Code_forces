@@ -286,6 +286,12 @@ int main(){
             cerr << "Invalid input";
     }
 }
+using namespace std;
+bool IsKthBit(int n, int k){
+    if(n & (1 << k))
+        return true;
+    return false;
+}
 // #define MAXN   (ll)1e7+1
 
 // // stores smallest prime factor for every number
