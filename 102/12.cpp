@@ -173,6 +173,34 @@ int smallestDiv(int n){
     }
     return n;
 }
+using namespace std;
+vector <pair <int, int> findSubarr(int arr[], int n){
+    unordered_map <int, vector <int> > mp;
+    vector <pair <int, int> >vec;
+    for(int i = 0; i < n; i++){
+        sum += arr[i];
+        if(sum == 0)
+            vec.push_back(make_pair(0, i));
+        if(mp.find(sum) != mp.end()){
+            vector <int> vc = mp[sum];
+            for(auto it = vc.begin(); it != vc.end(); ++it)
+                vec.push_back(make_pair(*it + 1, i));
+        }
+        mp[sum].push_back(i);
+    }
+    return vec;
+}
+int cntDisjoint(const vector <pair <int, int> > &vec){
+    int cnt = 1;
+    int prev = -1;
+    for(const auto &it : vec){
+        if(it.first > prev){
+            cnt++;
+            prev = it.second;
+        }
+    }
+    return cnt;
+}
 // vector< pair<ll, ll> > findSubArrays(ll arr[], ll n)
 // {
 //     // create an empty map
