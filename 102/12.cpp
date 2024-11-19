@@ -338,6 +338,27 @@ int main(){
     map <int, int> factors = generatePrime(n);
     print(factors);
 }
+using namespace std;
+//Returns count of subarrays of arr with XOR
+int SubarrXor(int arr[], int n, int m){
+    int ans = 0;
+    // Map to store frequency of prefix XOR values
+    unordered_map <int, int> ump;
+    // Initialize cumulative XOR
+    int cx = 0;
+    for(int i = 0; i < n; i++){
+        cx ^= arr[i];
+        if(cx == m)
+            ans++;
+        // Find XOR of current prefix with m
+        int tmp = cx ^ m;
+        // Add the frequency of the required XOR value
+        if(ump.find(tmp)!= ump.end())
+        // Increment the count of current XOR in the map
+            ump[cx]++;
+    }
+    return ans;
+}
 // #define MAXN   (ll)1e7+1
 
 // // stores smallest prime factor for every number
