@@ -163,73 +163,16 @@ void PrimeFactor(int n, vector <int> &vec){
     if(n > 2)
         vec.push_back(n);
 }
-// bool prime[1000100];
-// void isprime()
-// {
-//     memset(prime, true, sizeof(prime));
-
-//     for (ll p = 2; p * p < 1000100; p++)
-//     {
-//         if (prime[p] == true)
-//         {
-//             for (ll i = p * p; i < 1000100; i += p)
-//                 prime[i] = false;
-//         }
-//     }
-// }
-
-ll fact(ll k)
-{
-	if (k == 0)
-		return 1;
-	if (k == 1)
-		return 1;
-	// return k*fact(k-1);
-	return ((k % M) * (fact(k - 1) % M)) % M;
+using namespace std;
+int smallestDiv(int n){
+    if(n % 2 == 0)
+        return 2;
+    for(int i = 3; i * i <= n; i += 2){
+        if(n % i == 0)
+            return i;
+    }
+    return n;
 }
-
-// void primefactor(ll n, vector<ll> &p)
-// {
-//     // Print the number of 2s that divide n
-//     while (n % 2 == 0)
-//     {
-//         p.push_back(2);
-//         n = n / 2;
-//     }
-
-//     // n must be odd at this point. So we can skip
-//     // one element (Note i = i +2)
-//     for (ll i = 3; i <= sqrt(n); i = i + 2)
-//     {
-//         // While i divides n, print i and divide n
-//         while (n % i == 0)
-//         {
-//             p.push_back(i);
-//             n = n / i;
-//         }
-//     }
-
-//     // This condition is to handle the case when n
-//     // is a prime number greater than 2
-//     if (n > 2)
-//         p.push_back(n);
-// }
-
-// ll smallestDivisor(ll n)
-// {
-//     // if divisible by 2
-//     if (n % 2 == 0)
-//         return 2;
-
-//     // iterate from 3 to sqrt(n)
-//     for (ll i = 3; i * i <= n; i += 2)
-//     {
-//         if (n % i == 0)
-//             return i;
-//     }
-
-//     return n;
-// }
 // vector< pair<ll, ll> > findSubArrays(ll arr[], ll n)
 // {
 //     // create an empty map
