@@ -82,6 +82,17 @@ void BearAndBigBrother(){
     }
     cout << cnt;
 }
+using namespace std;
+void candiesAndASisters(){
+    int t; cin >> t;
+    int res[t];
+    for(int i = 0; i < t; i++){
+        int candies; cin >> candies;
+        res[i] = (candies - 1)/2;
+    }
+    for(int i = 0; i < t; i++)
+        cout << res[i] << " ";
+}
 //Candies and Two Sisters
 /*
 #include <iostream>
