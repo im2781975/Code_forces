@@ -1,4 +1,22 @@
 using namespace std;
+void Games(){
+    int n, cnt = 0;
+    cin >> n;
+    int arr[n], tmp[n];
+    for(int i = 0; i < n; i++){
+        int x, int y; cin >> x >> y;
+        arr[i] = x; 
+        tmp[i] = y;
+    }
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j < n; j++){
+            if(arr[i] == tmp[j] && i != j)
+                cnt++;
+        }
+    }
+    cout << cnt;
+}
+using namespace std;
 void Megnets(){
     int n, cnt = 0;
     cin >> n;
