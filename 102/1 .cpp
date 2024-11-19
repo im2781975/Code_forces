@@ -93,6 +93,20 @@ void candiesAndASisters(){
     for(int i = 0; i < t; i++)
         cout << res[i] << " ";
 }
+using namespace std;
+void loveUsername(){
+    int n, cnt = 0;
+    cin >> n;
+    int arr[n];
+    for(int i = 0; i < n; i++)
+        cin >> arr[i];
+    for(int i = 0; i < n - 1; i++){
+        int tmp = abs(arr[i + 1] - arr[i]);
+        if(tmp > 1)
+            cnt++;
+    }
+    cout << cnt;
+}
 //Candies and Two Sisters
 /*
 #include <iostream>
