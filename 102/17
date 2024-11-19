@@ -120,42 +120,6 @@ typedef priority_queue<int> pq;
 typedef set<int> si;
 typedef set<ll> sl;
 
-// Defined
-#define test()        \
-    ll test_case;     \
-    cin >> test_case; \
-    while (test_case--)
-#define inp1(n)      \
-    ll n;            \
-    cin >> n;        \
-    ll arr[n] = {0}; \
-    f0(i, n) { cin >> arr[i]; }
-#define inp2(n, k)    \
-    int n, k;         \
-    cin >> n;         \
-    cin >> k;         \
-    int arr[n] = {0}; \
-    f0(i, n) { cin >> arr[i]; }
-
-//MODED DATA
-// ll add(ll a, ll b)
-// {
-//     ll t = a + b;
-//     if (t >= mod)
-//     {
-//         return t -= mod;
-//     }
-//     return t;
-// }
-// ll sub(ll a, ll b)
-// {
-//     return (a - b + mod) % mod;
-// }
-// ll mul(ll a, ll b)
-// {
-//     return (a * b) % mod;
-// }
-
 //DECIMAL DATA
 // const long double eps = 1e-9;
 // bool equalTo(double a, double b)
