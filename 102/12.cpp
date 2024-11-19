@@ -148,6 +148,21 @@ void isprime(){
         }
     }
 }
+using namespace std;
+void PrimeFactor(int n, vector <int> &vec){
+    while(n % 2 == 0){
+        vec.push_back(2);
+        n /= 2;
+    }
+    for(int i = 3; i <= sqrt(n); i+= 2){
+        while(n % i == 0){
+            vec.push_back(i);
+            n /= i;
+        }
+    }
+    if(n > 2)
+        vec.push_back(n);
+}
 // bool prime[1000100];
 // void isprime()
 // {
