@@ -107,6 +107,27 @@ void loveUsername(){
     }
     cout << cnt;
 }
+using namespace std;
+int main(){
+    int n, cntMin = 0, cntMax = 0;
+    cin >> n;
+    int arr[n];
+    for(int i = 0; i < n; i++)
+        cin >> arr[i];
+    int maxi = arr[0];
+    int mini = arr[0];
+    for(int i = 1; i < n; i++){
+        if(arr[i] > maxi){
+            cntMax++;
+            maxi = arr[i];
+        }
+        if(arr[i] < mini){
+            cntMin++;
+            mini = arr[i];
+        }
+    }
+    cout << cntMax + cntMin;
+}
 //Candies and Two Sisters
 /*
 #include <iostream>
