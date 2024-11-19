@@ -343,6 +343,8 @@ using namespace std;
 int SubarrXor(int arr[], int n, int m){
     int ans = 0;
     // Map to store frequency of prefix XOR values
+    // Create a prefix xor-sum array such that xorArr[i] has value equal to XOR
+    // of all elements in arr[] vector<ll>xorArr(n);
     unordered_map <int, int> ump;
     // Initialize cumulative XOR
     int cx = 0;
@@ -359,373 +361,78 @@ int SubarrXor(int arr[], int n, int m){
     }
     return ans;
 }
-// #define MAXN   (ll)1e7+1
-
-// // stores smallest prime factor for every number
-ll spf[MAXN];
-
-// Calculating SPF (Smallest Prime Factor) for every
-// number till MAXN.
-// Time Complexity : O(nloglogn)
-void sieve()
+//count all subarrays having XOR of elements as given value m with
+// Returns count of subarrays of arr with XOR value equals to m
+long long subarrayXor(int arr[], int n, int m)
 {
-	spf[1] = 1;
-	for (ll i = 2; i < MAXN; i++)
+	int ans = 0; 
 
-		// marking smallest prime factor for every
-		// number to be itself.
-		spf[i] = i;
-
-	// separately marking spf for every even
-	// number as 2
-	for (ll i = 4; i < MAXN; i += 2)
-		spf[i] = 2;
-
-	for (ll i = 3; i * i < MAXN; i++)
-	{
-		// checking if i is prime
-		if (spf[i] == i)
-		{
-			// marking SPF for all numbers divisible by i
-			for (ll j = i * i; j < MAXN; j += i)
-
-				// marking spf[j] if it is not
-				// previously marked
-				if (spf[j] == j)
-					spf[j] = i;
-		}
-	}
-}
-
-// A O(log n) function returning primefactorization
-// by dividing by smallest prime factor at every step
-vector<ll> getFactorization(ll x)
-{
-	vector<ll> ret;
-	while (x != 1)
-	{
-		ret.push_back(spf[x]);
-		x = x / spf[x];
-	}
-	return ret;
-}
-
-// C++ Program to count all subarrays having
-// XOR of elements as given value m with
-// O(n) time complexity.
-
-// Returns count of subarrays of arr with XOR
-// value equals to m
-long long subarrayXor(ll arr[], ll n, ll m)
-{
-	long long ans = 0; // Initialize answer to be returned
-
-	// Create a prefix xor-sum array such that
-	// xorArr[i] has value equal to XOR
-	// of all elements in arr[0 ..... i]
+	// Create a prefix xor-sum array such that xorArr[i] has value equal to XOR of all elements in arr[]
 	// vector<ll>xorArr(n);
-
-	// Create map that stores number of prefix array
-	// elements corresponding to a XOR value
-	unordered_map<ll, ll> mp;
-
-	// Initialize first element of prefix array
-	// xorArr[0] = arr[0];
+	// Create map that stores number of prefix array elements corresponding to a XOR value
+	unordered_map<int, int> mp;
+	// Initialize first element of prefix array [xorArr[0] = arr[0]]
 	ll cx = arr[0];
 	ll px = cx;
-
 	// Computing the prefix array.
 	// for (ll i = 1; i < n; i++)
 	// 	xorArr[i] = xorArr[i - 1] ^ arr[i];
-
 	// Calculate the answer
-	for (ll i = 0; i < n; i++)
-	{
+	for (ll i = 0; i < n; i++){
 		px = cx;
 		if (i != 0)
 			cx = px ^ arr[i];
 		// Find XOR of current prefix with m.
-		// ll tmp = m ^ xorArr[i];
-		ll tmp = m ^ cx;
-
-		// If above XOR exists in map, then there
-		// is another previous prefix with same
-		// XOR, i.e., there is a subarray ending
-		// at i with XOR equal to m.
+		// int tmp = m ^ xorArr[i];
+		int tmp = m ^ cx;
+		// If above XOR exists in map, then there is another previous prefix with same XOR,
+		//there is a subarray ending at i with XOR equal to m.
 		ans = ans + ((long long)mp[tmp]);
-
 		// If this subarray has XOR equal to m itself.
 		if (cx == m)
 			ans++;
-
 		// Add the XOR of this subarray to the map
 		mp[cx]++;
 	}
-
-	// Return total count of subarrays having XOR of
-	// elements as given value m
+	// Return total count of subarrays having XOR of elements as given value m
 	return ans;
 }
-
-// Driver program to test above function
-
-// C++ Program to print prime factors and their
-// powers using Sieve Of Eratosthenes
-
-// Using SieveOfEratosthenes to find smallest prime
-// factor of all the numbers.
-// For example, if N is 10,
-// s[2] = s[4] = s[6] = s[10] = 2
-// s[3] = s[9] = 3
-// s[5] = 5
-// s[7] = 7
-void sieveOfEratosthenes(ll N, ll s[])
-{
-	// Create a boolean array "prime[0..n]" and
-	// initialize all entries in it as false.
-	vector<bool> prime(N + 1, false);
-
-	// Initializing smallest factor equal to 2
-	// for all the even numbers
-	for (ll i = 2; i <= N; i += 2)
-		s[i] = 2;
-
-	// For odd numbers less than equal to n
-	for (ll i = 3; i <= N; i += 2)
-	{
-		if (prime[i] == false)
-		{
-			// s(i) for a prime is the number itself
-			s[i] = i;
-
-			// For all multiples of current prime number
-			for (ll j = i; j * i <= N; j += 2)
-			{
-				if (prime[i * j] == false)
-				{
-					prime[i * j] = true;
-
-					// i is the smallest prime factor for
-					// number "i*j".
-					s[i * j] = i;
-				}
-			}
-		}
-	}
+using namespace std;
+const int MAXN = 1e3;
+int Factor[MAXN];
+// Calculating SPF (Smallest Prime Factor) for every number till MAXN.
+void sieve(){
+    Factor[1] = 1;
+    for(int i = 2; i < MAXM; i++)
+        Factor[i] = i;
+    for(int i = 4; i < MAXN; i+= 2)
+        Factor[i] = 2;
+    for(int i = 3; i * i < MAXN; i++){
+        if(Factor[i] == i){
+            for(int j = i * i; j < MAXN; j+= i){
+                if(Factor[j] == j)
+                    Factor[j] = i;
+            }
+        }
+    }
 }
-
-// Function to generate prime factors and its power
-map<ll, ll> generatePrimeFactors(ll N)
-{
-	map<ll, ll> mp;
-	// s[i] is going to store smallest prime factor
-	// of i.
-	ll s[N + 1];
-
-	// Filling values in s[] using sieve
-	sieveOfEratosthenes(N, s);
-
-	// printf("Factor Power\n");
-
-	ll curr = s[N]; // Current prime factor of N
-	ll dp = 1;		// Power of current prime factor
-
-	// Printing prime factors and their powers
-	while (N > 1)
-	{
-		N /= s[N];
-
-		// N is now N/s[N]. If new N als has smallest
-		// prime factor as curr, increment power
-		if (curr == s[N])
-		{
-			dp++;
-			continue;
-		}
-
-		// printf("%d\t%d\n", curr, dp);
-		mp[curr] = dp;
-		// Update current prime factor as s[N] and
-		// initializing count as 1.
-		curr = s[N];
-		dp = 1;
-	}
-	return mp;
+vector <int> Factorization(int x){
+    vector <int> res;
+    while(x != 1){
+        res.push_back(Factor[x]);
+        x /= Factor[x];
+    }
+    return res;
 }
-
-bool isKthBitSet(int n, int k)
-{
-	if (n & (1 << k))
-		return true;
-	else
-		return false;
+int main(){
+    sieve();
+    int num; cin >> num;
+    if(num < 1 || num >= MAXN) 
+        return 1;
+    vector <int> fac = Factorization(num);
+    for(int i = 0; i < fac.size(); i++)
+        cout << fac[i] << " ";
 }
-
-ll getMid(ll s, ll e)
-{
-	return s + (e - s) / 2;
-}
-
-/*  A recursive function to get the sum of
-	values in given range of the array.
-	The following are parameters for this
-	function.
-
-	st       -> Pointer to segment tree
-	node     -> Index of current node in
-				the segment tree .
-	ss & se  -> Starting and ending indexes
-				of the segment represented
-				by current node, i.e., st[node]
-	l & r    -> Starting and ending indexes
-				of range query */
-ll MaxUtil(ll *st, ll ss, ll se, ll l,
-		   ll r, ll node)
-{
-	// If segment of this node is completely
-	// part of given range, then return
-	// the max of segment
-	if (l <= ss && r >= se)
-		return st[node];
-
-	// If segment of this node does not
-	// belong to given range
-	if (se < l || ss > r)
-		return -1;
-
-	// If segment of this node is partially
-	// the part of given range
-	ll mid = getMid(ss, se);
-
-	return max(MaxUtil(st, ss, mid, l, r,
-					   2 * node + 1),
-			   MaxUtil(st, mid + 1, se, l,
-					   r, 2 * node + 2));
-}
-
-/* A recursive function to update the nodes
-   which have the given index in their range.
-   The following are parameters st, ss and
-   se are same as defined
-   above index -> index of the element
-   to be updated.*/
-void updateValue(ll arr[], ll *st, ll ss, ll se,
-				 ll index, ll value, ll node)
-{
-	if (index < ss || index > se)
-	{
-		cout << "Invalid Input" << endl;
-		return;
-	}
-
-	if (ss == se)
-	{
-		// update value in array and in segment tree
-		arr[index] = value;
-		st[node] = value;
-	}
-	else
-	{
-		ll mid = getMid(ss, se);
-
-		if (index >= ss && index <= mid)
-			updateValue(arr, st,
-						ss, mid, index,
-						value, 2 * node + 1);
-		else
-			updateValue(arr,
-						st, mid + 1, se,
-						index,
-						value, 2 * node + 2);
-
-		st[node] = max(st[2 * node + 1],
-					   st[2 * node + 2]);
-	}
-	return;
-}
-
-// Return max of elements in range from
-// index l (query start) to r (query end).
-ll getMax(ll *st, ll n, ll l, ll r)
-{
-	// Check for erroneous input values
-	if (l < 0 || r > n - 1 || l > r)
-	{
-		printf("Invalid Input");
-		return -1;
-	}
-
-	return MaxUtil(st, 0, n - 1, l, r, 0);
-}
-
-// A recursive function that constructs Segment
-// Tree for array[ss..se]. si is index of
-// current node in segment tree st
-ll constructSTUtil(ll arr[], ll ss, ll se,
-				   ll *st, ll si)
-{
-	// If there is one element in array, store
-	// it in current node of
-	// segment tree and return
-	if (ss == se)
-	{
-		st[si] = arr[ss];
-		return arr[ss];
-	}
-
-	// If there are more than one elements, then
-	// recur for left and right subtrees and
-	// store the max of values in this node
-	ll mid = getMid(ss, se);
-
-	st[si] = max(constructSTUtil(arr, ss, mid, st,
-								 si * 2 + 1),
-				 constructSTUtil(arr, mid + 1, se,
-								 st, si * 2 + 2));
-
-	return st[si];
-}
-
-/* Function to construct segment tree
-   from given array.
-   This function allocates memory for
-   segment tree.*/
-ll *constructST(ll arr[], ll n)
-{
-	// Height of segment tree
-	ll x = (ll)(ceil(log2(n)));
-
-	// Maximum size of segment tree
-	ll max_size = 2 * (ll)pow(2, x) - 1;
-
-	// Allocate memory
-	ll *st = new ll[max_size];
-
-	// Fill the allocated memory st
-	constructSTUtil(arr, 0, n - 1, st, 0);
-
-	// Return the constructed segment tree
-	return st;
-}
-ll longest_increasing_subsequence(vector<ll> &arr)
-{
-	vector<ll> ans;
-	ll n = arr.size();
-	for (ll i = 0; i < n; i++)
-	{
-		auto it = upper_bound(ans.begin(), ans.end(), arr[i]);
-		if (it == ans.end())
-		{
-			ans.push_back(arr[i]);
-		}
-		else
-		{
-			*it = arr[i];
-		}
-	}
-	return ans.size();
-}
-
 #include <bits/stdc++.h>
 
 #define speed_of_light               ios_base::sync_with_stdio(false); cin.tie(NULL);
