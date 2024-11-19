@@ -213,6 +213,79 @@ int longestSubseq(vector <int> vec){
     }
     return ans.size();
 }
+using namespace std;
+int getmid(int l, int r){
+    return l + (r - l)/2;
+}
+int Util(const vector <int> &arr, int s, int e, vector <int> &st, int cur){
+    if(s == e){
+        st[cur] = arr[s];
+        return st[cur];
+    }
+    int mid = getmid(s, e);
+    st[cur] = max(Util(arr, s, mid, st, 2 * cur + 1), Util(arr, mid + 1, e, st, 2 *cur + 2));
+    return st[cur];
+}
+vector <int> constructSt(const vector <int> &arr){
+    int n = arr.size();
+    int x = (int)(ceil(log2(n)));
+    int maxSize = 2 * (int)pow(2, x) - 1;
+    vector <int> st(maxSize, INT_MIN);
+    Util(arr, 0, n - 1, st, 0);
+    return st;
+}
+int MaxUtil(const vector <int> &st, int s, int e, int l, int r, int node){
+    if(l <= s && r >= e)
+        return st[node];
+    if(s > r || e < l)
+        return INT_MIN;
+    int mid = getmid(s, e);
+    return max(MaxUtil(st, s, mid, l, r, 2 * node + 1), MaxUtil(st, mid + 1, e, l, r, 2 * node + 2 ));
+}
+int getMax(vector <int> st, int n, int l, int r){
+    if(l < 0 || r >= n || l > r){
+        return INT_MIN;
+    }
+    return MaxUtil(st, 0, n - 1, l, r, 0);
+}
+void update(vector <int> &arr, vector <int> &st, int s, int e, int idx, int val, int node){
+    if(idx < s || idx > e)
+        return;
+    if(s == e){
+        arr[idx] = val;
+        st[node] = val;
+    }
+    else{
+        int mid = getmid(s, e);
+        if(idx <= mid)
+            update(arr, st, s, mid, idx, val, 2 * node + 1);
+        else
+            update(arr, st, mid + 1, e, idx, val, 2 * node + 2);
+        st[node] = max(st[2 * node + 1], st[2 * node + 2]);
+    }
+}
+int main(){
+    int n; cin >> n;
+    vector <int> vec(n);
+    for(int i = 0; i < n; i++)
+        cin >> vec[i];
+    vector <int> st = constructSt(vec);
+    while(true){
+        int choice; cin >> choice;
+        if(choice == 1){
+            int l, r; cin >> l >> r;
+            cout << "Maximum val between " << l << " & " << r << " is" << getMax(st, n, l, r);
+        }
+        else if(choice == 2){
+            int idx, val; cin >> idx >> val;
+            update(vec, st, 0, n - 1, idx, val, 0);
+        }
+        else if(choice == 3)
+            break;
+        else
+            cerr << "Invalid input";
+    }
+}
 // #define MAXN   (ll)1e7+1
 
 // // stores smallest prime factor for every number
