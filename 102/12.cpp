@@ -292,6 +292,51 @@ bool IsKthBit(int n, int k){
         return true;
     return false;
 }
+using namespace std;
+void sieve(int n, int arr[]){
+    vector <bool> prime(n + 1, false);
+    for(int i = 2; i <= n; i += 2)
+        arr[i] = 2;
+    for(int i = 3; i <= n; i+= 2){
+        if(!prime[i]){
+            arr[i] = i;
+            for(int j = i; j * i <= n; j += 2){
+                if(!prime[i * j]){
+                    prime[i * j] = true;
+                    arr[i * j] = i;
+                }
+            }
+        }
+    }
+}
+map <int, int> generatePrime(int n){
+    //arr store smallest prime factors & factor store prime factors;
+    map <int, int> factor;
+    int arr[n + 1] = {0};
+    sieve(n, arr);
+    int cur = arr[n];
+    int power = 1;
+    while(n > 1){
+        n /= arr[n];
+        if(cur == arr[n])
+            power++;
+        else{
+            factor[cur] = power;
+            cur = arr[n];
+            power = 1;
+        }
+    }
+    return factor;
+}
+void print(map <int, int> &factor){
+    for(const auto & [fact, power] : factor)
+        cout << fact << " " << power << "\n";
+}
+int main(){
+    int n = 100;
+    map <int, int> factors = generatePrime(n);
+    print(factors);
+}
 // #define MAXN   (ll)1e7+1
 
 // // stores smallest prime factor for every number
