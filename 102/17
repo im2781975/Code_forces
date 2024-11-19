@@ -298,29 +298,3 @@ void sol3()
         p[x] = {arr[x], x};
     }
 }
-
-void sol2()
-{
-    ll n, m, k;
-    cin >> n >> m >> k;
-}
-
-void sol()
-{
-    ll a, b, c;
-    cin >> a >> b >> c;
-}
-
-int main()
-{
-#ifndef ONLINE_JUDGE
-    freopen("input.txt", "r", stdin);
-    freopen("debug.txt", "w", stderr);
-    freopen("output.txt", "w", stdout);
-#endif
-    fast;
-    // test()
-    {
-        sol5();
-    }
-}
