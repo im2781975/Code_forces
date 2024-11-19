@@ -292,6 +292,7 @@ bool IsKthBit(int n, int k){
         return true;
     return false;
 }
+//Sieve Of Eratosthenes
 using namespace std;
 void sieve(int n, int arr[]){
     vector <bool> prime(n + 1, false);
