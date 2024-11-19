@@ -1,3 +1,17 @@
+using namespace std;
+void BitsPlus(){
+    int n, cnt = 0;
+    cin >> n;
+    string a = "++X", b = "X++", c = "--X", d = "X--";
+    while(n--){
+        string str; cin >> str;
+        if(str == a || str == b)
+            cnt++;
+        else if(str == c || str == d)
+            cnt--;
+    }
+    cout << cnt;
+}
 //
 //  main.cpp
 //  Codeforces_PS
