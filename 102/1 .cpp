@@ -140,6 +140,25 @@ int main(){
     }
     (cnt == 0) ? cout << "Easy" : cout << "Hard";
 }
+using namespace std;
+void PoliceRecruits(){
+    int n; cin >> n;
+    int arr[n];
+    for(int i = 0; i < n; i++)
+        cin >> arr[i];
+    int available = 0, crimes = 0;
+    for(int i = 0; i < n; i++){
+        if(arr[i] > 0)
+            available += arr[i];
+        else{
+            if(available > 0)
+                available--;
+            else
+                crimes++;
+        }
+    }
+    cout << crimes;
+}
 #include <iostream>
 
 using namespace::std;
