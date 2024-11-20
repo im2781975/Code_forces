@@ -1,4 +1,17 @@
-#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int n; cin >> n;
+    int arr[n], tmp[n];
+    int cur = 0, maxi = 0;
+    for(int i = 0; i < n; i++)
+        cin >> arr[i] >> tmp[i];
+    for(int i = 0; i < n; i++){
+        cur -= arr[i] + tmp[i];
+        if(cur > maxi)
+            maxi = cur;
+    }
+    cout << maxi;
+}
 using namespace std;
 void Tram(){
     int n; cin >> n;
