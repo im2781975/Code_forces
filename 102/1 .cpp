@@ -1,4 +1,15 @@
 using namespace std;
+void Drinks(){
+    int n; cin >> n;
+    float sum = 0;
+    int arr[n];
+    for(int i = 0; i < n; i++)
+        cin >> arr[i];
+    for(int i = 0; i < n; i++)
+        sum += arr[i];
+    cout << sum / n;
+}
+using namespace std;
 void main(){
     int n; cin >> n;
     vector <int> vec;
