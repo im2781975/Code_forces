@@ -1,5 +1,14 @@
 using namespace std;
-int main(){
+void main(){
+    int a, b, c; cin >> a >> b;
+    if(a <= b)
+        c = a;
+    else
+        c = b;
+    cout << c << " " << (a + b - 2 * c) / 2;
+}
+using namespace std;
+void main(){
     int n; cin >> n;
     int arr[n], tmp[n];
     int cur = 0, maxi = 0;
