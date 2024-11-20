@@ -1,4 +1,26 @@
 using namespace std;
+void sumOfRound(){
+    int n; cin >> n;
+    int ans[n], cnt = 0;
+    for(int i = 0; i < n; i++){
+        int x; cin >> x;
+        ans[i] = 0;
+        if(x % 10 == 0){
+            cnt++;
+            ans[i] = x;
+        }
+        else{
+            while(x != 0){
+                cnt++;
+                x /= 10;
+            }
+        }
+    }
+    cout << "Count of Operation: " << cnt << "\n";
+    for(int i = 0; i < n; i++)
+        cout << ans[i] << " ";
+}
+using namespace std;
 void VasyaTheHipster(){
     int a, b, c; cin >> a >> b;
     if(a <= b)
