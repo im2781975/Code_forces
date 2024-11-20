@@ -1,4 +1,23 @@
 using namespace std;
+void main(){
+    int n; cin >> n;
+    int res[10000], cnt = 0;
+    for(int i = 0; i < n; i++){
+        int x; cin >> x;
+        while(x > 0){
+            int pos = 1;
+            while(pos * 10 <= x){
+                pos *= 10;
+            }
+            res[cnt++] = pos;
+            x -= pos;
+        }
+    }
+    cout << cnt << "\n";
+    for(int i = 0; i < cnt; i++)
+        cout << res[i] << " ";
+}
+using namespace std;
 void sumOfRound(){
     int n; cin >> n;
     int ans[n], cnt = 0;
@@ -59,7 +78,7 @@ void Tram(){
     cout << maxi - 1;
 }
 using namespace std;
-int main(){
+void main(){
     int n, sum = 0, cnt = 0, cin >> n;
     int arr[n];
     for(int i = 0; i < n; i++)
@@ -73,239 +92,6 @@ int main(){
     }
     cout << cnt;
 }
-#include <iostream>
-
-using namespace::std;
-int main()
-{
-    int n,i,sum=0,count=0;
-    
-    cin >> n;
-    
-    int a[n];
-    
-    for (i=0; i<n ; i++)
-    {
-        cin >> a[i];
-    }
-    
-    for (i=0; i<n ; i++)
-    {
-        sum=sum+a[i];
-        if (sum<0)
-        {
-            count++;
-            sum=0;
-        }
-    }
-    
-    cout << count;
-    
-}
-*/
-
-//tram
-
-/*
-
-#include <iostream>
-
-using namespace::std;
-int main()
-{
-    int n,p=0,t;
-    
-    cin >> n;
-    
-    int ans[n];
-    t=n;
-    
-    while (n--)
-    {
-        int a,b,c;
-        
-        cin >> a >> b;
-        
-        p=b-a;
-        
-        c=a+b;
-        
-        
-        ans[n]=c;
-    }
-    
-    int max=ans[0];
-    
-    while (t--)
-    {
-        if (ans[t]>max)
-        {
-            max=ans[t];
-        }
-    }
-    
-    cout << max-1;
-}
-*/
-/*
-#include <iostream>
-
-using namespace::std;
-int main()
-{
-    int n,i,sum=0;
-    
-    cin >> n;
-    int c[n];
-    
-    int a[n],b[n];
-    
-    for (i=0; i<n; i++)
-    {
-        cin >> a[i] >> b[i];
-    }
-    
-    for (i=0; i<n; i++)
-    {
-        sum=sum-a[i]+b[i];
-        c[i]=sum;
-    }
-    
-    int max=c[0];
-    
-    for (i=0; i<n; i++)
-    {
-        if (max<=c[i])
-        {
-            max=c[i];
-        }
-    }
-    
-    cout << max;
-}
-*/
-
-//Vasya the Hipster
-/*
-#include <iostream>
-
-using namespace::std;
-int main()
-{
-    int a,b,c;
-    
-    cin >> a >> b;
-    
-    if (a<=b)
-    {
-        c=a;
-        cout << c << " ";
-    }
-    else
-    {
-        c=b;
-        cout << c << " ";
-    }
-    
-    cout << (a+b-2*c)/2;
-}
-*/
-
-
-//Sum of Round Numbers
-/*
-#include <iostream>
-
-using namespace::std;
-int main()
-{
-    int n,k=0,r=0;
-    
-    cin >> n;
-    
-    int ans[n];
-    
-    while (n--)
-    {
-        int a;
-        
-        cin >> a;
-        
-        if (a%10==0)
-        {
-            k++;
-            ans[n]=a;
-        }
-        else if (a%10!=0)
-        {
-            while (a!=0)
-            {
-                r=a%10;
-                a=a/10;
-                k++;
-                
-
-            }
-            
-            
-        }
-        
-    }
-}
-*/
-/*
-#include <iostream>
-
-using namespace::std;
-int main()
-{
-    int n,k=0,r=0,m;
-    
-    cin >> n;
-    
-    int ans[n];
-    m=n;
-    
-    while (n--)
-    {
-        int a;
-        
-        cin >> a;
-        
-        if (a/10000!=0)
-        {
-            k++;
-            ans[n]=(a/10000)*10000;
-            n=n-ans[n];
-        }
-        else if (a/1000!=0)
-        {
-            k++;
-            ans[n]=(a/1000)*1000;
-            n=n-ans[n];
-        }
-        else if (a/100!=0)
-        {
-            k++;
-            ans[n]=(a/100)*100;
-            n=n-ans[n];
-        }
-        else if (a/10!=0)
-        {
-            k++;
-            ans[n]=(a/10)*10;
-            n=n-ans[n];
-        }
-    }
-    while (m--)
-    {
-        cout << k << endl;
-        cout << ans[m] << endl;
-    }
-}
-*/
-
-/*
  #include <bits/stdc++.h>
 using namespace std;
 
