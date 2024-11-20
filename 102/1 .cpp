@@ -1,5 +1,5 @@
 using namespace std;
-void main(){
+void VasyaTheHipster(){
     int a, b, c; cin >> a >> b;
     if(a <= b)
         c = a;
