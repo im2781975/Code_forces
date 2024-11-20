@@ -1,4 +1,42 @@
 using namespace std;
+int removeDup(int arr[], int n){
+    if(n == 0 || n == 1)
+        return n;
+    int j = 0;
+    for(int i = 0; i < n - 1; i++){
+        if(arr[i] != arr[i + 1])
+            arr[j++] = arr[i];
+    }
+    arr[j++] = arr[n - 1];
+    return j;
+}
+void WannaGuy(){
+    int n; cin >> n;
+    int a, b; cin >> a >> b;
+    int arr[a], tmp[b];
+    for(int i = 0; i < a; i++)
+        cin >> arr[i];
+    for(int i = 0; i < b; i++)
+        cin >> tmp[i];
+    removeDup(&arr[a], a);
+    removeDup(&arr[b], b);
+    int cnt = n;
+    for(int i = 0; i < a; i++){
+        for(int j = 0; j < n; j++){
+            if(arr[i] == j)
+                cnt--;
+        }
+    }
+    for(int i = 0; i < b; i++){
+        for(int j = 0; j < n; j++){
+            if(tmp[i] == j)
+                cnt--;
+        }
+    }
+    (cnt == 0) ? cout << "Wann be guy" : cout << "Oh! keyboard";
+}
+
+using namespace std;
 void Drinks(){
     int n; cin >> n;
     float sum = 0;
