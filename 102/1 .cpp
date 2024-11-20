@@ -1,6 +1,22 @@
 using namespace std;
 void main(){
     int n; cin >> n;
+    vector <int> vec;
+    int val = 1;
+    while(n > 0){
+        int dig = n % 10;
+        if(dig != 0)
+            vec.push_back(dig * val);
+        n /= 10;
+        val *= 10;
+    }
+    cout << vec.size();
+    for(int i = 0; i < vec.size(); i++)
+        cout << vec[i] << " ";
+}
+using namespace std;
+void main(){
+    int n; cin >> n;
     int res[10000], cnt = 0;
     for(int i = 0; i < n; i++){
         int x; cin >> x;
