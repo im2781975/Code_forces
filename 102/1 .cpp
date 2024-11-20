@@ -1,3 +1,19 @@
+#include<bits/stdc++.h>
+using namespace std;
+void Tram(){
+    int n; cin >> n;
+    int ans[n];
+    for(int i = 0; i < n; i++){
+        int a, b; cin >> a >> b;
+        ans[i] = a + b;
+    }
+    int maxi = ans[0];
+    for(int i = 1; i < n; i++){
+        if(ans[i] > maxi)
+            maxi = ans[i];
+    }
+    cout << maxi - 1;
+}
 using namespace std;
 int main(){
     int n, sum = 0, cnt = 0, cin >> n;
