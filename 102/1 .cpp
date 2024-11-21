@@ -1,5 +1,19 @@
 using namespace std;
 void main(){
+    int arr[3];
+    for(int i = 0; i < 2; i++){
+        for(int j = 0; j < 2 - i; j++){
+            if(arr[j] > arr[j + 1]){
+                int tmp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = tmp;
+            }
+        }
+    }
+    cout << abs(arr[1] - arr[0]) + abs(arr[2] - arr[1]);
+}
+using namespace std;
+void main(){
     int num; cin >> num;
     int cnt = 0;
     while(num != 0){
