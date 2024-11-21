@@ -46,6 +46,22 @@ void Elephent(){
         x++;
     cout << x;
 }
+using namespace std;
+void addOddOrSubtractEven(){
+    int a, b; cin >> a >> b;
+    int cnt = 0;
+    if(a > b){
+        int c = a - b;
+        (c % 2 == 0) ? cnt = 1 :  cnt = 2;
+    }
+    else if(a < b){
+        int c = b - a;
+        (c % 2 == 0) ? cnt = 2 : cnt = 1;
+    }
+    else 
+        cnt = 0;
+    cout << cnt;
+}
 //Add Odd or Subtract Even
 /*
 #include <iostream>
