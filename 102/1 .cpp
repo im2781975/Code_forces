@@ -1,4 +1,15 @@
 using namespace std;
+void WrongSubtraction(){
+    int n, k; cin >> n >> k;
+    for(int i = 0; i < k; i++){
+        if(n % 10 == 0)
+            n /= 10;
+        else
+            n--;
+    }
+    cout << n;
+}
+using namespace std;
 void Elephent(){
     int n; cin >> n;
     int x = n / 5;
