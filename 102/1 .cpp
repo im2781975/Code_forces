@@ -1,4 +1,19 @@
 using namespace std;
+void main(){
+    int num; cin >> num;
+    int cnt = 0;
+    while(num != 0){
+        int rem = num % 10;
+        num /= 10;
+        if(rem == 4 || rem == 7)
+            cnt++;
+    }
+    if(cnt == 4 || cnt == 7)
+        cout << "Yes";
+    else
+        cout << "No";
+}
+using namespace std;
 void WrongSubtraction(){
     int n, k; cin >> n >> k;
     for(int i = 0; i < k; i++){
