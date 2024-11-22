@@ -1,3 +1,16 @@
+using namespace std;
+void OathOfNightWatch(){
+    int n, cnt = 0; cin >> n;
+    vector <int> vec(n);
+    for(int i = 0; i < n; i++)
+        cin >> vec[i];
+    sort(vec.begin(), vec.end());
+    for(int i = 1; i < n; i++){
+        if(vec[i] > vec[0] && vec[n - 1] > vec[i])
+            cnt++;
+    }
+    cout << cnt;
+}
 //************************************************************** 
 	                   // 37 : A. Oath of the Night's Watch
 	int n, c = 0;
