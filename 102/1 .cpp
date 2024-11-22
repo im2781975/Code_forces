@@ -1,4 +1,14 @@
 using namespace std;
+void main(){
+    string str, res; cin >> str;
+    int len = str.length();
+    if(len > 10)
+        res = str[0] + to_string(len - 2) + str[len - 1];
+    else
+        res = str;
+    cout << res;
+}
+using namespace std;
 void PhoenixAndBalance(){
     int n; cin >> n;
     int x = 0;
