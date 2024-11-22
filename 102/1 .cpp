@@ -1,4 +1,21 @@
 using namespace std;
+void spyDetect(){
+    int n, cnt = 0; cin >> n;
+    int arr[n], res[n];
+    for(int i = 0; i < n; i++)
+        cin >> arr[i];
+    for(int i = 0; i < n; i++){
+        if((i > 0 && arr[i] != arr[i - 1] && (i == n - 1 || arr[i] != arr[i + 1])) || (i == 0 && arr[i] != arr[i + 1])){
+                    cnt = i + 1;
+                    break;
+        }
+    }
+    for(int i = 0; i < n; i++)
+        res[i] = cnt;
+    for(int i = 0; i < n; i++)
+        cout << res[i] << " ";
+}
+using namespace std;
 void NewYearMeeting(){
     int arr[3];
     for(int i = 0; i < 2; i++){
