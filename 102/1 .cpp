@@ -1,4 +1,20 @@
 using namespace std;
+void BlackSqr(){
+    int arr[5], sum = 0;
+    for(int i = 0; i < 4; i++)
+        cin >> arr[i];
+    string str; cin >> str;
+    for(int i = 0; i < str.length(); i++){
+        if(str[i] >= '1' && str[i] <= '4')
+            sum += arr[str[i] - '1'];
+        else{
+            cerr << "Invalid";
+            return 1;
+        }
+    }
+    cout << sum;
+}
+using namespace std;
 void main(){
     int n; cin >> n;
     int arr[n];
