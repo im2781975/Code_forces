@@ -1,4 +1,20 @@
 using namespace std;
+void SecondOrderStatics(){
+    int n; cin >> n;
+    set <int> st;
+    for(int i = 0; i < n; i++){
+        int x; cin >> x;
+        st.insert(x);
+    }
+    set <int> ::iterator it = st.begin();
+    if(st.size() == 1)
+        cout << "No";
+    else{
+        advance(it, 1);
+        cout << *it << " ";
+    }
+}
+using namespace std;
 void GoodContest(){
     int n, l, r; cin >> n;
     string str;
