@@ -1,4 +1,20 @@
 using namespace std;
+void main(){
+    int n; cin >> n;
+    int arr[n];
+    for(int i = 0; i < n; i++)
+        cin >> arr[i];
+    for(int i = 0; i < n - 2; i++){
+        if(arr[i] != arr[i + 1] && arr[i + 1] != arr[i + 2]){
+            cout << i + 2;
+            break;
+        }
+        if(arr[i] != arr[i + 1] && arr[i + 1] == arr[i + 2])
+            cout << i + 1;
+            break;
+    }
+}
+using namespace std;
 void spyDetect(){
     int n, cnt = 0; cin >> n;
     int arr[n], res[n];
