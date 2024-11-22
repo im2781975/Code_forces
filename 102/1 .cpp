@@ -1,4 +1,18 @@
 using namespace std;
+void ArpasExam(){
+    int n; cin >> n;
+    if(n == 0)
+        cout << "1";
+    else{
+        int res;
+        if(n % 4 == 0) res = 6;
+        else if(n % 4 == 1) res = 8;
+        else if(n % 4 == 2) res = 4;
+        else res = 2;
+    }
+    cout << res;
+}
+using namespace std;
 void SecondOrderStatics(){
     int n; cin >> n;
     set <int> st;
