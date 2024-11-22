@@ -1,4 +1,17 @@
 using namespace std;
+void PetyaString(){
+    string str, tmp; cin >> str >> tmp;
+    transform(str.begin(), str.end(), str.begin(), ::tolower);
+    transform(tmp.begin(), tmp.end(), tmp.begin(), ::tolower);
+    int x = str.compare(tmp);
+    if(x > 0)
+        cout << "1";
+    else if(x < 0)
+        cout << "-1";
+    else
+        cout << "0";
+}
+using namespace std;
 void main(){
     string str, res; cin >> str;
     int len = str.length();
