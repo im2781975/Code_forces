@@ -1,4 +1,20 @@
 using namespace std;
+void BrainsPhoto(){
+    int n, m, freq[26]{0}; cin >> n >> m;
+    char ch;
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j < m; j++){
+            cin >> ch;
+            freq[ch - 'A']++;
+        }
+    }
+    //('C', cyan), ('M', magenta), ('Y', yellow), ('W', white), ('G', grey), ('B', black)
+	if ((freq['C' - 'A']) || (freq['M' - 'A']) || (freq['Y' - 'A']))
+		cout << "#Color" << endl;
+	else
+		cout << "#Black&White" << endl;
+}
+using namespace std;
 void ArpasExam(){
     int n; cin >> n;
     if(n == 0)
