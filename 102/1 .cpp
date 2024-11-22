@@ -1,4 +1,17 @@
 using namespace std;
+void GoodContest(){
+    int n, l, r; cin >> n;
+    string str;
+    for(int i = 0; i < n; i++){
+        cin >> str >> l >> r;
+        if(r >= 2400 && l > r){
+            cout << "Yes";
+            return 0;
+        }
+    }
+    cout << "No";
+}
+using namespace std;
 void OathOfNightWatch(){
     int n, cnt = 0; cin >> n;
     vector <int> vec(n);
