@@ -1,4 +1,16 @@
 using namespace std;
+void PhoenixAndBalance(){
+    int n; cin >> n;
+    int x = 0;
+    for(int i = 0; i <= n; i++){
+        if(n == 2)
+            x = 2;
+        else if(n == i)
+            x = 2 * (i - 1) - 2;
+    }
+    cout << x;
+}
+using namespace std;
 void BlackSqr(){
     int arr[5], sum = 0;
     for(int i = 0; i < 4; i++)
