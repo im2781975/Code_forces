@@ -10,7 +10,7 @@ void SoldierAndBanana(){
         cout << abs(total - n);
 }
 using namespace std;
-void Soldier(){
+void Flag(){
     int n, m; cin >> n >> m;
     bool Isvalid = true;
     char c1 = '#', c2 = '@';
