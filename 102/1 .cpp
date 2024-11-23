@@ -1,4 +1,35 @@
 using namespace std;
+void SirajaAndDima(){
+    int n; cin >> n;
+    deque <int> dq(n);
+    int siraj = 0, Dima = 0;
+    for(int i = 0; i < n; i++)
+        cin >> dq[i];
+    for(int i = 0; i < n; i++){
+        if(i % 2 == 0){
+            if(dq.back() > dq.front()){
+                siraj += dq.back();
+                dq.pop_back();
+            }
+            else{
+                siraj += dq.front();
+                dq.pop_front();
+            }
+        }
+        else{
+            if(dq.back() > dq.front()){
+                Dima += dq.back();
+                dq.pop_back();
+            }
+            else{
+                Dima += dq.front();
+                dq.pop_front();
+            }
+        }
+    }
+    cout << siraj << " " << Dima;
+}
+using namespace std;
 void Pangram(){
     int n; cin >> n;
     if(n < 26){
