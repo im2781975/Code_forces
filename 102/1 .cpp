@@ -1,4 +1,20 @@
-l       // 17 : A. Juicer
+using namespace std;
+void Juicer(){
+    int n, b, d;cin >> n >> b >> d;
+    vector <int> vec(n);
+    int sum = 0, cnt = 0;
+    for(int i = 0; i < n; i++){
+        cin >> vec[i];
+        if(vec[i] <= b)
+            sum += vec[i];
+        if(sum > d){
+            cnt++;
+            sum = 0;
+        }
+    }
+    cout << cnt;
+}
+// 17 : A. Juicer
 	int n, b, d, c = 0;
 	long long sum = 0;
 	cin >> n >> b >> d;
