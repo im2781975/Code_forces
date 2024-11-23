@@ -1,4 +1,15 @@
 using namespace std;
+void SoldierAndBanana(){
+    int k, n, w; cin >> k >> n >> w;
+    int total = 0;
+    for(int i = 1; i <= w; i++)
+        total += i * k;
+    if(total <= n)
+        cout << "0";
+    else
+        cout << abs(total - n);
+}
+using namespace std;
 void Soldier(){
     int n, m; cin >> n >> m;
     bool Isvalid = true;
