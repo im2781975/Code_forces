@@ -1,4 +1,17 @@
-        // 19 : A. Games
+using namespace std;
+void YoungPhysicist(){
+    int n; cin >> n;
+    int sumx = 0, sumy = 0, sumz = 0;
+    while(n--){
+        int x, y, z; cin >> x >> y >> z;
+        sumx += x; sumy += y; sumz += z;
+    }
+    if(sumx == 0 && sumy == 0 && sumz)
+        cout << "Yes";
+    else
+        cout << "No";
+}
+// 19 : A. Games
 	int n, c = 0;
 	cin >> n;
 	vector <int> v1(n), v2(n);
