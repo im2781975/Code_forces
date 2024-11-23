@@ -1,4 +1,20 @@
 using namespace std;
+void Pangram(){
+    int n; cin >> n;
+    if(n < 26){
+        cout << "No";
+        return 0;
+    }
+    set <char> st;
+    for(int i = 0; i < n; i++){
+        char ch; cin >> ch;
+        if(ch >= 'A' && ch <= 'Z')
+            ch += 32;
+        st.insert(ch);
+    }
+    (st.size() == 26) ? cout << "Yes" : cout << "No";
+}
+using namespace std;
 void wrongSubtract(){
     int n, k; cin >> n >> k;
     while(k--){
