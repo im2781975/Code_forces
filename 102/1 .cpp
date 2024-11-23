@@ -1,4 +1,20 @@
 using namespace std;
+void Juicer(){
+    int n, b, d; cin >> n >> b >> d;
+    vector <int> vec(n);
+    int cnt = 0, sum = 0;
+    for(int i = 0; i < n; i++){
+        cin >> vec[i];
+        if(vec[i] <= b)
+            sum += vec[i];
+        if(sum > d){
+            cnt++;
+            sum = 0;
+        }
+    }
+    cout << cnt;
+}
+using namespace std;
 void YoungPhysicist(){
     int n; cin >> n;
     int sumx = 0, sumy = 0, sumz = 0;
