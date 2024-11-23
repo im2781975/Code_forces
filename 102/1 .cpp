@@ -1,3 +1,31 @@
+using namespace std;
+void Soldier(){
+    int n, m; cin >> n >> m;
+    bool Isvalid = true;
+    char c1 = '#', c2 = '@';
+    string str;
+    for(int i = 0; i < n; i++){
+        cin >> str;
+        for(int j = 0; j < str.size() - 1; j++){
+            if(str[j]!= str[j + 1]){
+                cout << "No";
+                return 0;
+                
+            }
+        }
+        if(i % 2 == 0)
+            c1 = str[0];
+        else
+            c2 = str[0];
+        if(c1 == c2)
+            Isvalid = false;
+        if(!Isvalid){
+            cout << "No";
+            return 0;
+        }
+    }
+    cout << "Yes";
+}
 
 	                // 30 : A. Flag 
 	int n, m;
