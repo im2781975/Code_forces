@@ -10,7 +10,6 @@ void Soldier(){
             if(str[j]!= str[j + 1]){
                 cout << "No";
                 return 0;
-                
             }
         }
         if(i % 2 == 0)
