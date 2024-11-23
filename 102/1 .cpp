@@ -1,4 +1,25 @@
 using namespace std;
+void GresWorkout(){
+    int n; cin >> n;
+    vector <int> vec(n);
+    int chest = 0, biceps = 0, back = 0;
+    for(int i = 0; i < n; i++){
+        cin >> vec[i];
+        if(i % 3 == 0)
+            chest += vec[i];
+        else if(i % 3 == 1)
+            biceps += vec[i];
+        else
+            back += vec[i];
+    }
+    if(chest >= biceps && chest >= back)
+        cout << "chest";
+    else if(biceps >= chest && biceps >= back)
+        cout << "biceps";
+    else
+        cout << "back";
+}
+using namespace std;
 void SoldierAndBanana(){
     int k, n, w; cin >> k >> n >> w;
     int total = 0;
