@@ -1,4 +1,18 @@
 using namespace std;
+void EqualCandies(){
+    int n; cin >> n;
+    vector <int> vec(n);
+    int sum = 0;
+    for(int i = 0; i < n; i++)
+        cin >> vec[i];
+    int mini = *min_element(vec.begin(), vec.end());
+    for(int i = 0; i < n; i++){
+        vec[i] -= mini;
+        sum += vec[i];
+    }
+    cout << sum;
+}
+using namespace std;
 void colorfulStone(){
     string str, tmp; cin >> str >> tmp;
     int pos = 0;
