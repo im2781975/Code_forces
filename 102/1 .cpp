@@ -1,4 +1,14 @@
 using namespace std;
+void colorfulStone(){
+    string str, tmp; cin >> str >> tmp;
+    int pos = 0;
+    for(int i = 0; i < tmp.size(); i++){
+        if(str[pos] == tmp[i])
+            pos++;
+    }
+    cout << pos + 1;
+}
+using namespace std;
 void GresWorkout(){
     int n; cin >> n;
     vector <int> vec(n);
