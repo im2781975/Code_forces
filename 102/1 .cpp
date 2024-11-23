@@ -1,4 +1,15 @@
 using namespace std;
+void ultraFast(){
+    string str, tmp;
+    cin >> str >> tmp;
+    for(int i = 0; i < str.size(); i++){
+        if(str[i] != tmp[i])
+            cout << "1";
+        else
+            cout << "0";
+    }
+}
+using namespace std;
 void EqualCandies(){
     int n; cin >> n;
     vector <int> vec(n);
