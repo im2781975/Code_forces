@@ -1,4 +1,19 @@
 using namespace std;
+void AntonAndLetter(){
+    string str, res; cin >> str;
+    for(int i = 0; i < str.size(); i++){
+        if(str[i] >= 'a' && str[i] <= 'z')
+            res += str[i];
+    }
+    sort(res.begin(), res.end());
+    int cnt = 0;
+    for(int i = 0; i < res.size(); i++){
+        if(res[i] != res[i + 1])
+            cnt++;
+    }
+    cout << cnt;
+}
+using namespace std;
 void AntonAndPolyhedron(){
     int n; cin >> n;
     int cnt = 0;
