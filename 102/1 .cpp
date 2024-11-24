@@ -1,4 +1,22 @@
 using namespace std;
+void FreeIceCreem(){
+    int n, x; cin >> n >> x;
+    int cnt = 0, sum = x;
+    char ch;
+    while(n--){
+        cin >> ch >> x;
+        if(ch == '+')
+            sum += x;
+        else{
+            if(sum - x < 0)
+                cnt++;
+            else
+                sum -= x;
+        }
+    }
+    cout << sum << " " << cnt;
+}
+using namespace std;
 void HorseShoweOnHoof(){
     int arr[4], cnt = 0;
     for(int i = 0; i < 4; i++)
