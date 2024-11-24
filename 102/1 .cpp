@@ -1,4 +1,15 @@
 using namespace std;
+void BuyShovel(){
+    int k, r; cin >> k >> r;
+    for(int i = 1; i <= 1000; i++){
+        int shovel = i * k;
+        if(shovel % 10 == r || shovek % 10 == 0){
+            cout << i << " ";
+            return 0;
+        }
+    }
+}
+using namespace std;
 void BoyOrGirl(){
     string str; cin >> str;
     vector <int> freq(26);
