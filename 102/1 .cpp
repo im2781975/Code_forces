@@ -1,4 +1,21 @@
 using namespace std;
+void BalckSqr(){
+    int a, b, c, d; cin >> a >> b >> c >> d;
+    string str; cin >> str;
+    int calorie = 0;
+    for(int i = 0; i < str.size(); i++){
+        if(str[i] - '0' == 1)
+            calorie += a;
+        else if(str[i] - '0' == 2)
+            calorie += b;
+        else if(str[i] - '0' == 3)
+            calorie += c;
+        else
+            calorie += d;
+    }
+    cout << calorie;
+}
+using namespace std;
 void GoodNumber(){
     int n, k; cin >> n >> k;
     int cnt = 0;
