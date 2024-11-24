@@ -1,4 +1,19 @@
 using namespace std;
+void AntonAndPolyhedron(){
+    int n; cin >> n;
+    int cnt = 0;
+    string str;
+    while(n--){
+        cin >> str;
+        if(str == "Tetrahedron") cnt += 4;
+        else if(str == "Cube") cnt += 6;
+        else if(str == "Octahedron") cnt += 8;
+        else if(str == "Dodecahedron") cnt =+ 12;
+        else if(str == "Icosahedron") cnt += 20;
+    }
+    cout << cnt;
+}
+using namespace std;
 void BuyShovel(){
     int k, r; cin >> k >> r;
     for(int i = 1; i <= 1000; i++){
