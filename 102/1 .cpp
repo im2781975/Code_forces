@@ -1,4 +1,25 @@
-
+using namespace std;
+void GoodNumber(){
+    int n, k; cin >> n >> k;
+    int cnt = 0;
+    while(n--){
+        string str; cin >> str;
+        sort(str.begin(), str.end());
+        int freq[10]{0};
+        bool flag = true;
+        for(int i = 0; i < str.size(); i++)
+            freq[str[i] - '0']++;
+        for(int i = 0; i <= k; i++){
+            if(freq[i] == 0 && i <= k){
+                flag = false;
+                break;
+            }
+        }
+        if(flag)
+            cnt++;
+    }
+    cout << cnt;
+}
 	              // 8 : A. Good Number
 	int n, k;
 	long long c = 0;
