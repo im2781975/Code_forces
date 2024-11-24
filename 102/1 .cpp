@@ -1,4 +1,17 @@
 using namespace std;
+void BoyOrGirl(){
+    string str; cin >> str;
+    vector <int> freq(26);
+    int cnt = 0;
+    for(int i = 0; i < str.size(); i++)
+        freq[str[i] - 'a']++;
+    for(int i = 0; i < 26; i++){
+        if(freq[i])
+            cnt++;
+    }
+    (cnt % 2 == 0)? cout << "chat with her" : cout << "Ignore him";
+}
+using namespace std;
 void FreeIceCreem(){
     int n, x; cin >> n >> x;
     int cnt = 0, sum = x;
