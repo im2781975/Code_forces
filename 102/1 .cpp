@@ -1,51 +1,4 @@
 
-void task20C() {
-    int n, m;
-    cin >> n >> m;
-    V<VPii> graph(n + 1, VPii(n + 1));
-    forn (k, m, 0) {
-        int i, j, w;
-        cin >> i >> j >> w;
-        graph[i][j].fi = w;
-        graph[i][j].se = j;
-        graph[j][i].fi = w;
-        graph[j][i].se = i;
-    }
-    Vll dist(n + 1, 1e18);
-    Vi p(n + 1);
-    dist[1] = 0;
-    p[1] = 1;
-    priority_queue<Pii, VPii, greater<Pii>> q;
-    q.push(mp(0, 1));
-    while (!q.empty()) {
-        Pii u = q.top();
-        q.pop();
-        if (u.fi > dist[u.se]) continue;
-        forn(i, n + 1, 1) {
-            int v = graph[u.se][i].se, len = graph[u.se][i].fi;
-            if (dist[v] > dist[u.se] + len) {
-                p[v] = u.se;
-                dist[v] = dist[u.se] + len;
-                q.push(mp(dist[v], v));
-            }
-        }
-    }
-    if (dist[n] == 1e18) cout << -1;
-    else {
-        int i = n;
-        string c;
-        while (i != 1) {
-            string pl = to_string(i);
-            reverse(pl.begin(), pl.end());
-            c += pl + " ";
-            i = p[i];
-        }
-        cout << 1;
-        for (int i = (int) c.size() - 1; i > -1; i--)
-            cout << c[i];
-    }
-}
-
 void task768_2_A() {
     int n, maxA = 0, maxB = 0;
     cin >> n;
@@ -499,6 +452,52 @@ void task764_3_D() {
     no += 2 * (p % k);
     cl += (no / k) >= 1;
     cout << cl;
+}
+void task20C() {
+    int n, m;
+    cin >> n >> m;
+    V<VPii> graph(n + 1, VPii(n + 1));
+    forn (k, m, 0) {
+        int i, j, w;
+        cin >> i >> j >> w;
+        graph[i][j].fi = w;
+        graph[i][j].se = j;
+        graph[j][i].fi = w;
+        graph[j][i].se = i;
+    }
+    Vll dist(n + 1, 1e18);
+    Vi p(n + 1);
+    dist[1] = 0;
+    p[1] = 1;
+    priority_queue<Pii, VPii, greater<Pii>> q;
+    q.push(mp(0, 1));
+    while (!q.empty()) {
+        Pii u = q.top();
+        q.pop();
+        if (u.fi > dist[u.se]) continue;
+        forn(i, n + 1, 1) {
+            int v = graph[u.se][i].se, len = graph[u.se][i].fi;
+            if (dist[v] > dist[u.se] + len) {
+                p[v] = u.se;
+                dist[v] = dist[u.se] + len;
+                q.push(mp(dist[v], v));
+            }
+        }
+    }
+    if (dist[n] == 1e18) cout << -1;
+    else {
+        int i = n;
+        string c;
+        while (i != 1) {
+            string pl = to_string(i);
+            reverse(pl.begin(), pl.end());
+            c += pl + " ";
+            i = p[i];
+        }
+        cout << 1;
+        for (int i = (int) c.size() - 1; i > -1; i--)
+            cout << c[i];
+    }
 }
 
 void task_Educ119_2_A() {
