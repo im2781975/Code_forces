@@ -1,4 +1,26 @@
 using namespace std;
+void WannaBeTheGuy(){
+    int n, p, q; cin >> n >> p >> q;
+    int freq[101]{0};
+    vector <int> vec(p), tmp(q);
+    for(int i = 0; i < p; i++){
+        cin >> vec[i];
+        freq[vec[i]]++;
+    }
+    for(int i = 0; i < q; i++){
+        cin >> tmp[i];
+        freq[tmp[i]]++;
+    }
+    bool flag = false;
+    for(int i = 1; i <= n; i++){
+        if(freq[i] == 0){
+            flag = false;
+            break;
+        }
+    }
+    (flag)? cout << "Become the guy" : cout << "Oh, no";
+}
+using namespace std;
 void BalckSqr(){
     int a, b, c, d; cin >> a >> b >> c >> d;
     string str; cin >> str;
