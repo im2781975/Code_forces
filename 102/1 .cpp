@@ -74,12 +74,9 @@ void fastio() {ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);}
 #define ll          long long
 #define pb          push_back
 #define endl        '\n'
-signed main(){
 : #pragma GCC optimize("Ofast")
 #pragma GCC target("avx,avx2,fma")
 #pragma GCC optimization("unroll-loops")
-#include <bits/stdc++.h>
-using namespace std;
 #define tc ll t sc cin >> t sc while (t--)
 #define ff first
 #define vp vector<pair<ll,ll>>
@@ -95,24 +92,11 @@ using namespace std;
 #define MAX(a, b) a = max(a, b)
 #define MIN(a, b) a = min(a, b)
 #define INF 1001001001
-const long double pi = 3.141592653;
- 
 typedef unsigned int ui;
 typedef unsigned long long int ul;
- 
-int main()
-{
- 
-    #ifndef ONLINE_JUDGE
-    freopen("input.txt", "r", stdin);
-    freopen("output.txt", "w", stdout);
-    freopen("errorf.txt" , "w" , stderr) ;
-    #e…
-[8:00 pm, 21/01/2022] Pratik Suryawanshi: #pragma GCC optimize("Ofast")
+#pragma GCC optimize("Ofast")
 #pragma GCC target("avx,avx2,fma")
 #pragma GCC optimization("unroll-loops")
-#include <bits/stdc++.h>
-using namespace std;
 #define tc ll t sc cin >> t sc while (t--)
 #define ff first
 #define vp vector<pair<ll,ll>>
@@ -128,24 +112,11 @@ using namespace std;
 #define MAX(a, b) a = max(a, b)
 #define MIN(a, b) a = min(a, b)
 #define INF 1001001001
-const long double pi = 3.141592653;
- 
 typedef unsigned int ui;
 typedef unsigned long long int ul;
- 
-int main()
-{
- 
-    #ifndef ONLINE_JUDGE
-    freopen("input.txt", "r", stdin);
-    freopen("output.txt", "w", stdout);
-    freopen("errorf.txt" , "w" , stderr);
-    #en…
-[8:01 pm, 21/01/2022] Pratik Suryawanshi: #pragma GCC optimize("Ofast")
+#pragma GCC optimize("Ofast")
 #pragma GCC target("avx,avx2,fma")
 #pragma GCC optimization("unroll-loops")
-#include <bits/stdc++.h>
-using namespace std;
 #define tc ll t sc cin >> t sc while (t--)
 #define ff first
 #define vp vector<pair<ll,ll>>
@@ -161,23 +132,9 @@ using namespace std;
 #define MAX(a, b) a = max(a, b)
 #define MIN(a, b) a = min(a, b)
 #define INF 1001001001
-const long double pi = 3.141592653;
- 
 typedef unsigned int ui;
 typedef unsigned long long int ul;
  
-int main()
-{
- 
-    #ifndef ONLINE_JUDGE
-    freopen("input.txt", "r", stdin);
-    freopen("output.txt", "w", stdout);
-    freopen("errorf.txt" , "w" , stderr);
-    #en…
-[8:02 pm, 21/01/2022] Pratik Suryawanshi: int main()
-{
-   // code here
-   
    int t;
    cin >> t;
    while(t--)
