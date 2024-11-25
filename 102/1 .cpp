@@ -1,3 +1,7 @@
+void task762_3_B() {
+    int n; cin >> n;
+    cout << ((int) cbrt(n)) + ((int) sqrt(n)) - ((int) sqrt(cbrt(n)));
+}
 using namespace std;
 void task121_Rated_2_B() {
     string str; cin >> str;
