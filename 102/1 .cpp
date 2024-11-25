@@ -1,4 +1,23 @@
 using namespace std;
+int cntEven(int l, int r){
+    int cnt = (r - l) / 2;
+    if(l % 2 != 0 || r % 2 != 0)
+        cnt++;
+    return cnt;
+}
+int main(){
+    int l, r, k; cin >> l >> r >> k;
+    if(l == r){
+        if(l == 1)
+            cout << "No";
+        else
+            cout << "Yes";
+        return 0;
+    }
+    int res = cntEven(l, r);
+    (res > k) ? cout << "No" : cout << "Yes";
+}
+using namespace std;
 void main(){
     int n, k; cin >> n >> k;
     int arr[n], tmp[n];
