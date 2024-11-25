@@ -1,4 +1,20 @@
 using namespace std;
+void task122_Rated_2_C() {
+    ll heroHealth, heroDamage, monsterHealth, monsterDamage, upgrades, damagePerUpgrade, healthPerUpgrade;
+    cin >> heroHealth >> heroDamage >> monsterHealth >> monsterDamage >> upgrades >> damagePerUpgrade >> healthPerUpgrade;
+    for (ll currentHealthUpgrades = 0; currentHealthUpgrades <= upgrades; ++currentHealthUpgrades) {
+        ll upgradedHealth = heroHealth + healthPerUpgrade * currentHealthUpgrades;
+        ll upgradedDamage = heroDamage + damagePerUpgrade * (upgrades - currentHealthUpgrades);
+        ll roundsToKillMonster = (monsterHealth + upgradedDamage - 1) / upgradedDamage;
+        ll roundsToSurvive = (upgradedHealth + monsterDamage - 1) / monsterDamage;
+        if (roundsToKillMonster <= roundsToSurvive) {
+            cout << "YES";
+            return;
+        }
+    }
+    cout << "NO";
+}
+using namespace std;
 void task122_Rated_2_B()(){
     string str; cin >> str;
     int zero = 0, one = 0, len = str.size();
@@ -47,22 +63,6 @@ void task122_Rated_2_A() {
         cout << n - n % 7;
     else
         cout << n + 7 - n % 7;
-}
-
-void task122_Rated_2_C() {
-    ll hc, dc, hm, dm, k, w, a;
-    cin >> hc >> dc >> hm >> dm >> k >> w >> a;
-    for (ll i = 0; i <= k; ++i) {
-        ll hc1 = hc + a * i;
-        ll dc1 = dc + w * (k - i);
-        ll numC = (hm + dc1 - 1) / dc1;
-        ll numM = (hc1 + dm - 1) / dm;
-        if (numC <= numM) {
-            cout << "YES";
-            return;
-        }
-    }
-    cout << "NO";
 }
 
 void task122_Rated_2_D() {
