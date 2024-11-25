@@ -1,4 +1,22 @@
 using namespace std;
+int task767_2_A(){
+    int n, m; cin >> n >> m;
+    vector <int> vec(n), tor(m);
+    for(int i = 0; i < n; i++)
+        cin >> vec[i];
+    for(int i = 0; i < n; i++)
+        cin >> tor[i];
+    multiset <pair <int, int> >pr;
+    for(int i = 0; i < n; i++)
+        pr.insert(make_pair(vec[i], tor[i]));
+    for(const auto & i : pr){
+        if(i.first > m)
+            m += i.first;
+        cout << m;
+    }
+    cout << m;
+}
+using namespace std;
 int task769_2_A()(){
     int n; cin >> n;
     string str; cin >> str;
