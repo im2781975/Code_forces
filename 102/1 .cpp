@@ -1,4 +1,17 @@
 using namespace std;
+void task121_Rated_2_A(){
+    string str; cin >> str;
+    int len = str.size();
+    vector <int> vec(30);
+    for(int i = 0; i < len; i++)
+        vec[str[i] - 'a']++;
+    for(int i = 0; i < 30; i++){
+        for(int j = 0; j < vec[i]; j++){
+            cout << (char)('a' + i);
+        }
+    }
+}
+using namespace std;
 void task122_Rated_2_D()(){
     int n, k; cin >> n >> k;
     vector <int> bitCnt(n + 1), val(n + 1);
@@ -25,46 +38,6 @@ void task122_Rated_2_D()(){
         }
     }
     cout << dp[n][k];
-}
-void task122_Rated_2_D() {
-    int n, k; cin >> n >> k;
-    vector<int> c(n + 1), num(n + 1);
-    for (int i = 0; i < n; ++i) {
-        int b;
-        cin >> b;
-        int f = log2(b);
-        num[i + 1] += f;
-        b -= (1 << f);
-        while (b != 0) {
-            int j = log2(b);
-            num[i + 1]++;
-            b -= (1 << j);
-        }
-    }
-    for (int i = 0; i < n; ++i)
-        cin >> c[i + 1];
-    vector<vector<int>> dp(n + 1, vector<int>(k + 1));
-    for (int i = 1; i < n + 1; ++i) {
-        for (int j = 1; j < k + 1; ++j) {
-            if (j >= num[i])
-                dp[i][j] = max(dp[i - 1][j], dp[i - 1][j - num[i]] + c[i]);
-            else
-                dp[i][j] = dp[i - 1][j];
-        }
-    }
-    cout << dp[n][k];
-}
-
-void task121_Rated_2_A() {
-    string s;
-    cin >> s;
-    int n = s.size();
-    vector<int> fs(30);
-    for (int i = 0; i < n; ++i)
-        fs[s[i] - 'a']++;
-    for (int i = 0; i < 30; ++i)
-        for (int j = 0; j < fs[i]; ++j)
-            cout << (char)('a' + i);
 }
 
 void task121_Rated_2_B() {
