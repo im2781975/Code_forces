@@ -1,4 +1,62 @@
 using namespace std;
+void task762_3_B() {
+    int n; cin >> n;
+    cout << ((int) cbrt(n)) + ((int) sqrt(n)) - ((int) sqrt(cbrt(n)));
+}
+using namespace std;
+void task121_Rated_2_B() {
+    string str; cin >> str;
+    int n = str.size();
+    for (int i = n - 1, j = n - 2; j >= 0; --i, --j) {
+        if (str[i] - '0' + str[j] - '0' > 10) {
+            cout << str.substr(0, j) << str[i] + str[j] - '0' - '0' << str.substr(i + 1, n);
+            return;
+        }
+    }
+    cout << str[0] - '0' + str[1] - '0' << str.substr(2, n);
+}
+using namespace std;
+void task121_Rated_2_A(){
+    string str; cin >> str;
+    int len = str.size();
+    vector <int> vec(30);
+    for(int i = 0; i < len; i++)
+        vec[str[i] - 'a']++;
+    for(int i = 0; i < 30; i++){
+        for(int j = 0; j < vec[i]; j++){
+            cout << (char)('a' + i);
+        }
+    }
+}
+using namespace std;
+void task122_Rated_2_D()(){
+    int n, k; cin >> n >> k;
+    vector <int> bitCnt(n + 1), val(n + 1);
+    for(int i = 0; i < n; i++){
+        int x; cin >> x;
+        int bit = log2(x);
+        bitCnt[i + 1] = bit;
+        x -= 1 << bit;
+        while(x != 0){
+            int maxBit = log2(x);
+            bitCnt[i + 1]++;
+            x -= 1 << maxBit;
+        }
+    }
+    for(int i = 0; i < n; i++)
+        cin >> val[i + 1];
+    vector <vector <int> >dp(n + 1, vector <int> (k + 1, 0));
+    for(int i = 1; i <= n; i++){
+        for(int j = 1; j <= k; j++){
+            if (j >= bitCnt[i])
+                dp[i][j] = max(dp[i - 1][j], dp[i - 1][j - bitCnt[i]] + val[i]);
+            else
+                dp[i][j] = dp[i - 1][j];
+        }
+    }
+    cout << dp[n][k];
+}
+using namespace std;
 int task767_2_A(){
     int n, m; cin >> n >> m;
     vector <int> vec(n), tor(m);
