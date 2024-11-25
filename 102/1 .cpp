@@ -1,5 +1,26 @@
 using namespace std;
 void main(){
+    int n, m; cin >> n >> m;
+    int arr[n], seq[m], cnt = 0;
+    for(int i = 0; i < n; i++)
+        cin >> arr[i];
+    for(int i = 0; i < m; i++)
+        cin >> seq[i];
+    sort(arr, arr + n);
+    sort(seq, seq + n);
+    for(int i = 0, j = 0; i < n && j < m;){
+        if(arr[i] == seq[j]){
+            i++; j++; cnt++;
+        }
+        else if(arr[i] < seq[j])
+            i++;
+        else
+            j++;
+    }
+    (cnt == n / 2) ? cout << "Yes" : cout << "No";
+}
+using namespace std;
+void main(){
     int n; cin >> n;
     vector <int> vec;
     for(int i = 1; i <= n; i++)
