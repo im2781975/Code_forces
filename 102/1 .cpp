@@ -1,4 +1,39 @@
 using namespace std;
+void taskHello2022_B() {
+    int n; cin >> n;
+    int minLeft = 1e9 + 2, maxRight = 0;
+    int minLeftCost = 0, maxRightCost = 0;
+    int maxSegmentLength = 0, minCostForMaxSegment = 0;
+    for (int i = 0; i < n; ++i) {
+        int l, r, c;
+        cin >> l >> r >> c;
+        if (l < minLeft) {
+            minLeft = l;
+            minLeftCost = c;
+        } else if (l == minLeft && c < minLeftCost) {
+            minLeftCost = c;
+        }
+        if (r > maxRight) {
+            maxRight = r;
+            maxRightCost = c;
+        } else if (r == maxRight && c < maxRightCost) {
+            maxRightCost = c;
+        }
+        int segmentLength = r - l + 1;
+        if (segmentLength > maxSegmentLength) {
+            maxSegmentLength = segmentLength;
+            minCostForMaxSegment = c;
+        } else if (segmentLength == maxSegmentLength && c < minCostForMaxSegment) {
+            minCostForMaxSegment = c;
+        }
+        int bestNow = minLeftCost + maxRightCost;
+        if (maxSegmentLength == maxRight - minLeft + 1) {
+            bestNow = min(bestNow, minCostForMaxSegment);
+        }
+        cout << bestNow << '\n';
+    }
+}
+using namespace std;
 void task762_3_C(){
     string str, ing; cin >> str >> ing;
     reverse(str.begin(), str.end());
@@ -58,36 +93,6 @@ void taskHello2022_A() {
         cout << '\n';
     }
 }
-
-void taskHello2022_B() {
-    int n;
-    cin >> n;
-    int mn = 1e9 + 2, mx = 0, cn = 0, forl = 0, forr = 0, ln = 0;
-    for (int i = 0; i < n; ++i) {
-        int l, r, c;
-        cin >> l >> r >> c;
-        if (l < mn)
-            mn = l, forl = c;
-        else if (l == mn && c < forl)
-            forl = c;
-
-        if (r > mx)
-            mx = r, forr = c;
-        else if (r == mx && c < forr)
-            forr = c;
-
-        if (ln < r - l + 1)
-            ln = r - l + 1, cn = c;
-        else if (ln == r - l + 1 && c < cn)
-            cn = c;
-
-        int best_now = forl + forr;
-        if (ln == mx - mn + 1 && cn < best_now)
-            best_now = cn;
-        cout << best_now << '\n';
-    }
-}
-
 void taskGoodBye2021_A() {
     int n; cin >> n;
     vector<int> a(101);
