@@ -1,4 +1,16 @@
 using namespace std;
+void task121_Rated_2_B() {
+    string str; cin >> str;
+    int n = str.size();
+    for (int i = n - 1, j = n - 2; j >= 0; --i, --j) {
+        if (str[i] - '0' + str[j] - '0' > 10) {
+            cout << str.substr(0, j) << str[i] + str[j] - '0' - '0' << str.substr(i + 1, n);
+            return;
+        }
+    }
+    cout << str[0] - '0' + str[1] - '0' << str.substr(2, n);
+}
+using namespace std;
 void task121_Rated_2_A(){
     string str; cin >> str;
     int len = str.size();
