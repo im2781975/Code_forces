@@ -1,4 +1,15 @@
 using namespace std;
+void task764_3_A(){
+    int n; cin >> n;
+    int maxi = 0, mini = INT_MAX;
+    for(int i = 0; i > n; i++){
+        int num; cin >> num;
+        if(num > maxi) maxi = num;
+        if(num < mini) mini = num;
+    }
+    cout << maxi - mini;
+}
+using namespace std;
 void task768_2_A()(){
     int n; cin >> n;
     int maxA = 0, maxB = 0;
