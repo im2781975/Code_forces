@@ -155,58 +155,9 @@ typedef unsigned long long int ul;
 #define INF 1001001001
 typedef unsigned int ui;
 typedef unsigned long long int ul;
- 
-   int t;
-   cin >> t;
-   while(t--)
-   {
-         int n,m;
-    cin >> n>> m;
-    int cnt=0;
-    int arr1[n];
-    int arr2[m];
-    for(int i=0;i<n;i++)
-    {
-        cin >> arr1[i];
-    }
-    for(int j=0;j<m;j++)
-    {
-        cin >> arr2[j];
-    }
-    sort(arr1,arr1+n);
-    sort(arr2,arr2+m);
-    
-    for(int i=0, j=0; i<n && j<m;)
-    {
-        if(arr1[i] == arr2[j])
-        {
-            i++;
-            j++;
-            cnt++;
-        }
-        else if(arr1[i] < arr2[j])
-        {
-            i++;
-        }
-        else
-         j++;
-        
-    }
-    if(cnt == (n/2) )
-    {
-        cout << "YES" << "\n";
-    }
-    else
-    cout << "NO" << "\n";
-   }
- 
-    return 0;
-}
-[8:07 pm, 21/01/2022] Pratik Suryawanshi: #pragma GCC optimize("Ofast")
+#pragma GCC optimize("Ofast")
 #pragma GCC target("avx,avx2,fma")
 #pragma GCC optimization("unroll-loops")
-#include <bits/stdc++.h>
-using namespace std;
 #define tc ll t sc cin >> t sc while (t--)
 #define ff first
 #define vp vector<pair<ll,char>>
@@ -222,20 +173,9 @@ using namespace std;
 #define MAX(a, b) a = max(a, b)
 #define MIN(a, b) a = min(a, b)
 #define INF 1001001001
-const long double pi = 3.141592653;
- 
 typedef unsigned int ui;
 typedef unsigned long long int ul;
- 
-int main()
-{
- 
-    #ifndef ONLINE_JUDGE
-    freopen("input.txt", "r", stdin);
-    freopen("output.txt", "w", stdout);
-    freopen("errorf.txt" , "w" , stderr);
-    #…
-[8:12 pm, 21/01/2022] Pratik Suryawanshi: #define all(c) c.begin(),c.end()
+#define all(c) c.begin(),c.end()
 #define gcd(a,b) __gcd(abs(a),abs(b))
 #define lcm(a,b) (((a)/(__gcd(a,b)))*(b))
 #define isodd(a) ((a)&1)
@@ -256,12 +196,9 @@ int main()
 #define sqr(x) ((x)*(x))
 #define cube(x) ((x)(x)(x))
 #define inf 1<<30
-#define …
-[8:14 pm, 21/01/2022] Pratik Suryawanshi: #pragma GCC optimize("Ofast")
+#defin#pragma GCC optimize("Ofast")
 #pragma GCC target("avx,avx2,fma")
 #pragma GCC optimization("unroll-loops")
-#include <bits/stdc++.h>
-using namespace std;
 #define tc ll t sc cin >> t sc while (t--)
 #define ff first
 #define vp vector<pair<ll,ll>>
@@ -278,24 +215,8 @@ using namespace std;
 #define MIN(a, b) a = min(a, b)
 #define INF 1001001001
 const long double pi = 3.141592653;
- 
 typedef unsigned int ui;
 typedef unsigned long long int ul;
-#include<bits/stdc++.h>
-using namespace std;
- 
-int n,m;
-set<int> vacant_centres;
-map<int,vector<int> > to_discharge;
- 
-void discharge_patients_untill_day(int day){
-    …
-[8:15 pm, 21/01/2022] Pratik Suryawanshi: #include<bits/stdc++.h>
- 
- 
-using namespace std;
- 
- 
 #define all(c) c.begin(),c.end()
 #define gcd(a,b) __gcd(abs(a),abs(b))
 #define lcm(a,b) (((a)/(__gcd(a,b)))*(b))
