@@ -10,6 +10,19 @@ void task764_3_A(){
     cout << maxi - mini;
 }
 using namespace std;
+void task764_3_B(){
+    int a, b, c; cin >> a >> b >> c;
+    if ((((a + c) % 2) == 0 && ((a + c) / 2) % b == 0) || (a <= b <= c && (b - (c - b) > 0) && (b - (c - b)) % a == 0) || (a <= b && (b + b - a) % c == 0))
+        cout << "YES";
+    else {
+        swap(a, c);
+        if ((((a + c) % 2) == 0 && ((a + c) / 2) % b == 0) || (a <= b <= c && (b - (c - b) > 0) && (b - (c - b)) % a == 0) || (a <= b && (b + b - a) % c == 0))
+            cout << "YES";
+        else
+            cout << "NO";
+    }
+}
+using namespace std;
 void task768_2_A()(){
     int n; cin >> n;
     int maxA = 0, maxB = 0;
