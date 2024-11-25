@@ -1,4 +1,31 @@
-
+using namespace std;
+void task122_Rated_2_D()(){
+    int n, k; cin >> n >> k;
+    vector <int> bitCnt(n + 1), val(n + 1);
+    for(int i = 0; i < n; i++){
+        int x; cin >> x;
+        int bit = log2(x);
+        bitCnt[i + 1] = bit;
+        x -= 1 << bit;
+        while(x != 0){
+            int maxBit = log2(x);
+            bitCnt[i + 1]++;
+            x -= 1 << maxBit;
+        }
+    }
+    for(int i = 0; i < n; i++)
+        cin >> val[i + 1];
+    vector <vector <int> >dp(n + 1, vector <int> (k + 1, 0));
+    for(int i = 1; i <= n; i++){
+        for(int j = 1; j <= k; j++){
+            if (j >= bitCnt[i])
+                dp[i][j] = max(dp[i - 1][j], dp[i - 1][j - bitCnt[i]] + val[i]);
+            else
+                dp[i][j] = dp[i - 1][j];
+        }
+    }
+    cout << dp[n][k];
+}
 void task122_Rated_2_D() {
     int n, k; cin >> n >> k;
     vector<int> c(n + 1), num(n + 1);
