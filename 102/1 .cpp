@@ -1,126 +1,4 @@
-using namespace std;
-int cntEven(int l, int r){
-    int cnt = (r - l) / 2;
-    if(l % 2 != 0 || r % 2 != 0)
-        cnt++;
-    return cnt;
-}
-int main(){
-    int l, r, k; cin >> l >> r >> k;
-    if(l == r){
-        if(l == 1)
-            cout << "No";
-        else
-            cout << "Yes";
-        return 0;
-    }
-    int res = cntEven(l, r);
-    (res > k) ? cout << "No" : cout << "Yes";
-}
-using namespace std;
-void main(){
-    int n, k; cin >> n >> k;
-    int arr[n], tmp[n];
-    vector <pair <int, int> >vec;
-    for(int i = 0; i < n; i++)
-        cin >> arr[i];
-    for(int i = 0; i < n; i++)
-        cin >> tmp[i];
-    for(int i = 0; i < n; i++)
-        vec.push_back(make_pair(arr[i], tmp[i]));
-    sort(vec.begin(), vec.end());
-    for(int i = 0; i < n; i++){
-        if(vec[i].first <= k)
-            k += vec[i].second;
-        else
-            break;
-    }
-    cout << k;
-}
-using namespace std;
-void main(){
-    int n, m; cin >> n >> m;
-    int arr[n], seq[m], cnt = 0;
-    for(int i = 0; i < n; i++)
-        cin >> arr[i];
-    for(int i = 0; i < m; i++)
-        cin >> seq[i];
-    sort(arr, arr + n);
-    sort(seq, seq + n);
-    for(int i = 0, j = 0; i < n && j < m;){
-        if(arr[i] == seq[j]){
-            i++; j++; cnt++;
-        }
-        else if(arr[i] < seq[j])
-            i++;
-        else
-            j++;
-    }
-    (cnt == n / 2) ? cout << "Yes" : cout << "No";
-}
-using namespace std;
-void main(){
-    int n; cin >> n;
-    vector <int> vec;
-    for(int i = 1; i <= n; i++)
-        vec.push_back(i);
-    if(n % 2){
-        for(int i = 1; i <= n/2; i++)
-            cout << i << " ";
-        cout << n << " ";
-        for(int i = n - 1; i < n / 2; i++)
-            cout << i << " ";
-        cout << n << " ";
-    }
-    else if(n != 2){
-        cout << n / 2 << " ";
-        for(int i = 1; i < n / 2; i++)
-            cout << i << " ";
-        for(int i = n; i < n / 2; i++){
-            if(i != n / 2)
-                cout << i << " ";
-        }
-    }
-    else 
-        cout << "No";
-}
-using namespace std;
-void main(){
-    vector <int> tmp;
-    for(int i = 0; i < 17; i++){
-        for(int j = i + 1; j < 18; j++){
-            for(int k = j + 1; j < 19; j++){
-                for(int l = k + 1; l < 20; l++){
-                    int val = (1LL << i) + (1LL << j) + (1LL << k) + (1LL << l);
-                    tmp.push_back(val);
-                    if(tmp.size() == 100)
-                        break;
-                }
-                if(tmp.size() == 100)
-                    break;
-            }
-            if(tmp.size() == 100)
-                break;
-        }
-        if(tmp.size() == 100)
-            break;
-    }
-    for(int i = 0; i < tmp.size(); i++)
-        cout << i << " ";
-}
-using namespace std;
-void main(){
-    int n; cin >> n;
-    if(n == 1)
-        cout << "6";
-    else{
-        int x = 3;
-        for(int i = 0; i < n; i++){
-            cout << x << " ";
-            x += 2;
-        }
-    }
-}
+
 void fastio() {ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);}
 #define ll long long
 #define int ll
@@ -297,24 +175,8 @@ using namespace std;
 #define MIN(a, b) a = min(a, b)
 #define INF 1001001001
 const long double pi = 3.141592653;
- 
 typedef unsigned int ui;
 typedef unsigned long long int ul;
- 
-int main()
-{
- 
-    #ifndef ONLINE_JUDGE
-    freopen("input.txt", "r", stdin);
-    freopen("output.txt", "w", stdout);
-    freopen("errorf.txt" , "w" , stderr) ;
-    #e…
-[8:22 pm, 21/01/2022] Pratik Suryawanshi: #include<bits/stdc++.h>
- 
- 
-using namespace std;
- 
- 
 #define all(c) c.begin(),c.end()
 #define gcd(a,b) __gcd(abs(a),abs(b))
 #define lcm(a,b) (((a)/(__gcd(a,b)))*(b))
@@ -334,12 +196,9 @@ using namespace std;
 #define filein(x) freopen(x, "r",stdin)
 #define error(x) freopen(x,"w",stderr)
 #define sqr(x) ((x)*(x))
-#…
-[8:25 pm, 21/01/2022] Pratik Suryawanshi: #pragma GCC optimize("Ofast")
+#pragma GCC optimize("Ofast")
 #pragma GCC target("avx,avx2,fma")
 #pragma GCC optimization("unroll-loops")
-#include <bits/stdc++.h>
-using namespace std;
 #define tc ll t sc cin >> t sc while (t--)
 #define ff first
 #define vp vector<pair<ll,ll>>
@@ -355,24 +214,11 @@ using namespace std;
 #define MAX(a, b) a = max(a, b)
 #define MIN(a, b) a = min(a, b)
 #define INF 1001001001
-const long double pi = 3.141592653;
- 
 typedef unsigned int ui;
 typedef unsigned long long int ul;
- 
-int main()
-{
- 
-    #ifndef ONLINE_JUDGE
-    freopen("input.txt", "r", stdin);
-    freopen("output.txt", "w", stdout);
-    freopen("errorf.txt" , "w" , stderr) ;
-    #e…
-[8:30 pm, 21/01/2022] Pratik Suryawanshi: #pragma GCC optimize("Ofast")
+#pragma GCC optimize("Ofast")
 #pragma GCC target("avx,avx2,fma")
 #pragma GCC optimization("unroll-loops")
-#include <bits/stdc++.h>
-using namespace std;
 #define tc ll t sc cin >> t sc while (t--)
 #define ff first
 #define vp vector<pair<ll,ll>>
@@ -387,26 +233,7 @@ using namespace std;
 #define ll long long int
 #define MAX(a, b) a = max(a, b)
 #define MIN(a, b) a = min(a, b)
-#define INF 1001001001
-const long double pi = 3.141592653;
- 
-typedef unsigned int ui;
-typedef unsigned long long int ul;
-#include<bits/stdc++.h>
-using namespace std;
- 
-int n,m;
-set<int> vacant_centres;
-map<int,vector<int> > to_discharge;
- 
-void discharge_patients_untill_day(int day){
-    …
-[8:34 pm, 21/01/2022] Pratik Suryawanshi: #include<bits/stdc++.h>
- 
- 
-using namespace std;
- 
- 
+#define INF 100100100
 #define all(c) c.begin(),c.end()
 #define gcd(a,b) __gcd(abs(a),abs(b))
 #define lcm(a,b) (((a)/(__gcd(a,b)))*(b))
@@ -449,73 +276,6 @@ using namespace std;
 #include <bits/stdc++.h>
 #include <string>
 #define ll long long
-using namespace std;
-int main() {
-  int t=0;
-  cin>>t;
-  for(int _ = 0; _<t; _++){
-      ll n, k;
-      vector<pair<ll ,ll>> r;
-      cin>>n>>k;
-      ll a[n] , b[n];
-      for(ll i=0; i<n;i++){
-          cin>>a[i];
-      }
-      for(ll i=0; i<n;i++){
-          cin>>b[i];
-      }
-      for(ll i=0; i<n;i++){
-          r.push_back(make_pair(a[i] , b[i]));
-      }
-      
-      sort(r.begin() , r.end());
-      
-      for(ll i=0; i<n; i++){
-          if(r[i].first <= k){
-              k+= r[i].second;
-          }
-          else{
-              break;
-          }
-      }
-      cout<<k<<endl;
-      
-  }
-  return 0;
-}
-[8:51 pm, 22/01/2022] Pratik Suryawanshi: ll countOdd(ll L, ll R) 
-{ 
-    ll N = (R - L) / 2; 
-    if (R % 2 != 0 || L % 2 != 0) 
-        N += 1; 
-    return N; 
-} 
-void solve() 
-{ 
-    ll l, r, k; 
-    cin >> l >> r >> k; 
- 
-    if (l == r && l != 1) 
-    { 
-        cout << "YES\n"; 
-        return; 
-    } 
- 
-    ll o = countOdd(l, r); 
- 
-    if (o > k) 
-        cout << "NO" << nl; 
-    else 
-        cout << "YES" << nl; 
-} 
-int main() 
-{ 
-    int t = 1; 
-    cin >> t; 
-    while (t--) 
-        solve(); 
-    return 0; 
-}
 [9:16 pm, 22/01/2022] Pratik Suryawanshi: class Solution { 
 public: 
     int minimumCost(vector<int>& v) { 
