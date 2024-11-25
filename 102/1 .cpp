@@ -37,7 +37,7 @@ void task762_3_C(){
     if(i == res.size())
         cout << "0";
     else
-        res.substr(i);
+        cout << res.substr(i);
 }
 void taskHello2022_A() {
     int n, k;
