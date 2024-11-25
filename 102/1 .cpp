@@ -1,6 +1,31 @@
+using namespace std;
+void task122_Rated_2_B()(){
+    string str; cin >> str;
+    int zero = 0, one = 0, len = str.size();
+    for(int i = 0; i < len; i++){
+        if(str[i] == '0')
+            zero++;
+        else
+            one++;
+    }
+    if(zero != one)
+        cout << min(zero, one);
+    else{
+        int first, sec;
+        if(str[len - 1] == '0')
+            first = min(zero - 1, one);
+        else
+            first = min(zero, one - 1);
+        if(str[0] == '0')
+            sec = min(zero - 1, one);
+        else
+            sec = min(zero, one - 1);
+        cout << max(first, sec);
+    }
+}
+using namespace std;
 void task767_2_B() {
-    int l, r, k;
-    cin >> l >> r >> k;
+    int l, r, k; cin >> l >> r >> k;
     if (l == r) {
         if (l == 1)
             cout << "NO";
@@ -13,7 +38,7 @@ void task767_2_B() {
     else
         cout << "NO";
 }
-
+using namespace std;
 void task122_Rated_2_A() {
     int n; cin >> n;
     if (n % 7 == 0)
@@ -22,41 +47,6 @@ void task122_Rated_2_A() {
         cout << n - n % 7;
     else
         cout << n + 7 - n % 7;
-}
-
-void task122_Rated_2_B() {
-    string s;
-    cin >> s;
-    int n = s.size();
-//    vector<pair<int, int>> pref(n);
-    int zero = 0, one = 0;
-    for (int i = 0; i < n; ++i) {
-//        pref[i] = make_pair(0, 0);
-//        if (i != 0)
-//            pref[i] = pref[i - 1];
-//        pref[i].first += s[i] == '0';
-//        pref[i].second += s[i] == '1';
-        if (s[i] == '0')
-            zero++;
-        else
-            one++;
-    }
-    if (zero != one)
-        cout << min(zero, one);
-    else {
-        int first, second;
-        if (s[n - 1] == '0')
-            first = min(zero - 1, one);
-        else
-            first = min(zero, one - 1);
-
-        if (s[0] == '0')
-            second = min(zero - 1, one);
-        else
-            second = min(zero, one - 1);
-        cout << max(first, second);
-    }
-
 }
 
 void task122_Rated_2_C() {
