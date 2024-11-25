@@ -25,7 +25,7 @@ void main(){
         cout << "No";
 }
 using namespace std;
-int main(){
+void main(){
     vector <int> tmp;
     for(int i = 0; i < 17; i++){
         for(int j = i + 1; j < 18; j++){
@@ -75,33 +75,7 @@ void fastio() {ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);}
 #define pb          push_back
 #define endl        '\n'
 signed main(){
-    int tc = 0, tt = 1;
-    cin >> tt;
-    while (tc++ < tt)
-    {
- 
-        ll n;
-        cin >> n;
- 
-        vector<int> arr;
-        for(int i = 1; i <= n; i++){
-            arr.pb(i);
-        }
- 
-        if(n%2){
-            cout << "YES" << endl;
-            for(int i = 1; i <= (n/2); i++){
-                cout << i << " ";
-            }
-            cout << n << " ";
-            for(int i = n-1; i > (n/2); i--){
-                cout << i << " ";
-            }cout << endl;
-        }else if(n != 2){
-            cout << "YES" << endl;
-            cout << (n/2) << " ";
-            for(int i = 1; i < (n/2); i…
-[7:59 pm, 21/01/2022] Pratik Suryawanshi: #pragma GCC optimize("Ofast")
+: #pragma GCC optimize("Ofast")
 #pragma GCC target("avx,avx2,fma")
 #pragma GCC optimization("unroll-loops")
 #include <bits/stdc++.h>
