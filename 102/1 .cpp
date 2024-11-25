@@ -1,4 +1,28 @@
 using namespace std;
+int main(){
+    vector <int> tmp;
+    for(int i = 0; i < 17; i++){
+        for(int j = i + 1; j < 18; j++){
+            for(int k = j + 1; j < 19; j++){
+                for(int l = k + 1; l < 20; l++){
+                    int val = (1LL << i) + (1LL << j) + (1LL << k) + (1LL << l);
+                    tmp.push_back(val);
+                    if(tmp.size() == 100)
+                        break;
+                }
+                if(tmp.size() == 100)
+                    break;
+            }
+            if(tmp.size() == 100)
+                break;
+        }
+        if(tmp.size() == 100)
+            break;
+    }
+    for(int i = 0; i < tmp.size(); i++)
+        cout << i << " ";
+}
+using namespace std;
 void main(){
     int n; cin >> n;
     if(n == 1)
@@ -21,33 +45,10 @@ void fastio() {ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);}
 #define pll         pair<ll, ll>
 #define pb          push_back
 #define endl        '\n'
- 
-    vll temp;
-    for(int i = 0; i < 17; i++){
-        for(int j = i+1; j < 18; j++){
-            for(int k = j+1; k < 19; k++){
-                for(int l = k+1; l < 20; l++){
-                    ll val = (1<<l) + (1<<k) + (1<<j) + (1<<i);
-                    temp.pb(val);
-                }
-                if(temp.size() == 1000){
-                    break;
-                }
-            }
-            if(temp.size…
-[9:46 pm, 19/01/2022] Pratik Suryawanshi: 2C
- 
-#include <bits/stdc++.h>
-using namespace std;
 #define ll          long long
 #define pb          push_back
 #define endl        '\n'
- 
- 
 signed main(){
- 
- 
- 
     int tc = 0, tt = 1;
     cin >> tt;
     while (tc++ < tt)
