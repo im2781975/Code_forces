@@ -1,47 +1,26 @@
-
-[8:30 pm, 19/01/2022] Pratik Suryawanshi: #include"bits/stdc++.h"
 using namespace std;
+void main(){
+    int n; cin >> n;
+    if(n == 1)
+        cout << "6";
+    else{
+        int x = 3;
+        for(int i = 0; i < n; i++){
+            cout << x << " ";
+            x += 2;
+        }
+    }
+}
 void fastio() {ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);}
 #define ll long long
 #define int ll
 #define endl "\n"
- 
-signed main(){
-    ll t;
-    cin>>t;
-    while(t--){
-        ll k;
-        cin>>k;
-        if(k==1){
-            cout<<6<<endl;
-            
-        }
-        else{
-            ll x=3;
-            for(ll i=0;i<k;i++){
-                cout<<x<<" ";
-                x+=2;
-            }
-        }
-    }
-    return 0;
-}
-[8:38 pm, 19/01/2022] Pratik Suryawanshi: #include <bits/stdc++.h>
-using namespace std;
- 
 #define ll          long long
 #define vi          vector<int>
 #define vll         vector<ll>
 #define pll         pair<ll, ll>
 #define pb          push_back
 #define endl        '\n'
- 
-signed main(){
- 
-#ifndef ONLINE_JUDGE
-    freopen("input.txt", "r", stdin);
-    freopen("output.txt", "w", stdout);
-#endif
  
     vll temp;
     for(int i = 0; i < 17; i++){
