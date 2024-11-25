@@ -1,4 +1,18 @@
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
+using namespace std;
+void minCost(){
+    int n; cin >> n;
+    vector <int> vec(n);
+    for(int i = 0; i < n; i++)
+        cin >> vec[i];
+    int sum = 0;
+    sort(vec.rbegin(), vec.rend());
+    for(int i = 0; i < vec.size(); i++)
+        sum += vec[i];
+    for(int i = 2; i < vec.size(); i += 3)
+        sum -= vec[i];
+    cout << sum
+}
 using namespace std;
 struct TrieNode {
     unordered_map<char, TrieNode*> m;
