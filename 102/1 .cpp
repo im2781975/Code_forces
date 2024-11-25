@@ -1,38 +1,44 @@
-
-
-void task762_3_C() {
-    string a, s;
-    cin >> a >> s;
-    reverse(a.begin(), a.end());
-    reverse(s.begin(), s.end());
-    int sn = s.size(), an = a.size();
-    string b;
-    for (int i = 0, j = 0; i < an; ++i) {
-        if (j < sn - 1 && s[j] < '9' && s[j + 1] == '1') {
-            char c = (char) (10 - (a[i] - '0') + s[j]);
-            if (c > '9')
-                b += "01";
+using namespace std;
+void task762_3_C(){
+    string str, ing; cin >> str >> ing;
+    reverse(str.begin(), str.end());
+    reverse(ing.begin(), ing.end());
+    int n = str.size(), m = ing.size();
+    string res;
+    for(int i = 0, j = 0; i < n; i++){
+        if(j < m - 1 && ing[j] < '9' && ing[j + 1] == '0'){
+            char ch = (char) (10 - (str[i] - '0') + ing[j]);
+            if(ch > '9')
+                res += "01";
             else
-                b += c;
+                res += ch;
             j++;
-        } else
-            b += (s[j] - a[i] + '0');
+        }
+        else{
+            int diff = (ing[j] - '0') - (str[i] - '0');
+            if (diff < 0) {
+                diff += 10;
+                ing[j + 1]--;
+            }
+            res += (char)(diff + '0');
+        }
         j++;
     }
-    reverse(b.begin(), b.end());
-    for (int i = 0; i < b.size(); ++i) {
-        if (b[i] < '0' || b[i] > '9') {
-            cout << -1;
-            return;
+    reverse(res.begin(), res.end());
+    for(int i = 0; i < res.size(); i++){
+        if(res[i] < '0' || res[i] > '9'){
+            cout << "-1";
+            return 0;
         }
     }
     int i = 0;
-    for (i; i < b.size(); ++i)
-        if (b[i] != '0')
-            break;
-    cout << b.substr(i, b.size());
+    while (i < res.size() && res[i] == '0') 
+        ++i;
+    if(i == res.size())
+        cout << "0";
+    else
+        res.substr(i);
 }
-
 void taskHello2022_A() {
     int n, k;
     cin >> n >> k;
