@@ -1,4 +1,10 @@
 using namespace std;
+int task769_2_A()(){
+    int n; cin >> n;
+    string str; cin >> str;
+    (n > 2 || str == "11" || str == "00") ? cout << "No" : cout << "yes";
+}
+using namespace std;
 void task764_3_A(){
     int n; cin >> n;
     int maxi = 0, mini = INT_MAX;
