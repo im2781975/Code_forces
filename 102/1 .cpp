@@ -1,5 +1,25 @@
 using namespace std;
 void main(){
+    int n, k; cin >> n >> k;
+    int arr[n], tmp[n];
+    vector <pair <int, int> >vec;
+    for(int i = 0; i < n; i++)
+        cin >> arr[i];
+    for(int i = 0; i < n; i++)
+        cin >> tmp[i];
+    for(int i = 0; i < n; i++)
+        vec.push_back(make_pair(arr[i], tmp[i]));
+    sort(vec.begin(), vec.end());
+    for(int i = 0; i < n; i++){
+        if(vec[i].first <= k)
+            k += vec[i].second;
+        else
+            break;
+    }
+    cout << k;
+}
+using namespace std;
+void main(){
     int n, m; cin >> n >> m;
     int arr[n], seq[m], cnt = 0;
     for(int i = 0; i < n; i++)
