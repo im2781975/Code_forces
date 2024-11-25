@@ -387,13 +387,6 @@ using namespace std;
 #define filein(x) freopen(x, "r",stdin)
 #define error(x) freopen(x,"w",stderr)
 #define sqr(x) ((x)*(x))
-#…
-[8:47 pm, 21/01/2022] Pratik Suryawanshi: #include<bits/stdc++.h>
- 
- 
-using namespace std;
- 
- 
 #define all(c) c.begin(),c.end()
 #define gcd(a,b) __gcd(abs(a),abs(b))
 #define lcm(a,b) (((a)/(__gcd(a,b)))*(b))
@@ -413,15 +406,11 @@ using namespace std;
 #define filein(x) freopen(x, "r",stdin)
 #define error(x) freopen(x,"w",stderr)
 #define sqr(x) ((x)*(x))
-#…
-[8:16 pm, 22/01/2022] Pratik Suryawanshi: //CF_A_DIV_2
- 
 #include <iostream>
 #include <bits/stdc++.h>
 #include <string>
 #define ll long long
 using namespace std;
- 
 int main() {
   int t=0;
   cin>>t;
