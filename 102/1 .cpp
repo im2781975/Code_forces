@@ -1,3 +1,26 @@
+using namespace std;
+void task768_2_A()(){
+    int n; cin >> n;
+    int maxA = 0, maxB = 0;
+    vector <int> vec(n), tmp(n);
+    for(int i = 0; i < n; i++)
+        cin >> vec[i];
+    for(int i = 0; i < n; i++)
+        cin >> tmp[i];
+    for(int i = 0; i < n; i++){
+        if(vec[i] < tmp[i])
+            swap(vec[i], tmp[i]);
+    }
+    for(int i = 0; i < n; i++){
+        if(maxA < vec[i])
+            maxA = vec[i];
+        if(maxB < tmp[i])
+            maxB = tmp[i];
+    }
+    //maxA = *max_element(vec.begin(), vec.end());
+    //maxB = *max_element(vec.begin(), vec.end());
+    cout << maxA * maxB;
+}
 
 void task768_2_A() {
     int n, maxA = 0, maxB = 0;
