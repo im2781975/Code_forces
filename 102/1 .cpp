@@ -2,6 +2,15 @@ using namespace std;
 int lcm(int a, int b){
     return (a * (b / __gcd(a, b)));
 }
+bool IsPrime(int n){
+    if(n <= 1)
+        return false;
+    for(int i = 2; i <= sqrt(n); i++){
+        if(n % i == 0)
+            return false;
+    }
+    return true;
+}
 string intToString(int n){
     char ch[100];
     sprintf(ch, "%lld", ch);
@@ -14,16 +23,6 @@ int stringToInt(string str){
     strcpy(ch, str.c_str());
     sscanf(ch, "%lld", &res);
     return res;
-}
-
-bool isPrime(int n)
-{
-    if (n <= 1)
-        return false;
-    for (int i = 2; i <= sqrt(n); i++)
-        if (n % i == 0)
-            return false;
-    return true;
 }
 
 string to_binary(ll n)
