@@ -1,4 +1,15 @@
 using namespace std;
+void main(){
+    int n, x = 0; cin >> n;
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j <= i; j++){
+            cout << x % 10 << " ";
+            x++;
+        }
+        cout << "\n";
+    }
+}
+using namespace std;
 void Factorization(){
     int a, b; cin >> a >> b;
     if(__gcd(a, b) > 1)
