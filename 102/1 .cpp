@@ -1,4 +1,21 @@
-#include<bits/stdc++.h>
+using namespace std;
+int numOfArray(vector <int> &vec, int lower, int upper){
+    int mini = 0, maxi = 0, sum = 0;
+    for(int i = 0; i < vec.size(); i++){
+        sum += vec[i];
+        mini = min(mini, sum);
+        maxi = max(maxi, sum);
+    }
+    int startMin = lower - mini;
+    int startMax = upper - maxi;
+    if(startMax < lower || startMin > upper)
+        return 0;
+    return (int)(min(upper, startMax) - max(lower, startMin) + 1);
+}
+int main(){
+    vector <int> vec = {1, -3, 4};
+    cout << numOfArray(vec, 1, 6);
+}
 using namespace std;
 void minCost(){
     int n; cin >> n;
