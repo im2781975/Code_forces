@@ -11,6 +11,31 @@ bool IsPrime(int n){
     }
     return true;
 }
+int gcd(int a, int b){
+    if(a == 0) return b;
+    if(b == 0) return a;
+    if(a == b) return a;
+    if(a > b) return gcd(a - b, b);
+    else return gcd(a, b - a);
+}
+using namespace std;
+int leftRotate(int arr[], int n){
+    int tmp = arr[0];
+    for(int i = 0; i < n - 1; i++)
+        arr[i] = arr[i + 1];
+    arr[n - 1] = tmp;
+}
+int main(){
+    int n, pos; cin >> n >> pos;
+    int arr[n];
+    for(int i = 0; i < n; i++)
+        cin >> arr[i];
+    d %= n;
+    for(int i = 0; i < pos; i++)
+        leftRotate(arr, n);
+    for(int i = 0; i < n; i++)
+        cout << arr[i] << " ";
+}
 string intToString(int n){
     char ch[100];
     sprintf(ch, "%lld", ch);
