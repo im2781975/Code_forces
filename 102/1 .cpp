@@ -1,4 +1,18 @@
 using namespace std;
+vector <int> LongestNonDecSubseq(vector <int> &vec){
+    //store the end elements of NonDecSubseq
+    vector <int> tor;
+    for(int i = 0; i < vec.size(); i++){
+        if(tor.empty() || tor.back() <= vec[i])
+            tor.push_back(vec[i]);
+        else{
+            int ub = upper_bound(tor.begin(), tor.end(), vec[i]) - tor.begin();
+            tor[ub] = vec[i];
+        }
+    }
+    return tor.size();
+}
+using namespace std;
 void main(){
     int n; cin >> n;
     vector <float> vec(n);
