@@ -1,3 +1,4 @@
+// Menghtiung bola
 using namespace std;
 void main(){
     int n; cin >> n;
@@ -14,6 +15,7 @@ void main(){
         }
     }
 }
+// Pola III : perulangan lanjut
 using namespace std;
 void main(){
     int n, x = 0; cin >> n;
@@ -25,6 +27,7 @@ void main(){
         cout << "\n";
     }
 }
+// Bilangan pecahan : mikroskil cp 2014
 using namespace std;
 void Factorization(){
     int a, b; cin >> a >> b;
