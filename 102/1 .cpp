@@ -1,4 +1,40 @@
 using namespace std;
+vector <int> LongestNonDecSubseq(vector <int> &vec){
+    //store the end elements of NonDecSubseq
+    vector <int> tor;
+    for(int i = 0; i < vec.size(); i++){
+        if(tor.empty() || tor.back() <= vec[i])
+            tor.push_back(vec[i]);
+        else{
+            int ub = upper_bound(tor.begin(), tor.end(), vec[i]) - tor.begin();
+            tor[ub] = vec[i];
+        }
+    }
+    return tor.size();
+}
+using namespace std;
+int longestNonDecSubseq(vector <int> &vec){
+    multiset <int> mset;
+    multiset <int> ::iterator it;
+    int n = vec.size();
+    for(int i = 0; i < n; i++){
+        mset.insert(vec[i]);
+        it = mset.upper_bound(vec[i]);
+        if(it != mset.end())
+            mset.erase(it);
+    }
+    return mset.size();
+}
+int main(){
+    int n, m; cin >> n >> m;
+    vector <int> vec(n), tor(m);
+    for(int i = 0; i < n; i++)
+        cin >> vec[i];
+    for(int i = 0; i < m; i++)
+        cin >> tor[i];
+    cout << longestNonDecSubseq(vec) + longestNonDecSubseq(tor);
+}
+using namespace std;
 void main(){
     int n, cin >> n;
     string str, ing; cin >> str >> ing;
@@ -26,20 +62,6 @@ void main(){
         }
     }
     cout << dp[0][0];
-}
-using namespace std;
-vector <int> LongestNonDecSubseq(vector <int> &vec){
-    //store the end elements of NonDecSubseq
-    vector <int> tor;
-    for(int i = 0; i < vec.size(); i++){
-        if(tor.empty() || tor.back() <= vec[i])
-            tor.push_back(vec[i]);
-        else{
-            int ub = upper_bound(tor.begin(), tor.end(), vec[i]) - tor.begin();
-            tor[ub] = vec[i];
-        }
-    }
-    return tor.size();
 }
 using namespace std;
 void main(){
