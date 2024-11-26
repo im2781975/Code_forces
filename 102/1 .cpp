@@ -1,4 +1,19 @@
 using namespace std;
+void main(){
+    int n, k; cin >> n >> k;
+    if(n > 1 && k == 1)
+        cout << -1;
+    else if(n == 1 && k == 1)
+        cout << 1;
+    else{
+        for(int i = 1; i < k; i++)
+            cout << i << " ";
+        for(int i = n; i >= k; i--)
+            cout << i << " ";
+        cout << "\n";
+    }
+}
+using namespace std;
 def sieve(n):
     prime = [True for _ in range(n + 1)]
     p = 2
