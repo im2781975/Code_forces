@@ -10,6 +10,39 @@ void computePrefixSuffixGCD(int prefix[], int arr[], int suffix[], int n) {
     }
 }
 using namespace std;
+void computePrefixGCD(int arr[], int p[], int n) {
+    p[0] = arr[0];
+    for (int i = 1; i < n; i++)
+        p[i] = gcd(p[i - 1], arr[i]);
+}
+void computeSuffixGCD(int arr[], int s[], int n) {
+    s[n - 1] = arr[n - 1];
+    for (int i = n - 2; i >= 0; i--)
+        s[i] = gcd(s[i + 1], arr[i]);
+}
+// Function to calculate the result based on prefix and suffix GCD
+int Pratik(int l, int r, int p[], int s[], int n) {
+    if (l == 0)
+        return s[r + 1];
+    if (r == n - 1)
+        return p[l - 1];
+    return gcd(p[l - 1], s[r + 1]);
+}
+int main() {
+    int n, q; cin >> n >> q;
+    int arr[n], p[n], s[n];
+    cout << "Enter the array elements: ";
+    for (int i = 0; i < n; i++)
+        cin >> arr[i];
+    computePrefixGCD(arr, p, n);
+    computeSuffixGCD(arr, s, n);
+    while (q--) {
+        int l, r; cin >> l >> r;
+        cout << "Result: " << Pratik(l, r, p, s, n) << endl;
+    }
+    return 0;
+}
+using namespace std;
 void frameWork(){
     int row, col; cin >> row >> col;
     int start = 0;
@@ -114,88 +147,7 @@ void revstr(string &str){
     for(int i = 0; i < len / 2; i++)
         swap(str[i], str[n - i - 1]);
 }
-///////////**************/////////////
-void frrrrramework(ll n, ll m)
-{
-        ll ss;
-        for(int i=0,a=m+1;i<n;i++,a++)
-        {
-                ss=i+1;
-                cout << ss << " ";
-                for(int j=1;j<m;j++)
-                {
-                        cout << ss+a << " ";
-                        ss+=a;
-                }
-                cout << "\n";
-        }
-}
-void framework(ll n, ll m)
-{
-        For(m)
-        {
-                cout << i+1 << " ";
-                cout << "\n";
-        }
-        int face=2+n;
-        for(int i=1;i<n;i++)
-        {
-                int mm=face;
-                cout << mm << " ";
-        
-        for(int j=1;j<m;j++)
-        {
-                cout << mm+i+1 << " ";
-                mm+=i+1;
-        }
-        face+=n+1;
-        cout << "\n";
-        }
-}
-void ravan(int p[],int arr[],int s[],int n)
-{
-        p[0]=arr[0];
-        for(int i=1;i<n;i++)
-        {
-                p[i] = gcd(p[i-1],arr[i]);
-        }
-        s[n-1]=arr[n-1];
-        for( int i=n-2;i>=0;i--)
-        {
-                s[i]= gcd(s[i+1],arr[i]);
-        }
-}
-int Pratik(int l, int r, int p[],int s[],int n)
-{
-        if(l==0)
-        return s[r+1];
-        
-        if(r==n-1)
-          return p[l-1];
-          
-        return  gcd(p[l-1],s[r+1]);
-}
-
-//////////////////////////////// Actual code start here /////////////////////////////////////
-
-   
-int main()
-{
-         ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
-    cout.tie(NULL);
-    
-    #ifndef ONLINE_JUDGE
-    freopen("input.txt", "r", stdin);
-    freopen("output.txt", "w", stdout);
-    freopen("errorf.txt" , "w" , stderr) ;
-    #endif
-            
-            
-    
-}
 // Bilangan pecahan : mikroskil cp 2014
- 
 /*int main()
 {
     int a,b;
