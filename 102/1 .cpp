@@ -1,3 +1,11 @@
+using namespace std;
+void Factorization(){
+    int a, b; cin >> a >> b;
+    if(__gcd(a, b) > 1)
+        cout << a / __gcd(a, b) << " " << b / __gcd(a, b);
+    else
+        cout << "No";
+}
 // Bilangan pecahan : mikroskil cp 2014
 /*int main()
 {
