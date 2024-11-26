@@ -1,4 +1,18 @@
 using namespace std;
+void frameWork(){
+    int row, col; cin >> row >> col;
+    int start = 0;
+    for(int i = 0, a = col + 1; i < n; i++, a++){
+        start = i + 1;
+        cout << start << " ";
+        for(int j = 1; j < col; j++){
+            cout << start + a << " ";
+            start += a;
+        }
+    }
+    cout << "\n";
+}
+using namespace std;
 int lcm(int a, int b){
     return (a * (b / __gcd(a, b)));
 }
