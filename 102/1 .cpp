@@ -1,6 +1,20 @@
 using namespace std;
 void main(){
     int n; cin >> n;
+    int res;
+    if(n > 3){
+        if(n % 2 == 0)
+            res = n + n / 2;
+        else
+            res = n + (n - 1) / 2;
+        cout << res;
+    }
+    else
+        cout << "-3";
+}
+using namespace std;
+void main(){
+    int n; cin >> n;
     int cur = 2;
     for(int i = 0; i < n; i++){
         cout << cur << " ";
