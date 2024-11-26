@@ -1,3 +1,14 @@
+using namespace std;
+void printChar(){
+    int n; cin >> n;
+    int base = 97;
+    for(int i = 0; i < n; i++){
+        if(base > 122)
+            base = 97;
+        cout << char(base) << " ";
+        base++;
+    }
+}
 template<typename A, typename B> ostream& operator<<(ostream &os, const pair<A, B> &p) { return os << '(' << p.first << ", " << p.second << ')'; }
 template<typename T_container, typename T = typename enable_if<!is_same<T_container, string>::value, typename T_container::value_type>::type> ostream& operator<<(ostream &os, const T_container &v) { os << '{'; string sep; for (const T &x : v) os << sep << x, sep = ", "; return os << '}'; }
 void dbg_out() { cerr << endl; }
