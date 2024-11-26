@@ -61,6 +61,11 @@ string To Binary(int n){
         str += to_string(arr[i]);
     return str;
 }
+void revstr(string &str){
+    int len = str.size();
+    for(int i = 0; i < len / 2; i++)
+        swap(str[i], str[n - i - 1]);
+}
 ///////////**************/////////////
 string to_binary(ll n)
 {
