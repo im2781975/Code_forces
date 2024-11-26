@@ -1,4 +1,18 @@
 using namespace std;
+void main(){
+    int n; cin >> n;
+    vector <float> vec(n);
+    for(int i = 0; i < n; i++)
+        cin >> vec[i];
+    sort(vec.rbegin(), vec.rend());
+    int sum = 0;
+    for(int i = 1; i < n; i++)
+        sum += vec[i];
+    float res = sum / (n - 1);
+    res += vec[0];
+    cout << res;
+}
+using namespace std;
 void printChar(){
     int n; cin >> n;
     int base = 97;
