@@ -12,6 +12,22 @@ void frameWork(){
     }
     cout << "\n";
 }
+void frameWork(){
+    int row, col; cin >> row >> col;
+    for(int i = 0; i < col; i++)
+        cout << i + 1 << " ";
+    int face = 2 + n;
+    for(int i = 1; i < row; i++){
+        int x = face;
+        cout << x << " ";
+        for(int j = 1; j < col; j++){
+            cout << x + i + 1;
+            x += i + 1;
+        }
+    }
+    face += row + 1;
+    cout << "\n";
+}
 using namespace std;
 int lcm(int a, int b){
     return (a * (b / __gcd(a, b)));
