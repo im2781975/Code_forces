@@ -1,4 +1,16 @@
 using namespace std;
+void main(){
+    int n; cin >> n;
+    int cur = 2;
+    for(int i = 0; i < n; i++){
+        cout << cur << " ";
+        if(i % 2 == 0)
+            cur++;
+        else
+            cur += 3;
+    }
+}
+using namespace std;
 vector <int> LongestNonDecSubseq(vector <int> &vec){
     //store the end elements of NonDecSubseq
     vector <int> tor;
