@@ -8,23 +8,11 @@ string intToString(int n){
     string str = ch;
     return str;
 }
-ll lcm(ll a, ll b) 
-{ return (a * (b / __gcd(a, b))); }
-
-string intToString(ll a)
-{
-    char x[100];
-    sprintf(x, "%lld", a);
-    string s = x;
-    return s;
-}
- 
-ll stringToInt(string a)
-{
-    char x[100];
-    ll res;
-    strcpy(x, a.c_str());
-    sscanf(x, "%lld", &res);
+int stringToInt(string str){
+    char ch[100];
+    int res;
+    strcpy(ch, str.c_str());
+    sscanf(ch, "%lld", &res);
     return res;
 }
 
