@@ -121,3 +121,93 @@ void main(){
         }
     }
 }
+using namespace std;
+int numOfArray(vector <int> &vec, int lower, int upper){
+    int mini = 0, maxi = 0, sum = 0;
+    for(int i = 0; i < vec.size(); i++){
+        sum += vec[i];
+        mini = min(mini, sum);
+        maxi = max(maxi, sum);
+    }
+    /*int cnt = 0;
+    for(int i = lower; i <= upper; i++){
+        if(i + mini < lower || i + maxi > upper)
+            continue;
+        else
+            cnt++;
+    }
+    return 1LL * cnt;*/
+    int startMin = lower - mini;
+    int startMax = upper - maxi;
+    if(startMax < lower || startMin > upper)
+        return 0;
+    return (int)(min(upper, startMax) - max(lower, startMin) + 1);
+}
+int main(){
+    vector <int> vec = {1, -3, 4};
+    cout << numOfArray(vec, 1, 6);
+}
+using namespace std;
+void minCost(){
+    int n; cin >> n;
+    vector <int> vec(n);
+    for(int i = 0; i < n; i++)
+        cin >> vec[i];
+    int sum = 0;
+    sort(vec.rbegin(), vec.rend());
+    for(int i = 0; i < vec.size(); i++)
+        sum += vec[i];
+    for(int i = 2; i < vec.size(); i += 3)
+        sum -= vec[i];
+    cout << sum
+}
+using namespace std;
+struct TrieNode {
+    unordered_map<char, TrieNode*> m;
+    char c;
+    bool isWord;
+    TrieNode() : c(0), isWord(false) {}
+    TrieNode(char ch) : c(ch), isWord(false) {}
+};
+class Trie {
+    TrieNode* root;
+    public:
+    Trie() {
+        root = new TrieNode();
+    }
+    ~Trie() {
+        deleteTrie(root);
+    }
+    void insert(const string& word) {
+        TrieNode* p = root;
+        for (char c : word) {
+            if (p->m.find(c) == p->m.end()) {
+                p->m[c] = new TrieNode(c);
+            }
+            p = p->m[c];
+        }
+        p->isWord = true;
+    }
+    bool search(const string& word) const {
+        TrieNode* p = root;
+        for (char c : word) {
+            if (p->m.find(c) == p->m.end()) return false;
+            p = p->m[c];
+        }
+        return p->isWord;
+    }
+    bool startsWith(const string& prefix) const {
+        TrieNode* p = root;
+        for (char c : prefix) {
+            if (p->m.find(c) == p->m.end()) return false;
+            p = p->m[c];
+        }
+        return true;
+    }
+    private:
+    void deleteTrie(TrieNode* node) {
+        for (auto& pair : node->m)
+            deleteTrie(pair.second);
+        delete node;
+    }
+};
