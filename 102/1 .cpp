@@ -1,4 +1,33 @@
 using namespace std;
+void main(){
+    int n, cin >> n;
+    string str, ing; cin >> str >> ing;
+    vector<int> vec(n + 1, 0), tor(n + 1, 0);
+    int dp[n + 1][n + 1];
+    for(int i = 0; i <= n; i++){
+        for(int j = 0; j <= n; j++)
+            dp[i][j] = 1e18;
+    }
+    dp[n][n] = 0;
+    for(int i = n - 1; i >= 0; i--){
+        vec[i] = vec[i + 1] + (str[i] == '0');
+        tor[i] = tor[i + 1] + (ing[i] == '0');
+    }
+    for(int i = n - 1; i >= 0; i--){
+        dp[n][i] = dp[n][i + 1];
+        if(ing[i] == '1')
+            dp[n][i] += vec[n] + tor[i];
+    }
+    for (int i = n - 1; i >= 0; i--) {
+        for (int j = n - 1; j >= 0; j--) {
+                dp[i][j] = dp[i + 1][j];
+                if (str[i] == '1')
+                    dp[i][j] = min(dp[i][j], dp[i + 1][j + 1] + vec[i] + tor[j]);
+        }
+    }
+    cout << dp[0][0];
+}
+using namespace std;
 vector <int> LongestNonDecSubseq(vector <int> &vec){
     //store the end elements of NonDecSubseq
     vector <int> tor;
