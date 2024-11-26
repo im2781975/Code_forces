@@ -18,6 +18,13 @@ int gcd(int a, int b){
     if(a > b) return gcd(a - b, b);
     else return gcd(a, b - a);
 }
+bool IsPerfect(int x){
+    if(x >= 0){
+        int n = sqrt(x);
+        return (n * n == x);
+    }
+    return false;
+}
 using namespace std;
 int leftRotate(int arr[], int n){
     int tmp = arr[0];
@@ -49,7 +56,7 @@ int stringToInt(string str){
     sscanf(ch, "%lld", &res);
     return res;
 }
-string To Binary(int n){
+string ToBinary(int n){
     int arr[100], i = 0;
     while(n > 0){
         arr[i] = n % 2;
@@ -67,137 +74,6 @@ void revstr(string &str){
         swap(str[i], str[n - i - 1]);
 }
 ///////////**************/////////////
-string to_binary(ll n)
-{
-    int bin[100];
-     int i = 0;
-    while (n > 0) {
-        bin[i] = n % 2;
-        n = n / 2;
-        i++;
-    }
-    string s="";
-    for(int j=i-1;j>=0;j--)
-        s+=to_string(bin[j]);
-    return s;
-}
-int linear_search(int arr[],int n, int x)
-{
-    for(int i=0;i<n;i++)
-    {
-        cin >> arr[i];
-    }
-    for(int i=0;i<n;i++)
-    {
-        if(arr[i]==x)
-        return i;
-    }
-}
-void leftrotatebyone(int arr[], int n)
-{
-    int temp=arr[0];
-    for(int i=0;i<n;i++)
-    arr[i]=arr[i+1];
-    
-    arr[n-1]=temp;
-}
-void leftrotate(int arr[], int d, int n)
-{
-    for(int i=0;i<d;i++)
-    leftrotatebyone(arr,n);
-}
-void printarray(int arr[],int n)
-{
-    for(int i=0;i<n;i++)
-    {
-        cout << arr[i] << " ";
-    }
-    cout << "\n";
-}
-
-ll gcd(ll a, ll b)
-{
-        if(a == 0)
-            return b;
-            
-        if(b == 0)
-            return a;
-            
-        if(a == b)
-            return a;
-            
-        if(a>b)
-            return gcd(a-b,b);
-            
-        else
-        return gcd(a,b-a);
-}
-
-void reverrsestring(string& s)
-{
-        int n=s.size();
-        For(n/2)
-        {
-                swap(s[i],s[n-i-1]);
-        }
-}
-ll fpow(ll a, ll b) {
-    ll res = 1;
-    while (b > 0) {
-        if (b & 1)
-            res = (res * a)%MOD;
-        a = (a * a)%MOD;
-        b >>= 1;
-    }
-    return res%MOD;
-}
-int gcdExtended(int a, int b, int* x, int* y)
-{
-    if (a == 0){
-        *x = 0, *y = 1;
-        return b;
-    }
-
-    int x1, y1;
-    int gcd = gcdExtended(b % a, a, &x1, &y1);
-
-    *x = y1 - (b / a) * x1;
-    *y = x1;
- 
-    return gcd;
-}
-void swap(ll &x,ll &y){
-	ll temp = y;
-	y = x;
-	x = temp;
-}
-int factorirl(int n)
-{
-        int fact=1;
-        for(int i=1;i<=n;i++)
-        {
-                fact*=i;
-        }
-        return fact;
-}
-
-bool isPerfectSquare(ll x)
-{
-	if (x >= 0)
-	{
-		ll sr = sqrt(x);
-		return (sr * sr == x);
-	}
-	return false;
-}
-void printvec(VL vec, int i)
-{
-	for (int j = i; j < vec.size(); j++)
-	{
-		cout << vec[j] << " ";
-	}
-	cout << endl;
-}
 void frrrrramework(ll n, ll m)
 {
         ll ss;
