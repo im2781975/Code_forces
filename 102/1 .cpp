@@ -1,5 +1,21 @@
 using namespace std;
 void main(){
+    int n; cin >> n;
+    int tmp = 1;
+    for(int i = 0; i < n; i++){
+        int x; cin >> x;
+        if(x == tmp){
+            cout << "Benar" << fflush;
+            tmp++;
+        }
+        else{
+            cout << "Salah" << fflush;
+            tmp = 1;
+        }
+    }
+}
+using namespace std;
+void main(){
     int n, x = 0; cin >> n;
     for(int i = 0; i < n; i++){
         for(int j = 0; j <= i; j++){
