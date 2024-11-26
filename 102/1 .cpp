@@ -1,4 +1,30 @@
 using namespace std;
+int calculate(int mid, string str){
+    int add = 0;
+    for(int i = mid; i >= 0; i--){
+        int x = (int (str[i])) - int('0') + add) % 10;
+        if(x == 0)
+            continue;
+        add += 10 - x;
+    }
+    return add;
+}
+int main(){
+    int n, k; cin >> n >> k;
+    string str; cin >> str;
+    int l = 0, r = n - 1, res = 0;
+    while(l <= r){
+        int mid = (l + r) / 2;
+        if(calculate(mid, str) > k)
+            r = mid - 1;
+        else{
+            res++;
+            l = mid + 1;
+        }
+    }
+    cout << res;
+}
+using namespace std;
 void main(){
     int n, k; cin >> n >> k;
     if(n > 1 && k == 1)
