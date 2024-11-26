@@ -1,4 +1,34 @@
 using namespace std;
+// Function to flip all bits of the number x.
+int flip_bits(int x) {
+    int flipped = 0, bit_position = 0;
+    // Flipping all bits of the number.
+    while (x) {
+        if (x % 2 == 0) 
+            flipped += (1LL << bit_position
+        x /= 2;  
+        // Shift x to the right to check the next bit.
+        bit_position++;
+    }
+    return flipped;
+}
+int main() {
+    int n; cin >> n;
+    int total_sum = 0;
+    while (n > 0) {
+        int flipped_value = flip_bits(n); 
+        int adjusted_value = n;
+        if ((adjusted_value & (adjusted_value + 1)) == 0) {
+                adjusted_value--;
+            }
+        int partial_sum = ((adjusted_value * (adjusted_value + 1)) / 2) - ((flipped_value * (flipped_value - 1)) / 2);
+        total_sum += (partial_sum * 2);
+        n = flipped_value - 1;
+    }
+    cout << total_sum << "\n";  //
+    }
+}
+using namespace std;
 int calculate(int mid, string str){
     int add = 0;
     for(int i = mid; i >= 0; i--){
@@ -211,66 +241,12 @@ template<typename Head, typename... Tail> void dbg_out(Head H, Tail... T) { cerr
 #define ll…
 #define all(cont) cont.begin(), cont.end()
 #define ll long long
-[9:59 pm, 23/01/2022] Pratik Suryawanshi: # Div 2 C (AC solution)
-#include<bits/stdc++.h>
 using namespace std;
 #define xx long long
 #define foi(xxxxx) for(xx yyyyy=0;yyyyy<xxxxx;yyyyy++)
 typedef vector<xx>          vll;
-int main()
-{
-    ios_base::sync_with_stdio(false); cin.tie(NULL);
- 
-    xx xxxxxxxxx; cin >> xxxxxxxxx;
-    while (xxxxxxxxx--)
-    {
-        int yy;
-        cin >> yy;
-        int  yyy = 2;
-        int   yyyy = 3;
-        for (int yyyyy = 0; yyyyy < yy; yyyyy++) {
-            cout << yyy << " ";
-            if (yyyyy & 1) {
-                yyy += 3;
-            }
-            else {
-                yyy++;
-            }
-        }
-        cout << endl;
-    }
-    return 0;
-}
-[10:24 pm, 23/01/2022] Pratik Suryawanshi: #include <iostream>
-#include <bits/stdc++.h>
-using namespace std;
-int main() 
-{
-  int gg;
-  cin>>gg;
-  while(gg--){
-      int a,jjj;
-      cin>>a;
-      if(a>3){
-        if(a%2==0){
-          jjj=a+a/2;
-          cout<<jjj<<endl;
-        }
-        else{
-          jjj=a+(a-1)/2;
-          cout<<jjj<<endl;
-         }
-      }
-      else{
-          cout<<"3"<<endl;
-      }
-  }
-  return 0;
-}
-[10:29 pm, 23/01/2022] Pratik Suryawanshi: #include<bits/stdc++.h>
 #include<string>
 #include <sstream>
-using namespace std;
 #include<bitset>
 #define gc getchar_unlocked
 #define ll long long
@@ -293,15 +269,10 @@ using namespace std;
 [10:29 pm, 23/01/2022] Pratik Suryawanshi: #include<bits/stdc++.h>
 #pragma GCC optimize ("O3")
 #pragma GCC target ("sse4")
-using namespace std;
- 
-//* BOOST BEG //
 #pragma GCC optimize("Ofast")
 #pragma GCC target("avx,avx2,fma")
 #pragma GCC optimization ("unroll-loops")
 #pragma GCC target("avx,avx2,sse,sse2,sse3,sse4,popcnt")
-// BOOST END 
- 
 #define gc getchar_unlocked
 #define ll long long int
 #define br printf("\n")
@@ -312,137 +283,7 @@ using namespace std;
 #define ps(x,y) fixed<<setprecision(y)<<x
 #define Fo(i, k, n) for(i=k;k<n?i<n:i>n;k<n?i+=1:i-=1)
 #define deb(x) cout << #x << " = " << x << endl;
-#define deb2(x, y) cout << #x << " = " << x << ", " << #y << " = " << y << endl
-#define…
-[10:38 pm, 23/01/2022] Pratik Suryawanshi: from bisect import bisect_left as bl
-a = []
- 
- 
-def sieve(n):
- 
-    prime = [True for i in range(n + 1)]
-    p = 2
-    while p * p <= n:
-        if prime[p]:
-            for i in range(p * p, n + 1, p):
-                prime[i] = False
-        p += 1
- 
-    for p in range(2, n + 1):
-        if prime[p]:
-            a.append(p)
- 
- 
-sieve(10**5)
- 
-for _ in range(int(input())):
-    n = int(input())
- 
-    t = bl(a, n - 1)
- 
-    if t >= len(a) or a[t] > n - 1:
-        t -= 1
- 
-    deg = a[t]
- 
-    if n % 2:
-        print((deg * (n - 1) + 2) // 2)
-    else:
- 
-        print((deg * n) // 2)
-[8:39 pm, 29/01/2022] Pratik Suryawanshi: LL n,k;
-        cin >> n >> k;
-        if(n>1 && k==1)
-        {
-            cout << -1 << "\n";
-        }
-        else if( n== 1  && k==1)
-        {
-            cout << 1 << "\n";
-        }
-        else
-        {
-            
-            for(int i=1;i<=k-1;i++)
-            {
-                cout << i << " ";
-            }
-            for(int i=n;i>=k;i--)
-            {
-                cout << i << " ";
-            }
-            cout << "\n";
-        }
-[9:05 pm, 29/01/2022] Pratik Suryawanshi: ll cal(ll m, string s)
-{
-    ll add = 0;
-    for(int i=m;i>=0;i--)
-    {
-        ll v = (int(s[i])-int('0')+add)%10;
-        if(v==0)
-            continue;
-        add+=10-v;
-    }
-    return add;
-}
- 
-int main()
-{
-    fast
-        tc
-    {
-        ll n,k;
-        cin >> n >> k;
-        string str;
-        cin >> str;
-        ll l=0,r=n-1,ans=0;
-        while(l<=r)
-        {
-            ll m=(l+r)/2;
-            if(cal(m,str)>k)
-                r=m-1;
-            else
-            {
-                ans = m+1;
-                l=m+1;
-            }
-        }
-        cout<<ans<<endl;
-    }
-}
-[10:08 pm, 29/01/2022] Pratik Suryawanshi: #include <bits/stdc++.h>
-#define ll long long
-#define mod 1000000007
-using namespace std;
-ll flip(ll n){
-    ll no = 0,cnt = 0;
-    while(n){
-        if(n%2 == 0) no += (1LL<<cnt);
-        n /= 2,cnt++;
-        if(n <= 0) break;
-    }
-    return no;
-}
-int main(){
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
-    int tt=1; cin>>tt;
-    while (tt--){
-        ll n; cin>>n;
-        ll ans = 0;
-        while(n > 0)
-        {
-            ll a = flip(n);
-            ll b = n;
-            if((b&(b+1)) == 0) b--;
-            ll val = ((b * (b+1)) / 2) - ((a * (a-1)) / 2);
-            ans += (val*2);
-            n = a-1;
-        }
-        cout<<ans<<"\n";
-    }
-}
-*/
+#define deb2(x, y) cout << #x << " = " << x << ", " << #y << " = " << y;
 #include<bits/stdc++.h>
 #include <cassert>
 #include <cmath>
@@ -466,16 +307,11 @@ int main(){
 #include <unordered_set>
 #include <utility>
 #include <vector>
-using namespace std;
-
-// ------------------------------- Micros ------------------------------------------------
-
 #define google(tc) cout<<"Case #"<<tc++<<": ";
 #define FILE freopen("input.txt","r",stdin); freopen("output.txt","w", stdout);
 #define GetSetBolt ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL); 
 #define ll long long int  
 #define LD long double
-
 #ifndef LOCAL
 #pragma GCC optimize("Ofast")
 #pragma GCC target("avx,avx2,fma")
@@ -483,9 +319,6 @@ using namespace std;
 #pragma GCC optimize ("O3")
 #pragma GCC target ("sse4")
 #endif
-
-
-
 #define max3(a,b,c) max(a,max(b,c)) 
 #define min3(a,b,c) min(a,min(b,c)) 
 #define FF first 
@@ -526,10 +359,6 @@ using namespace std;
 #define rsz resize
 #define bk back()
 #define ld long double
-
-// #ifndef ONLINE_JUDGE
-//     cerr<<"\ntime taken : "<<(float)clock()/CLOCKS_PER_SEC<<" secs"<<"\n";
-// #endif
 typedef pair<int, int> PII; 
 typedef pair<ll, ll> PLL;
 typedef pair<double,double> PDD;
