@@ -24,7 +24,19 @@ int stringToInt(string str){
     sscanf(ch, "%lld", &res);
     return res;
 }
-
+string To Binary(int n){
+    int arr[100], i = 0;
+    while(n > 0){
+        arr[i] = n % 2;
+        n /= 2;
+        i++;
+    }
+    string res = " ";
+    for(int j = i - 1; j >= 0; j--)
+        str += to_string(arr[i]);
+    return str;
+}
+///////////**************/////////////
 string to_binary(ll n)
 {
     int bin[100];
