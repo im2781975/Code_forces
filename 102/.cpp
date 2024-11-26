@@ -211,3 +211,233 @@ class Trie {
         delete node;
     }
 };
+using namespace std;
+// Function to flip all bits of the number x.
+int flip_bits(int x) {
+    int flipped = 0, bit_position = 0;
+    // Flipping all bits of the number.
+    while (x) {
+        if (x % 2 == 0) 
+            flipped += (1LL << bit_position
+        x /= 2;  
+        // Shift x to the right to check the next bit.
+        bit_position++;
+    }
+    return flipped;
+}
+int main() {
+    int n; cin >> n;
+    int total_sum = 0;
+    while (n > 0) {
+        int flipped_value = flip_bits(n); 
+        int adjusted_value = n;
+        if ((adjusted_value & (adjusted_value + 1)) == 0) {
+                adjusted_value--;
+            }
+        int partial_sum = ((adjusted_value * (adjusted_value + 1)) / 2) - ((flipped_value * (flipped_value - 1)) / 2);
+        total_sum += (partial_sum * 2);
+        n = flipped_value - 1;
+    }
+    cout << total_sum << "\n";  //
+    }
+}
+using namespace std;
+int calculate(int mid, string str){
+    int add = 0;
+    for(int i = mid; i >= 0; i--){
+        int x = (int (str[i])) - int('0') + add) % 10;
+        if(x == 0)
+            continue;
+        add += 10 - x;
+    }
+    return add;
+}
+int main(){
+    int n, k; cin >> n >> k;
+    string str; cin >> str;
+    int l = 0, r = n - 1, res = 0;
+    while(l <= r){
+        int mid = (l + r) / 2;
+        if(calculate(mid, str) > k)
+            r = mid - 1;
+        else{
+            res++;
+            l = mid + 1;
+        }
+    }
+    cout << res;
+}
+using namespace std;
+void main(){
+    int n, k; cin >> n >> k;
+    if(n > 1 && k == 1)
+        cout << -1;
+    else if(n == 1 && k == 1)
+        cout << 1;
+    else{
+        for(int i = 1; i < k; i++)
+            cout << i << " ";
+        for(int i = n; i >= k; i--)
+            cout << i << " ";
+        cout << "\n";
+    }
+}
+using namespace std;
+def sieve(n):
+    prime = [True for _ in range(n + 1)]
+    p = 2
+    while p * p <= n:
+        if prime[p]:
+            for i in range(p * p, n + 1, p):
+                prime[i] = False
+        p += 1
+    primes = []
+    for p in range(2, n + 1):
+        if prime[p]:
+            primes.append(p)
+    return primes
+primes = sieve(10**5)
+	a = [1, 2, 3, 4, 5]
+using namespace std;
+def bl(arr, value):
+    try:
+        return arr.index(value)
+    except ValueError:
+        return -1
+for _ in range(int(input())):
+    n = int(input())
+    t = bl(a, n - 1)
+    if t >= len(a) or a[t] > n - 1:
+        t -= 1
+
+    deg = a[t]
+
+    if n % 2:
+        print((deg * (n - 1) + 2) // 2)
+    else:
+        print((deg * n) // 2)
+
+using namespace std;
+void main(){
+    int n; cin >> n;
+    int res;
+    if(n > 3){
+        if(n % 2 == 0)
+            res = n + n / 2;
+        else
+            res = n + (n - 1) / 2;
+        cout << res;
+    }
+    else
+        cout << "-3";
+}
+using namespace std;
+void main(){
+    int n; cin >> n;
+    int cur = 2;
+    for(int i = 0; i < n; i++){
+        cout << cur << " ";
+        if(i % 2 == 0)
+            cur++;
+        else
+            cur += 3;
+    }
+}
+using namespace std;
+vector <int> LongestNonDecSubseq(vector <int> &vec){
+    //store the end elements of NonDecSubseq
+    vector <int> tor;
+    for(int i = 0; i < vec.size(); i++){
+        if(tor.empty() || tor.back() <= vec[i])
+            tor.push_back(vec[i]);
+        else{
+            int ub = upper_bound(tor.begin(), tor.end(), vec[i]) - tor.begin();
+            tor[ub] = vec[i];
+        }
+    }
+    return tor.size();
+}
+using namespace std;
+int longestNonDecSubseq(vector <int> &vec){
+    multiset <int> mset;
+    multiset <int> ::iterator it;
+    int n = vec.size();
+    for(int i = 0; i < n; i++){
+        mset.insert(vec[i]);
+        it = mset.upper_bound(vec[i]);
+        if(it != mset.end())
+            mset.erase(it);
+    }
+    return mset.size();
+}
+int main(){
+    int n, m; cin >> n >> m;
+    vector <int> vec(n), tor(m);
+    for(int i = 0; i < n; i++)
+        cin >> vec[i];
+    for(int i = 0; i < m; i++)
+        cin >> tor[i];
+    cout << longestNonDecSubseq(vec) + longestNonDecSubseq(tor);
+}
+using namespace std;
+void main(){
+    int n, cin >> n;
+    string str, ing; cin >> str >> ing;
+    vector<int> vec(n + 1, 0), tor(n + 1, 0);
+    int dp[n + 1][n + 1];
+    for(int i = 0; i <= n; i++){
+        for(int j = 0; j <= n; j++)
+            dp[i][j] = 1e18;
+    }
+    dp[n][n] = 0;
+    for(int i = n - 1; i >= 0; i--){
+        vec[i] = vec[i + 1] + (str[i] == '0');
+        tor[i] = tor[i + 1] + (ing[i] == '0');
+    }
+    for(int i = n - 1; i >= 0; i--){
+        dp[n][i] = dp[n][i + 1];
+        if(ing[i] == '1')
+            dp[n][i] += vec[n] + tor[i];
+    }
+    for (int i = n - 1; i >= 0; i--) {
+        for (int j = n - 1; j >= 0; j--) {
+                dp[i][j] = dp[i + 1][j];
+                if (str[i] == '1')
+                    dp[i][j] = min(dp[i][j], dp[i + 1][j + 1] + vec[i] + tor[j]);
+        }
+    }
+    cout << dp[0][0];
+}
+using namespace std;
+void main(){
+    int n; cin >> n;
+    vector <float> vec(n);
+    for(int i = 0; i < n; i++)
+        cin >> vec[i];
+    sort(vec.rbegin(), vec.rend());
+    int sum = 0;
+    for(int i = 1; i < n; i++)
+        sum += vec[i];
+    float res = sum / (n - 1);
+    res += vec[0];
+    cout << res;
+/*
+	for _ in range(int(input())):
+    n = int(input())
+    a = sorted(list(map(int, input().split())), reverse = True)
+    m1 = a[0]
+    m2 = (sum(a) - m1) / (n - 1) 
+    print(m1 + m2)
+    */
+}
+using namespace std;
+void printChar(){
+    int n; cin >> n;
+    int base = 97;
+    for(int i = 0; i < n; i++){
+        if(base > 122)
+            base = 97;
+        cout << char(base) << " ";
+        base++;
+    }
+}
