@@ -1,3 +1,13 @@
+using namespace std;
+int lcm(int a, int b){
+    return (a * (b / __gcd(a, b)));
+}
+string intToString(int n){
+    char ch[100];
+    sprintf(ch, "%lld", ch);
+    string str = ch;
+    return str;
+}
 ll lcm(ll a, ll b) 
 { return (a * (b / __gcd(a, b))); }
 
