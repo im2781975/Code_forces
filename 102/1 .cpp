@@ -6,6 +6,14 @@ int numOfArray(vector <int> &vec, int lower, int upper){
         mini = min(mini, sum);
         maxi = max(maxi, sum);
     }
+    /*int cnt = 0;
+    for(int i = lower; i <= upper; i++){
+        if(i + mini < lower || i + maxi > upper)
+            continue;
+        else
+            cnt++;
+    }
+    return 1LL * cnt;*/
     int startMin = lower - mini;
     int startMax = upper - maxi;
     if(startMax < lower || startMin > upper)
