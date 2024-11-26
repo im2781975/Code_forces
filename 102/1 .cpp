@@ -1,4 +1,15 @@
 using namespace std;
+void computePrefixSuffixGCD(int prefix[], int arr[], int suffix[], int n) {
+    prefix[0] = arr[0];
+    for (int i = 1; i < n; i++) {
+        prefix[i] = gcd(prefix[i - 1], arr[i]);
+    }
+    suffix[n - 1] = arr[n - 1];
+    for (int i = n - 2; i >= 0; i--) {
+        suffix[i] = gcd(suffix[i + 1], arr[i]);
+    }
+}
+using namespace std;
 void frameWork(){
     int row, col; cin >> row >> col;
     int start = 0;
