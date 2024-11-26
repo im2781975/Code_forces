@@ -1,3 +1,4 @@
+using namespace std;
 def sieve(n):
     prime = [True for _ in range(n + 1)]
     p = 2
@@ -12,6 +13,26 @@ def sieve(n):
             primes.append(p)
     return primes
 primes = sieve(10**5)
+	a = [1, 2, 3, 4, 5]
+using namespace std;
+def bl(arr, value):
+    try:
+        return arr.index(value)
+    except ValueError:
+        return -1
+for _ in range(int(input())):
+    n = int(input())
+    t = bl(a, n - 1)
+    if t >= len(a) or a[t] > n - 1:
+        t -= 1
+
+    deg = a[t]
+
+    if n % 2:
+        print((deg * (n - 1) + 2) // 2)
+    else:
+        print((deg * n) // 2)
+
 using namespace std;
 void main(){
     int n; cin >> n;
