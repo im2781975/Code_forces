@@ -1,3 +1,20 @@
+using namespace std;
+int main(){
+    int n; cin >> n;
+    int arr[n];
+    for(int i = 0; i < n; i++)
+        cin >> arr[i];
+    int tmp = 0, cnt = 0;
+    for(int i = 0; i < n; i++){
+        int x; cin >> x;
+        if(tmp != x){
+            while(cnt <= n && arr[cnt] != x)
+                cnt++;
+            tmp = x;
+        }
+    }
+    (cnt <= n) ? cout << "Yes" : cout << "No";
+}
 // Mengangkut bebek : OSP 2022 
 using namespace std;
 void main(){
