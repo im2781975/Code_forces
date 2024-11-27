@@ -1,3 +1,19 @@
+using namespace std;
+void main(){
+    int n, m; cin >> n >> m;
+    vector <int> vec(n + 1);
+    for(int i = 1; i <= n; i++)
+        vec[i] = i;
+    for(int i = 0; i < m; i++){
+        int a, b; cin >> a >> b;
+        swap(vec[a], vec[b])
+    }
+    int q; cin >> q;
+    while(q--){
+        int t; cin >> t;
+        cout << vec[t] << " ";
+    }
+}
 //Membeli mainan : Troc#3
 using namespace std;
 void main(){
