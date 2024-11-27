@@ -50,6 +50,44 @@ void main(){
         cout << arr[1];
     }
 }
+#include<bits/stdc++.h>
+// segitiga tahun baru: troc#18 D -> geometry
+using namespace std;
+void main(){
+    int n; cin >> n;
+    if(n == 2 || n == 3 || n == 5)
+        cout << "4";
+    else
+        cout << "3";
+}
+// Pelajaran pangan : troc#16 B -> greedy
+using namespace std;
+void main(){
+    int n, m; cin >> n >> m;
+    int arr[n + 1];
+    for(int i = 1; i <= n; i++)
+        cin >> arr[i];
+    sort(arr + 1, arr + n + 1);
+    int res = arr[n] - arr[1];
+    for(int i = 1; i < n; i++)
+        res = min (res, arr[i] + m - arr[i + 1]);
+    cout << res;
+}
+// Pertahanan wifi : Troc 11 B -> Greedy
+using namespace std;
+void main(){
+    int n, m; cin >> n >> m;
+    int arr[n];
+    for(int i = 0; i < n; i++)
+        cin >> arr[i];
+    sort(arr, arr + n);
+    int res = arr[m - 1] - arr[0];
+    for(int i = m - 1; i < n; i++)
+        res = min(res, arr[i] - arr[i - m + 1]);
+    cout << res;
+}
+
+
 // Membangun menara :  gemastik 2016 -> greedy
 using namespace std;
 void main(){
