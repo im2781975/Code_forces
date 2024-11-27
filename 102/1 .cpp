@@ -1,3 +1,22 @@
+//Membeli mainan : Troc#3
+using namespace std;
+void main(){
+    int x; cin >> x;
+    int arr[3];
+    for(int i = 0; i < 3; i++)
+        cin >> arr[i];
+    sort(arr, arr + 3);
+    int tmp = x / (arr[0] + arr[1] + arr[2]);
+    int res = 3 * tmp;
+    int remain = x - tmp * (arr[0] + arr[1] + arr[2]);
+    for(int i = 0; i < 3; i++){
+        if(rem >= arr[i]){
+            rem -= arr[i];
+            res++;
+        }
+    }
+    cout << res;
+}
 // Menghtiung bola
 using namespace std;
 void main(){
