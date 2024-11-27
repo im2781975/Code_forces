@@ -1,4 +1,212 @@
 using namespace std;
+void main(){
+    int n, k; cin >> n >> k;
+    int arr[n];
+    for(int i = 0; i < n; i++)
+        cin >> arr[i];
+    sort(arr, arr + n);
+    int mn = 1e9;
+    for(int i = 0; i <= n - k; i++)
+        mn = min(mn, arr[i + k - 1]- arr[i])
+    cout << mn;
+}
+using namespace std;
+void main(){
+    int n, res = 0; cin >> n;
+    for(int i = 0; i <= n; i++){
+        int x; cin >> x;
+        res += x * pow(2, i);
+    }
+    int tmp = pow(2, n);
+    if(res % tmp != 0)
+        cout << -1;
+    else
+        cout << res / tmp;
+}
+using namespace std;
+void main(){
+    int n; cin >> n;
+    char x, y;
+    int a1 = a2 = b1 = b2 = c1 = c2 = 0;
+    for(int i = 0; i < n; i++){
+        cin >> x;
+        if(x = 'G') a1++;
+        if(x == 'B') b1++;
+        if(x == 'K') c1++;
+    }
+    for(int i = 0; i < n; i++){
+        cin >> y;
+        if(y == 'G') a2++;
+        if(y == 'B') b2++;
+        if(y == 'K') c2++;
+    }
+    int ans = min(a1, c2) + min(c1, b2) + min(b1, a2);
+    cout << ans;
+}
+using namespace std;
+void main(){
+    int n; cin >> n;
+    int arr[n];
+    for(int i = 0; i < n; i++){
+        cin >> arr[i];
+        if(arr[i] % n == 0)
+            cout << "1";
+        else
+            cout << "0";
+    }
+    for(int i = 0; i < n; i++){
+        for(int j = i; j < n; j++){
+            int sum = 0;
+            for(int k = i; k <= j; k++)
+                sum += arr[k];
+            cout << "sum from idx " << i << " to " << j << " is " << sum << "\n";
+        }
+    }
+}
+using namespace std;
+void main(){
+    int n, m; cin >> n >> m;
+    vector <int> vec(n + 1);
+    for(int i = 1; i <= n; i++)
+        vec[i] = i;
+    for(int i = 0; i < m; i++){
+        int a, b; cin >> a >> b;
+        swap(vec[a], vec[b])
+    }
+    int q; cin >> q;
+    while(q--){
+        int t; cin >> t;
+        cout << vec[t] << " ";
+    }
+}
+using namespace std;
+// mex tahun baru : troc#18 c -> greedy
+void main(){
+    int n; cin >> n;
+    int arr[n];
+    for(int i = 0; i < n; i++)
+        cin >> arr[i];
+    sort(arr, arr + n);
+    cout << arr[0] << " ";
+    
+    if(n > 1){
+        for(int i = 2; i < n; i++)
+            cout << arr[i] << " ";
+        cout << arr[1];
+    }
+}
+#include<bits/stdc++.h>
+// segitiga tahun baru: troc#18 D -> geometry
+using namespace std;
+void main(){
+    int n; cin >> n;
+    if(n == 2 || n == 3 || n == 5)
+        cout << "4";
+    else
+        cout << "3";
+}
+// Pelajaran pangan : troc#16 B -> greedy
+using namespace std;
+void main(){
+    int n, m; cin >> n >> m;
+    int arr[n + 1];
+    for(int i = 1; i <= n; i++)
+        cin >> arr[i];
+    sort(arr + 1, arr + n + 1);
+    int res = arr[n] - arr[1];
+    for(int i = 1; i < n; i++)
+        res = min (res, arr[i] + m - arr[i + 1]);
+    cout << res;
+}
+// Pertahanan wifi : Troc 11 B -> Greedy
+using namespace std;
+void main(){
+    int n, m; cin >> n >> m;
+    int arr[n];
+    for(int i = 0; i < n; i++)
+        cin >> arr[i];
+    sort(arr, arr + n);
+    int res = arr[m - 1] - arr[0];
+    for(int i = m - 1; i < n; i++)
+        res = min(res, arr[i] - arr[i - m + 1]);
+    cout << res;
+}
+
+
+// Membangun menara :  gemastik 2016 -> greedy
+using namespace std;
+void main(){
+    int n; cin >> n;
+    int arr[3];
+    for(int i = 0; i < 3; i++){
+        int q; cin >> q;
+        int mx = 0, mn = 0;
+        for(int j = 0; j < 3; j++){
+            int x, y, z; cin >> x >> y >> z;
+            mx += max(x, max(y, z));
+            mn += min(x, min(y, z));
+        }
+        cout << mx << " " << mn;
+    }
+}
+//Membeli mainan : Troc#3
+using namespace std;
+void main(){
+    int x; cin >> x;
+    int arr[3];
+    for(int i = 0; i < 3; i++)
+        cin >> arr[i];
+    sort(arr, arr + 3);
+    int tmp = x / (arr[0] + arr[1] + arr[2]);
+    int res = 3 * tmp;
+    int remain = x - tmp * (arr[0] + arr[1] + arr[2]);
+    for(int i = 0; i < 3; i++){
+        if(rem >= arr[i]){
+            rem -= arr[i];
+            res++;
+        }
+    }
+    cout << res;
+}
+// Menghtiung bola
+using namespace std;
+void main(){
+    int n; cin >> n;
+    int tmp = 1;
+    for(int i = 0; i < n; i++){
+        int x; cin >> x;
+        if(x == tmp){
+            cout << "Benar" << fflush;
+            tmp++;
+        }
+        else{
+            cout << "Salah" << fflush;
+            tmp = 1;
+        }
+    }
+}
+// Pola III : perulangan lanjut
+using namespace std;
+void main(){
+    int n, x = 0; cin >> n;
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j <= i; j++){
+            cout << x % 10 << " ";
+            x++;
+        }
+        cout << "\n";
+    }
+}
+// Bilangan pecahan : mikroskil cp 2014
+using namespace std;
+void Factorization(){
+    int a, b; cin >> a >> b;
+    if(__gcd(a, b) > 1)
+        cout << a / __gcd(a, b) << " " << b / __gcd(a, b);
+    else
+        cout << "No";
+}
+using namespace std;
 int cntEven(int l, int r){
     int cnt = (r - l) / 2;
     if(l % 2 != 0 || r % 2 != 0)
