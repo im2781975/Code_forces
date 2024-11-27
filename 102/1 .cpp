@@ -34,6 +34,22 @@ void main(){
         cout << vec[t] << " ";
     }
 }
+using namespace std;
+// mex tahun baru : troc#18 c -> greedy
+void main(){
+    int n; cin >> n;
+    int arr[n];
+    for(int i = 0; i < n; i++)
+        cin >> arr[i];
+    sort(arr, arr + n);
+    cout << arr[0] << " ";
+    
+    if(n > 1){
+        for(int i = 2; i < n; i++)
+            cout << arr[i] << " ";
+        cout << arr[1];
+    }
+}
 // Membangun menara :  gemastik 2016 -> greedy
 using namespace std;
 void main(){
