@@ -34,6 +34,22 @@ void main(){
         cout << vec[t] << " ";
     }
 }
+// Membangun menara :  gemastik 2016 -> greedy
+using namespace std;
+void main(){
+    int n; cin >> n;
+    int arr[3];
+    for(int i = 0; i < 3; i++){
+        int q; cin >> q;
+        int mx = 0, mn = 0;
+        for(int j = 0; j < 3; j++){
+            int x, y, z; cin >> x >> y >> z;
+            mx += max(x, max(y, z));
+            mn += min(x, min(y, z));
+        }
+        cout << mx << " " << mn;
+    }
+}
 //Membeli mainan : Troc#3
 using namespace std;
 void main(){
