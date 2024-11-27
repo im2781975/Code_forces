@@ -1,5 +1,38 @@
 using namespace std;
 void main(){
+    int n, res = 0; cin >> n;
+    for(int i = 0; i <= n; i++){
+        int x; cin >> x;
+        res += x * pow(2, i);
+    }
+    int tmp = pow(2, n);
+    if(res % tmp != 0)
+        cout << -1;
+    else
+        cout << res / tmp;
+}
+using namespace std;
+void main(){
+    int n; cin >> n;
+    char x, y;
+    int a1 = a2 = b1 = b2 = c1 = c2 = 0;
+    for(int i = 0; i < n; i++){
+        cin >> x;
+        if(x = 'G') a1++;
+        if(x == 'B') b1++;
+        if(x == 'K') c1++;
+    }
+    for(int i = 0; i < n; i++){
+        cin >> y;
+        if(y == 'G') a2++;
+        if(y == 'B') b2++;
+        if(y == 'K') c2++;
+    }
+    int ans = min(a1, c2) + min(c1, b2) + min(b1, a2);
+    cout << ans;
+}
+using namespace std;
+void main(){
     int n; cin >> n;
     int arr[n];
     for(int i = 0; i < n; i++){
