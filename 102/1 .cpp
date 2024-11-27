@@ -1,5 +1,16 @@
 using namespace std;
 void main(){
+    string str; getline(cin, str);
+    for(int i = 0; i < str.length(); i++){
+        if(str[i] - 2 < 65 && str[i] != ' ')
+            str[i] += 24;
+        else if(str[i] != ' ')
+            str[i] -= 2;
+        cout << str[i];
+    }
+}
+using namespace std;
+void main(){
     int n, mn = 1e4, mx = 0;
     while(cin >> n){
         if(n == 0){
