@@ -1,4 +1,27 @@
 // Mengangkut bebek : OSP 2022 
+using namespace std;
+void main(){
+    int n, k; cin >> n >> k;
+    int arr[n];
+    pair <int, int> pr;
+    for(int i = 0; i < k; i++)
+        cin >> pr[i].first;
+    for(int i = 0; i < k; i++)
+        cin >> pr[i].second;
+    sort(pr, pr + k + 1);
+    for(int i = 0; i < n; i++)
+        cin >> arr[i];
+    sort(arr, arr + n, greater <int> ());
+    int j = ans = 0;
+    for(int i = 0; i < n; i++){
+        ans += pr[j].first * arr[i];
+        pr[j].second-;
+        if(pr[j].second == 0)
+            j++;
+    }
+    cout << ans;
+}
+
 /*int main()
 {
     ll k,n;
