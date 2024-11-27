@@ -1,4 +1,19 @@
 using namespace std;
+void main(){
+    int n, mn = 1e4, mx = 0;
+    while(cin >> n){
+        if(n == 0){
+            cout << mn << " " << mx;
+            return 0;
+        }
+        else{
+            mx = max(mx, a);
+            mn = min(mn, a);
+        }
+    }
+    cout << mx << " " << mx;
+}
+using namespace std;
 int main(){
     int n; cin >> n;
     int arr[n];
