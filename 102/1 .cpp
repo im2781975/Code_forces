@@ -1,4 +1,46 @@
 using namespace std;
+int n, k, val[502], wt[502], dp[502][2001], item[502];
+void knapsack(int n, int k){
+    for(int cap = 0; cap <= k; cap++)
+        dp[0][cap] = 0;
+    for (int i = 1; i <= n; i++) {
+        for (int cap = 0; cap<= k; cap++) {
+            if (cap >= wt[i])
+                dp[i][cap] = max(dp[i - 1][cap], dp[i - 1][cap- wt[i]] + val[i]);
+            else
+                dp[i][cap] = dp[i - 1][cap];
+        }
+    }
+}
+void findSelectedItems(ll n, ll k){
+    int itemIndex = 0; 
+    // Index for storing selected items
+    int remCap= k;
+    while (n > 0 && remCap > 0) {
+        // If the current dp value is the same as the one without this item, skip it
+        if (dp[n][remCap] == dp[n - 1][remCap])
+            n--;
+        else{
+            items[itemIndex++] = n;
+            remCap -= wt[n];
+            n--;
+        }
+    }
+    // Sort the selected items in ascending order
+    sort(items, items + itemIndex);
+    // Output the selected items
+    for (int i = 0; i < itemIndex; i++) {
+        cout << items[i] << endl;
+    }
+}
+int main(){
+    cin >> n >> k;
+    for(int i = 1; i <= n; i++)
+        cin >> wt[i] >> val[i];
+    knapsack(n, k);
+    findSelectedItems(n, k);
+}
+using namespace std;
 int n, m, a[265000];
 // Binary search function to find the minimum time required to satisfy the condition
 int binser(int target, int max_time) {
