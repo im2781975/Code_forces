@@ -100,142 +100,57 @@ void main(){
     }
     cout << ans;
 }
-/*ll n,m,a[265000];
- 
-ll binser(ll m, ll r)
-{
-    ll l=0;
-    ll ans=0;
-    ll mid,jml;
-    while(l<=r)
-    {
-    mid = (l+r)/2;
-    jml = 0;
-    for(int i=0; i<n; i++)
-    {
-        jml += mid/a[i];
+#include<bits/stdc++.h>
+using namespace std;
+void main(){
+    int n, cin >> n;
+    int arr[n]; cin >> arr[0];
+    for(int i = 1; i < n; i++){
+        cin >> arr[i];
+        arr[i] += arr[i - 1];
     }
-    if(jml<m)
-    {
-        l = mid+1;
-    } else
-    {
-        ans = mid;
-        r = mid-1;
+    int q; cin >> q;
+    while(q--){
+        int x; cin >> x;
+        int res = lower_bound(arr, arr + n, x) - arr;
+        cout << res;
     }
-    }
-    return ans;
 }
- 
-int main()
-{
-    cin >> n >> m;
-    for(int i=0; i<n; i++)
-    {
-        cin >> a[i];
+using namespace std;
+void main(){
+    int n; cin >> n;
+    int arr[n], tmp[n], mx = 0;
+    for(int i = 0; i < n; i++){
+        cin >> arr[i] >> tmp[i];
+        mx = max(mx, arr[i] * tmp[i]);
     }
-    cout << binser(m+1, a[0]*m) - binser(m,a[0]*m);
-}*/
- 
-/*int main()
-{
-    ll n;
-    cin >> n;
-    ll a[n];
-    cin >> a[0];
-    for(int i=1; i<n; i++)
-    {
-        cin >> a[i];
-        a[i] += a[i-1];
-    }
- 
-    int q;
-    cin >> q;
-    for(int i=0; i<q; i++)
-    {
-        int x;
-        cin >> x;
-        int ans = lower_bound(a,a+n,x)-a;
-        cout << ans+1 << endl;
-    }
-}*/
- 
-/*int main()
-{
-    int n;
-    cin >> n;
-    int a[n],b[n],mx=0;
-    for(int i=0; i<n; i++)
-    {
-        cin >> a[i] >> b[i];
-        mx = max(mx,a[i]*b[i]);
-    }
- 
     cout << mx;
-}*/
- 
-/*ll n,m;
- 
-int main()
-{
-    cin >> n >> m;
-    if(m==1)
-    {
-        cout << n-1;
+}
+using namespace std;
+void main(){
+    int n, m; cin >> n, m;
+    if(n == 1)
+        cout << m - 1;
+    else if(m == 1)
+        cout << n - 1;
+    else
+        cout << n * (m - 1);
+}
+using namespace std;
+void main(){
+    int n, a = b = c = 0;
+    char ch;
+    for(int i = 0; i < n; i++){
+        cin >> ch;
+        if(ch == '1')
+            a += 1;
+        if(ch == '2')
+            b += a;
+        if(ch == '3')
+            c += b;
     }
-    else if(n==1)
-    {
-        cout << m-1;
-    }
-    else{
-        cout << (m-1)*n;
-    }
-}*/
- 
-/*int main()
-{
-    ll t,a,b;
- 
-    cin >> t;
-    for(int i=0; i<t; i++)
-    {
-        cin >> a >> b;
-        cout << a+b-1 << endl;
-    }
-}*/
- 
-/*string code;
-ll n,b1=0,b2=0,b3=0;
-char a;
- 
-int main()
-{
-    cin >> code >> n;
-    for(int i=0; i<n; i++)
-    {
-        cin >> a;
-        if(a=='1')
-        {
-            b1 += 1;
-        }
-        if(a=='2')
-        {
-            b2 += b1;
-        }
-        if(a=='3')
-        {
-            b3 += b2;
-        }
-    }
-    cout << b3 << endl;
-}*/
- 
-/*int main()
-{
-    cout << "0" << " " << "9223372036854775808" << endl;
-    cout << "9223372036854775808" << " " << "9223372036854775808" << endl;
-}*/
- 
+    cout << c;
+}
 /*int main()
 {
     ll n,ans=0; cin >> n;
