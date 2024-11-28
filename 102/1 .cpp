@@ -41,6 +41,46 @@ int main(){
     findSelectedItems(n, k);
 }
 using namespace std;
+const int MOD = 1e9 + 7;
+int addMod(int x, int y) {
+    return ((x % MOD) + (y % MOD) + MOD) % MOD;
+}
+int subMod(int x, int y) {
+    return ((x % MOD) - (y % MOD) + MOD) % MOD;
+}
+int mulMod(int x, int y) {
+    return ((x % MOD) * (y % MOD)) % MOD;
+}
+int powerMod(int x, int y) {
+    if (y == 0) return 1;
+    int half = powerMod(x, y / 2);
+    half = mulMod(half, half);
+    if (y % 2 == 1) {
+        half = mulMod(half, x);
+    }
+    return half;
+}
+// Modular division using Fermat's Little Theorem
+int divMod(int x, int y) {
+    return mulMod(x, powerMod(y, MOD - 2));
+}
+int main() {
+    int n, k; cin >> n >> k;
+    // Compute a = n * (n^k - 1)
+    int term1 = powerMod(n, k);  
+    // n^k
+    int term2 = subMod(term1, 1);
+    // n^k - 1
+    int a = mulMod(n, term2);  
+    // n * (n^k - 1)
+    // Compute b = n - 1
+    int b = subMod(n, 1);
+    // Result = a / b (mod MOD)
+    cout << divMod(a, b) << endl;
+    return 0;
+}
+
+using namespace std;
 int n, m, a[265000];
 // Binary search function to find the minimum time required to satisfy the condition
 int binser(int target, int max_time) {
