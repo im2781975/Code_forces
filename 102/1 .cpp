@@ -1,4 +1,81 @@
 using namespace std;
+int dp(int n){
+    if(n == 1 || n == 2)
+        return 1;
+    if(n == 3)
+        return 2;
+    if(tmp[n] != 0)
+        return tmp[n];
+    tmp[n] = dp(n - 1) + dp(n - 3);
+    return tmp[n];
+}
+int main(){
+    int n; cin >> n;
+    cout << dp(n);
+}
+using namespace std;
+int main(){
+    int x, a = 0, b = 0;
+    char ch;
+    for(int i = 0; i < 6; i++){
+        cin >> x >> y;
+        if(ch == 'A')
+            a++;
+        else if(ch == 'B')
+            b++;
+    }
+    if(b >= 3)
+        cout << 100;
+    else if(b == 3)
+        cout << 70;
+    else
+        cout << 40;
+}
+using namespace std;
+void main(){
+    string str; cin >> str;
+    bool flag = false;
+    if(str[0] != str[1]){
+        if(str[0] != str[2])
+            cout << "1";
+        else
+            cout << "2";
+    }
+    for(int i = 2; i < str.length(); i++){
+        if(str[i] != str[i - 1] && str[i] != str[i - 2])
+            cout << i + 1;
+    }
+}
+using namespace std;
+void main(){
+    int n, arr[100][100]; cin >> n;
+    for(int i = 0; i < n; i++)
+        cin >> arr[0][i];
+    for(int j = 1; j < n; j++) {
+        for(int i = 0; i < n; i++)
+            tmp[j][i] = tmp[j - 1][i + 1] - tmp[j - 1][i];
+    }
+    for(int i = 0; i < n; i++){
+        if(i < n)
+            cout << tmp[i][0] << " ";
+    }
+}
+using namespace std;
+int main(){
+    int n, m, a; cin >> n >> m >> a;
+    vector <int> vec;
+    for(int i = 0; i < n; i++){
+        int x; cin >> x;
+        vec.push_back(x);
+    }
+    for(int i = 0; i < m; i++){
+        int x; cin >> x;
+        vec.push_back(x);
+    }
+    sort(vec.begin(), vec.end());
+    cout << vec[a - 1];
+}
+using namespace std;
 int n, k, val[502], wt[502], dp[502][2001], item[502];
 void knapsack(int n, int k){
     for(int cap = 0; cap <= k; cap++)
@@ -265,135 +342,6 @@ int main(){
     int x, y; cin >> x >> y;
     cout << fact(x, y);
 }
-/*ll tmp[1001];
-ll dp(ll x)
-{
-    if(x==1 || x==2)
-    {
-        return 1;
-    }
-    if(x==3)
-    {
-        return 2;
-    }
-    if(tmp[x] != 0)
-    {
-        return tmp[x];
-    }
-    tmp[x] = (dp(x-1) + dp(x-3)) % 1000000;
-    return tmp[x];
-}
- 
-int main()
-{
-    int n;
-    cin >> n;
-    cout << dp(n);
-}*/
- 
-/*int x,a,b;
-char y;
- 
-int main()
-{
-    for(int i=0; i<6; i++)
-    {
-        cin >> x >> y;
-        if(y=='A')
-        {
-            a++;
-        } else{b++;}
-    }
-    if(b>=3)
-    {
-        cout << 100;
-    } else if(b==2)
-    {
-        cout << 70;
-    } else{cout << 40;}
-}*/
- 
-/*int main()
-{
-    string v;
-    cin >> v;
- 
-    bool flag = false;
- 
-    if(v[0] != v[1])
-    {
-        if(v[0] != v[2])
-        {
-            cout << 1;
-        }
-        else{cout << 2;}
-    }
- 
-    for(int i=2; i<v.length(); i++)
-    {
-        if(v[i] != v[i-1])
-        {
-            if(v[i] != v[i-2])
-            {
-                cout << i+1;
-            }
-        }
-    }
- 
-}*/
- 
-/*int main()
-{
-    int n, tmp[100][100];
-    cin >> n;
-    for(int i=0; i<n; i++)
-    {
-        cin >> tmp[0][i];
-    }
- 
-    for(int j=1; j<n; j++)
-    {
-        for(int i=0; i<n; i++)
-        {
-            tmp[j][i] = tmp[j-1][i+1] - tmp[j-1][i];
-        }
-    }
- 
-    for(int i=0; i<n; i++)
-    {
-        if(i<n)
-        {
-            cout << tmp[i][0] << " ";
-        }
-    }
- 
-}*/
- 
-/*int main()
-{
-    int a,b;
-    cin >> a >> b;
-    int x;
-    cin >> x;
-    vector <int> v;
-    for(int i=0; i<a; i++)
-    {
-        int z;
-        cin >> z;
-        v.pb(z);
-    }
-    for(int i=0; i<b; i++)
-    {
-        int z;
-        cin >> z;
-        v.pb(z);
-    }
- 
-    sort(v.begin(), v.end());
- 
-    cout << v[x-1];
-}*/
- 
 /*int main()
 {
     string s;
