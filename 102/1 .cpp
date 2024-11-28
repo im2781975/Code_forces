@@ -1,3 +1,4 @@
+// Pola string
 using namespace std;
 void main(){
     string str; cin >> str;
@@ -15,6 +16,7 @@ void main(){
         }
     }
 }
+// wildcard
 using namespace std;
 int main(){
     int n; cin >> n;
@@ -65,201 +67,33 @@ void main(){
     }
     cout << res;
 }
-/*int main()
-{
-    string s;
-    cin >> s;
-    int tmp = ceil(sqrt(s.length()));
-    for(int i=s.length(); i<tmp*tmp; i++)
-    {
-        s += ".";
-    }
- 
-    for(int i=0; i<tmp; i++)
-    {
-        if(i%2==0)
-        {
-            for(int j=i*tmp; j<(i+1)*tmp; j++)
-            {
-                cout << s[j];
-            }
-        }
-        else
-        {
-            for(int j = (i+1)*tmp-1; j>i*tmp-1; j--)
-            {
-                cout << s[j];
-            }
-        }
-        cout << endl;
-    }
-}*/
- 
-/*ll newnum(ll x)
-{
-    if(x%4==0) {return x;}
-    if(x%4==1) {return 1;}
-    if(x%4==2) {return x+1;}
-    return 0;
+using namespace std;
+void main(){
+    string str; getline(cin, str);
+    if(str.find("molla") != -1)
+        cout << str.find("molla") + 1;
+    else
+        cout << -1;
 }
- 
-int main()
-{
-    ll t;
-    cin >> t;
-    while(t--)
-    {
-        ll x,y;
-        cin >> x >> y;
-        ll a = newnum(x-1); ll b = newnum(y);
-        cout << (a^b) << endl;
+using namespace std;
+void main(){
+    double n; cin >> n;
+    cout << fixed << setprecision(2) << (n - 1)/2 * n/2;
+}
+using namespace std;
+void main(){
+    int n, k; cin >> n >> k;
+    cout << fixed << setprecision(5) << (1 / n) *(n - k - 1) / (n - 1);
+}
+using namespace std;
+void main(){
+    int n; cin >> n;
+    int res = 0;
+    for(int i = 1; i <= n; i++){
+        res += i;
+        cout << res;
     }
-}*/
- 
-/*int main()
-{
-    ll n; cin >> n;
-    vector<pair <ll, ll>> p(n);
-    for(int i=0; i<n; i++)
-    {
-        cin >> p[i].first >> p[i].second;
-    }
-    sort(p.rbegin(), p.rend());
-    ll mx = p[0].second;
-    ll ans = 1;
-    for(int i=1; i<n; i++)
-    {
-        if(p[i].second > mx)
-        {
-            mx = p[i].second;
-            ans++;
-        }
-    }
-    cout << ans;
-}*/
- 
-// wildcard
- 
-/*int main()
-{
-    string s,a,b,t,c,d;
-    int n,btg;
-    cin >> s >> n;
-    string tmp[n];
-    btg = s.find("*");
-    a = s.substr(0,btg);
-    b = s.substr(btg+1);
-    int pjg = b.length();
-    for(int i=0; i<n; i++)
-    {
-        cin >> t;
-        if(s.length()-1 > t.length())
-        {
-            continue;
-        }
-        c = t.substr(0,btg);
-        d = t.substr(t.length()-pjg,pjg);
-        if(a==c && b==d)
-        {
-            tmp[i] = t;
-        }
-    }
- 
-    for(int i=0; i<n; i++)
-    {
-        cout << tmp[i] << endl;
-    }
-}*/
- 
-/*int main()
-{
-    string s;
-    getline(cin,s);
-    if(s.find("ideafuse") != -1)
-    {
-        cout << s.find("ideafuse") + 1;
-    } else{cout << -1;}
-}*/
- 
-/*int main()
-{
-    double n;
-    cin >> n;
-    double ans = (n-1)/2 * n/2;
-    cout << fixed << setprecision(2) << ans;
-}*/
- 
-/*int main()
-{
-    double n,k;
-    cin >> n >> k;
-    for(int i=0; i<k; i++)
-    {
-        int x;
-        cin >> x;
-    }
- 
-    cout << fixed << setprecision(5) << (1/n)*(n-k-1)/(n-1);
-}*/
- 
-/*int main()
-{
-    int n;
-    cin >> n;
-    string s[n];
-    for(int i=1; i<=n; i++)
-    {
-        cin >> s[i];
-    }
- 
-}*/
- 
-// Pola string
- 
-/*int main()
-{
-    string s;
-    cin >> s;
-    int tmp = ceil(sqrt(s.length()));
-    for(int i=s.length(); i<tmp*tmp; i++)
-    {
-        s += ".";
-    }
- 
-    for(int i=0; i<tmp; i++)
-    {
-        if(i%2==0)
-        {
-            for(int j = i*tmp; j<(i+1)*tmp; j++)
-            {
-                cout << s[j];
-            }
-        }
-        else
-        {
-            for(int j = (i+1)*tmp-1; j>(i*tmp)-1; j--)
-            {
-                cout << s[j];
-            }
-        }
-        cout << endl;
-    }
-}*/
- 
-// Angka 1
- 
-/*int main()
-{
-    int n;
-    cin >> n;
-    int ans=0;
-    for(int i=1; i<=n; i++)
-    {
-        ans+=i;
-        cout << ans << endl;
-    }
-}*/
- 
+}
 // koin asing
 /*int main()
 {
