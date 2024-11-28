@@ -1,3 +1,50 @@
+using namespace std;
+void main(){
+    string str; cin >> str;
+    int len = ceil(sqrt(str.length()));
+    for(int i = str.length(); i < len * len; i++)
+        str[i] += ".";
+    for(int i = 0; i < len; i++){
+        if(i % 2 == 0){
+            for(int j = i * len; j < (i + 1) * len; j++)
+                cout << str[j] << " ";
+        }
+        else{
+            for(int j = (i + 1)* len - 1; j > i * len - 1; j--)
+                cout << str[j] << " ";
+        }
+    }
+}
+using namespace std;
+int newNum(int x){
+    if(x % 4 == 0)
+        return x;
+    if(x % 4 == 1)
+        return 1;
+    if(x % 4 == 2)
+        return x + 1;
+    return 0;
+}
+int main(){
+    int x, y; cin >> x >> y;
+    cout << newNum(x - 1) ^ newNum(y);
+}
+using namespace std;
+void main(){
+    int n; cin >> n;
+    vector <pair <int, int> >pr(n);
+    for(int i = 0; i < n; i++)
+        cin >> pr[i].first << " " << pr[i].second;
+    sort(pr.rbegin(), pr.rend());
+    int mx = pr[0].second, res = 1;
+    for(int i = 1; i < n; i++){
+        if(pr[i].second > mx){
+            mx = pr[i].second;
+            res++;
+        }
+    }
+    cout << res;
+}
 /*int main()
 {
     string s;
