@@ -1,4 +1,40 @@
 using namespace std;
+int n, m, a[265000];
+// Binary search function to find the minimum time required to satisfy the condition
+int binser(int target, int max_time) {
+    int l = 0; // Lower bound for time
+    int r = max_time; // Upper bound for time
+    int ans = 0;
+    while (l <= r) {
+        int mid = (l + r) / 2;
+        int total = 0;
+        // Calculate the total production or completion for time `mid`
+        for (int i = 0; i < n; i++)
+            total += mid / arr[i];
+        // Adjust search range based on whether total meets the target
+        if (total < target)
+            l = mid + 1;
+        else {
+            ans = mid;
+            r = mid - 1;
+        }
+    }
+    return ans;
+}
+int main() {
+    // number of machines and the required number of products
+    cin >> n >> m;
+    // time taken by each machine to produce one unit
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
+    // Calculate and print the difference between the two binary search results
+    ll max_time = arr[0] * m; 
+    // Set an upper bound for search
+    cout << binsearch(m + 1, max_time) - binsearch(m, max_time) << endl;
+    return 0;
+}
+using namespace std;
 void main(){
     string str; getline(cin, str);
     for(int i = 0; i < str.length(); i++){
