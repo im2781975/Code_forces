@@ -16,6 +16,26 @@ void main(){
     }
 }
 using namespace std;
+int main(){
+    int n; cin >> n;
+    string str, tmp[n]; cin >> str;
+    string bg = str.find("*");
+    string x = str.substr(0, bg);
+    string y = str.substr(bg + 1);
+    int len = y.length();
+    for(int i = 0; i < len; i++){
+        string ing; cin >> ing;
+        if(str.length() - 1 > ing.length())
+            continue;
+        string c = ing.substr(0, bg);
+        string d = ing.substr(str.length() - len, len);
+        if(x == c && y == d)
+            tmp[i] = ing;
+    }
+    for(int i = 0; i < n; i++)
+        cout << tmp[i] << " ";
+}
+using namespace std;
 int newNum(int x){
     if(x % 4 == 0)
         return x;
