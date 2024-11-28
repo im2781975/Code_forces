@@ -233,6 +233,38 @@ void main(){
     }
     cout << c;
 }
+using namespace std;
+void main(){
+    int n, res = 0; cin >> n;
+    for(int i = 0; i < m; i++){
+        int x; cin >> x;
+        res += x;
+    }
+    cout << res / 2;
+}
+using namespace std;
+void main(){
+    string str; cin >> str;
+    int n; cin >> n;
+    while(n > 0){
+        cout << n << " ";
+        if(n - 1 != 0)
+            cout << "Yes";
+        else
+            cout << "No";
+        n--;
+    }
+}
+using namespace std;
+int fact(int x, int y){
+    if(y == 0)
+        return 1;
+    return x * fact(x, y - 1);
+}
+int main(){
+    int x, y; cin >> x >> y;
+    cout << fact(x, y);
+}
 /*int main()
 {
     ll n,ans=0; cin >> n;
