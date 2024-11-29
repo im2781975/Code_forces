@@ -1,3 +1,41 @@
+using namespace std;
+int main() {
+    string str; 
+    int n; cin >> str >> n;
+    cin >> str >> n;      
+    vector <string> vec(n);
+    for (int i = 0; i < n; i++)
+        cin >> vec[i];
+
+    // Check the position of the wildcard '*' in the pattern
+    bool startsWith = (str[0] == '*');
+    bool endsWith = (str[str.size() - 1] == '*');
+
+    if (startsWith && !endsWith) { // Case: *suffix
+        string suffix = str.substr(1); 
+        // Remove '*' to get the suffix
+        for (const auto& word : vec){
+            if (word.size() >= suffix.size() &&
+                word.compare(word.size() - suffix.size(), suffix.size(), suffix) == 0)
+                cout << word << endl;
+        }
+    } else if (!startsWith&& endsWith) { 
+        // Case: prefix*
+        string prefix = k.substr(0, k.size() - 1); 
+        // Remove '*' to get the prefix
+        for (const auto& word : vec) {
+            if (word.size() >= prefix.size() &&
+                word.compare(0, prefix.size(), prefix) == 0)
+                cout << word << endl;
+        }
+    } else { 
+        // Case: No wildcard or invalid pattern
+        for (const auto& word : vec)
+            cout << word << endl;
+    }
+    return 0;
+}
+
 // Pola string
 using namespace std;
 void main(){
