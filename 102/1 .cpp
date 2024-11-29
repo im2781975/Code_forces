@@ -1,3 +1,83 @@
+using namespace std;
+void main(){
+    int n, m; cin >> n >> m;
+    int x, y; cin >> x >> y;
+    int a = n / a * m / b;
+    int b = n / b * m / a;
+    cout << max(a, b);
+}
+using namespace std;
+void main(){
+    int n; cin >> n;
+    for(int i = 1; i <= n; i++){
+        if(i % 3 == 0 || i % 5 == 0 || i % 7 == 0){
+            if(i % 3 == 0)
+                cout << "Three ";
+            if(i % 5 == 0)
+                cout << "Five ";
+            if(i % 7 == 0)
+                cout << "Seven ";
+        }
+        else
+            cout << i << " ";
+    }
+}
+using namespace std;
+int main(){
+    int n; cin >> n;
+    vector <int> vec;
+    for(int i = 0; i < n*2; i++){
+        int x; cin >> x;
+        vec.push_back(x);
+    }
+    sort(vec.begin(), vec.end());
+    int res = 0, tmp = 2 * n - 1;
+    for(int i = tmp; i >= n; i--)
+        res += vec[i];
+    cout << res;
+}
+using namespace std;
+void main(){
+    string str, ing; cin >> str >> ing;
+    cout << str + ing << "\n";
+    int tmp = str.find(ing);
+    if(tmp != -1)
+        cout << "No";
+    else
+        cout << "Yes" << "\n" << str + "molla";
+    
+}
+using namespace std;
+void main(){
+    int x, y, n; cin >> x >> y >> n;
+    int arr[2006], res = 0;
+    for(int i = 0; i < n * n; i++){
+        if(arr[x] == 0){
+            arr[x]++;
+            res++;
+        }
+        int tmp = (x + y) % m;
+        x = y; y = tmp;
+    }
+    cout << res;
+}
+using namespace std;
+void main(){
+    int n; cin >> n;
+    int prv = -1;
+    vector <int> vec;
+    for(int i = 0; i < n; i++){
+        int x; cin >> x;
+        if(x == 0 || x != prv)
+            vec.push_back(x);
+    }
+    if (vec.size() < n)
+        cout << 0 << endl;
+    else if (vec.size() == n)
+        cout << 1 << endl;
+    else
+        cout << n + 1 << endl;
+}
 int main()
 {
     int n,m; cin >> n >> m;
