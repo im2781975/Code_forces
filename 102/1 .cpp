@@ -35,7 +35,47 @@ int main() {
     }
     return 0;
 }
-
+using namespace std;
+void solve() {
+    string s;
+    cin >> s;
+    if (s == "PAS") {
+        // Pascal code generation
+        cout << "var data: array[1..10000] of longint;" << endl;
+        cout << "    n, i, j, temp: longint;" << endl;
+        cout << "begin" << endl;
+        cout << "    readln(n);" << endl;
+        cout << "    for i := 1 to n do readln(data[i]);" << endl;
+        cout << "    for i := 1 to n - 1 do" << endl;
+        cout << "        for j := i + 1 to n do" << endl;
+        cout << "            if (data[i] > data[j]) then" << endl;
+        cout << "            begin" << endl;
+        cout << "                temp := data[i];" << endl;
+        cout << "                data[i] := data[j];" << endl;
+        cout << "                data[j] := temp;" << endl;
+        cout << "            end;" << endl;
+        cout << "    for i := 1 to n do writeln(data[i]);" << endl;
+        cout << "end." << endl;
+    } else {
+        // C code generation
+        cout << "#include <stdio.h>" << endl;
+        cout << "int data[10001];" << endl;
+        cout << "int n, i, j, temp;" << endl;
+        cout << "int main() {" << endl;
+        cout << "    scanf(\"%d\", &n);" << endl;
+        cout << "    for (i = 1; i <= n; i++) scanf(\"%d\", &data[i]);" << endl;
+        cout << "    for (i = 1; i <= n - 1; i++)" << endl;
+        cout << "        for (j = i + 1; j <= n; j++)" << endl;
+        cout << "            if (data[i] > data[j]) {" << endl;
+        cout << "                temp = data[i];" << endl;
+        cout << "                data[i] = data[j];" << endl;
+        cout << "                data[j] = temp;" << endl;
+        cout << "            }" << endl;
+        cout << "    for (i = 1; i <= n; i++) printf(\"%d\\n\", data[i]);" << endl;
+        cout << "    return 0;" << endl;
+        cout << "}" << endl;
+    }
+}
 // Pola string
 using namespace std;
 void main(){
