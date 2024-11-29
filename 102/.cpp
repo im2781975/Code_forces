@@ -266,3 +266,163 @@ int main(){
     processDenom(n, 2);
     processDenom(n, 1);
 }
+using namespace std;
+void main()
+{
+    string num1, num2, digit1, digit2;
+    vector<short> vec1, vec2, result;
+    short i, carry, len1, len2, maxLength;
+    short temp;
+    cin >> num1 >> num2;
+    len1 = num1.length();
+    len2 = num2.length();
+    maxLength = max(len1, len2);
+    
+    vec1.resize(100000);
+    vec2.resize(100000);
+    result.resize(maxLength + 1);
+
+    for (i = 0; i < len1; i++){
+        digit1 = num1[i];
+        vec1[len1 - 1 - i] = stoi(digit1);
+    }
+    // Reverse and store digits of num2
+    for (i = 0; i < len2; i++)
+    {
+        digit2 = num2[i];
+        vec2[len2 - 1 - i] = stoi(digit2);
+    }
+    // Perform addition with carry
+    carry = 0;
+    for (i = 0; i <= result.size(); i++){
+        result[i] = vec1[i] + vec2[i] + carry;
+        carry = result[i] / 10;
+        result[i] = result[i] % 10;
+    }
+    // Find the highest non-zero index in result
+    for (i = result.size() - 1; i >= 0; i--){
+        if (result[i] > 0)
+            break;
+    }
+    // Print the result in reverse order
+    for (short j = i; j >= 0; j--)
+        cout << result[j];
+}
+using namespace std;
+void main(){
+    int n, m; cin >> n >> m;
+    int x, y; cin >> x >> y;
+    int a = n / a * m / b;
+    int b = n / b * m / a;
+    cout << max(a, b);
+}
+using namespace std;
+void main(){
+    int n; cin >> n;
+    for(int i = 1; i <= n; i++){
+        if(i % 3 == 0 || i % 5 == 0 || i % 7 == 0){
+            if(i % 3 == 0)
+                cout << "Three ";
+            if(i % 5 == 0)
+                cout << "Five ";
+            if(i % 7 == 0)
+                cout << "Seven ";
+        }
+        else
+            cout << i << " ";
+    }
+}
+using namespace std;
+int main(){
+    int n; cin >> n;
+    vector <int> vec;
+    for(int i = 0; i < n*2; i++){
+        int x; cin >> x;
+        vec.push_back(x);
+    }
+    sort(vec.begin(), vec.end());
+    int res = 0, tmp = 2 * n - 1;
+    for(int i = tmp; i >= n; i--)
+        res += vec[i];
+    cout << res;
+}
+using namespace std;
+void main(){
+    string str, ing; cin >> str >> ing;
+    cout << str + ing << "\n";
+    int tmp = str.find(ing);
+    if(tmp != -1)
+        cout << "No";
+    else
+        cout << "Yes" << "\n" << str + "molla";
+    
+}
+using namespace std;
+void main(){
+    int x, y, n; cin >> x >> y >> n;
+    int arr[2006], res = 0;
+    for(int i = 0; i < n * n; i++){
+        if(arr[x] == 0){
+            arr[x]++;
+            res++;
+        }
+        int tmp = (x + y) % m;
+        x = y; y = tmp;
+    }
+    cout << res;
+}
+using namespace std;
+void main(){
+    int n; cin >> n;
+    int prv = -1;
+    vector <int> vec;
+    for(int i = 0; i < n; i++){
+        int x; cin >> x;
+        if(x == 0 || x != prv)
+            vec.push_back(x);
+    }
+    if (vec.size() < n)
+        cout << 0 << endl;
+    else if (vec.size() == n)
+        cout << 1 << endl;
+    else
+        cout << n + 1 << endl;
+}
+using namespace std;
+void main() {
+    int t;  cin >> t;
+    while (t--) {
+        int n, m; cin >> n >> m;
+        // Number of participants and threshold
+
+        int id; cin >> id; 
+        // The ID to evaluate
+        vector<int> x(n), s1(n), s2(n), s3(n);
+        // Input details for all participants
+        for (int j = 0; j < n; j++)
+            cin >> x[j] >> s1[j] >> s2[j] >> s3[j];
+        // Find rank of the participant with the given ID
+        int rank = 1;
+        // Start with rank 1 (best possible)
+        for (int j = 0; j < n; j++) {
+            if (id == x[j]) { // Find the target participant
+                for (int k = 0; k < n; k++) {
+                    if (j == k) continue; // Skip comparing the participant with themselves
+                    // Compare s3, then s2, then s1
+                    if (s3[k] > s3[j] || 
+                        (s3[k] == s3[j] && s2[k] > s2[j]) || 
+                        (s3[k] == s3[j] && s2[k] == s2[j] && s1[k] > s1[j]))
+                        rank++;
+                }
+                break; 
+                // Found the target participant, no need to continue
+            }
+        }
+        // Output result based on rank and threshold
+        if (rank <= m) 
+            cout << "YA" << endl;
+        else
+            cout << "TIDAK" << endl;
+    }
+    return 0;
+}
