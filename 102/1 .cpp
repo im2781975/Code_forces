@@ -1,4 +1,46 @@
 using namespace std;
+void main()
+{
+    string num1, num2, digit1, digit2;
+    vector<short> vec1, vec2, result;
+    short i, carry, len1, len2, maxLength;
+    short temp;
+    cin >> num1 >> num2;
+    len1 = num1.length();
+    len2 = num2.length();
+    maxLength = max(len1, len2);
+    
+    vec1.resize(100000);
+    vec2.resize(100000);
+    result.resize(maxLength + 1);
+
+    for (i = 0; i < len1; i++){
+        digit1 = num1[i];
+        vec1[len1 - 1 - i] = stoi(digit1);
+    }
+    // Reverse and store digits of num2
+    for (i = 0; i < len2; i++)
+    {
+        digit2 = num2[i];
+        vec2[len2 - 1 - i] = stoi(digit2);
+    }
+    // Perform addition with carry
+    carry = 0;
+    for (i = 0; i <= result.size(); i++){
+        result[i] = vec1[i] + vec2[i] + carry;
+        carry = result[i] / 10;
+        result[i] = result[i] % 10;
+    }
+    // Find the highest non-zero index in result
+    for (i = result.size() - 1; i >= 0; i--){
+        if (result[i] > 0)
+            break;
+    }
+    // Print the result in reverse order
+    for (short j = i; j >= 0; j--)
+        cout << result[j];
+}
+using namespace std;
 void main(){
     int n, m; cin >> n >> m;
     int x, y; cin >> x >> y;
