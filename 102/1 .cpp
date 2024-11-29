@@ -78,14 +78,45 @@ void main(){
     else
         cout << n + 1 << endl;
 }
-int main()
-{
-    int n,m; cin >> n >> m;
-    int a,b; cin >> a >> b;
-    int x1=(n/a)*(m/b);
-    int x2=(n/b)*(m/a);
-    cout << max(x1,x2);
-}*/
+using namespace std;
+void main() {
+    int t;  cin >> t;
+    while (t--) {
+        int n, m; cin >> n >> m;
+        // Number of participants and threshold
+
+        int id; cin >> id; 
+        // The ID to evaluate
+        vector<int> x(n), s1(n), s2(n), s3(n);
+        // Input details for all participants
+        for (int j = 0; j < n; j++)
+            cin >> x[j] >> s1[j] >> s2[j] >> s3[j];
+        // Find rank of the participant with the given ID
+        int rank = 1;
+        // Start with rank 1 (best possible)
+        for (int j = 0; j < n; j++) {
+            if (id == x[j]) { // Find the target participant
+                for (int k = 0; k < n; k++) {
+                    if (j == k) continue; // Skip comparing the participant with themselves
+                    // Compare s3, then s2, then s1
+                    if (s3[k] > s3[j] || 
+                        (s3[k] == s3[j] && s2[k] > s2[j]) || 
+                        (s3[k] == s3[j] && s2[k] == s2[j] && s1[k] > s1[j]))
+                        rank++;
+                }
+                break; 
+                // Found the target participant, no need to continue
+            }
+        }
+        // Output result based on rank and threshold
+        if (rank <= m) 
+            cout << "YA" << endl;
+        else
+            cout << "TIDAK" << endl;
+    }
+    return 0;
+}
+
  
 /*int main()
 {
