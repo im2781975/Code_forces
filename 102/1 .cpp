@@ -94,6 +94,80 @@ void main(){
         cout << res;
     }
 }
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int n; cin >> n;
+    string arr[n];
+    for(int i = 0; i < n; i++)
+        cin >> arr[i];
+    /*
+    for(int i = 0; i < n / 2; i++)
+        cout << arr[i] << "\n" << arr[n - 1 - i] << "\n";
+    if(n % 2 != 0)
+        cout << arr[n / 2] << "\n";
+    */
+    if(n % 2 == 1){
+        for(int i = 1; i <= n /2; i++)
+            swap(arr[i], arr[n - i]);
+    }
+    else{
+        for(int i = 1; i < n /2; i++)
+            swap(arr[i], arr[n - i]);
+    }
+    for(int i = 0; i < n; i++)
+        cout << arr[i] << " ";
+}
+using namespace std;
+void main(){
+    int n, k; cin >> n >> k;
+    int ans = 1, mx = 0, cnt = 0;
+    while(n--){
+        cnt++;
+        int x; cin >> x;
+        mx = max(mx, x);
+        if(cnt == k){
+            ans += mx + 1;
+            cnt = mx = 0;
+        }
+    }
+    if(cnt > 0)
+        ans += mx + 1;
+    cout << ans;
+}
+using namespace std;
+void main(){
+    int n, a, b; cin >> n >> a >> b;
+    int x = n *(a / 100);
+    int y = n - x;
+    int z = y * b/100;
+    cout << y + z;
+}
+using namespace std;
+void main(){
+    string res = "molla vai";
+    string str; getline(cin, str);
+    int i = 10, cnt = 0;
+    while(i--){
+        if(str[i] == res[i] || str[i] + 32 = res[i])
+            cnt++;
+    }
+    cout << cnt;
+}
+using namespace std;
+void main(){
+    string str; getline(cin, str);
+    int res = 1, len = str.length;
+    for(int i = 0; i < len; i++){
+        if(str[i] == 'e'){
+            if(str[i] == 'u')
+                res *= 3;
+            else
+                res *= 2;
+        }
+    }
+    cout << res;
+}
 // koin asing
 /*int main()
 {
