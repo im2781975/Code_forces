@@ -246,120 +246,27 @@ void main(){
     }
     cout << res;
 }
- 
-/*int main()
-{
-	string k; //ma*
-	ll n,x,y,c; // unsigned mulai dari 0 - 65535
-	vector<string>vn; //mula, makan, minum, main, hama
-	bool depan;
- 
-	cin >> k >> n; //k=ma*    n=5
-	vn.resize(n);
- 
-	for(x=0; x<n; x++) {  cin >> vn[x]; }
-	for(x=0; x<=0; x++)     { 	if(k[x]=='*') 	{ depan=1; } else { depan=0; }  }
- 
- 
-	if(depan==0) //contoh ma*
-	{
-		for(x=0; x<vn.size(); x++)
-		{
-			c=0;
-			for(y=0; y<k.length()-1; y++)
-			{   if(k[y]==vn[x][y]) {  c++;   }  else { break; }	}
- 
-			if(c==k.length()-1) {  cout << vn[x]<< endl; }
-		}
-	}
-	else if(depan==1) //contoh *ma
-	{
-		reverse(k.begin(),k.end()); //putar string k
-		for(x=0; x<vn.size(); x++)
-		{
-			c=0;
-			reverse(vn[x].begin(),vn[x].end()); //putar string dalam vektor vn
- 
-			for(y=0; y<k.length(); y++)
-			{   if(k[y]==vn[x][y]) {  c++; } else { break; }     }
- 
-			if(c==k.length()-1)
-			{
-			      reverse(vn[x].begin(),vn[x].end());
-			      cout << vn[x]<< endl;
-			}
-                              }
-              }
-	else
-	{
-   	          for(x=0; x<vn.size(); x++)  { cout << vn[x]<< endl;  }
-              }
-}*/
-/*void solve()
-{
-    string s;
-    cin >> s;
-    if(s=="PAS")
-    {
-         cout <<"var data:array[1..10000] of longint;" << endl;
-         cout <<"   n,i,j,temp:longint;" << endl;
-         cout <<"begin" <<endl;
-         cout <<"  readln(n);"<< endl;
-         cout <<"  for i:=1 to n do readln(data[i]);" << endl;
-         cout <<"  for i:=1 to n-1 do" << endl;
-         cout <<"     for j:=i+1 to n do"<< endl;
-         cout <<"       if (data[i]>data[j]) then" << endl;
-         cout <<"       begin" << endl;
-         cout <<"         temp:=data[i];" << endl;
-         cout <<"         data[i]:=data[j];" << endl;
-         cout <<"         data[j]:=temp;"<< endl;
-         cout <<"       end;" << endl;
-         cout <<"  for i:=1 to n do writeln(data[i]);" << endl;
-         cout <<"end." << endl;
-    }
-    else
-    {
-        cout <<"int data[10001];" << endl;
-        cout <<"int n,i,j,temp;" << endl;
-        cout <<"int main(){" << endl;
-        cout <<"  scanf(\"%d\",&n);" << endl;
-        cout <<"  for (i=1;i<=n;i++) scanf(\"%d\",data[i]);" << endl;
-        cout <<"  for (i=1;i<=n-1;i++)" << endl;
-        cout <<"    for (j=i+1;j<=n;j++)" << endl;
-        cout <<"      if (data[i]>data[j]){" << endl;
-        cout <<"        temp=data[i];" << endl;
-        cout <<"        data[i]=data[j];" << endl;
-        cout <<"        data[j]=temp;" << endl;
-        cout <<"      }" << endl;
-        cout <<"  for (i=1;i<=n;i++) printf(\"%d\\n\",data[i]);" << endl;
-        cout <<"  return 0;" << endl;
-        cout <<"}" << endl;
+using namespace std;
+void processDenom(int n, int denom){
+    if(n >= denom){
+        cout << denom << " " << n / denom << "\n";
+        n %= denom;
     }
 }
- 
+int main(){
+    int n; cin >> n;
+    processDenom(n, 1000);
+    processDenom(n, 500);
+    processDenom(n, 200);
+    processDenom(n, 100);
+    processDenom(n, 50);
+    processDenom(n, 20);
+    processDenom(n, 10);
+    processDenom(n, 5);
+    processDenom(n, 2);
+    processDenom(n, 1);
+}
 int main()
-{
-    solve();
-    return 0;
-}*/
- 
-/*int main()
-{
-    int n;
-    cin >> n;
-    if(n>=1000) {cout << 1000 << " " << n/1000 << endl; n%=1000;}
-    if(n>=500) {cout << 500 << " " << n/500 << endl; n%=500;}
-    if(n>=200) {cout << 200 << " " << n/200 << endl; n%=200;}
-    if(n>=100) {cout << 100 << " " << n/100 << endl; n%=100;}
-    if(n>=50) {cout << 50 << " " << n/50 << endl; n%=50;}
-    if(n>=20) {cout << 20 << " " << n/20 << endl; n%=20;}
-    if(n>=10) {cout << 10 << " " << n/10 << endl; n%=10;}
-    if(n>=5) {cout << 5 << " " << n/5 << endl; n%=5;}
-    if(n>=2) {cout << 2 << " " << n/2 << endl; n%=2;}
-    if(n>=1) {cout << 1 << " " << n/1 << endl;}
-}*/
- 
-/*int main()
 {
     int n,m; cin >> n >> m;
     int a,b; cin >> a >> b;
