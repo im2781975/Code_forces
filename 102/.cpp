@@ -541,3 +541,77 @@ void main(){
     }
     cout << mn;
 }
+#include<bits/stdc++.h>
+using namespace std;
+int gcd(int a, int b){
+    if(b == 0)
+        return a;
+    return gcd(b, a % b);
+}
+int main(){
+    int x, y; cin >> x >> y;
+    if(x % y != 0){
+        cout << -1;
+        return 0;
+    }
+    int a, b, tmp = x / y;
+    for(int i = 1; i <= sqrt(tmp); i++){
+        if(gcd(i, tmp/i) == 1 && tmp % i == 0){
+            a = i; b = tmp / i;
+        }
+    }
+    cout << a * x << " " << b * x;
+}
+using namespace std;
+void main(){
+    int a, b; cin >> a >> b;
+    int gcd = __gcd(a, b);
+    int lcm = a * b/gcd;
+    cout << (lcm / a) + (lcm / b);
+}
+using namespace std;
+void main(){
+    int n, cnt = 1; cin >> n;
+    int arr[n];
+    for(int i = 0; i < n; i++)
+        cin >> arr[i];
+    string str; str += "G";
+    n = n / 2 + 1;
+    while(cnt++ < n)
+        str += "LG";
+    cout << str.size() << "\n" << str;
+}
+using namespace std;
+void solve(int x){
+    if(x <= 1)
+        return 1;
+    else
+        return solve(x / 2) * 2 + x;
+}
+using namespace std;
+void main(){
+    int n, m, ans = 0; cin >> n >> m;
+    vector <int> freq(10005, 0);
+    vectror <pair <int, int> >range;
+    for(int i = 0; i < n; i++){
+        int x; cin >> x;
+        freq[x]++;
+    }
+    for(int i = 0; i < n; i++){
+        int l, r; cin >> l >> r;
+        range.push_back({r, l});
+    }
+    sort(renge.begin(), range.end());
+    for(int i = 0; i < m; i++){
+        int l = range[i].second;
+        int r = range[i].first;
+        for(int j = l; j <= r; j++){
+            if(freq[j] > 0){
+                freq[j]--;
+                ans++;
+                break;
+            }
+        }
+    }
+    cout << ans;
+}
