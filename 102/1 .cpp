@@ -1,3 +1,27 @@
+#include<bits/stdc++.h>
+using namespace std;
+void main(){
+    int n; cin >> n;
+    vector <int> vec(26, 0);
+    string str; cin >> str;
+    for(int i = 0; i < n; i++)
+        vec[str[i] - 'A']++;
+    sort(vec.begin(), vec.end());
+    int a = v[25];
+    // Massimo valore
+    int b = v[24]; 
+    // Secondo massimo valore
+    int c = v[23]; 
+    // Terzo massimo valore
+    if (c == 0) {
+        cout << -1 << endl;
+        return 0;
+    }
+    int hasil = 3 * c;
+    if (a > c) hasil++;
+    if (b > c) hasil++;
+    cout << hasil;
+}
 // osp 2021 (Lampu hias warna-warni)
 /*int main()
 {
