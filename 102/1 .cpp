@@ -1,4 +1,39 @@
-#include<bits/stdc++.h>
+using namespace std;
+using ll = long long;
+int main() {
+    ll numElements, maxDifference, numQueries;
+    cin >> numElements >> maxDifference >> numQueries;
+    vector<pair<int, int>> elements(numElements + 1);
+    for (int i = 1; i <= numElements; i++)
+        cin >> elements[i].first;
+        elements[i].second = i;
+    sort(elements.begin() + 1, elements.end());
+
+    // Priority queue to keep track of the max range size
+    priority_queue<pair<int, int>> maxRangeQueue;
+    // Result array to store answers
+    vector<int> results(numElements + 1, 0);
+    for (int i = 1, j = 1; i <= numElements; i++) {
+        // Expand the window [i, j] as long as the difference is <= maxDifference
+        while (j <= numElements && elements[j].first - elements[i].first <= maxDifference) {
+            j++;
+        }
+        j--;
+        // Push the current range size into the priority queue
+        maxRangeQueue.push({j - i + 1, j});
+        // Remove ranges that are no longer valid (left index < i)
+        while (maxRangeQueue.top().second < i) {
+            maxRangeQueue.pop();
+        }
+        // Store the maximum range size for the current element
+        results[elements[i].second] = maxRangeQueue.top().first;
+    }
+    for (int i = 0; i < numQueries; i++) {
+        int queryIndex; cin >> queryIndex;
+        cout << results[queryIndex] << endl;
+    }
+    return 0;
+}
 using namespace std;
 void main(){
     int n; cin >> n;
