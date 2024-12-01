@@ -57,6 +57,94 @@ void main(){
     if (b > c) hasil++;
     cout << hasil;
 }
+using namespace std;
+//OSP 2022 (mengangkut bebek)
+void main(){
+    int n, k; cin >> n >> k;
+    pair <int, int> pr[n];
+    int arr[k];
+    for(int i = 0; i < n; i++)
+        cin >> pr[i].first >> pr[i].second;
+    for(int i = 0; i < k; i++)
+        cin >> arr[k];
+    sort(pr, pr + n);
+    sort(arr, arr + k);
+    int r = n - 1, res = i = 0;
+    while(r >= 0){
+        if(pr[i].second > 0){
+            res += pr[i].first * arr[r];
+            r--;
+            pr[i].second--;
+        }
+        else
+            i++;
+    }
+    cout << res;
+}
+
+using namespace std;
+
+int main(){
+    int n, q; cin >> n >> q;
+    int arr[n];
+    for(int i = 0; i < n; i++)
+        cin >> arr[i];
+    sort(arr, arr + n);
+    for(int i = 0; i < q; i++){
+        int x; cin >> x;
+        bool flag = 0;
+        int l = 0, r = n - 1;
+        while(l < r){
+            int sum = arr[l] + arr[r];
+            if(sum == x){
+                flag = 1;
+                break;
+            }
+            else if(sum < x)
+                l++;
+            else
+                r--;
+        }
+    }
+    (flag) ? cout << "Ya" : cout << "Tidak";
+}
+using namespace std;
+void main() {
+    int n, x, y;  cin >> n >> x >> y;
+    int a, b, c, d;
+    int s = abs(x);
+    int r = abs(y);
+    int t = s + r;
+    // Check if the Manhattan distance exceeds the total moves
+    if (t > n) {
+        cout << -1;
+        return 0;
+    }
+    // Check if the remaining moves can be evenly distributed
+    if ((n - t) % 2 != 0) {
+        cout << -1;
+        return 0;
+    }
+    // Calculate additional moves to distribute
+    int extraMoves = (n - t) / 2;
+    // Assign moves based on the signs of x and y
+    if (x >= 0) {
+        b = s + extraMoves; // Right moves
+        d = extraMoves;     // Left moves
+    } else {
+        b = extraMoves;     // Right moves
+        d = s + extraMoves; // Left moves
+    }
+    if (y >= 0) {
+        a = r;              // Up moves
+        c = 0;              // Down moves
+    } else {
+        a = 0;              // Up moves
+        c = r;              // Down moves
+    }
+    cout << a << " " << b << " " << c << " " << d;
+    return 0;
+}
 // osp 2021 (Lampu hias warna-warni)
 /*int main()
 {
