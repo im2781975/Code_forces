@@ -615,3 +615,272 @@ void main(){
     }
     cout << ans;
 }
+using namespace std;
+using ll = long long;
+int main() {
+    ll numElements, maxDifference, numQueries;
+    cin >> numElements >> maxDifference >> numQueries;
+    vector<pair<int, int>> elements(numElements + 1);
+    for (int i = 1; i <= numElements; i++)
+        cin >> elements[i].first;
+        elements[i].second = i;
+    sort(elements.begin() + 1, elements.end());
+
+    // Priority queue to keep track of the max range size
+    priority_queue<pair<int, int>> maxRangeQueue;
+    // Result array to store answers
+    vector<int> results(numElements + 1, 0);
+    for (int i = 1, j = 1; i <= numElements; i++) {
+        // Expand the window [i, j] as long as the difference is <= maxDifference
+        while (j <= numElements && elements[j].first - elements[i].first <= maxDifference) {
+            j++;
+        }
+        j--;
+        // Push the current range size into the priority queue
+        maxRangeQueue.push({j - i + 1, j});
+        // Remove ranges that are no longer valid (left index < i)
+        while (maxRangeQueue.top().second < i) {
+            maxRangeQueue.pop();
+        }
+        // Store the maximum range size for the current element
+        results[elements[i].second] = maxRangeQueue.top().first;
+    }
+    for (int i = 0; i < numQueries; i++) {
+        int queryIndex; cin >> queryIndex;
+        cout << results[queryIndex] << endl;
+    }
+    return 0;
+}
+using namespace std;
+void main(){
+    int n; cin >> n;
+    vector <int> vec(26, 0);
+    string str; cin >> str;
+    for(int i = 0; i < n; i++)
+        vec[str[i] - 'A']++;
+    sort(vec.begin(), vec.end());
+    int a = v[25];
+    // Massimo valore
+    int b = v[24]; 
+    // Secondo massimo valore
+    int c = v[23]; 
+    // Terzo massimo valore
+    if (c == 0) {
+        cout << -1 << endl;
+        return 0;
+    }
+    int hasil = 3 * c;
+    if (a > c) hasil++;
+    if (b > c) hasil++;
+    cout << hasil;
+}
+using namespace std;
+//OSP 2022 (mengangkut bebek)
+void main(){
+    int n, k; cin >> n >> k;
+    pair <int, int> pr[n];
+    int arr[k];
+    for(int i = 0; i < n; i++)
+        cin >> pr[i].first >> pr[i].second;
+    for(int i = 0; i < k; i++)
+        cin >> arr[k];
+    sort(pr, pr + n);
+    sort(arr, arr + k);
+    int r = n - 1, res = i = 0;
+    while(r >= 0){
+        if(pr[i].second > 0){
+            res += pr[i].first * arr[r];
+            r--;
+            pr[i].second--;
+        }
+        else
+            i++;
+    }
+    cout << res;
+}
+
+using namespace std;
+
+int main(){
+    int n, q; cin >> n >> q;
+    int arr[n];
+    for(int i = 0; i < n; i++)
+        cin >> arr[i];
+    sort(arr, arr + n);
+    for(int i = 0; i < q; i++){
+        int x; cin >> x;
+        bool flag = 0;
+        int l = 0, r = n - 1;
+        while(l < r){
+            int sum = arr[l] + arr[r];
+            if(sum == x){
+                flag = 1;
+                break;
+            }
+            else if(sum < x)
+                l++;
+            else
+                r--;
+        }
+    }
+    (flag) ? cout << "Ya" : cout << "Tidak";
+}
+using namespace std;
+void main() {
+    int n, x, y;  cin >> n >> x >> y;
+    int a, b, c, d;
+    int s = abs(x);
+    int r = abs(y);
+    int t = s + r;
+    // Check if the Manhattan distance exceeds the total moves
+    if (t > n) {
+        cout << -1;
+        return 0;
+    }
+    // Check if the remaining moves can be evenly distributed
+    if ((n - t) % 2 != 0) {
+        cout << -1;
+        return 0;
+    }
+    // Calculate additional moves to distribute
+    int extraMoves = (n - t) / 2;
+    // Assign moves based on the signs of x and y
+    if (x >= 0) {
+        b = s + extraMoves; // Right moves
+        d = extraMoves;     // Left moves
+    } else {
+        b = extraMoves;     // Right moves
+        d = s + extraMoves; // Left moves
+    }
+    if (y >= 0) {
+        a = r;              // Up moves
+        c = 0;              // Down moves
+    } else {
+        a = 0;              // Up moves
+        c = r;              // Down moves
+    }
+    cout << a << " " << b << " " << c << " " << d;
+    return 0;
+}
+using namespace std;
+// OSP 2021 (buah)
+void main(){
+    int n, a, b; cin >> n >> a >> b;
+    int lcm = a * b/__gcd(a, b);
+    cout << lcm / a + lcm / b;
+}
+// OSP 2021 (kartu)
+using namespace std;
+void main(){
+    int a, b; cin >> a >> b;
+    int mx = max(a, b), mn = min(a, b);
+    while(mx % mn != 0){
+        int tmp = mx - mn;
+        mx = max(mn, tmp);
+        mn = min(mn, tmp);
+    }
+    cout << mn;
+}
+// OSP 2022 (lampu hias)
+using namespace std;
+void main(){
+    int n, a, b, c; cin >> n >> a >> b >> c;
+    for(int i = 0; i < n; i++){
+        int x; cin >> x;
+        if(x % a == 0 && x % b == 0 && x % c == 0)
+            cout << "YA";
+        else
+            cout << "No";
+    }
+}
+// OSP 2020 (lari jauh)
+using namespace std;
+void main(){
+    int n, k; cin >> n >> k;
+    int arr[n];
+    cin >> arr[0];
+    for(int i = 1; i < n; i++){
+        int x; cin >> x;
+        arr[i] = arr[i - 1] + x;
+    }
+    for(int i = 0; i < k; i++){
+        int y; cin >> y;
+        cout << upper_bound(arr, arr + n, y) - arr;
+    }
+}
+using namespace std;
+void main(){
+    int n; cin >> n;
+    multiset <int> mset;
+    for(int i = 0; i < n; i++){
+        int x; cin >> x;
+        if(mset.lower_bound(x) != mset.end())
+            mset.erase(mset.lower_bound(x));
+        mset.insert(x);
+    }
+    cout << mset.size();
+}
+using namespace std;
+void main(){
+    int n, m; cin >> n >> m;
+    (n % m == 0) ? cout << "Yes" : cout << "No";
+}
+using namespace std;
+void main(){
+    int n; cin >> n;
+    if(n % 4 == 0)
+        cout << "Yes";
+    else if(n % 2 == 0)
+        cout << "No";
+    else{
+        if((n - 1) % 4 == 0)
+            cout << "No";
+        else
+            cout << "Yes";
+    }
+}
+using namespace std;
+void main(){
+    int n, m; cin >> n >> m;
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j < m; j++){
+            if(j % 2 == 0)
+                cout << "W";
+            else
+                cout << "B";
+        }
+    }
+}
+using namespace std;
+void main(){
+    int n, m, x, y; cin >> n >> m >> x >> y;
+    int res = (n - x) + (m - y) * 2;
+    (res > 20) ? cout << "Yes": cout << "No";
+}
+using namespace std;
+void main(){
+    int m, a, b; cin >> m >> a >> b;
+    if(a + b == 2 * m){
+        if(a % 2 == 1 && b % 2 == 1)
+            cout << "1";
+        else
+            cout << "0";
+        cout << min(a, b);
+    }
+    else
+        cout << "0" << " " << min(a, b);
+}
+using namespace std;
+void main(){
+    int n; cin >> n;
+    cout << (n % 10 ? cout << "Yes": cout << "No");
+}
+using namespace std;
+void main(){
+    int n, cnt = 1; cin >> n;
+    for(int i = 0; i < n; i++){
+        int x; cin >> x;
+        cnt *= x;
+    }
+    cout << cnt;
+}
