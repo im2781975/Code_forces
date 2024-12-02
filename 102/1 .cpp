@@ -30,6 +30,227 @@ void main() {
     cout << a << " " << b << " " << c << " " << d;
     return 0;
 }
+using namespace std;
+void main(){
+    string str; cin >> str;
+    int cnt = 0;
+    for(int i = 0; i < str.length(); i++){
+        if(str[i] == 'o')
+            cnt++;
+        if(cnt > 1)
+            break;
+    }
+    (cnt == 1) ? cout << "Yes" : cout << "No";
+}
+using namespace std;
+void main(){
+    int n; cin >> n;
+    double r, v; cin >> r >> v;
+    int arr[n];
+    for(int i = 0; i < n; i++){
+        if(arr[i] == v){
+            cout << "-1";
+            return 0;
+        }
+    }
+    double res = 0;
+    for(int i = 0; i < n; i++)
+        res = max(res, r / abs(arr[i] - v));
+    cout << setprecision(9) << res;
+}
+using namespace std;
+void main(){
+    int n; cin >> n;
+    int arr[n];
+    for(int i = 0; i < n; i++)   
+        cin >> arr[i];
+    int id = 0;
+    while(id < n && arr[id] == 1)
+        id++;
+    id %= n;
+    int i = id, res = 0, cnt = 0;
+    do {
+        if (arr[i] == 1) {
+            cnt++;  
+            res += cnt;
+        } else
+            cnt = 0;
+        i = (i + 1) % n;
+        // Move to the next index circularly
+    } while (i != id);
+    cout << res << endl;
+}
+using namespace std;
+void main(){
+    int n, m; cin >> n >> m;
+    int cnt = 1, res = 0;
+    for(int i = 0; i < n; i++){
+        int l, r; cin >> l >> r;
+        if(cnt < l){
+            res += abs(cnt - l);
+            cnt = l;
+        }
+        else if(cnt > r){
+            res += abs(cnt - r);
+            cnt = r;
+        }
+    }
+    cout << res;
+}
+using namespace std;
+void main(){
+    int n; cin >> n;
+    for(int i = 0; i < n; i++){
+        int a, b; cin >> a >> b;
+        cout << 2 *min(a, b);
+    }
+}
+using namespace std;
+void main(){
+    int n; cin >> n;
+    int even = odd = 0;
+    for(int i = 0; i < n; i++){
+        int x, y; cin >> x >> y;
+        if((x + y) % 2 == 0)
+            even++;
+        else
+            odd++;
+    }
+    if(even == 0 || odd == 0)
+        cout << "No";
+    else
+        cout << "Yes";
+}
+using namespace std;
+void main(){
+    int n, m, cnt = 0; cin >> n >> m;
+    int arr[n];
+    for(int i = 1; i <= n; i++)
+        arr[i] = 0;
+    for(int i = 0; i < m; i++){
+        int x; cin >> x;
+        arr[x] = (arr[x] + 1) % 4;
+    }
+    for(int i = 1; i <= n; i++){
+        if(arr[i] == 2 || arr[i] == 3)
+            cnt++;
+    }
+    cout << cnt;
+}
+using namespace std;
+void main(){
+    int n; cin >> n;
+    int tmp = 2, cnt = 0;
+    while(tmp <= n)
+        tmp *= 2;
+    cout << tmp - n;
+}
+using namespace std;
+void main(){
+    int x, y; cin >> x >> y;
+    int mn = min(x, y);
+    int mx = max(x, y);
+    cout << (mn - 1) * mx;
+}
+using namespace std;
+void main(){
+    int a, b; cin >> a >> b;
+    int arr[a][b];
+    int x, y = z = 0;
+    for(int i = 0; i < a; i++){
+        for(int j = 0; j < b; j++){
+            cin >> arr[i][j];
+            if(arr[i][j] == -1)
+                x = (i + j) % 2;
+            else if((i + j) % 2 == 0)
+                y += arr[i][j];
+            else
+                z += arr[i][j];
+        }
+    }
+    if(x == 0)
+        (y > z)? cout << "No\n" : cout << "Yes\n" << z - y;
+    else
+        (y < z)? cout << "No\n" : cout << "Yes\n" << y - z;
+}
+using namespace std;
+void main(){
+    int n; cin >> n;
+    int a = b = 0;
+    for(int i = 1; i <= n; i++){
+        int x; cin >> x;
+        if(n > 2){
+            a += x * pow(-1, i % 2);
+            b += x * pow(-1, (i + 1) % 2);
+        }
+        else{
+            b += x * pow(-1, (i + 1) % 2);
+            a = INT_MIN;
+        }
+    }
+    cout << max(a, b);
+}
+using namespace std;
+void main(){
+    int n; cin >> n;
+    if(n >= 100)
+        cout << 9;
+    else if(n >= 19 && n <= 99){
+        string str = to_string(n);
+        if(str[1] == '9')
+            cout << n / 10;
+        else
+            cout << n / 10 -1;
+    }
+    else
+        cout << "0";
+}
+using namespace std;
+void main(){
+    int n, m; cin >> n >> m;
+    cout << n + (n - 3) - m;
+}
+using namespace std;
+void main(){
+    int n, m; cin >> n >> m;
+    int ans = 1;
+    for(int i = 1; i <= n * m - 1; i++)
+        ans *= 2;
+    cout << ans;
+}
+using namespace std;
+int main() {
+    int n; cin >> n;
+    int arr[n];
+    bool hasDecrease = false, hasIncrease = false, hasEqual = false;
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
+        if (i > 0) {
+            if (arr[i] < arr[i - 1])
+                hasDecrease = true;
+            else if (arr[i] > arr[i - 1])
+                hasIncrease = true;
+            else
+                hasEqual = true;
+        }
+    }
+    if (hasIncrease && hasDecrease)
+        cout << "NONE";
+    else if (hasEqual) {
+        if (hasDecrease)
+            cout << "NONINCREASING";
+        else if (hasIncrease)
+            cout << "NONDECREASING";
+        else
+            cout << "EQUAL";
+    }else if (hasIncrease)
+        cout << "NONDECREASING";
+    else if (hasDecrease)
+        cout << "NONINCREASING";
+    else
+        cout << "NONE";
+}
+
 /*int main()
 {
     string s; cin >> s;
