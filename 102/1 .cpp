@@ -1,4 +1,35 @@
+using namespace std;
+void main() {
+    int n, x, y; cin >> n >> x >> y;
+    int a, b, c, d;
 
+    int s = abs(x), r = abs(y);
+    int t = s + r;
+    // Check if t exceeds n or if the remaining steps are odd
+    if (t > n || (n - t) % 2 != 0) {
+        cout << -1;
+        return 0;
+    }
+    int extra = (n - t) / 2;
+    // Assign values to b and d based on the sign of x
+    if (x >= 0) {
+        b = s + extra;
+        d = extra;
+    } else {
+        b = extra;
+        d = s + extra;
+    }
+    // Assign values to a and c based on the sign of y
+    if (y >= 0) {
+        a = r;
+        c = 0;
+    } else {
+        a = 0;
+        c = r;
+    }
+    cout << a << " " << b << " " << c << " " << d;
+    return 0;
+}
 /*int main()
 {
     string s; cin >> s;
