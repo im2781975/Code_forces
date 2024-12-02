@@ -1136,3 +1136,112 @@ int main() {
     else
         cout << "NONE";
 }
+using namespace std;
+void main(){
+    int n; cin >> n;
+    for(int i = n; i > 0; i--){
+        int cnt = 0;
+        for(int j = n; j > 0; j--){
+            for(int k = n; k > 0; k--){
+                if(k * k + j * j == i * i)
+                    cnt++;
+            }
+        }
+        if(cnt == 2){
+            cout << i;
+            return 0;
+        }
+    }
+    cout << -1;
+}
+using namespace std;
+void main(){
+    int a, b, c; cin >> a >> b >> c;
+    int mx = max(a, max(b, c));
+    for(int i = mx; i <= 100; i++){
+        if(i % a != 0 && i % b != 0 && i % c != 0){
+            cout << i;
+            break;
+        }
+    }
+}
+using namespace std;
+void main(){
+    double d; cin >> d;
+    cout << fixed << setprecision(1) << n *(n + 1) /2;
+}
+using namespace std;
+void main(){
+    int n, m, r; cin >> n >> m >> r;
+    int mn = min(n, m);
+    cout << (mn - 1) / (2 * r + 1) + 1;
+}
+using namespace std;
+void main(){
+    int p, q, r, s, t; cin >> p >> q >> r >> s >> t;
+    int x = sqrt(p * q * r * s * t);
+    cout << x/(q*s) << " " << x/(r*t) << " " << x/(p*s) << " " << x/(q*t) << " " << x/(p*r);
+}
+using namespace std;
+void main(){
+    string str; cin >> str;
+    int b = 0, o = 0, n = 0;
+    for(int i = 0; i < str.length(); i++){
+        if(str[i] == 'b')
+            b++;
+        else if(str[i] == 'o')
+            o++;
+        else if(str[i] == 'n')
+            n++;
+    }
+    if(b < 2 || o < 2 || n < 2)
+        cout << 0;
+    else
+        cout << min(b, min(o, n)) - 1;
+}
+using namespace std;
+void main(){
+    string str, ing; cin >> str >> ing;
+    bool flag = true;
+    for(int i = 0; i < str.length(); i++){
+        if(str[i] >= 97)
+            str[i] -= 32;
+        if(ing[i] >= 97)
+            ing[i] -= 32;
+        if(str[i] != ing[i]){
+            flag = false;
+            break;
+        }
+    }
+    (flag) ? cout << "20/20" : cout << "No";
+}
+using namespace std;
+void main(){
+    int arr[3]; cin >> arr[0] >> arr[1] >> arr[2];
+    sort(arr, arr + 3)
+    (arr[0] == arr[2] -1 && arr[1] == arr[2] -1 && arr[0] + arr[1] > arr[2])? cout << "Yes" : cout << "No";
+}
+using namespace std;
+void main(){
+    int n, a; cin >> n;
+    if(n == 1) a = 0;
+    else if(n % 2 == 0) a = n / 2;
+    else if(n % 3 == 0) a = n / 3;
+    else if(n % 5 == 0) a = n / 5;
+    else if(n % 7 == 0) a = n / 7;;
+    else a = 1;
+    cout << a << " " << n - a;
+}
+using namespace std;
+void main(){
+    int a; cin >> a;
+    cout << (a * a) * (a * a + 1)/2;
+}
+using namespace std;
+void main(){
+    int a, b, c, d, e, f; cin >> a >> b >> c >> d >> e >> f;
+    bool x = (a + d) % 2;
+    bool y = (b + e) % 2;
+    bool z = (c + f) % 2;
+    (x && y && z && !x && !y && !z)? cout << 0 : cout << 1;
+}
