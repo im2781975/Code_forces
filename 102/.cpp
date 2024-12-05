@@ -573,3 +573,315 @@ void main(){
     }
     cout << res;
 }
+using namespace std;
+void main(){
+    int trg; cin >> trg;
+    int curSz = 0, stepSz = 5, stepCnt = 0;
+    for(;curSum + stepSz <= trg;){
+        curSum += stepSz;
+        stepCnt++;
+    }
+    if(curSum != trg)
+        stepCnt++;
+    cout << stepCnt;
+}
+using namespace std;
+void main(){
+    int a; cin >> a;
+    cout << (a + 4) / 5;
+}
+using namespace std;
+void main(){
+    int a, b, c, res = 0; cin >> a >> b >> c;
+    res += a * b * c;
+    if(a == 1)
+        res += c;
+    else if(b == 1)
+        res += max(a, max(b, c));
+    else if(c == 1)
+        res += a;
+    else if(a == 1 && b == 1)
+        res += 2;
+    if(a == 1 && b == 1 && c == 1)
+        res = 3;
+    if(a == 1 && c == 1)
+        res = a + b + c;
+    cout << res;
+}
+using namespace std;
+void main(){
+    int multiplier, decrement, limit;
+    cin >> multiplier >> decrement >> limit;
+    int sum = 0, cnt = 0;
+    while(cnt <= limit){
+        sum += cnt;
+        cnt++;
+    }
+    sum *= multiplier;
+    sum -= decrement;
+    (sum < 0)? cout << 0 : cout << sum;
+}
+using namespace std;
+void main(){
+    int n; cin >> n;
+    int arr[n];
+    for(int i = 0; i < n; i++)
+        cin >> arr[i];
+    string delimiter; cin >> delimiter;
+    for(int i = 0; i < n; i++){
+        cout << arr[i];
+        if(i < n - 1)
+            cout << delimiter;
+    }
+    cout << "\n";
+    int incr; cin >> incr;
+    for(int i = 0; i < n; i++)
+        arr[i] += incr;
+    for(int i = 0; i < n; i++){
+        cout << arr[i];
+        if(i < n - 1)
+            cout << delimiter;
+    }
+    int m; cin >> m;
+    string str[m];
+    for(int i = 0; i < m; i++)
+        cin >> str[i];
+    cin >> delimiter;
+    for (int i = 0; i < m; ++i){
+        cout << strArr[i];
+        if (i < m - 1)
+            cout << delimiter;
+    }
+    cout << endl;
+}
+using namespace std;
+void main(){
+    int num1, num2; cin >> num1 >> num2;
+    int large = num1;
+    int res = tmpSum = flag = 0;
+    if(num1 < num2)
+        cout << num1;
+    else if(num1 == num2)
+        cout << num1 + 1;
+    else if(num1 > num2){
+        while(num1 > num2){
+            if(num1 <= num2 && num1 % num2 != 0)
+                res += 2;
+            if (flag == 0 || num1 <= num2 && num1 % num2 != 0)
+                res += num1;
+            if (num1 > num2)
+                res += num1 / num2;
+            if (num1 % 2 == 1)
+                num1 = num1 + 1;
+            num1 = num1 / num2;
+            flag = 1;
+        }
+    }
+    cout << res;
+}
+using namespace std;
+void main(){
+    int num1, num2; cin >> num1 >> num2;
+    int tmp = 0;
+    if(num1 < num2)
+        cout << num1;
+    else if(num1 == num2)
+        cout << num1 + 1;
+    else{
+        tmp = num1 / num2;
+        num1 = num1 + num1 / num2;
+        num1 = num1 + tmp / num2;
+        cout << num1; 
+    }
+}
+using namespace std;
+void main(){
+    string str; cin >> str;
+    if(str[0] > 90)
+        str[0] -= 32;
+    cout << str;
+}
+using namespace std;
+void main(){
+    int num, nxt, tmp; cin >> num;
+    int nxt = num;
+    int dig1 = num % 10; num /= 10;
+    int dig2 = num % 10; num /= 10;
+    int dig3 = num % 10; num /= 10;
+    int dig4 = num % 10; num /= 10;
+    while(true){
+        nxt += num; tmp = nxt;
+        dig1 = tmp % 10; tmp /= 10;
+        dig2 = tmp % 10; tmp /= 10;
+        dig3 = tmp % 10; tmp /= 10;
+        dig4 = tmp % 10; tmp /= 10;
+        
+        if (dig1 != dig2 && dig1 != dig3 && dig1 != dig4 &&
+            dig2 != dig3
+            && dig2 != dig4 && dig3 != dig4)
+            break;
+    }
+}
+using namespace std;
+void main(){
+    string str; cin >> str;
+    int len = str.size();
+    if(str == "wjmzbmr")
+        cout << "chat with her";
+    else if(len % 2 == 1)
+        cout << "Ignore Him";
+    else
+        cout << "Chat with her";
+}
+using namespace std;
+void main(){
+    int var1, var2, var3, var4; cin >> var1 >> var2 >> var3 >> var4;
+    if (var1 != var2 && var1 != var3 && var1 != var4 && var2 != var3 && var2 != var4 && var3 != var4)
+        cout << 0;
+    if (var1 == var2 && var1 != var3 && var1 != var4 && var3 != var4 || 
+        var1 == var3 && var1 != var2 && var1 != var4 && var2 != var4 || 
+        var1 == var4 && var1 != var2 && var1 != var3 && var3 != var2 || 
+        var2 == var3 && var2 != var4 && var2 != var1 && var4 != var1 || 
+        var2 == var4 && var2 != var3 && var2 != var1 && var3 != var1 || 
+        var3 == var4 && var3 != var2 && var3 != var1 && var2 != var1)
+        cout << 1;
+    else if (var1 == var2 && var1 == var3 && var1 != var4 || 
+             var1 == var2 && var1 == var4 && var1 != var3 || 
+             var1 == var3 && var1 == var4 && var1 != var2 || 
+             var2 == var3 && var2 == var4 && var2 != var1)
+        cout << 2;
+    else if (var1 == var2 && var3 == var4 && var1 != var3 || 
+             var1 == var3 && var2 == var4 && var1 != var2 || 
+             var1 == var4 && var2 == var3 && var1 != var2)
+        cout << 2;
+    else if (var1 == var2 && var1 == var3 && var1 == var4)
+        cout << 3;
+}
+using namespace std;
+void main(){
+    int n; cin >> n;
+    int cnt = 0;
+    string arr[300];
+    for(int i = n - 1; i >= 0; i--)
+        cin >> arr[i];
+    for(int i = 0; i < n; i++){
+        if(arr[i] == "++X" || arr[i] == "X++")
+            cnt++;
+        else if(arr[i] == "--X" || arr[i] == "X--")
+            cnt--;
+    }
+    cout << cnt;
+}
+using namespace std;
+void main(){
+    int len, width, sidelen; cin >> len >> width >> sidelen;
+    int area = len * len;
+    int sqrArea = sidelen * sidelen;
+    int res = area / sqrArea;
+    if(area % sqrArea != 0)
+        cout << res + 1;
+    else if(area % sqrArea == 0)
+        cout << res;
+}
+using namespace std;
+void main(){
+    int n, incr, arr[100]; cin >> n >> incr >> arr[100];
+    int IsProcessed = 0, curIdx = 0;
+    int tmpIdx = incr;
+    if(n == 0 || incr == 0)
+        cout << 0;
+    while(true){
+        if(arr[curIdx] <= 0){
+            cout << 0;
+            break;
+        }
+        if(IsProcessed == 0)
+            tmpIdx -= 1;
+        if(arr[tmpIdx] != arr[tmpIdx + 1]){
+            cout << incr << " ";
+            break;
+        }
+        incr += 1;
+        IsProcessed = 1;
+        curIdx += 1;
+    }
+}
+using namespace std;
+void main(){
+    int div1, div2, div3, div4, cnt;
+    cin >> div1 >> div2 >> div3 >> div4 >> cnt;
+    int divCnt = 0;
+    while(cnt > 0){
+        if(cnt % div1 == 0 || cnt % div2 == 0 || cnt % div3 == 0 || cnt % div4 == 0)
+            divCnt += 1;
+        cnt -= 1;
+    }
+    cout << divCnt;
+}
+using namespace std;
+void main(){
+    int l, r, divisor; cin >> l >> r >> divisor;
+    int totalDiv = l / divisor;
+    int rangeStartDiv = r / divisor;
+    if(l % divisor != 0)
+        totalDiv += 1;
+    if(r % divisor != 0)
+        rangeStartDiv += 1;
+    totalDiv *= rangeStartDuv;
+    cout << totalDiv;
+} 
+using namespace std;
+void main(){
+    int total, cur, step; cin >> total >> cur >> step;
+    cur += step;
+    while(cur <= 0 || cur > total){
+        if(cur <= 0)
+            cur += total;
+        if(cur > total)
+            cur -= total;
+    }
+    cout << cur;
+}
+using namespace std;
+void main(){
+    string str, ing; cin >> str >> ing;
+    reverse(str.begin(), str.end());
+    if(str == ing)
+        cout << "Yes";
+    else if(str != ing)
+        cout << "No";
+}
+using namespace std;
+void main(){
+    int x, y; cin >> x >> y;
+    if(x > y){
+        x -= y; x /= 2;
+        cout << y << " " << x;
+    }
+    else if(y > x){
+        y -= x; y /= 2;
+        cout << x << " " << y;
+    }
+    else if(x == y)
+        cout << y << " " << 0;
+}
+using namespace std;
+void main(){
+    int games; cin >> games;
+    string str; cin >> str;
+    int win1 = win2 = idx = 0;
+    while(games > 0){
+        if(res[idx] == 'A')
+            win1++;
+        if(res[idx] == 'D')
+            win2++;
+        idx += 1;
+        games -= 1;
+    }
+    if(win1 > win2)
+        cout << "Anton";
+    else if(win1 < win2)
+        cout << "Danik";
+    else
+        cout << "Friendship";
+}
